@@ -29,9 +29,6 @@ Thumbs.db
 /app/araplayer/release/
 /app/arahanja/release/
 /app/src/arahanja/assets/araonesoft.realm*
-/app/src/araplayer/assets/araonesoft*.sqlite
-/app/src/araplayer/assets/*.zip
-/app/src/araplayer/assets/*.mp4
 /app/aramusic/release/
 /app/arakoica/release/
 /app/dalvoca/release/
@@ -39,11 +36,6 @@ Thumbs.db
 /app/seeds.txt
 /app/unused.txt
 /app/araconv/release/
-
-# Assets에서 대용량 파일들 제외
-**/assets/*.sqlite
-**/assets/*.zip
-**/assets/*.mp4
 
 # Environment variables (API Keys)
 .env
