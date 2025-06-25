@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextViewItem"
+        android:layout_width="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/ic_right"
+        style="@style/Wrap"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+</LinearLayout>

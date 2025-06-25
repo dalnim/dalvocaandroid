@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dalread.component.kprogresshud.BackgroundLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    style="@style/Wrap"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <FrameLayout
+        android:id="@+id/container"
+        style="@style/Wrap" />
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/Wrap"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="label"/>
+
+    <TextView
+        android:id="@+id/details_label"
+        style="@style/Wrap"
+        android:gravity="left"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="details_label details_label details_label details_label details_label details_label details_label details_label details_label"/>
+</com.dalread.component.kprogresshud.BackgroundLayout>

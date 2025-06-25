@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/subtitle_encoding" />
+
+    <me.zhanghai.android.fastscroll.FastScrollScrollView
+        android:id="@+id/fssv_preview"
+        style="@style/Match"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/TextView_Title"
+            android:padding="5dp" />
+    </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+    <com.yanzhenjie.recyclerview.widget.StickyNestedScrollView
+        android:id="@+id/scrollView"
+        style="@style/Match"
+        android:layout_weight="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.yanzhenjie.recyclerview.SwipeRecyclerView
+            android:id="@+id/rvList"
+            style="@style/Match" />
+
+    </com.yanzhenjie.recyclerview.widget.StickyNestedScrollView>
+</LinearLayout>

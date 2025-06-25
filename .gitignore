@@ -1,0 +1,51 @@
+# Built application files
+/*/build/
+build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle/
+
+# Signing files
+.signing/
+
+# User-specific configurations
+.idea/
+*.iml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+/app/araplayer/release/
+/app/arahanja/release/
+/app/src/arahanja/assets/araonesoft.realm*
+/app/src/araplayer/assets/araonesoft*.sqlite
+/app/src/araplayer/assets/*.zip
+/app/src/araplayer/assets/*.mp4
+/app/aramusic/release/
+/app/arakoica/release/
+/app/dalvoca/release/
+/app/mapping.txt
+/app/seeds.txt
+/app/unused.txt
+/app/araconv/release/
+
+# Assets에서 대용량 파일들 제외
+**/assets/*.sqlite
+**/assets/*.zip
+**/assets/*.mp4
+
+# Environment variables (API Keys)
+.env
+.env.local
+.env.production

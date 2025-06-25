@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    style="@style/Match"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        style="@style/ViewBase"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/svMenu"
+            style="@style/Match">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/include_todayExpression"
+                    layout="@layout/layout_today_expression" />
+                <GridLayout
+                    android:id="@+id/glOption"
+                    style="@style/WidthMatch"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/araconv_home_main_background"
+                    android:paddingTop="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:columnCount="3">
+                    <include
+                        android:id="@+id/vBookmark"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle" />
+<!--                    <include-->
+<!--                        android:id="@+id/vPreviousPractice"-->
+<!--                        layout="@layout/item_main_menu"-->
+<!--                        style="@style/ItemMainMenuStyle" />-->
+                    <include
+                        android:id="@+id/vBasicExpression"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+
+                    <include
+                        android:id="@+id/vTravelAirport"
+                        style="@style/ItemMainMenuStyle"
+                        layout="@layout/item_main_menu" />
+                    <include
+                        android:id="@+id/vTravelRestaurant"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelHotel"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelTransport"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelShopping"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelTour"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelTelephone"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vTravelEmergency"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                    <include
+                        android:id="@+id/vVocaListRecording"
+                        layout="@layout/item_main_menu"
+                        style="@style/ItemMainMenuStyle"/>
+                </GridLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        style="@style/HeightMatch"
+        android:background="@color/colorBackgroundMenu"
+        android:layout_gravity="start" />
+</androidx.drawerlayout.widget.DrawerLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPracticeConversation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/fab_background"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_practice_conversation" />
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    android:layout_width="70dp"
+    android:layout_height="110dp"
+    android:layout_marginHorizontal="3dp"
+    android:layout_marginBottom="3dp"
+    app:cardBackgroundColor="@color/background_season_item"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:contentPadding="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvShowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:gravity="center_horizontal"
+            android:ellipsize="middle"
+            android:maxLines="2"
+            android:lineSpacingMultiplier="1"
+            android:text="video title video title"
+            android:textColor="?android:attr/textColorPrimary"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeMinTextSize="8sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivTvSeasonPoster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="20dp"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            app:shapeAppearanceOverlay="@style/VideoThumbnailRoundedCorner" />
+
+        <ImageView
+            android:id="@+id/ivTvSeasonPosterDefault"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="15dp"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_tv_season_default_poster"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvSeasonNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:text="Season 1"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="10sp"
+            android:ellipsize="start"
+            android:singleLine="true"
+            android:visibility="visible" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivSeriesFolder"-->
+        <!--            style="@style/ImageView_Item_Movie"-->
+        <!--            android:layout_gravity="right|bottom"-->
+        <!--            android:layout_marginLeft="5dp"-->
+        <!--            android:layout_marginBottom="5dp"-->
+        <!--            android:paddingLeft="1dp"-->
+        <!--            android:paddingRight="1dp"-->
+        <!--            android:src="@drawable/ic_bookmark"-->
+        <!--            android:visibility="visible" />-->
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

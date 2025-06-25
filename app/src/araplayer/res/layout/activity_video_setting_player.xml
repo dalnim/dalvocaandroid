@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/setting" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <LinearLayout
+            android:id="@+id/llSubtitle"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/subtitle" />
+
+            <ImageView
+                style="@style/ImageView_Player_Option_Icon_Arrow"
+                android:src="@mipmap/ic_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llGesture"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/gesture" />
+
+            <ImageView
+                style="@style/ImageView_Player_Option_Icon_Arrow"
+                android:src="@mipmap/ic_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+    </LinearLayout>
+</LinearLayout>

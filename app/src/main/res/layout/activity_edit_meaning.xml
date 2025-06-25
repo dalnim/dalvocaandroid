@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundGrayColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightText="@string/save"
+        app:title="@string/title_edit_phrase" />
+
+    <ScrollView
+        android:id="@+id/svMain"
+        style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvVocaTypeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="14sp"
+                tools:text="voca id"/>
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/etWord"
+                    style="@style/WidthMatch"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_edittext_no_border"
+                    android:focusable="false"
+                    android:hint="@string/word"
+                    android:imeOptions="actionDone"
+                    android:inputType="textNoSuggestions|none"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:scrollHorizontally="true"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/item_text_size" />
+
+                <ImageView
+                    android:id="@+id/ivWebDictionary"
+                    style="@style/Wrap"
+                    android:src="@mipmap/ic_book"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llPronounce"
+                style="@style/WidthMatch"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPronunciation"
+                    style="@style/WidthMatch"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_edittext_no_border"
+                    android:hint="@string/pronunciation"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:scrollHorizontally="true"
+                    android:textSize="@dimen/item_text_size" />
+
+                <Button
+                    android:id="@+id/btnSymbol"
+                    style="@style/Wrap"
+                    android:background="@drawable/segment_button"
+                    android:text="@string/symbol"
+                    android:textSize="@dimen/item_text_size"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMeaningEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/textPrimaryColor"
+                android:text="@string/textview_title_meaning_english"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMaxMeaningLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/textPrimaryColor"
+                android:text="@string/max_character_in_meaning"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etMeaning"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/background_edittext_no_border"
+                android:gravity="top|start"
+                android:hint="@string/meaning"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/item_text_size" />
+
+            <TextView
+                android:id="@+id/tvMeaningEnglishDetailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/textPrimaryColor"
+                android:text="@string/textview_title_meaning_english_detailed"
+                android:textSize="14sp" />
+            <com.dalread.component.EditTextWithActionDone
+                android:id="@+id/etDetailInfo"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_edittext_no_border"
+                android:gravity="top|start"
+                android:hint="@string/meaning_detail"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textSize="@dimen/item_text_size" />
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/vSymbol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvCloseSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="X"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSymbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/rv_pronounce_symbol_margin"
+            android:layout_marginEnd="@dimen/rv_pronounce_symbol_margin"
+            android:layout_toEndOf="@id/tvCloseSymbol" />
+    </RelativeLayout>
+</LinearLayout>

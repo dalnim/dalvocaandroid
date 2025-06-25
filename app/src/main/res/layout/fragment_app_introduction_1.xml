@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ViewBase"
+    android:id="@+id/root"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:id="@+id/tvIntroduction"
+        style="@style/Wrap"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.5"
+        android:text="@string/app_introduction_1_araplayer"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="32sp" />
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            android:id="@+id/tv_display_sentence_as_asterisk"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/display_sentence_as_star"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_hide_known_and_excellent_sentences"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/hide_known_and_excellent_sentences"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_hide_known_sentences"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/hide_known_sentences"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_hide_excellent_sentences"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/hide_excellent_sentences"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_show_all_sentences"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/show_all_sentences"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_make_role_playing_contents"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/make_role_playing_contents"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_change_to_exam_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/change_to_exam_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/activity_title_stored_layout" />
+
+    <LinearLayout
+        android:id="@+id/llMultiPlayerVideoList"
+        style="@style/Match"
+        android:background="@color/multiPlayerBackgroundLightBlackColor"
+        android:orientation="vertical"
+        android:paddingBottom="0dp">
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvGuide"-->
+<!--            style="@style/TextView_Value_Video_Information"-->
+<!--            android:padding="8dp"-->
+<!--            android:gravity="center"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:text="@string/multi_player_screen_stored_layout"/>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/Wrap"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/save"
+            android:onClick="onMenuButtonClick"
+            app:cornerRadius="4dp"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="2dp"/>
+
+
+
+        <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+            android:id="@+id/fs_List"
+            style="@style/Match"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:handleDrawable="@drawable/fast_scroller_handle"
+            app:handleHasFixedSize="true"
+            app:handleHeight="48dp"
+            app:handleVisibilityDuration="1000"
+            app:handleWidth="24dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVideo"
+                style="@style/Match"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_select_video" />
+        </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+    </LinearLayout>
+</LinearLayout>

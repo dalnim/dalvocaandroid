@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/backgroundWhiteColor"
+        app:rightText="@string/save"
+        app:title="@string/edit_subtitles" />
+
+
+
+<!--    <ScrollView-->
+<!--        android:id="@+id/sv_main"-->
+<!--        style="@style/Match">-->
+
+            <FrameLayout
+                android:id="@+id/llPlayer"
+                style="@style/WidthMatch"
+                android:background="@color/black"
+                tools:layout_height="200dp">
+
+                <com.google.android.exoplayer2.ui.StyledPlayerView
+                    android:id="@+id/playerView"
+                    style="@style/WidthMatch"
+                    app:auto_show="true"
+                    app:fastforward_increment="10000"
+                    app:repeat_toggle_modes="none"
+                    app:resize_mode="fixed_width"
+                    app:rewind_increment="10000"
+                    app:show_timeout="0"
+                    app:surface_type="surface_view"
+                    app:use_controller="false"
+                    tools:layout_height="200dp"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_repeat"
+                    style="@style/WidthMatch"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:gravity="center"
+                        android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvRepeatMin"
+                            style="@style/Wrap"
+                            android:padding="10dp"
+                            android:textColor="@color/textPrimaryWhiteColor"
+                            tools:text="00:00"/>
+
+                        <com.jaygoo.widget.RangeSeekBar
+                            android:id="@+id/sbRepeatRange"
+                            style="@style/WidthMatch"
+                            android:layout_weight="1"
+                            app:rsb_gravity="center"
+                            app:rsb_mode="range" />
+
+                        <TextView
+                            android:id="@+id/tvRepeatMax"
+                            style="@style/Wrap"
+                            android:padding="10dp"
+                            android:textColor="@color/textPrimaryWhiteColor"
+                            tools:text="00:00"/>/>
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/btnCCRepeatReset"
+                        style="@style/ButtonRubyWhite"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/reset" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_speed"
+                    style="@style/Wrap"
+                    android:layout_gravity="center|right"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/ivAudioSpeedMinus"
+                        style="@style/ImageView_Player_Circle"
+                        android:src="@drawable/ic_speed_minus" />
+
+                    <ImageView
+                        android:id="@+id/ivAudioSpeedPlus"
+                        style="@style/ImageView_Player_Circle"
+                        android:src="@drawable/ic_speed_plus" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCenter"
+                    style="@style/Wrap"
+                    android:layout_gravity="center"
+                    android:background="@color/transparentBlack"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/ivCenterPlay"
+                        style="@style/ImageView_Player_Play"
+                        android:layout_gravity="center"
+                        android:src="@drawable/exo_controls_pause"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvCenterText"
+                        style="@style/Wrap"
+                        android:layout_gravity="center"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_signup"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_play"
+                    style="@style/WidthMatch"
+                    android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvVideoStartTime"
+                        style="@style/Wrap"
+                        android:padding="10dp"
+                        android:textColor="@color/textPrimaryWhiteColor"
+                        tools:text="00:00"/>/>
+
+                    <com.jaygoo.widget.RangeSeekBar
+                        android:id="@+id/sbPlay"
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        app:rsb_gravity="center"
+                        app:rsb_mode="single" />
+
+                    <TextView
+                        android:id="@+id/tvVideoEndTime"
+                        style="@style/Wrap"
+                        android:padding="10dp"
+                        android:textColor="@color/textPrimaryWhiteColor"
+                        tools:text="00:00"/>/>
+                </LinearLayout>
+            </FrameLayout>
+           <ScrollView
+                android:id="@+id/sv_main"
+                style="@style/Match">
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_prev"
+                    style="@style/ImageView_Player"
+                    android:src="@drawable/ic_left"
+                    app:tint="@color/textPrimaryColor" />
+
+                <TextView
+                    android:id="@+id/tv_count_subtitles"
+                    style="@style/TextView_Value"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_header"
+                    tools:text="2/345"/>
+
+                <ImageView
+                    android:id="@+id/iv_next"
+                    style="@style/ImageView_Player"
+                    android:src="@drawable/ic_right"
+                    app:tint="@color/textPrimaryColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llABRepeat"
+                style="@style/Match"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:id="@+id/ivWebDictionary"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:src="@drawable/ic_globe" />
+
+                <ImageView
+                    android:id="@+id/ivABRepeat"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:src="@drawable/ic_repeat_ab" />
+                <Button
+                    android:id="@+id/btnAddSubtitle"
+                    style="@style/Button_Base_Edit_Subtitle"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Add Subtitle"
+                    />
+                <Button
+                    android:id="@+id/btnExitCCRepeat"
+                    style="@style/Button_Base_Edit_Subtitle"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Exit CC Repeat"
+                    />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ivCCRepeat"-->
+<!--                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:gravity="right"-->
+<!--                    android:src="@drawable/ic_new_repetition_cc_full_screen" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/tvVideoStartTime_detail"
+                    style="@style/TextView_Value"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    tools:text="Start Time" />
+
+                <Button
+                    android:id="@+id/btn_save"
+                    style="@style/Button_Base_Edit_Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:text="@string/save"
+                    tools:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/tvVideoEndTime_detail"
+                    style="@style/TextView_Value"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    tools:text="End Time" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:gravity="left|center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_copy_study_language"
+                        style="@style/ImageView_Player_Circle_No_Margin"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_copy" />
+
+                    <TextView
+                        style="@style/TextView_Value"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_study_language" />
+
+                    <ImageView
+                        android:id="@+id/tv_study_language_translate"
+                        style="@style/ImageView_Player_Circle_No_Margin"
+                        android:padding="5dp"
+                        android:background="@color/backgroundWhiteColor"
+                        android:src="@drawable/ic_translator_studylang" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_study_language_previous"
+                    style="@style/TextView_Value_dialog_oneline"
+                    tools:text="pvevious subtitle"
+                    />
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_study_language_content"
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey_border_white_background"
+                        android:gravity="top"
+                        android:hint="@string/type_here"
+                        android:minHeight="60dp"
+                        android:textSize="@dimen/item_text_size"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_study_language_next"
+                    style="@style/TextView_Value_dialog_oneline"
+                    tools:text="next subtitle"
+                    />
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left|center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_copy_tongue_language"
+                        style="@style/ImageView_Player_Circle_No_Margin"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_copy" />
+
+                    <TextView
+                        style="@style/TextView_Value"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_mother_tongue" />
+
+                    <ImageView
+                        android:id="@+id/tv_tongue_language_translate"
+                        style="@style/ImageView_Player_Circle_No_Margin"
+                        android:padding="5dp"
+                        android:background="@color/backgroundWhiteColor"
+                        android:src="@drawable/ic_translator_mothertongue" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_tongue_language_previous"
+                    style="@style/TextView_Value_dialog_oneline"
+                    tools:text="pvevious subtitle"
+                    />
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_tongue_language_content"
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey_border_white_background"
+                        android:gravity="top"
+                        android:hint="@string/type_here"
+                        android:layout_alignParentBottom="true"
+                        android:minHeight="60dp"
+                        android:textSize="@dimen/item_text_size"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_tongue_language_next"
+                    style="@style/TextView_Value_dialog_oneline"
+                    tools:text="next subtitle"
+                    />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    style="@style/TextView_Value_dialog_oneline"
+                    android:text="@string/msg_what_do_dialog"
+                    />
+                <LinearLayout
+                    style="@style/Match"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_delete"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:text="@string/delete_dialog" />
+
+                    <Button
+                        android:id="@+id/btn_divide"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/divide_dialog" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    style="@style/TextView_Value_dialog_oneline"
+                    android:text="@string/msg_merge_with"
+                    />
+                <LinearLayout
+                    style="@style/Match"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    >
+                    <Button
+                        android:id="@+id/btn_merge_prev_dialog"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:text="@string/merge_with_previous_dialog" />
+                    <Button
+                        android:id="@+id/btn_merge_next_dialog"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/merge_with_next_dialog" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    style="@style/TextView_Value_dialog_oneline"
+                    android:text="@string/msg_where_insert_dialog"
+                    />
+                <LinearLayout
+                    style="@style/Match"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    >
+                    <Button
+                        android:id="@+id/btn_insert_before"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:text="@string/insert_dialog_before" />
+
+                    <Button
+                        android:id="@+id/btn_insert_after"
+                        style="@style/Button_Base_Edit_Subtitle"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/insert_dialog_after" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

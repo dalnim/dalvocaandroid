@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_item"
+    android:background="@color/backgroundGrayColor"
+    style="@style/WidthMatch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ivWordList"
+                    style="@style/ImageView_Player"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:src="@drawable/ic_word_list"/>
+
+                <ImageView
+                    android:id="@+id/ivEye"
+                    style="@style/ImageView_Player"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:src="@drawable/ic_new_eye_open2"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivAdjustTableHeight"
+            style="@style/ImageView_Player"
+            android:layout_gravity="center_vertical|center"
+            android:src="@drawable/ic_adjust_table_height2" />
+
+        <ImageView
+            android:id="@+id/ivWebSearch"
+            style="@style/ImageView_Player"
+            android:src="@drawable/ic_globe_empty"
+            android:layout_marginEnd="20dp"
+            android:layout_gravity="center_vertical|right"
+            app:tint="@color/iconPrimaryBlackColor"/>
+
+
+</FrameLayout>

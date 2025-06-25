@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical">
+
+<!--    <View-->
+<!--        style="@style/DividerDialog"-->
+<!--        android:layout_marginTop="@dimen/toolbar_padding" />-->
+
+    <TextView
+        android:id="@+id/tv_message"
+        style="@style/WidthMatch"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:paddingVertical="@dimen/toolbar_padding"
+        android:textSize="@dimen/font_value" />
+
+    <View style="@style/DividerDialog" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_items"
+        style="@style/WidthMatch"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <View style="@style/DividerDialog" />
+</LinearLayout>

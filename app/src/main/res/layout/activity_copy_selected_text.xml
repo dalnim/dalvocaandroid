@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/copy"
+        app:title="@string/copy_selected_text" />
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:text="@string/preview" />
+
+    <TextView
+        android:id="@+id/tv_preview"
+        style="@style/FillRemainVertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="12dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/textPrimaryColor"
+        android:background="@color/backgroundColor"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/item_text_size"
+        tools:text="preview"/>
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:visibility="gone"
+        android:text="@string/display_order" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_display_order"
+        style="@style/WidthMatch"
+        android:visibility="gone"
+        android:minHeight="64dp" />
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:text="@string/etc" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sc_include_index"
+        style="@style/SwitchSetting"
+        android:checked="true"
+        android:text="@string/include_index" />
+
+    <View style="@style/Divider" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sc_separate_by_tab"
+        style="@style/SwitchSetting"
+        android:checked="true"
+        android:text="@string/separate_by_tab" />
+
+    <View style="@style/Divider" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sc_include_pronunciation"
+        style="@style/SwitchSetting"
+        android:checked="false"
+        android:text="@string/include_pronunciation" />
+
+</LinearLayout>

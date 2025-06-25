@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/subtitle" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <LinearLayout
+            android:id="@+id/llSubtileMode"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:text="@string/subtitle_mode" />
+
+            <TextView
+                android:id="@+id/tvSubtitleValue"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/normal_mode" />
+
+            <ImageView
+                style="@style/ImageView_Player_Option_Icon_Arrow"
+                android:src="@mipmap/ic_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llHanjaFontSize"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:text="@string/font_size" />
+
+            <TextView
+                android:id="@+id/tvFontSize"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="18" />
+
+            <ImageView
+                style="@style/ImageView_Player_Option_Icon_Arrow"
+                android:src="@mipmap/ic_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llLineHeight"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/line_height" />
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvLineHeight"
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center"
+                    android:alpha="0.4"
+                    android:gravity="right"
+                    android:text="100%" />
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/sbLineHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="7dp"
+                    app:rsb_gravity="center"
+                    app:rsb_mode="single" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llKnownWordColor"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:text="@string/known_word_color" />
+
+            <TextView
+                android:id="@+id/tvKnownWordColor"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/black" />
+
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llUnknownWordColor"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:text="@string/unknown_word_color" />
+
+            <TextView
+                android:id="@+id/tvUnknownWordColor"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/red" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llUnknownPronounceColor"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/unknown_pronounce_color" />
+
+            <TextView
+                android:id="@+id/tvUnknownPronounceColor"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_marginRight="7dp"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/pink" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+    </LinearLayout>
+</LinearLayout>

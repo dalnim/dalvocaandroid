@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vEntireItem"
+    style="@style/ItemBase"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <LinearLayout
+        android:id="@+id/llPlay"
+        style="@style/Wrap"
+        android:layout_width="110dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvIndex"
+            style="@style/TextViewSubItem"
+            android:layout_gravity="left"
+            android:layout_marginStart="25dp" />
+
+        <ImageView
+            android:id="@+id/icPlay"
+            style="@style/Wrap"
+            android:padding="@dimen/icon_play_padding"
+            android:src="@drawable/ic_volume_up_48dp" />
+
+        <TextView
+            android:id="@+id/tvFrequency"
+            style="@style/TextViewSubItem"
+            android:text="@string/format_frequency" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_name_meaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toEndOf="@id/llPlay"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewItem"
+            tools:text="word"/>
+
+        <TextView
+            android:id="@+id/tvMeaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="12dp"
+            tools:text="meaning"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/icRight"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:visibility="invisible"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_below="@id/v_name_meaning"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnKnown"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/btn_no_border_voca_know_known"
+            android:text="!" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btnGrade1"
+            style="@style/ButtonGrade"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/btnGrade2"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
+            android:text="2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btnUnknown"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_no_border_voca_know_unknown"
+            android:text="X" />
+    </LinearLayout>
+</RelativeLayout>

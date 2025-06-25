@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextView_Header"
+            android:layout_gravity="center"
+            android:alpha="0.6"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:text="@string/choose" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnOpenMeaningRefresh"
+            style="@style/Button_Base"
+            android:text="Refresh Meaning"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+        <TextView
+            android:id="@+id/btnOpenMeaning"
+            style="@style/Button_Base"
+            android:text="@string/open_with_meaning"
+            android:textColor="@drawable/btn_ok_color" />
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/openMovie"
+            style="@style/Button_Base"
+            android:text="@string/open_movie"
+            android:textColor="@drawable/btn_ok_color" />
+
+
+
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/Button_Base"
+            android:text="@string/tts_cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/WidthMatch"
+    android:visibility="invisible"
+    tools:visibility="visible"
+    android:background="@color/transparent">
+<!--    android:background="@drawable/araconv_practice_view_bottom">-->
+
+    <TextView
+        android:id="@+id/tv_header"
+        style="@style/TextViewItem"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="자동으로 시작되지 않으면 마이크를 눌러서 시작하세요."
+        android:textColor="@color/textPrimaryWhiteColor"
+        app:layout_constraintBottom_toTopOf="@+id/ivMic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="@color/textPrimaryColor"/>
+
+    <ImageView
+        android:id="@+id/ivSpeaker"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_volume_up_outline_48dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMic"
+        app:layout_constraintEnd_toStartOf="@+id/ivMic"
+        app:layout_constraintTop_toTopOf="@+id/ivMic" />
+
+    <ImageView
+        android:id="@+id/ivMic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@id/ivSpeaker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_mic_off"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_send"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_baseline_next_plan_24"
+        app:backgroundTint="@color/ternaryColor"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivMic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

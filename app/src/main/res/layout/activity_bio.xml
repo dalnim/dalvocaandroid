@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/bio"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"/>
+
+    <EditText
+        android:id="@+id/et_bio"
+        style="@style/Match"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_edittext_no_border"
+        android:gravity="start|top"
+        android:hint="@string/msg_no_bio"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/edit_text_padding"
+        android:textSize="@dimen/item_text_size" />
+
+    <TextView
+        android:id="@+id/tv_bio"
+        style="@style/Match"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_edittext"
+        android:gravity="start|top"
+        android:padding="@dimen/edit_text_padding"
+        android:scrollbars="vertical"
+        android:textSize="@dimen/item_text_size" />
+</LinearLayout>

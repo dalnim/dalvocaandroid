@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:id="@+id/root"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView_Header"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:text="title" />
+
+        <TextView
+            android:id="@+id/tvSubTitle"
+            style="@style/TextView_Title"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            tools:text="sub_title" />
+
+        <EditText
+            android:id="@+id/et_input"
+            style="@style/EditText_Main"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@color/backgroundEditTextColor"
+            android:hint="@string/type"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_cancel"
+                style="@style/Multi_Button_Base"
+                android:layout_weight="1"
+                android:text="@string/msg_confirm_no"
+                android:textColor="@color/colorRed" />
+
+            <include layout="@layout/layout_line_vertical" />
+
+            <TextView
+                android:id="@+id/btn_ok"
+                style="@style/Multi_Button_Base"
+                android:layout_weight="1"
+                android:text="@string/msg_confirm_yes"
+                android:textColor="@drawable/btn_ok_color" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

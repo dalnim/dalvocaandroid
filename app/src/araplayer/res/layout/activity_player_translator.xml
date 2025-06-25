@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/google_translator" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:background="@color/color_recording_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/iv_copy"
+            style="@style/ImageView_Item"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_copy" />
+
+        <EditText
+            android:id="@+id/et_search"
+            style="@style/WidthMatch"
+            android:layout_weight="1"
+            android:background="@drawable/background_edittext_no_border"
+            android:focusedByDefault="false"
+            android:hint="@string/word"
+            android:lines="1"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            style="@style/ImageView_Item"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_search_24dp"
+            app:tint="@color/black" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bottom"
+        style="@style/WidthMatch"
+        android:background="@color/color_nav_background"
+        app:itemBackground="@color/color_nav_background"
+        app:itemIconTint="@drawable/selector_voca"
+        app:itemTextColor="@drawable/selector_voca"
+        app:labelVisibilityMode="labeled" />
+</LinearLayout>

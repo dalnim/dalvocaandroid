@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/WidthMatch"
+    android:layout_margin="2dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/icPlay"
+        style="@style/Wrap"
+        android:padding="@dimen/icon_play_padding"
+        android:src="@drawable/ic_volume_up_48dp" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPronounce"
+            style="@style/TextView_Item_WordList_Mean" />
+
+        <TextView
+            android:id="@+id/tvMeaning"
+            style="@style/TextView_Item_WordList_Mean" />
+    </LinearLayout>
+</LinearLayout>

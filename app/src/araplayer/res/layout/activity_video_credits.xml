@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Match"
+    android:orientation="vertical">
+
+<!--    <com.github.chrisbanes.photoview.PhotoView-->
+<!--        android:id="@+id/iv_zoomed_photo"-->
+<!--        style="@style/zoomed_photo"-->
+<!--        android:visibility="gone"/>-->
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/credits"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        style="@style/Match"
+        tools:listitem="@layout/item_video_credit"/>
+</LinearLayout>

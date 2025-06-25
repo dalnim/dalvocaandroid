@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/color_grouped_radical_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="Sentence" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layoutItemHanjaSentenceInfoGeneral"
+            layout="@layout/item_hanja_sentence_info_general"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4" />
+
+        <include
+            android:id="@+id/layoutItemHanjaSentenceInfoIconsHeader"
+            layout="@layout/item_hanja_sentence_info_icons_header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_info"
+            style="@style/WidthMatch"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:background="@color/color_grouped_radical_background"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_voca_hanja_word_grid" />
+
+<!--        <me.zhanghai.android.fastscroll.FastScrollScrollView-->
+<!--            android:id="@+id/fssv_preview"-->
+<!--            android:background="@color/color_grouped_radical_background"-->
+<!--            android:layout_weight="0.6"-->
+<!--            style="@style/WidthMatch">-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_info"-->
+<!--                style="@style/WidthMatch"-->
+<!--                tools:itemCount="1"-->
+<!--                tools:listitem="@layout/item_voca_hanja_word_grid"/>-->
+<!--        </me.zhanghai.android.fastscroll.FastScrollScrollView>-->
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:visibility="gone"
+        style="@style/Match"
+        />
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

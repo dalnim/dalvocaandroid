@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="@string/tb_wordbooks" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/layout_item_content_book_title"
+            android:visibility="gone"
+            layout="@layout/item_content_book_title"
+            tools:visibility="visible"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_books"
+            android:layout_weight="1"
+            style="@style/WidthMatch"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_voca_books_common"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

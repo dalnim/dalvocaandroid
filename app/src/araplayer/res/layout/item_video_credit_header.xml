@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextView_Value"
+        android:layout_width="match_parent"
+        android:background="@color/backgroundCellHeaderColor"
+        android:paddingLeft="18dp"
+        android:paddingTop="4dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="@dimen/font_title" />
+</RelativeLayout>

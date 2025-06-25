@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_a_symbol"
+    android:layout_width="@dimen/item_pronounce_symbol_size"
+    android:layout_height="@dimen/item_pronounce_symbol_size"
+    android:gravity="center"
+    android:textColor="@color/colorWhite"
+    android:textSize="20sp" />

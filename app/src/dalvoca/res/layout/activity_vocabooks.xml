@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/title_wordbooks"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/select"
+        app:rightShow="false"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_book"
+        style="@style/Match" />
+</LinearLayout>

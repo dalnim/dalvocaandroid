@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rowBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rlDelete"
+            android:layout_width="@dimen/size_reading_list"
+            android:layout_height="match_parent"
+            android:background="@color/colorRed"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="@dimen/size_reading_list"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin_item"
+                    android:text="@string/reading_list_item_delete"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowFG"
+        style="@style/Match"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/activity_vertical_margin_item">
+
+            <ImageView
+                android:id="@+id/ivType"
+                style="@style/ImageView_ReadingList"
+                android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                android:src="@drawable/ic_app_cn" />
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/TextView_ReadingList_Title"
+                    android:text="@string/msg_bookmark_already_registered" />
+
+                <TextView
+                    android:id="@+id/tvWords"
+                    style="@style/TextView_ReadingList_Value"
+                    android:text="@string/appbar_scrolling_view_behavior" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/idInfo"
+                style="@style/ImageView_Item"
+                android:layout_marginLeft="@dimen/activity_vertical_margin_item"
+                android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                android:src="@mipmap/ic_info" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/Height0_5dp"
+            android:background="@color/colorLine" />
+    </LinearLayout>
+</RelativeLayout>

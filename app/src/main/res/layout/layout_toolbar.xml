@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header"
+    style="@style/Toolbar"
+    android:background="?attr/colorPrimaryDark"
+    android:paddingStart="@dimen/toolbar_padding"
+    android:paddingEnd="@dimen/toolbar_padding">
+
+    <LinearLayout
+        android:id="@+id/llLeft"
+        style="@style/HeightMatch"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/iconLeft"
+        style="@style/IconToolbarLeft"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/iconLeft2"
+        style="@style/IconToolbarLeft"
+        android:layout_marginStart="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextView_Header_White"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/textPrimaryWhiteColor"
+        tools:text="title"/>
+
+    <LinearLayout
+        android:id="@+id/llRight"
+        style="@style/HeightMatch"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@id/llLeft"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            style="@style/HeightMatch"
+            android:layout_weight="1">
+
+            <com.dalread.component.EmptySubmitSearchView
+                android:id="@+id/v_search"
+                style="@style/HeightMatch"
+                android:layout_gravity="end"
+                app:defaultQueryHint="@string/hint_type_search_keyword"
+                app:searchHintIcon="@null"
+                app:searchIcon="@drawable/ic_search"
+                app:theme="@style/VocaSearchView" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/vRight"
+            android:gravity="center"
+            style="@style/HeightMatch">
+
+            <ImageView
+                android:id="@+id/iconRight"
+                style="@style/IconToolbarLeft"/>
+
+            <ImageView
+                android:id="@+id/iconRight2"
+                style="@style/IconToolbarLeft"/>
+
+            <TextView
+                android:id="@+id/tv_right"
+                style="@style/IconToolbarRight"
+                android:gravity="center"
+                android:minWidth="60dp"
+                tools:text="menu"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

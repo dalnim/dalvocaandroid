@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_delay_top"
+            style="@style/WidthMatch"
+            android:layout_alignParentTop="true"
+            android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_delay_min"
+                android:layout_height="20dp"
+                android:layout_width="70dp"
+                android:textColor="@color/textPrimaryWhiteColor"
+                android:text = "0:00:00"
+                android:paddingLeft="10dp" />
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sbDelaySubtitle"
+                style="@style/Match"
+                android:layout_weight="1"
+                app:rsb_thumb_drawable="@drawable/bg_circle_white"
+                app:rsb_progress_default_color="@color/iconPrimaryWhiteColor"
+                app:rsb_progress_color="@color/iconPrimaryWhiteColor"
+                app:rsb_gravity="center"
+                app:rsb_mode="single" />
+
+            <TextView
+                android:id="@+id/tv_delay_max"
+                android:layout_height="20dp"
+                android:layout_width="70dp"
+                android:textColor="@color/textPrimaryWhiteColor"
+                android:text = "0:00:00"
+                android:gravity="right"
+                android:layout_marginEnd="10dp"
+                android:padding="0dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_delay_close"
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/iv_delay_close"
+                    style="@style/ImageView_Player"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_circle_close" />
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_dialog_2"
+        style="@style/WidthMatch"
+        android:layout_below="@id/ll_delay_top"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <com.dalread.component.TextViewOutline
+            android:id="@+id/tv_dialog_previous2"
+            style="@style/Player_Subtitle_Meaning"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="left|bottom"
+            android:gravity="left"
+            android:textSize="@dimen/font_player_subtitle_prev_next_2"
+            tools:text="previous dialog 2 previous dialog 2 previous dialog 2" />
+
+        <com.dalread.component.TextViewOutline
+            android:id="@+id/tv_delay_subtitle"
+            style="@style/Player_Subtitle_Meaning"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            tools:text="@string/delay_audio_format"/>
+
+        <com.dalread.component.TextViewOutline
+            android:id="@+id/tv_dialog_next2"
+            style="@style/Player_text_top_fullscreen"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right|bottom"
+            android:gravity="right"
+            android:textSize="@dimen/font_player_subtitle_prev_next_2"
+            tools:text="Next dialog 2 Next dialog " />
+    </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_below="@id/ll_dialog_2"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.dalread.component.TextViewOutline
+                    android:id="@+id/tv_dialog_previous"
+                    style="@style/Player_Subtitle_Meaning"
+                    android:gravity="right"
+                    android:layout_marginStart="5dp"
+                    android:textSize="@dimen/font_player_subtitle_prev_next"
+                    tools:text="previous dialog previous dialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_delay_subtitle_control"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+    <!--            <com.dalread.component.TextViewOutline-->
+    <!--                android:id="@+id/tv_delay_subtitle"-->
+    <!--                style="@style/Player_Subtitle_Meaning"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:textColor="@color/color_ruby_text_normal"-->
+    <!--                android:textSize="@dimen/font_player_subtitle_ruby_fullscreen"-->
+    <!--                app:outlineColor="@color/white"-->
+    <!--                tools:text="@string/delay_audio_format"/>-->
+
+                <LinearLayout
+                    style="@style/Wrap"
+                    android:layout_gravity="center"
+                    android:background="@color/backgroundWhiteColor"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ic_delay_subtitle_minus"
+                        style="@style/ImageView_Player_Delay_Subtitle"
+                        android:src="@drawable/ic_delay_subtitle_minus" />
+
+                    <ImageView
+                        android:id="@+id/ic_delay_subtitle_reset"
+                        style="@style/ImageView_Player_Delay_Subtitle"
+                        android:src="@drawable/ic_delay_subtitle_reset" />
+
+                    <ImageView
+                        android:id="@+id/ic_delay_subtitle_plus"
+                        style="@style/ImageView_Player_Delay_Subtitle"
+                        android:src="@drawable/ic_delay_subtitle_plus" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reset_max_value"
+                    style="@style/Wrap"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/backgroundGrayColor"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/mag_reset_min_max_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.dalread.component.TextViewOutline
+                    android:id="@+id/tv_dialog_next"
+                    style="@style/Player_Subtitle_Meaning"
+                    android:gravity="left"
+                    android:layout_marginEnd="5dp"
+                    android:textSize="@dimen/font_player_subtitle_prev_next"
+                    tools:text="Next dialog Next dialog Next dialog" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

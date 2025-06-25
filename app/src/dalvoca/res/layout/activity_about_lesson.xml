@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/about_study_mode_title" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Match"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_edittext"
+        android:padding="@dimen/edit_text_padding"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/Match"
+            android:textSize="@dimen/item_text_size" />
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

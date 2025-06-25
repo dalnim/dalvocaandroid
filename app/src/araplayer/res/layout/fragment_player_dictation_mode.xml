@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightText="@string/choose"
+        app:title="@string/dictation_mode" />
+
+    <FrameLayout
+        android:id="@+id/llPlayer"
+        style="@style/WidthMatch"
+        android:background="@color/black">
+
+        <com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/playerView"
+            style="@style/WidthMatch"
+            app:auto_show="true"
+            app:fastforward_increment="10000"
+            app:repeat_toggle_modes="none"
+            app:resize_mode="fixed_width"
+            app:rewind_increment="10000"
+            app:show_timeout="0"
+            app:surface_type="surface_view"
+            app:use_controller="false" />
+
+        <LinearLayout
+            android:id="@+id/ll_repeat"
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:gravity="center"
+                android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvRepeatMin"
+                    style="@style/Wrap"
+                    android:padding="10dp"
+                    android:textColor="@color/textPrimaryWhiteColor"
+                    />
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/sbRepeatRange"
+                    style="@style/WidthMatch"
+                    android:layout_weight="1"
+                    app:rsb_gravity="center"
+                    app:rsb_mode="range" />
+
+                <TextView
+                    android:id="@+id/tvRepeatMax"
+                    style="@style/Wrap"
+                    android:padding="10dp"
+                    android:textColor="@color/textPrimaryWhiteColor" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnCCRepeatReset"
+                style="@style/ButtonRubyWhite"
+                android:layout_marginLeft="10dp"
+                android:text="@string/reset" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_speed"
+            style="@style/Wrap"
+            android:layout_gravity="center|right"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivAudioSpeedMinus"
+                style="@style/ImageView_Player_Circle"
+                android:src="@drawable/ic_speed_minus" />
+
+            <ImageView
+                android:id="@+id/ivAudioSpeedPlus"
+                style="@style/ImageView_Player_Circle"
+                android:src="@drawable/ic_speed_plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCenter"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:background="@color/transparentBlack"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCenterPlay"
+                style="@style/ImageView_Player_Play"
+                android:layout_gravity="center"
+                android:src="@drawable/exo_controls_pause"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvCenterText"
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_signup"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_play"
+            style="@style/WidthMatch"
+            android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvVideoStartTime"
+                style="@style/Wrap"
+                android:padding="10dp"
+                android:textColor="@color/textPrimaryWhiteColor" />
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sbPlay"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                app:rsb_gravity="center"
+                app:rsb_mode="single" />
+
+            <TextView
+                android:id="@+id/tvVideoEndTime"
+                style="@style/Wrap"
+                android:padding="10dp"
+                android:textColor="@color/textPrimaryWhiteColor" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        style="@style/Match"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivDictationPrevious"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_left"
+                app:tint="@color/textPrimaryColor" />
+
+            <ImageView
+                android:id="@+id/icDictationRefresh"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_refresh_24dp" />
+
+            <TextView
+                android:id="@+id/tvDictationSubtitleCount"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/font_header"
+                tools:text="32/124"/>
+
+            <ImageView
+                android:id="@+id/ivDictationBookmark"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_subtitle" />
+
+            <ImageView
+                android:id="@+id/ivDictationNext"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_right"
+                app:tint="@color/textPrimaryColor" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/layout_choose_word"
+            layout="@layout/layout_choose_word" />
+
+<!--        <ScrollView-->
+<!--            android:id="@+id/sv_main"-->
+<!--            style="@style/Match">-->
+<!--            <LinearLayout-->
+<!--                style="@style/Match"-->
+<!--                android:layout_weight="1"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvDictationText"-->
+<!--                    style="@style/WidthMatch"-->
+<!--                    android:layout_marginStart="32dp"-->
+<!--                    android:layout_marginEnd="32dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:background="@drawable/btn_grey_border_white_background"-->
+<!--                    android:minHeight="100dp"-->
+<!--                    android:textSize="@dimen/item_text_size" />-->
+<!--                <LinearLayout-->
+<!--                    style="@style/WidthMatch"-->
+<!--                    android:layout_marginStart="22dp"-->
+<!--                    android:layout_marginEnd="22dp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDictationMeaning"-->
+<!--                        style="@style/TextView_Title"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="3" />-->
+
+<!--                </LinearLayout>-->
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/rvDictationList"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:clipToPadding="false"-->
+<!--                    android:padding="@dimen/study_english_small_box_offset"-->
+<!--                    tools:itemCount="3"-->
+<!--                    tools:listitem="@layout/item_study_writing_english"/>-->
+
+<!--                <com.dalread.component.CustomHorizontalScrollView-->
+<!--                    android:id="@+id/llDictationMeaningDisplayScroll"-->
+<!--                    style="@style/WidthMatch"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:fillViewport="true"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:background="@color/backgroundEditTextColor"-->
+<!--                    android:scrollbars="none">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDictationMeaningDisplay"-->
+<!--                        style="@style/TextView_Title"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:background="@color/backgroundEditTextColor"-->
+<!--                        android:lines="1" />-->
+<!--                </com.dalread.component.CustomHorizontalScrollView>-->
+<!--            </LinearLayout>-->
+<!--        </ScrollView>-->
+    </LinearLayout>
+</LinearLayout>

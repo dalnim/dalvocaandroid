@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/WidthMatch"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/TextView_Title"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:padding="10dp" />
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        style="@style/ImageView_Player"
+        android:src="@drawable/ic_checkbox_1_checked"
+        android:visibility="invisible" />
+</LinearLayout>

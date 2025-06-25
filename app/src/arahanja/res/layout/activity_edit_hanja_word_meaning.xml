@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:background="@color/color_recording_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"
+        app:title="@string/title_edit_meaning" />
+
+    <ScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                >
+                <ImageView
+                    android:id="@+id/iv_web_dictionary_ch_s"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_dic_hanja_chinese"
+                    />
+                <ImageView
+                    android:id="@+id/iv_web_dictionary_jp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_dic_hanja_japanese"
+                    />
+                <TextView
+                    android:id="@+id/tvVoca"
+                    style="@style/Wrap"
+                    android:gravity="center_horizontal"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="voca"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textIsSelectable="true"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/iv_web_dictionary_en"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_dic_hanja_english"
+                    />
+                <ImageView
+                    android:id="@+id/iv_web_dictionary"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_dic_hanja_korean"/>
+                <ImageView
+                    android:id="@+id/ivWebSearch"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_globe_empty"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_meaning"
+                style="@style/TextView_Hanja_Edit_Title"
+                android:textIsSelectable="true"
+                android:gravity="center"
+                android:text="meaning" />
+
+            <TextView
+                android:id="@+id/tvVocaId"
+                style="@style/TextView_Hanja_Edit_Title"
+                android:textIsSelectable="true"
+                android:gravity="left"
+                android:text="voca id" />
+
+            <TextView
+                style="@style/TextView_Hanja_Edit_Title"
+                android:hint="meaning 1" />
+
+            <EditText
+                android:id="@+id/et_meaning1"
+                style="@style/TextView_Hanja_Edit"
+                android:hint="meaning 1" />
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronoucne1 first" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce1_first"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce1 first" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronounce1" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce1"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce1" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+            <TextView
+                style="@style/TextView_Hanja_Edit_Title"
+                android:hint="meaning 2" />
+
+            <EditText
+                android:id="@+id/et_meaning2"
+                style="@style/TextView_Hanja_Edit"
+                android:hint="meaning 2" />
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronoucne2 first" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce2_first"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce2 first" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronounce2" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce2"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextView_Hanja_Edit_Title"
+                android:hint="meaning 3" />
+
+            <EditText
+                android:id="@+id/et_meaning3"
+                style="@style/TextView_Hanja_Edit"
+                android:hint="meaning 3" />
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronoucne3 first" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce3_first"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce3 first" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="pronounce3" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce3"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="pronounce3" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="@string/strokes" />
+
+                    <EditText
+                        android:id="@+id/et_strokes"
+                        style="@style/TextView_Hanja_Edit"
+                        android:inputType="number"
+                        android:hint="@string/strokes" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="@string/radicals" />
+
+                    <EditText
+                        android:id="@+id/et_radical"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="@string/radicals" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="left component" />
+
+                    <EditText
+                        android:id="@+id/et_left_component"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="left component" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="right component" />
+
+                    <EditText
+                        android:id="@+id/et_right_component"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="right component" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="Kun Yomi" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce_kun_yomi"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="Kun Yomi" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="On Yomi" />
+
+                    <EditText
+                        android:id="@+id/et_pronounce_on_yomi"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="On Yomi" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="Pinyin" />
+
+                    <EditText
+                        android:id="@+id/etPronouncePinyin"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="Pinyin" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="기본형(정체자)" />
+
+                    <EditText
+                        android:id="@+id/etVocaOri"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="기본형(정체자)" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="한국" />
+
+                    <EditText
+                        android:id="@+id/etHanjaKorea"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="한국" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="간체" />
+
+                    <EditText
+                        android:id="@+id/etHanjaSimplified"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="간체" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="일본" />
+
+                    <EditText
+                        android:id="@+id/etHanjaJapan"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="일본" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="대만" />
+
+                    <EditText
+                        android:id="@+id/etHanjaTaiwan"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="대만" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="약자" />
+
+                    <EditText
+                        android:id="@+id/etHanjaShortForm"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="약자" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="속자" />
+
+                    <EditText
+                        android:id="@+id/etHanjaSokja"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="속자" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="이체자1" />
+
+                    <EditText
+                        android:id="@+id/etHanjaVariant1"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="이체자1" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="이체자2" />
+
+                    <EditText
+                        android:id="@+id/etHanjaVariant2"
+                        style="@style/TextView_Hanja_Edit"
+                        android:hint="이체자2" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/TextView_Hanja_Edit_Title"
+                android:text="detail info" />
+<!--            <com.dalread.component.EditTextWithActionDone-->
+            <EditText
+                android:id="@+id/et_detail_info"
+                style="@style/TextView_Hanja_Sentence_Edit"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:hint="@string/meaning_detail" />
+
+            <TextView
+                style="@style/TextView_Hanja_Edit_Title"
+                android:hint="English meanging" />
+
+            <EditText
+                android:id="@+id/etMeaningEng"
+                style="@style/TextView_Hanja_Edit"
+                android:hint="English meanging" />
+
+            <TextView
+                android:text="@string/meaning_detail_eng"
+                style="@style/TextView_Hanja_Edit_Title" />
+
+            <EditText
+                android:id="@+id/etEngDetailInfo"
+                style="@style/TextView_Hanja_Sentence_Edit"
+                android:hint="@string/meaning_detail_eng" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

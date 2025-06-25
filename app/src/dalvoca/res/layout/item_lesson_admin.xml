@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch">
+
+    <LinearLayout
+        android:id="@+id/v_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRed"
+            android:gravity="center"
+            android:text="@string/reading_list_item_delete"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/item_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_foreground"
+        style="@style/ItemBase"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingTop="@dimen/item_padding_top_bottom"
+        android:paddingBottom="@dimen/item_padding_top_bottom">
+
+        <LinearLayout
+            style="@style/FillRemainHorizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/TextViewItem"
+                android:layout_marginLeft="16dp" />
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_marginTop="@dimen/word_meaning_margin_top"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ic_student_joined"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_round_black_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_student"
+                    style="@style/TextViewItem"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_marginTop="@dimen/word_meaning_margin_top"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ic_tutor_joined"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_round_black_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_tutor"
+                    style="@style/TextViewItem"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_marginTop="@dimen/word_meaning_margin_top"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_lang"
+                    style="@style/TextViewItem"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/tv_keyboard"
+                    style="@style/TextViewItem"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/icon_keyboard"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/tv_book_name"
+                    style="@style/TextViewItem"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ic_right"
+            style="@style/Wrap"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+</RelativeLayout>

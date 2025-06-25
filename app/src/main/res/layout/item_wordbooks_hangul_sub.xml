@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ItemBase">
+
+    <ImageView
+        android:id="@+id/ic_hangul"
+        style="@style/Wrap"
+        android:layout_centerInParent="true"
+        android:padding="16dp" />
+</RelativeLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llTop"
+            style="@style/WidthMatch"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <LinearLayout
+                    android:id="@+id/llVocaPronounce"
+                    style="@style/Wrap"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvVoca"
+                        style="@style/Textview_Voca"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:textIsSelectable="true"
+                        app:defaultTextSize="@dimen/item_voca_size"
+                        tools:text="Voca Voca" />
+
+                    <TextView
+                        android:id="@+id/tvShortPronounce"
+                        style="@style/Textview_Pronounce"
+                        android:layout_weight="1"
+                        android:textIsSelectable="true"
+                        android:visibility="gone"
+                        app:defaultTextSize="@dimen/item_pronounce_size"
+                        tools:text="pronounce"
+                        tools:visibility="visible" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLongPronounce"
+                    style="@style/Textview_Pronounce"
+                    android:textIsSelectable="true"
+                    android:visibility="gone"
+                    app:defaultTextSize="@dimen/item_pronounce_size"
+                    tools:text="Long pronounce"
+                    tools:visibility="visible" />
+
+                <!--            <com.dalread.component.CustomFontSizeTextView-->
+                <!--                android:id="@+id/tvVoca"-->
+                <!--                style="@style/Textview_Voca"-->
+                <!--                app:defaultTextSize="@dimen/item_voca_size"-->
+                <!--                tools:text="Voca Voca"/>-->
+                <TextView
+                    android:id="@+id/tvMeaningEnglish"
+                    style="@style/Textview_Meaning"
+                    app:defaultTextSize="@dimen/item_meaning_size_small"
+                    tools:text="(Meaning English)" />
+
+                <TextView
+                    android:id="@+id/tvMeaning"
+                    style="@style/Textview_Meaning"
+                    app:defaultTextSize="@dimen/item_meaning_size_small"
+                    tools:text="Meaning" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/llTop"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llMai1n"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llTop">
+
+            <TextView
+                android:id="@+id/tv_index"
+                style="@style/TextViewSubItem"
+                android:layout_marginStart="8dp"
+                android:gravity="bottom"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                style="@style/ImageView_Player_Circle_No_Margin"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_favorite_new_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_index"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/llKnowValue"
+                style="@style/Wrap"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivCheck"
+                app:layout_constraintStart_toEndOf="@+id/ivBookmark"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivKnow"
+                    style="@style/ImageView_VocaKnow_With_Bookmark"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_voca_know_text_not_rated" />
+
+                <ImageView
+                    android:id="@+id/ivKnowPronounce"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/ivKnow"
+                    android:src="@drawable/ic_unknown_pronounce"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_checkbox_1_checked"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/llKnowValue" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </LinearLayout>-->
+
+<!--    -->
+<!--    <RelativeLayout-->
+<!--        style="@style/WidthMatch"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:padding="0dp">-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_index"-->
+<!--            style="@style/TextViewSubItem"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:gravity="bottom"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:text="1"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivSpeaker"-->
+<!--            style="@style/ImageView_Player_Circle_No_Margin"-->
+<!--            android:layout_toRightOf="@+id/tv_index"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:src="@drawable/ic_volume_up_48dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvRepeatCount"-->
+<!--            style="@style/TextViewSubItem2"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_toRightOf="@+id/ivSpeaker"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:visibility="visible"-->
+<!--            tools:visibility="visible"-->
+<!--            tools:text="1/3"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivBookmark"-->
+<!--            style="@style/ImageView_Player_Circle_No_Margin"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:src="@drawable/ic_favorite_new_off"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llKnowValue"-->
+<!--            style="@style/Wrap"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:orientation="horizontal">-->
+<!--            <ImageView-->
+<!--                android:id="@+id/ivKnow"-->
+<!--                style="@style/ImageView_VocaKnow_With_Bookmark"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:src="@drawable/ic_voca_know_circle_notrated" />-->
+<!--            <ImageView-->
+<!--                android:id="@+id/ivKnowPronounce"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_toRightOf="@id/ivKnow"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:visibility="gone"-->
+<!--                android:src="@drawable/ic_unknown_pronounce"-->
+<!--                tools:visibility="visible"/>-->
+<!--        </LinearLayout>-->
+
+<!--    </RelativeLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_sign_up_word_level">
+        <item>@string/sign_up_word_level_beginner</item>
+        <item>@string/sign_up_word_level_pre_intermediate</item>
+        <item>@string/sign_up_word_level_intermediate</item>
+        <item>@string/sign_up_word_level_post_intermediate</item>
+        <item>@string/sign_up_word_level_advanced</item>
+    </string-array>
+
+    <string-array name="array_setting_languages">
+        <item>@string/setting_language_default</item> // 0
+        <item>@string/setting_language_ar</item>
+        <item>@string/setting_language_ch_s</item>  // 2
+        <item>@string/setting_language_ch_t</item>
+        <item>@string/setting_language_de</item>    // 4
+        <item>@string/setting_language_en</item>
+        <item>@string/setting_language_es</item>    // 6
+        <item>@string/setting_language_fr</item>
+        <item>@string/setting_language_it</item>    // 8
+        <item>@string/setting_language_ja</item>
+        <item>@string/setting_language_ko</item>    // 10
+        <item>@string/setting_language_pt</item>
+        <item>@string/setting_language_ru</item>    // 12
+        <item>@string/setting_language_vn</item>
+    </string-array>
+    <array name="quiz_colors">
+        <item>#FF80AB</item>
+        <item>#EA80FC</item>
+        <item>#82B1FF</item>
+        <item>#B9F6CA</item>
+        <item>#F4FF81</item>
+    </array>
+
+    //Dalnim moved from DalVoca/AraPlayer to here for common use.
+    <string-array name="gender_options">
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+    <string-array name="age_options">
+        <item>@string/teenager</item>
+        <item>@string/adult</item>
+    </string-array>
+
+    <string-array name="array_choice_word_pronounce">
+        <item>@string/choice_word</item>
+        <item>@string/choice_word_with_bracket</item>
+        <item>@string/choice_word_pronounce</item>
+        <item>@string/choice_pronounce_word</item>
+        <item>@string/choice_word_pronounce_meaning</item>
+        <item>@string/choice_pronounce_word_meaning</item>
+    </string-array>
+
+    <string-array name="array_display_font_size_list">
+        <item>@string/display_font_size_list_small</item>
+        <item>@string/display_font_size_list_normal</item>
+        <item>@string/display_font_size_list_big</item>
+        <item>@string/display_font_size_list_bigger</item>
+        <item>@string/display_font_size_list_biggest</item>
+    </string-array>
+
+    <integer-array name="array_display_font_size_list_ratio">
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
+    </integer-array>
+
+    <string-array name="practice_hangul_options">
+        <item>@string/typing_practice</item>
+        <item>@string/writing_practice</item>
+    </string-array>
+
+    <string-array name="array_choice_copy_dialogs_conversation">
+        <item>@string/choice_copy_studylang</item>
+        <item>@string/choice_copy_studylang_meaning_ab</item>
+        <item>@string/choice_copy_studylang_one_line_meaning_one_line</item>
+        <item>@string/choice_copy_meaning</item>
+    </string-array>
+    <string-array name="array_choice_copy_dialogs">
+        <item>@string/choice_copy_studylang</item>
+        <item>@string/choice_copy_studylang_meaning</item>
+        <item>@string/choice_copy_meaning</item>
+    </string-array>
+    <string-array name="array_choice_copy_sentence_conv_practice">
+        <item>@string/choice_copy_sentence_conv_practice_0</item>
+        <item>@string/choice_copy_sentence_conv_practice_1</item>
+        <item>@string/choice_copy_sentence_conv_practice_2</item>
+        <item>@string/choice_copy_sentence_conv_practice_3</item>
+    </string-array>
+
+    <string-array name="array_choice_ask_what_to_do_with_copied_text">
+        <item>@string/choice_ask_what_to_do_with_copied_text_none</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_explain_studylang</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_rephrase_studylang</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_translate_into_studylang</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_translate_into_mother_tongue</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_is_mother_tongue_correct</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_what_meaning</item>
+        <item>@string/choice_ask_what_to_do_with_copied_text_explain_grammar_of_studylang</item>
+    </string-array>
+
+    <string-array name="array_choice_open_gpt_from_araconv_home_view">
+        <item>@string/open_gpt_from_araconv_home_view_0</item>
+        <item>@string/open_gpt_from_araconv_home_view_1</item>
+    </string-array>
+
+    <string-array name="array_choice_open_gpt_from_araconv_conversation_view">
+        <item>@string/open_gpt_from_araconv_conversation_view_0</item>
+        <item>@string/open_gpt_from_araconv_conversation_view_1</item>
+    </string-array>
+</resources>

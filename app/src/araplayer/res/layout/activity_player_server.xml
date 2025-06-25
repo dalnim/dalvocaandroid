@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightText="@string/save" />
+
+    <TableLayout
+        style="@style/Match"
+        android:padding="10dp"
+        android:shrinkColumns="0"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextView_Title"
+                android:text="@string/title" />
+
+            <EditText
+                android:id="@+id/etTitle"
+                style="@style/EditText_Main"
+                android:hint="@string/type_here" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextView_Title"
+                android:text="@string/host" />
+
+            <EditText
+                android:id="@+id/etHost"
+                style="@style/EditText_Main"
+                android:hint="@string/type_here" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextView_Title"
+                android:text="@string/id" />
+
+            <EditText
+                android:id="@+id/etId"
+                style="@style/EditText_Main"
+                android:hint="@string/type_here" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextView_Title"
+                android:text="@string/password" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/EditText_Main"
+                android:hint="@string/type_here"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextView_Title"
+                android:text="@string/port" />
+
+            <EditText
+                android:id="@+id/etPort"
+                style="@style/EditText_Main"
+                android:hint="@string/type_here"
+                android:inputType="number" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

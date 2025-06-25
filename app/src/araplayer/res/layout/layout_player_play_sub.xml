@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    style="@style/WidthMatch"
+    android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivSubtitleLangBoth"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_subtitle_lang_both" />
+
+    <ImageView
+        android:id="@+id/ivSubtitleLangStudy"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_subtitle_lang_study" />
+
+    <ImageView
+        android:id="@+id/ivSubtitleLangMeaning"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_subtitle_lang_meaning" />
+
+    <ImageView
+        android:id="@+id/ivFontSizeSmall"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_font_size_small" />
+
+    <ImageView
+        android:id="@+id/ivFontSizeNormal"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_font_size_normal" />
+
+    <ImageView
+        android:id="@+id/ivFontSizeBig"
+        style="@style/ImageView_Player"
+        android:layout_weight="1"
+        android:src="@drawable/ic_font_size_big" />
+
+</LinearLayout>

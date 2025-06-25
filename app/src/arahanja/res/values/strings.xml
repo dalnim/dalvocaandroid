@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="MissingTranslation">AraHanja</string>
+
+    <string name="nav_bottom_menu_main" translatable="false">Main</string>
+    <string name="nav_bottom_menu_book" translatable="false">Books</string>
+    <string name="nav_bottom_menu_ocr" translatable="false">Ocr</string>
+
+    <string name="hanja_home_menu_bookmark_list" translatable="false">Bookmark</string>
+    <string name="hanja_home_menu_append_hanja_to_hangul" translatable="false">Append</string>
+    <string name="hanja_home_menu_convert_to_hanja" translatable="false">Convert</string>
+    <string name="hanja_home_menu_hanja_idioms" translatable="false">Idioms</string>
+    <string name="hanja_home_menu_unicode_hanja" translatable="false">Unicode</string>
+    <string name="hanja_home_menu_last_read_book" translatable="false">Last book</string>
+    <string name="group_hanja_by_hangul_alphabet" translatable="false">Hangul</string>
+    <string name="group_hanja_by_level" translatable="false">Level</string>
+    <string name="group_hanja_by_common_japan" translatable="false">Common Japan</string>
+    <string name="group_hanja_by_hsk" translatable="false">HSK</string>
+    <string name="group_hanja_by_stroke" translatable="false">Stroke</string>
+    <string name="group_hanja_by_radical" translatable="false">Radical</string>
+    <string name="msg_write_new_hanja_sentence" translatable="false">Write a new sentence (at least 2 characters)</string>
+    <string name="placeholder_write_new_hanja_sentence" translatable="false">At least 2 characters</string>
+    <string name="title_edit_book_content" translatable="false">Edit book content</string>
+    <string name="title_ocr" translatable="false">OCR</string>
+
+    <string name="hanja_info_divide_title_decomposition" translatable="false">Decomposition</string>
+    <string name="hanja_info_divide_title_variants" translatable="false">Variants</string>
+    <string name="hanja_info_divide_title_example" translatable="false">Examples</string>
+    <string name="hanja_info_divide_title_radical" translatable="false">Radical</string>
+    <string name="hanja_info_divide_title_strokes" translatable="false">Strokes</string>
+    <string name="hanja_info_divide_title_confused_words" translatable="false">Confused words</string>
+    <string name="hanja_info_divide_title_group_type" translatable="false">Group type</string>
+
+    <string name="dialog_menu_open_normal_text_view_for_hurigana" translatable="false">Open normal text view</string>
+    <string name="dialog_menu_open_hanja_exclude_option_dialog" translatable="false">Open Hanja Exclude Option Dialog</string>
+    <string name="dialog_menu_refresh_hanja_from_server" translatable="false">Refresh data</string>
+
+    <string name="dialog_menu_copy_book_all_contents" translatable="false">Copy book\'s all contents</string>
+    <string name="dialog_menu_book_style_table_view" translatable="false">Book style(Table)</string>
+    <string name="dialog_menu_book_style_page" translatable="false">Book style(Page)</string>
+
+    <string name="dialog_menu_hide_simplified_chinese" translatable="false">Hide Simplified Chinese in word books</string>
+    <string name="dialog_menu_show_simplified_chinese" translatable="false">Show Simplified Chinese in word books</string>
+
+    <string name="dialog_menu_show_beyond_level_hanja" translatable="false">Show hanja beyond level</string>
+
+    <string name="hanja_list_that_contain_this_hanja" translatable="false">Chinese characters that contains %1$s</string>
+
+    <string name="msg_no_hanja_in_list" translatable="false">No Hanja in list. Please check the Hanja Exclude Option</string>
+
+    <string name="toast_first_time_adjust_table_height" translatable="false">You can adjust table height by draging up or down.</string>
+    <string name="toast_convert_image_to_text" translatable="false">Converting...</string>
+    <string name="toast_init_ocr_enggine" translatable="false">Init OCR Engine...</string>
+
+    <string name="title_common_hanja_middle_school" translatable="false">Common (Middle School)</string>
+    <string name="title_common_hanja_high_school" translatable="false">Common (High School)</string>
+
+    <string name="menu_common_hanja_middle_school_in_information_view" translatable="false">Middle School</string>
+    <string name="menu_common_hanja_high_school_in_information_view" translatable="false">High School</string>
+
+    <string name="error_msg_there_is_no_radical" translatable="false">No radical</string>
+
+    <string name="hint_add_sentence_voca" translatable="false">Write Hanja sentence only</string>
+    <string name="hint_add_sentence_pronounce" translatable="false">Write pronounce</string>
+    <string name="toast_add_sentence_no_unicode_unified_hanja" translatable="false">Please write Unicode Unified Chinese only</string>
+    <string name="toast_add_sentence_no_two_or_more_letter" translatable="false">Please write 2 or more letters</string>
+
+    <string name="view_title_ocr" translatable="false">OCR</string>
+    <string name="dialog_title_need_point_to_open_hanja_detail_view" translatable="false">To view Hanja information, you need points. Would you like to watch an ad to earn points?\n(You can also purchase points with in-app purchases)</string>
+
+    <string name="guide_hanja_point_deduction" translatable="false">When you see phrase information, 1 point will be deducted\n\nClick to buy points</string>
+</resources>

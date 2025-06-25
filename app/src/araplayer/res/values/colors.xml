@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgroundVideoFolderForLanguageColor">#4D6D686C</color>
+    <color name="backgroundVideoSeasonColor">#DDFDF2</color>
+    <color name="backgroundLastPlayedVideoColor">@color/colorAppTint</color>
+    <color name="backgroundLanguageVideoFolderColor">#DDFDF2</color>
+<!--    <color name="backgroundRectangleInTableForPlayIconsColor">#323D56</color>-->
+    <color name="backgroundSeasonListColor">#DDFDF2</color>
+
+    <color name="color_ruby_player_background">#80FFFFFF</color>
+    <color name="color_player_background">#6D686C</color>
+    <color name="color_player_repeat_background">#e5e5e5</color>
+    <color name="color_player_item_selected">#d3d3d5</color>
+    <color name="color_player_option_sub_header">#E5E5E5</color>
+    <color name="color_player_option_sub_header_bold">#C5C5C5</color>
+    <!--    <color name="color_player_background_subtitle">@android:color/transparent</color>-->
+    <color name="color_player_background_subtitle_transparent">#E38A8A</color>
+    <color name="color_player_background_subtitle_not_transparent">#E8000000</color>
+<!--    Dalnim : Moved these to main package-->
+<!--    <color name="color_background_light_white">#F1F1F1</color>-->
+<!--    <color name="color_background_light_white_divider">#F8F8F8</color>-->
+    <color name="color_subtitle_extension_srt_background">#808080</color>
+    <color name="color_subtitle_extension_smi_background">#A9A9A9</color>
+    <color name="color_subtitle_extension_title">@android:color/white</color>
+    <color name="color_video_circle_icon_watched_background">#FDFCFC</color>
+    <color name="color_video_circle_icon_watched_stroke">#DADADA</color>
+    <color name="color_video_circle_icon_watched_progress">#DADADA</color>
+    <color name="color_cc_repeat_tuning_screen_default">@color/primaryColor</color>
+    <color name="color_cc_repeat_tuning_screen_no_overlap">#D8D8D8</color>
+    <color name="color_cc_repeat_tuning_screen_overlap">#F10707</color>
+    <color name="color_background_music_player">#9F978C</color>
+
+    <color name="color_multi_player_menu_background_half_transparent">#26000000</color>
+</resources>

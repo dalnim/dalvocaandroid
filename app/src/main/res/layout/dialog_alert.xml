@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextView_Title"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:textSize="@dimen/font_header"
+            android:textColor="@color/textPrimaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="title"/>
+
+        <TextView
+            android:id="@+id/tv_message"
+            style="@style/TextView_Title"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:scrollbars="vertical"
+            android:textColor="@color/textSecondaryColor"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@+id/tv_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="message"/>
+
+        <TextView
+            android:id="@+id/tv_action"
+            style="@style/Button_Base"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:textColor="@drawable/btn_ok_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="action"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

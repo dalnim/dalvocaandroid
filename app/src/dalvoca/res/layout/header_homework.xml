@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch">
+
+    <LinearLayout
+        android:id="@+id/v_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRed"
+            android:gravity="center"
+            android:text="@string/reading_list_item_delete"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/item_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_foreground"
+        style="@style/WidthMatch"
+        android:background="@color/color_header_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/FillRemainHorizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/study_sum_padding">
+
+            <TextView
+                android:id="@+id/tv_word_count"
+                style="@style/TextViewHeader" />
+
+            <TextView
+                android:id="@+id/tv_feedback_count"
+                style="@style/TextViewHeader"
+                android:layout_marginTop="@dimen/study_sum_margin_top" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/ic_play_all"
+            layout="@layout/ic_double_volumn_up" />
+    </LinearLayout>
+</RelativeLayout>

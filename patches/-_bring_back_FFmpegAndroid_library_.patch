@@ -1,0 +1,478 @@
+Index: app/src/main/java/com/dalread/DalRealApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dalread/DalRealApplication.java	(revision a709a6256b1c5ea4f3781bb0be9542127100a933)
++++ app/src/main/java/com/dalread/DalRealApplication.java	(date 1601475459512)
+@@ -11,7 +11,6 @@
+ import androidx.multidex.MultiDex;
+ 
+ import com.crashlytics.android.Crashlytics;
+-import com.dalread.asynctask.CopyVoicesTask;
+ import com.dalread.base.EnumFlavor;
+ import com.dalread.database.SharedPreferencesDB;
+ import com.dalread.helper.PlayVocaHelper;
+@@ -28,6 +27,9 @@
+ import com.dalread.util.DLog;
+ import com.dalread.util.Utils;
+ import com.facebook.stetho.Stetho;
++import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
++import com.github.hiteshsondhi88.libffmpeg.FFmpegLoadBinaryResponseHandler;
++import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegNotSupportedException;
+ import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
+ 
+ import org.greenrobot.eventbus.EventBus;
+@@ -105,6 +107,7 @@
+         }
+         Realm.setDefaultConfiguration(realmConfig);
+         initDataDefault();
++        initFfmpeg();
+         playVocaHelper = new PlayVocaHelper(this);
+         playVocaNativeSpeakerHelper = new PlayVocaNativeSpeakerHelper(this);
+         registerActivityLifecycleCallbacks(this);
+@@ -132,9 +135,9 @@
+     public void buildRetrofit(String baseUrl) {
+         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+         if (Constant.DEBUG) {
+-//            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+-//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+-//            builder.addInterceptor(loggingInterceptor);
++            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
++            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
++            builder.addInterceptor(loggingInterceptor);
+             builder.addInterceptor(new DalLoggingInterceptor());
+         }
+         OkHttpClient client = builder.connectTimeout(60, TimeUnit.SECONDS).
+@@ -375,6 +378,36 @@
+         myinput.close();
+     }
+ 
++    private void initFfmpeg() {
++        final String tag = "initFfmpeg";
++        try {
++            FFmpeg.getInstance(this).loadBinary(new FFmpegLoadBinaryResponseHandler() {
++
++                @Override
++                public void onStart() {
++                    DLog.i(tag, "onStart");
++                }
++
++                @Override
++                public void onSuccess() {
++                    DLog.i(tag, "onSuccess");
++                }
++
++                @Override
++                public void onFailure() {
++                    DLog.i(tag, "onFailure");
++                }
++
++                @Override
++                public void onFinish() {
++                    DLog.i(tag, "onFinish");
++                }
++            });
++        } catch (FFmpegNotSupportedException e) {
++            e.printStackTrace();
++        }
++    }
++
+     public PlayVocaHelper getPlayVocaHelper() {
+         return playVocaHelper;
+     }
+Index: app/src/dalvoca/java/com/dalread/activity/PlaylistActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/dalvoca/java/com/dalread/activity/PlaylistActivity.java	(revision a709a6256b1c5ea4f3781bb0be9542127100a933)
++++ app/src/dalvoca/java/com/dalread/activity/PlaylistActivity.java	(date 1601475344554)
+@@ -21,6 +21,7 @@
+ import com.dalread.R;
+ import com.dalread.adapter.PlaylistAdapter;
+ import com.dalread.asynctask.BackupVoicesTask;
++import com.dalread.asynctask.MergeAndConvertVoicesTask;
+ import com.dalread.base.BaseDialog;
+ import com.dalread.base.BaseDialogListener;
+ import com.dalread.base.BasePlayVocaActivity;
+@@ -742,7 +743,15 @@
+     }
+ 
+     private void addFolder(String folderName) {
+-        Utils.showToast(context, "Please apply merge voices patch!");
++        new MergeAndConvertVoicesTask(
++                folderName,
++                combineTTS,
++                context,
++                getAssets(),
++                playlistItems,
++                sharedPreferences.getPreferredNativeSpeakers(),
++                EnumLanguage.findByFormatApi(sharedPreferences.getStudyLanguage()).getIdApi()
++        ).execute();
+     }
+ 
+     private void getUserBooks(final String newBookName) {
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision a709a6256b1c5ea4f3781bb0be9542127100a933)
++++ app/build.gradle	(date 1601475344553)
+@@ -203,6 +203,7 @@
+     implementation 'com.google.firebase:firebase-firestore:18.2.0'
+     implementation 'com.github.stfalcon:chatkit:0.3.3'
+     implementation 'com.rm:freedrawview:1.1.2'
++    implementation 'com.writingminds:FFmpegAndroid:0.3.2'
+     implementation 'com.github.yalantis:ucrop:2.2.3'
+     implementation 'com.github.stfalcon:stfalcon-imageviewer:0.1.0'
+     implementation "androidx.work:work-runtime:2.1.0"
+Index: app/src/dalvoca/java/com/dalread/asynctask/MergeAndConvertVoicesTask.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/dalvoca/java/com/dalread/asynctask/MergeAndConvertVoicesTask.java	(date 1601475344554)
++++ app/src/dalvoca/java/com/dalread/asynctask/MergeAndConvertVoicesTask.java	(date 1601475344554)
+@@ -0,0 +1,340 @@
++package com.dalread.asynctask;
++
++import android.content.Context;
++import android.content.res.AssetManager;
++import android.speech.tts.TextToSpeech;
++import android.speech.tts.UtteranceProgressListener;
++import android.text.TextUtils;
++
++import com.dalread.base.BasePlayVocaActivity;
++import com.dalread.model.PlaylistItem;
++import com.dalread.util.Constant;
++import com.dalread.util.DLog;
++import com.dalread.util.Loading;
++import com.dalread.util.Utils;
++import com.dalread.util.Voca;
++import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
++import com.github.hiteshsondhi88.libffmpeg.FFmpegExecuteResponseHandler;
++import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
++
++import java.io.File;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.io.InputStream;
++import java.io.OutputStream;
++import java.util.ArrayList;
++
++public class MergeAndConvertVoicesTask {
++
++    private static final String TAG = "MergeAndConvertVoicesTask";
++
++    private String outputFolderName;
++    private TextToSpeech combineTTS;
++    private Context context;
++    private AssetManager assetManager;
++    private ArrayList<PlaylistItem> vocas;
++    private String strNativeSpeakers;
++    private int studyLang;
++    private File outputFolder;
++    private File voiceFolder;
++    private File soundFolder;
++    private File silentShort;
++    private File silentLong;
++    private String[] nativeSpeakerIds;
++    private int position;
++    private String txtContent;
++
++    public MergeAndConvertVoicesTask(
++            String outputFolderName,
++            TextToSpeech combineTTS,
++            Context context,
++            AssetManager assetManager,
++            ArrayList<PlaylistItem> vocas,
++            String strNativeSpeakers,
++            int studyLang
++    ) {
++        this.outputFolderName = outputFolderName;
++        this.combineTTS = combineTTS;
++        this.context = context;
++        this.assetManager = assetManager;
++        this.vocas = vocas;
++        this.strNativeSpeakers = strNativeSpeakers;
++        this.studyLang = studyLang;
++        position = -1;
++        txtContent = "";
++    }
++
++    public void execute() {
++        if (initDependencies()) {
++            Loading.show(context);
++            copyPptmFiles();
++            mergeAndConvertVocas();
++        }
++    }
++
++    private boolean initDependencies() {
++        if (context == null) {
++            DLog.e(TAG, "Context is null!");
++            return false;
++        }
++        if (combineTTS == null) {
++            DLog.e(TAG, "TTS is null!");
++            return false;
++        }
++        if (assetManager == null) {
++            DLog.e(TAG, "Asset Manager is null!");
++            return false;
++        }
++        File filesFolder = Voca.getOutputFolderOnLocal(context, null);
++        if (filesFolder == null) {
++            DLog.e(TAG, "Storage is not ready!");
++            Utils.showToast(this.context, "Storage is not ready!");
++            return false;
++        }
++        outputFolder = new File(filesFolder, Constant.FILE.FOLDER_POWERPOINT + File.separator + outputFolderName);
++        if (!outputFolder.exists() && !outputFolder.mkdirs()) {
++            DLog.e(TAG, "Folder " + outputFolderName + " cannot be created!");
++            Utils.showToast(this.context, "Folder " + outputFolderName + " cannot be created!");
++            return false;
++        }
++        voiceFolder = new File(filesFolder, Constant.FILE.FOLDER_VOICE);
++        if (!voiceFolder.exists() && !voiceFolder.mkdirs()) {
++            DLog.e(TAG, "Folder Voice cannot be created!");
++            Utils.showToast(this.context, "Folder Voice cannot be created!");
++            return false;
++        }
++        soundFolder = new File(filesFolder, Constant.FILE.FOLDER_SOUND);
++        if (!soundFolder.exists()) {
++            DLog.e(TAG, "Folder Sound does not exist!");
++            Utils.showToast(this.context, "Folder Sound does not exist!");
++            return false;
++        }
++        silentShort = new File(soundFolder, Constant.FILE.SILENT_SHORT_FILE_NAME);
++        if (!silentShort.exists()) {
++            DLog.e(TAG, "File SILENT_SHORT_FILE_NAME does not exist!");
++            Utils.showToast(this.context, "File SILENT_SHORT_FILE_NAME does not exist!");
++            return false;
++        }
++        silentLong = new File(soundFolder, Constant.FILE.SILENT_LONG_FILE_NAME);
++        if (!silentLong.exists()) {
++            DLog.e(TAG, "File SILENT_LONG_FILE_NAME does not exist!");
++            Utils.showToast(this.context, "File SILENT_LONG_FILE_NAME does not exist!");
++            return false;
++        }
++        nativeSpeakerIds = TextUtils.isEmpty(strNativeSpeakers) ? new String[0] : strNativeSpeakers.split(",");
++        if (nativeSpeakerIds.length == 0) {
++            DLog.e(TAG, "No preferred native speakers found!");
++            Utils.showToast(this.context, "No preferred native speakers found!");
++            return false;
++        }
++        return true;
++    }
++
++    private void copyPptmFiles() {
++        try {
++            String[] pptmFileNames = assetManager.list(Constant.FILE.YOUTUBE_PPTM_ASSET_PATH);
++            for (String pptmFileName : pptmFileNames) {
++                copyPptmFile(pptmFileName);
++            }
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    private void copyPptmFile(String fileName) {
++        try {
++            InputStream inputStream = assetManager.open(Constant.FILE.YOUTUBE_PPTM_ASSET_PATH + "/" + fileName);
++            File outputFile = new File(outputFolder, fileName);
++            OutputStream outputStream = new FileOutputStream(outputFile);
++            byte[] buffer = new byte[1024];
++            int read;
++            while ((read = inputStream.read(buffer)) != -1) {
++                outputStream.write(buffer, 0, read);
++            }
++            inputStream.close();
++            outputStream.flush();
++            outputStream.close();
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    private void mergeAndConvertVocas() {
++        int size = vocas.size();
++        if (++position < size) {
++            onProgressUpdate((position + 1) + "/" + size);
++            synthesizeTtsToFile(vocas.get(position));
++        } else {
++            writeTxtContent();
++            Loading.hide();
++        }
++    }
++
++    private void synthesizeTtsToFile(final PlaylistItem voca) {
++        int vocaType = voca.getPIType();
++        int vocaId = voca.getPIVocaId();
++        String fileName = Voca.getOutputRecordingFileName(studyLang, vocaType, vocaId, 0); // use 0 as UID for TTS-generated files
++        File file = Voca.getVoiceFileOnLocal(voiceFolder, fileName);
++        if (file.exists()) {
++//            downloadVocaVoices(voca, "-i " + silent1s + " -i " + file.getPath(), 2);
++            downloadVocaVoices(voca, "-i " + silentShort.getPath() + " -i " + file.getPath(), 2);
++        } else {
++            combineTTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
++
++                @Override
++                public void onStart(String utteranceId) {
++                }
++
++                @Override
++                public void onDone(String utteranceId) {
++//                    downloadVocaVoices(voca, "-i " + silent1s + " -i " + utteranceId, 2);
++                    downloadVocaVoices(voca, "-i " + silentShort.getPath() + " -i " + utteranceId, 2);
++                }
++
++                @Override
++                public void onError(String utteranceId) {
++                    downloadVocaVoices(voca, "", 0);
++                }
++            });
++            combineTTS.synthesizeToFile(Voca.getMeaningTTS(voca), null, file, file.getPath());
++        }
++    }
++
++    private void downloadVocaVoices(final PlaylistItem voca, String cmd, int count) {
++        if (context instanceof BasePlayVocaActivity) {
++            ((BasePlayVocaActivity) context).prepareDownloadVoca(voca, () -> mergeVocaVoicesToM4a(voca, cmd, count));
++        } else {
++            mergeVocaVoicesToM4a(voca, cmd, count);
++        }
++    }
++
++    private void mergeVocaVoicesToM4a(final PlaylistItem voca, String cmd, int count) {
++        int vocaType = voca.getPIType();
++        int vocaId = voca.getPIVocaId();
++        for (String nativeSpeakerId : nativeSpeakerIds) {
++            int speakerId = Integer.parseInt(nativeSpeakerId);
++            String fileName = Voca.getOutputRecordingFileName(studyLang, vocaType, vocaId, speakerId);
++            File file = Voca.getVoiceFileOnLocal(voiceFolder, fileName);
++            if (file.exists()) {
++                if (TextUtils.isEmpty(cmd)) {
++                    cmd += "-i " + silentShort.getPath() + " -i " + file.getPath();
++//                    cmd = "-i " + file.getPath();
++                } else {
++                    cmd += " -i " + silentShort.getPath() + " -i " + file.getPath();
++//                    cmd += " -i " + file.getPath();
++                }
++                count += 2;
++//                count += 1;
++            }
++        }
++        if (TextUtils.isEmpty(cmd)) {
++            mergeAndConvertVocas();
++        } else {
++            cmd += " -i " + silentLong.getPath();
++            count++;
++            String subCmd = "";
++            for (int i = 0; i < count; i++) {
++                subCmd += "[" + i + ":0]";
++            }
++            subCmd = " -filter_complex " + subCmd + "concat=n=" + count + ":v=0:a=1[out] -map [out] ";
++            final String outputFileName = outputFolder.getPath() + File.separator + studyLang + "_" + vocaType + "_" + vocaId + ".";
++            cmd += subCmd + outputFileName + Constant.FILE.EXTENTION_SPEAKING;
++            try {
++                FFmpeg.getInstance(context.getApplicationContext()).execute(cmd.split(" "), new FFmpegExecuteResponseHandler() {
++
++                    @Override
++                    public void onStart() {
++                        DLog.i(TAG, "onStart");
++                    }
++
++                    @Override
++                    public void onProgress(String s) {
++                        DLog.i(TAG, "onProgress: " + s);
++                    }
++
++                    @Override
++                    public void onSuccess(String s) {
++                        DLog.i(TAG, "onSuccess: " + s);
++                    }
++
++                    @Override
++                    public void onFailure(String s) {
++                        DLog.i(TAG, "onFailure: " + s);
++                    }
++
++                    @Override
++                    public void onFinish() {
++                        DLog.i(TAG, "onFinish");
++                        convertM4aToMp3(voca, outputFileName);
++                    }
++                });
++            } catch (FFmpegCommandAlreadyRunningException e) {
++                e.printStackTrace();
++            }
++        }
++    }
++
++    private void convertM4aToMp3(final PlaylistItem voca, final String outputFileName) {
++        String[] cmd = new String[]{
++                "-y",
++                "-i",
++                outputFileName + Constant.FILE.EXTENTION_SPEAKING,
++                outputFileName + "mp3"};
++        try {
++            FFmpeg.getInstance(context.getApplicationContext()).execute(cmd, new FFmpegExecuteResponseHandler() {
++
++                @Override
++                public void onStart() {
++                    DLog.i(TAG, "onStart");
++                }
++
++                @Override
++                public void onProgress(String s) {
++                    DLog.i(TAG, "onProgress: " + s);
++                }
++
++                @Override
++                public void onSuccess(String s) {
++                    DLog.i(TAG, "onSuccess: " + s);
++                }
++
++                @Override
++                public void onFailure(String s) {
++                    DLog.i(TAG, "onFailure: " + s);
++                }
++
++                @Override
++                public void onFinish() {
++                    DLog.i(TAG, "onFinish");
++                    addTxtContent(voca);
++                    mergeAndConvertVocas();
++                }
++            });
++        } catch (FFmpegCommandAlreadyRunningException e) {
++            e.printStackTrace();
++        }
++    }
++
++    private void addTxtContent(PlaylistItem voca) {
++        txtContent += studyLang + "_" + voca.getPIType() + "_" + voca.getPIVocaId() + "\n"
++                + voca.getPIMeaning() + "\n"
++                + Voca.getVocaDisplay(voca) + "\n\n";
++    }
++
++    private void writeTxtContent() {
++        try {
++            File outputFile = new File(outputFolder, Constant.FILE.SENTENCES_FILE_NAME);
++            OutputStream outputStream = new FileOutputStream(outputFile);
++            outputStream.write(txtContent.getBytes());
++            outputStream.flush();
++            outputStream.close();
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    private void onProgressUpdate(String value) {
++        DLog.i(TAG, "onProgressUpdate: " + value);
++        Loading.show(context, "Merging and Converting: " + value + "...");
++    }
++}

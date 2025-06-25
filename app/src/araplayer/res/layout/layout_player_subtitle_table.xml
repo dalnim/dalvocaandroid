@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llListMeaning"
+    style="@style/Match"
+    android:orientation="vertical"
+    android:background="@color/colorBlack"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <!-- Dalnm : If I use FastScrollScrollView, it doesn't go correct dialog in the Subtitle table view when I click CC and exit it-->
+<!--    <me.zhanghai.android.fastscroll.FastScrollScrollView-->
+<!--        android:id="@+id/fssv_preview"-->
+<!--        style="@style/Match"-->
+<!--        android:layout_weight="1">-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListMeaning"
+            style="@style/Match"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_player_subtitle_dialog"
+            />
+<!--    </me.zhanghai.android.fastscroll.FastScrollScrollView>-->
+
+    <LinearLayout
+        android:id="@+id/llLMView"
+        style="@style/WidthMatch"
+        android:background="@color/backgroundRectangleInTableForPlayIconsColor"
+        android:orientation="horizontal">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivLMCaption"-->
+<!--            style="@style/ImageView_Player"-->
+<!--            android:layout_weight="1"-->
+<!--            android:src="@drawable/ic_closed_caption2_white"/>-->
+
+        <ImageView
+            android:id="@+id/ivLMSubtitleLangChoose"
+            style="@style/ImageView_Player"
+            android:layout_weight="1"
+            android:src="@drawable/ic_subtitle_lang_both"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivWebDictionary"-->
+<!--            style="@style/ImageView_Player"-->
+<!--            android:layout_weight="1"-->
+<!--            android:src="@drawable/ic_globe"-->
+<!--            android:visibility="visible"-->
+<!--            />-->
+
+        <ImageView
+            android:id="@+id/ivLMSubEyeVertical"
+            style="@style/ImageView_Player"
+            android:layout_weight="1"
+            android:src="@drawable/ic_new_eye_open" />
+
+        <ImageView
+            android:id="@+id/ivLMPlay"
+            style="@style/ImageView_Player"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:src="@drawable/ic_new_play" />
+
+        <ImageView
+            android:id="@+id/ivLMABRight"
+            style="@style/ImageView_Player"
+            android:layout_weight="1"
+            android:src="@drawable/ic_repeat_ab"
+            />
+    </LinearLayout>
+
+    <me.zhanghai.android.fastscroll.FastScrollScrollView
+        android:id="@+id/svTvLyric"
+        style="@style/Match"
+        android:background="@color/white"
+        android:fillViewport="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_lyric"
+            style="@style/Match"
+            android:gravity="center"
+            android:padding="@dimen/activity_horizontal_margin_item"
+            android:text="@string/message_no_lyric"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_title" />
+    </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+</LinearLayout>

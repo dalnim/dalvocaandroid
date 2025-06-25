@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/rowFG"
+        style="@style/Wrap"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="?attr/selectableItemBackground"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="#303030"
+                android:layout_marginRight="@dimen/activity_vertical_margin_item">
+                <ImageView
+                    android:id="@+id/ivType"
+                    style="@style/ImageView_MovieList"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_folder" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/folderTitle"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    style="@style/TextView_ReadingList_Title"
+                    android:text="Main Folder"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/idArrow"
+                style="@style/ImageView_Item_Movie"
+                android:layout_marginLeft="@dimen/activity_vertical_margin_item"
+                android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                android:src="@mipmap/ic_right" />
+        </LinearLayout>
+
+        <View
+            style="@style/Height0_5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorLine" />
+    </LinearLayout>
+</RelativeLayout>

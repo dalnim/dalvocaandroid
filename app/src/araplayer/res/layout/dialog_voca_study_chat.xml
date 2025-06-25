@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/color_text"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/llOpenPhraseInformation"
+                style="@style/WidthMatch"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvOpenPhraseInformation"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/open_phrase_information"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp"
+                    />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_edit_phrase"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/edit_phrase"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <TextView
+                android:id="@+id/tv_play_this_phrase"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/play_this_phrase"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <LinearLayout
+                android:id="@+id/llOpenAraHanjaWithHanja"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/open_arahanja_with_hanja"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_web_dictionary"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/web_dictionary"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <TextView
+                android:id="@+id/tv_copy_this_phrase"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/copy_this_phrase"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

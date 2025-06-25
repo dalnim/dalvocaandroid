@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp"
+    android:height="26dp"
+    android:viewportWidth="26"
+    android:viewportHeight="26">
+  <path
+      android:pathData="M13,13m-13,0a13,13 0,1 1,26 0a13,13 0,1 1,-26 0"
+      android:strokeWidth="1"
+      android:fillColor="@color/color_voca_know_amki_grade_2"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M9.018,19.23L17.91,19.23L17.91,17.142L12.6,17.142C14.688,15.378 17.622,13.002 17.622,9.96C17.622,7.674 16.2,6 13.374,6C12.1895,5.9257 11.0305,6.3652 10.193,7.2061C9.3556,8.047 8.9209,9.2079 9,10.392L11.448,10.392C11.466,9.006 12.132,8.142 13.338,8.142C14.58,8.142 15.102,8.934 15.102,10.104C15.102,12.516 11.988,14.838 9.018,17.358L9.018,19.23Z"
+      android:strokeWidth="1"
+      android:fillColor="@color/textPrimaryWhiteColor"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+</vector>

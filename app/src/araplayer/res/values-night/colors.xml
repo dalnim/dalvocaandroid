@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgroundVideoFolderForLanguageColor">#2E2E2E</color>
+    <color name="backgroundVideoSeasonColor">#323D56</color>
+    <color name="backgroundLastPlayedVideoColor">#141822</color>
+    <color name="backgroundLanguageVideoFolderColor">#323D56</color>
+<!--    <color name="backgroundRectangleInTableForPlayIconsColor">#323D56</color>-->
+    <color name="backgroundSeasonListColor">#141822</color>
+
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llFolder"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_folder_height"
+    android:background="@color/backgroundColor"
+    android:textColor="@color/textPrimaryColor"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        style="@style/Match"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            style="@style/ImageView_MovieList"
+            android:padding="1dp"
+            android:src="@drawable/ic_folder" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView_Title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:gravity="left|center"
+                android:text="Main Folder" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/TextView_Description"
+                android:text="@string/format_video" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            style="@style/ImageView_Item_Movie"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+</LinearLayout>

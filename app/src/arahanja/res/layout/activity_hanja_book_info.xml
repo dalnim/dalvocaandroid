@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/color_grouped_radical_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="@string/tb_word_list" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/v_reading"
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/v_reading_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+<!--        <ScrollView-->
+<!--            android:id="@+id/SCROLLER_ID"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:scrollbars="vertical"-->
+<!--            android:layout_weight="0.4"-->
+<!--            android:fillViewport="true">-->
+                <com.dalread.component.CustomFontSizeTextView
+                    android:id="@+id/tv_detail_info"
+                    android:scrollbars = "vertical"
+
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:padding="20dp"
+                    android:textSize="@dimen/hanja_pronounce_text_size_in_information_view"
+                    app:defaultTextSize="@dimen/hanja_pronounce_text_size_in_information_view"
+                    tools:text="Book Detail Info"
+                     />
+            </ScrollView>
+
+            <include
+                android:id="@+id/v_adjust_height_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/item_convert_to_hanja_adjust_table_height_header" />
+
+            <ScrollView
+                android:id="@+id/v_reading_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_grouped_radical_background"
+                android:layout_weight="1">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_info"
+                    style="@style/WidthMatch"
+                    android:background="@color/color_grouped_radical_background"
+                    android:layout_weight="0.6"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_voca_hanja_word_grid"/>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:visibility="gone"
+        style="@style/Match"
+        />
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/Match">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="32dp">
+
+        <LinearLayout
+            android:id="@+id/ll4KnowButtons"
+            style="@style/WidthMatch"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvVocaKnowKnown"
+                style="@style/ButtonGrade"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_no_border_voca_know_known"
+                android:text="!" />
+
+            <TextView
+                android:id="@+id/tvVocaKnowAmkiGrade1"
+                style="@style/ButtonGrade"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/tvVocaKnowAmkiGrade2"
+                style="@style/ButtonGrade"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/tvVocaKnowUnknown"
+                style="@style/ButtonGrade"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_no_border_voca_know_unknown"
+                android:text="X" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivSpeaker"
+                style="@style/Wrap"
+                android:padding="@dimen/icon_play_padding"
+                android:src="@drawable/ic_volume_up_48dp" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:text="question"/>
+
+            <LinearLayout
+                android:id="@+id/llKnowBookmark"
+                style="@style/Wrap"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_bookmark"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/ic_subtitle_on" />
+
+                <TextView
+                    android:id="@+id/tvVocaKnowValue"
+                    style="@style/ImageView_Player_Circle_No_Margin"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_circle_voca_know_amki_grade_1"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grade_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_know_pronounce"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/ic_unknown_pronounce" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn1"
+                style="@style/ButtonTestAnswer"
+                tools:text="btn 1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn2"
+                style="@style/ButtonTestAnswer"
+                android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn3"
+                style="@style/ButtonTestAnswer" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn4"
+                style="@style/ButtonTestAnswer"
+                android:layout_marginLeft="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/scrollable_menu_open_listen_comprehension_option_desc" />
+        <androidx.core.widget.NestedScrollView
+            style="@style/Match">
+            <LinearLayout
+                android:id="@+id/llPlayRepetition"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llPlayDifficultWordsBeforePlayingSubtitles"
+                    style="@style/WidthMatch"
+                    android:orientation="vertical">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPlayDifficultWordsBeforePlayingSubtitles"
+                        style="@style/SwitchSetting"
+                        android:text="@string/play_difficult_words_before_playing_subtitles" />
+
+                    <include layout="@layout/layout_line_horizontal_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_play_difficult_words_details"
+                    style="@style/WidthMatch"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llIncludeMeaning"
+                        style="@style/WidthMatch"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/scIncludeMeaning"
+                            style="@style/SwitchSetting"
+                            android:text="@string/include_meaning" />
+
+                        <include layout="@layout/layout_line_horizontal_small" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llIncludeMyVoice"
+                        style="@style/WidthMatch"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/scIncludeMyVoice"
+                            style="@style/SwitchSetting"
+                            android:checked="false"
+                            android:text="@string/include_my_voice" />
+
+                        <include layout="@layout/layout_line_horizontal_small" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llReadCountValue"
+                        style="@style/TextView_Player_Option_Layout_Item"
+                        android:orientation="vertical"
+                        android:padding="0dp">
+
+                        <LinearLayout style="@style/TextView_Player_Option_Layout_Item">
+
+                            <TextView
+                                style="@style/Table_Item"
+                                android:text="@string/read_count" />
+
+                            <TextView
+                                android:id="@+id/tv_read_count_value"
+                                style="@style/Table_Item_Value"
+                                android:layout_weight="1"
+                                android:gravity="right" />
+
+                            <ImageView style="@style/ImageView_Player_Option_Icon_Arrow" />
+                        </LinearLayout>
+
+                        <include layout="@layout/layout_line_horizontal_small" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llIncludeMotherTongueSubtitle"
+                        style="@style/WidthMatch"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/scIncludeMotherTongueSubtitle"
+                            style="@style/SwitchSetting"
+                            android:text="@string/include_mother_tongue_subtitle" />
+
+                        <include layout="@layout/layout_line_horizontal_small" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvOK"
+                    style="@style/Button_Base"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/close"
+                    android:textColor="@drawable/btn_ok_color" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+
+
+

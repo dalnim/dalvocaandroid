@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/Toolbar"
+        android:paddingStart="@dimen/toolbar_padding"
+        android:paddingEnd="@dimen/toolbar_padding">
+
+        <ImageView
+            android:id="@+id/ic_left"
+            style="@style/IconToolbarLeft"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            style="@style/IconToolbarRight"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/download_image"
+            android:textSize="@dimen/font_header" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextView_Header_White"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/chat" />
+    </RelativeLayout>
+</LinearLayout>

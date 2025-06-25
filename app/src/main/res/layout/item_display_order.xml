@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_container"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <TextView
+        android:id="@+id/tv_display"
+        style="@style/TextViewItem"
+        android:layout_width="0dp"
+        android:layout_marginLeft="12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorBlack" />
+
+    <ImageView
+        android:id="@+id/ic_check"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:padding="12dp"
+        android:src="@drawable/ic_checkbox_1_checked" />
+
+    <ImageView
+        android:id="@+id/ic_drag"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:padding="16dp"
+        android:src="@drawable/ic_drawer_menu"
+        app:tint="@color/color_text" />
+</LinearLayout>

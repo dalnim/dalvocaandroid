@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    style="@style/Wrap"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMusicCategoryTitle"
+        style="@style/Music_Category_Title_Text"
+        android:textColor="@color/primaryColor"
+        tools:text="genre"/>
+
+    <TextView
+        android:id="@+id/tvMusicCategoryMarker"
+        style="@style/Music_Category_Marker" />     
+
+</LinearLayout>

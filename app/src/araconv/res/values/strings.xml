@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="MissingTranslation">Ara Converse</string>
+<!--    <string name="app_name" translatable="false">Ara Hangul</string>-->
+    <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
+    <!--Screen How To Use-->
+    <string name="app_introduction" translatable="false">App introduction</string>
+
+    <string name="conv_home_menu_hangul" translatable="false">Hangul</string>
+    <string name="conv_home_menu_previous_practice" translatable="false">Previous</string>
+    <string name="conv_home_menu_basic_expression" translatable="false">Basic</string>
+    <string name="conv_home_menu_travel_airport" translatable="false">Airport</string>
+    <string name="conv_home_menu_travel_restaurant" translatable="false">Food</string>
+    <string name="conv_home_menu_travel_hotel" translatable="false">Hotel</string>
+    <string name="conv_home_menu_travel_transport" translatable="false">Transport</string>
+    <string name="conv_home_menu_travel_shopping" translatable="false">Shop</string>
+    <string name="conv_home_menu_travel_tour" translatable="false">Tour</string>
+    <string name="conv_home_menu_travel_telephone" translatable="false">Phone</string>
+    <string name="conv_home_menu_travel_emergency" translatable="false">Urgency</string>
+    <string name="conv_home_menu_record" translatable="false">Record</string>
+    <string name="conv_home_menu_bookmark" translatable="false">Bookmark</string>
+    <string name="nav_bottom_menu_main" translatable="false">Main</string>
+    <string name="nav_bottom_menu_main_hangul" translatable="false">Main</string>
+    <string name="nav_bottom_menu_bookmark" translatable="false">bookmark</string>
+    <string name="nav_bottom_menu_dictionary" translatable="false">Dictionary</string>
+    <string name="nav_bottom_menu_role_playing" translatable="false">Role playing</string>
+    <string name="nav_bottom_menu_chat_gpt" translatable="false">ChatGPT</string>
+    <string name="nav_bottom_menu_workbook" translatable="false">Workbook</string>
+    <string name="nav_bottom_menu_hangul" translatable="false">Hangul</string>
+
+
+    <string name="conv_home_menu_practice_hangul_writing" translatable="false">Practice Hangul Writing</string>
+    <string name="conv_home_menu_practice_hangul_typing" translatable="false">Practice Hangul Typing</string>
+    <string name="conv_home_menu_final_consonants" translatable="false">Final Consonants</string>
+    <string name="conv_home_menu_combine_consonants_and_vowels" translatable="false">Combine Consonants and Vowels</string>
+    <string name="conv_home_menu_combination_vowels" translatable="false">Combination Vowels</string>
+    <string name="conv_home_menu_vowels" translatable="false">Vowels</string>
+    <string name="conv_home_menu_double_consonants" translatable="false">Double Consonants</string>
+    <string name="conv_home_menu_consonants" translatable="false">Consonants</string>
+    <string name="nav_bottom_menu_hangul_writing" translatable="false">Writing</string>
+    <string name="nav_bottom_menu_hangul_typing" translatable="false">Practice</string>
+    <string name="menu_naver_cafe_writing_practice_paper_download" translatable="false">Download hangul worksheet</string>
+
+
+
+    <string name="dialog_title_copy_make_role_playing_instruct" translatable="false">When you tap OK, the text below is copied and open ChatGPT automatically. Paste the copied text and ask ChatGPT directly.</string>
+    <string name="dialog_title_how_to_make_role_playing" translatable="false">How to make role playing</string>
+    <string name="dialog_message_how_to_make_role_playing" translatable="false">1. Tap on the ChatGPT icon in the bottom right corner..\n\n2. Copy the role-playing text created by ChatGPT..\n\n3. Tap the + button in the bottom left corner and paste the copied text to create a role-playing scenario.</string>
+
+</resources>

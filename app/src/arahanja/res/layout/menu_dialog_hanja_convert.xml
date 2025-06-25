@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/ll_choose_hanja"
+                style="@style/WidthMatch"
+                android:visibility="visible"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tv_sync_known_with_server"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="Choose Hanja"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/ll_change_to_know"-->
+<!--                style="@style/WidthMatch"-->
+<!--                android:visibility="visible"-->
+<!--                android:orientation="vertical"-->
+<!--                >-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_sync_known"-->
+<!--                    style="@style/Button_Base"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="@dimen/activity_vertical_margin"-->
+<!--                    android:text="To known"-->
+<!--                    android:textColor="@drawable/btn_ok_color"-->
+<!--                    android:textSize="16sp" />-->
+
+<!--                <View-->
+<!--                    style="@style/Divider"-->
+<!--                    android:layout_marginStart="0dp" />-->
+<!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/ll_open_info_view"
+                style="@style/WidthMatch"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_sync_unknown"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="Open info view"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

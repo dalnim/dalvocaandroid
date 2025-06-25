@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/extra_buttons_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <ImageButton
+        android:id="@+id/btnGptAnswerInStudyLang"
+        style="@style/GptExtraButtonCommandStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_dic_english2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStudyLang"
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="StudyLang"
+        app:layout_constraintEnd_toEndOf="@+id/btnGptAnswerInStudyLang"
+        app:layout_constraintStart_toStartOf="@+id/btnGptAnswerInStudyLang"
+        app:layout_constraintTop_toBottomOf="@+id/btnGptAnswerInStudyLang" />
+
+    <ImageButton
+        android:id="@+id/btnGptAnswerInMotherTongue"
+        style="@style/GptExtraButtonCommandStyle"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_dic_korean"
+        app:layout_constraintEnd_toStartOf="@+id/btnGptVocaKnowPopup"
+        app:layout_constraintStart_toEndOf="@+id/btnGptAnswerInStudyLang"
+        app:layout_constraintTop_toTopOf="@+id/btnGptAnswerInStudyLang"
+        />
+
+    <TextView
+        android:id="@+id/tvMotherTongue"
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="MotherTongue"
+        app:layout_constraintEnd_toEndOf="@+id/btnGptAnswerInMotherTongue"
+        app:layout_constraintStart_toStartOf="@+id/btnGptAnswerInMotherTongue"
+        app:layout_constraintTop_toBottomOf="@+id/btnGptAnswerInMotherTongue" />
+
+    <ImageButton
+        android:id="@+id/btnGptVocaKnowPopup"
+        style="@style/GptExtraButtonCommandStyle"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_copy2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGptAnswerInMotherTongue" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="Copy"
+        app:layout_constraintEnd_toEndOf="@+id/btnGptVocaKnowPopup"
+        app:layout_constraintStart_toStartOf="@+id/btnGptVocaKnowPopup"
+        app:layout_constraintTop_toBottomOf="@+id/btnGptVocaKnowPopup" />
+
+    <ImageButton
+        android:id="@+id/btnGpt1"
+        style="@style/GptExtraButtonCommandStyle"
+        android:src="@drawable/ic_photo"
+        app:layout_constraintEnd_toEndOf="@+id/btnGptAnswerInMotherTongue"
+        app:layout_constraintStart_toStartOf="@+id/btnGptAnswerInMotherTongue"
+        app:layout_constraintTop_toTopOf="@+id/btnGpt2" />
+
+    <TextView
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="btnGptVocaKnowPopup"
+        app:layout_constraintEnd_toEndOf="@+id/btnGpt1"
+        app:layout_constraintStart_toStartOf="@+id/btnGpt1"
+        app:layout_constraintTop_toBottomOf="@+id/btnGpt3" />
+
+    <ImageButton
+        android:id="@+id/btnGpt2"
+        style="@style/GptExtraButtonCommandStyle"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintStart_toStartOf="@+id/btnGptAnswerInStudyLang"
+        app:layout_constraintTop_toBottomOf="@+id/tvStudyLang" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="showPopup"
+        app:layout_constraintEnd_toEndOf="@+id/btnGpt2"
+        app:layout_constraintStart_toStartOf="@+id/btnGpt2"
+        app:layout_constraintTop_toBottomOf="@+id/btnGpt2" />
+
+    <ImageButton
+        android:id="@+id/btnGpt3"
+        style="@style/GptExtraButtonCommandStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_send"
+        app:layout_constraintEnd_toEndOf="@+id/btnGptVocaKnowPopup"
+        app:layout_constraintStart_toStartOf="@+id/btnGptVocaKnowPopup"
+        app:layout_constraintTop_toTopOf="@+id/btnGpt1" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/GptExtraButtonCommandTextStyle"
+        android:text="Step"
+        app:layout_constraintEnd_toEndOf="@+id/btnGpt3"
+        app:layout_constraintStart_toStartOf="@+id/btnGpt3"
+        app:layout_constraintTop_toBottomOf="@+id/btnGpt3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

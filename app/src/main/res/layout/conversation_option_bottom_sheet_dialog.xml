@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bottom_sheet_practice_conversation_option"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/popup_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp" />
+
+
+    <TextView
+        android:id="@+id/tvPoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/textPrimaryWhiteColor"
+        android:text="@string/conversation_option_sheet_text_view_point" />
+
+    <RadioGroup
+        android:id="@+id/rgPracticeType"
+        android:checkedButton="@+id/rbWordMatchingMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rbSpeakingMode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:text="@string/conversation_option_sheet_menu_speaking_mode"/>
+        <RadioButton
+            android:id="@+id/rbWordMatchingMode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:text="@string/conversation_option_sheet_menu_word_matching_mode"/>
+    </RadioGroup>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/tbShowTranslation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/textPrimaryWhiteColor"
+        android:text="@string/conversation_option_sheet_menu_show_translation"
+        android:checked="false" />
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/tbPlayTts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/textPrimaryWhiteColor"
+        android:text="@string/conversation_option_sheet_menu_play_tts"
+        android:checked="false" />
+</LinearLayout>

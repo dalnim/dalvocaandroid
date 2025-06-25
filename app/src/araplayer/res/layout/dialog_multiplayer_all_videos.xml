@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:id="@+id/root"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/Match">
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/DividerDialogThick" />
+
+        <LinearLayout
+            android:id="@+id/llSettings"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvSettings"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/setting"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSelectVideosToPlay"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvSelectVideosToPlay"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_select_videos_to_play"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llResizeAllVideos"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvResizeAllVideos"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_resize_all_videos"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llHideAllVideosUI"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHideAllVideosUI"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_hide_all_videos_ui"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSwapScreens"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvSwapScreens"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_swap_screen_positions"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llUnmuteAllVideos"
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tvUnmuteAllVideos"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/multi_player_unmute_all_videos"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp" />
+
+                    <View
+                        style="@style/DividerDialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMuteAllVideos"
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tvMuteAllVideos"
+                    style="@style/Multi_Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/multi_player_mute_all_videos"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/DividerDialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayAllVideosABRepeat"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvPlayAllVideosABRepeat"
+                    style="@style/Multi_Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/multi_player_play_all_videos_ab_repeat"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp"
+                    android:visibility="visible"/>
+
+                <View
+                    style="@style/DividerDialog"/>
+            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPlayAllVideosIntervals"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvPlayAllVideosIntervals"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_play_all_videos_intervals"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp"
+                android:visibility="visible"/>
+
+            <View
+                style="@style/DividerDialog"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMoveAllVideosToStart"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvMoveAllVideosToStart"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_move_all_videos_to_start"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp"
+                android:visibility="visible"/>
+
+            <View
+                style="@style/DividerDialog"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llScreenStoreLayout"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvScreenStoreLayout"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_screen_store_layout"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llChooseScreenNumberOfScreens"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvChooseScreenNumberOfScreens"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_choose_number_of_screens"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialogThick" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Multi_Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

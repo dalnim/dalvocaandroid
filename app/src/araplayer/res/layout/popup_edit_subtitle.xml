@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <ScrollView
+            style="@style/Match"
+            android:paddingVertical="2dp">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etStudyLanguageContent"
+                    style="@style/EditText_Subtitle"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/background_edittext_center_round"
+                    android:hint="@string/study_language"
+                    android:imeOptions="actionNext" />
+
+                <EditText
+                    android:id="@+id/etTongueLanguageContent"
+                    style="@style/EditText_Subtitle"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/background_edittext_center_round"
+                    android:hint="@string/mother_tongue"
+                    android:imeOptions="actionNext" />
+
+
+                <include layout="@layout/layout_line_horizontal" />
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivUpdateOrAdd"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_border_4dp_gray"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_save" />
+
+                    <ImageView
+                        android:id="@+id/ivWebDictionary"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_border_4dp_gray"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_globe" />
+
+                    <ImageView
+                        android:id="@+id/ivTranslate"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_border_4dp_gray"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_translate_black" />
+
+                    <ImageView
+                        android:id="@+id/ivLMPlay"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_border_4dp_gray"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_new_play" />
+
+                    <ImageView
+                        android:id="@+id/ivSTT"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_border_4dp_gray"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_mic_none_black_24dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

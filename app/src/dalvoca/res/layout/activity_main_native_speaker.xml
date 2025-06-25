@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/recording_list"
+        app:leftIcon="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/tv_recorded_count"
+        style="@style/WidthMatch"
+        android:background="@color/color_header_background"
+        android:padding="8dp"
+        android:textSize="@dimen/header_text_size" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_book"
+        style="@style/Match" />
+</LinearLayout>

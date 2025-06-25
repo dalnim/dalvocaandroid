@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/item_padding_top_bottom"
+    android:paddingTop="@dimen/item_padding_top_bottom">
+
+    <ImageView
+        android:id="@+id/ic_play"
+        style="@style/Wrap"
+        android:padding="@dimen/icon_play_padding"
+        android:src="@drawable/ic_volume_up_48dp" />
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_word_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="@dimen/word_meaning_margin_top" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="@dimen/tutor_name_margin_top2"
+            android:orientation="horizontal">
+
+            <!--put Star View here-->
+
+            <TextView
+                android:id="@+id/tv_tutor_name"
+                style="@style/TextViewSubItem" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            style="@style/TextViewFeedback"
+            android:layout_marginTop="@dimen/feedback_margin_top" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        style="@style/ButtonBlue"
+        android:layout_marginEnd="@dimen/button_confirm_margin"
+        android:layout_marginStart="@dimen/button_confirm_margin"
+        android:text="@string/btn_confirm" />
+</LinearLayout>

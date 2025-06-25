@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:background="@color/backgroundGrayColorPopupBody"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_index"
+                style="@style/TextViewSubItem"
+                android:layout_marginStart="12dp"
+                tools:text="1" />
+
+            <ImageView
+                android:id="@+id/ic_play"
+                style="@style/Wrap"
+                android:padding="@dimen/icon_play_padding"
+                android:src="@drawable/ic_volume_up_48dp" />
+
+            <TextView
+                android:id="@+id/tv_study_count"
+                style="@style/TextViewSubItem"
+                android:layout_marginStart="2dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="study count" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/FillRemainHorizontal"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <com.dalread.component.FuriganaView
+                android:id="@+id/fv_word"
+                style="@style/TextViewItem"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorBlack"
+                />
+
+            <TextView
+                android:id="@+id/tv_word"
+                style="@style/TextViewItem"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                tools:text="word"/>
+
+            <TextView
+                android:id="@+id/tv_meaning"
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                tools:text="meaning" />
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                style="@style/TextViewItemSub"
+                android:layout_marginTop="12dp"
+                tools:text="feedback" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp">
+
+                <ImageView
+                    android:id="@+id/iv_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_big"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_big"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/ic_unknown_pronounce"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_unknown_pronounce" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_4_buttons"
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_known"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/btn_no_border_voca_know_known"
+            android:text="!"
+            android:textColor="@color/colorBlack" />
+
+<!--        <View-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1" />-->
+
+        <TextView
+            android:id="@+id/btn_grade_1"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
+            android:text="1"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/btn_grade_2"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
+            android:text="2"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/btn_exclude"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/btn_no_border_voca_know_unknown"
+            android:text="X"
+            android:textColor="@color/colorBlack" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_3_buttons"
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_no_border_grey1_background"
+                android:src="@drawable/ic_tutor_eval_a" />
+
+            <View
+                android:id="@+id/btn_a"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_border_black_only_selector" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_no_border_grey1_background"
+                android:src="@drawable/ic_tutor_eval_b" />
+
+            <View
+                android:id="@+id/btn_b"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_border_black_only_selector" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_no_border_grey1_background"
+                android:src="@drawable/ic_tutor_eval_c" />
+
+            <View
+                android:id="@+id/btn_c"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_border_black_only_selector" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

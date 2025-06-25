@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/lesson" />
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:text="@string/lesson_info" />
+
+    <LinearLayout
+        android:id="@+id/v_start_time"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/start_time" />
+
+        <TextView
+            android:id="@+id/tv_start_time"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_start_time"
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_lesson_minutes"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/lesson_minutes" />
+
+        <TextView
+            android:id="@+id/tv_lesson_minutes"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_finish_time"
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_student"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/student" />
+
+        <TextView
+            android:id="@+id/tv_student"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_tutor"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/tutor" />
+
+        <TextView
+            android:id="@+id/tv_tutor"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_study"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/study" />
+
+        <TextView
+            android:id="@+id/tv_study_lang"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_lesson_type"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/lesson_type" />
+
+        <TextView
+            android:id="@+id/tv_lesson_type"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btn_join"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_no_border_blue_background"
+        android:text="@string/join_lesson"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_no_border_blue_background"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite" />
+
+    <Button
+        android:id="@+id/btn_duplicate"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_no_border_orange_background"
+        android:text="@string/duplicate"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlack" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

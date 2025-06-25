@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/TextView_Player_Option_Layout_Item"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/TextView_Title"
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        style="@style/Wrap"
+        android:src="@drawable/ic_checkbox_1_checked"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivMove"
+        style="@style/Wrap"
+        android:src="@drawable/ic_menu_gray_24dp" />
+</LinearLayout>

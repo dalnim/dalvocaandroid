@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+<!--    <Button-->
+<!--        android:id="@+id/recognize_file"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/recognize_file"-->
+<!--        android:visibility="gone"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/recognize_mic"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/recognize_microphone"/>-->
+
+<!--    <ToggleButton-->
+<!--        android:id="@+id/pause"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textOff="@string/pause"-->
+<!--        android:textOn="@string/continueRecognition"/>-->
+
+    <TextView
+        android:id="@+id/tvDifficultWordAndMeaning"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundWhiteColor"
+        android:padding="5dp"
+        android:ellipsize="start"
+        android:maxLines="2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:text="tvDifficultWordAndMeaning "/>
+
+    <TextView
+        android:id="@+id/partial_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:padding="5dp"
+        android:gravity="bottom"
+        android:maxLines="2"
+        android:singleLine="false"
+        android:scrollbars="vertical"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:text="test text"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_info"
+            style="@style/WidthMatch"
+            android:layout_weight="1"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_term_ict"
+            />
+
+
+<!--    <me.zhanghai.android.fastscroll.FastScrollScrollView-->
+<!--        android:id="@+id/fssv_preview"-->
+<!--        android:background="@color/backgroundColor"-->
+<!--        android:layout_weight="1"-->
+<!--        style="@style/Match">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_info"-->
+<!--            style="@style/WidthMatch"-->
+<!--            tools:itemCount="1"-->
+<!--            tools:listitem="@layout/item_term_ict"-->
+<!--            />-->
+<!--    </me.zhanghai.android.fastscroll.FastScrollScrollView>-->
+
+    <include android:id="@+id/layout_stt"
+        layout="@layout/dialog_record_stt_mic"/>
+</LinearLayout>

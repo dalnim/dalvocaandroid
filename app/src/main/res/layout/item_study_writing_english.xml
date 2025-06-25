@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvVoca"
+    android:layout_width="@dimen/study_english_small_box_width"
+    android:layout_height="@dimen/study_english_small_box_height"
+    android:background="@drawable/btn_grey_border_white_background"
+    android:textColor="@color/textPrimaryColor"
+    android:gravity="center"
+    app:autoSizeMaxTextSize="@dimen/item_text_size"
+    app:autoSizeTextType="uniform"
+    tools:text="word" />

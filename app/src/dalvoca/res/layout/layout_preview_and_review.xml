@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_header_background"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp"
+        android:text="@string/preview_and_review"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/header_text_size" />
+
+    <View
+        style="@style/Divider"
+        android:layout_marginStart="0dp" />
+
+    <LinearLayout
+        android:id="@+id/v_preview_today_lesson"
+        style="@style/WidthMatch"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            style="@style/TextViewItem"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/preview_today_lesson" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_record_lessons"
+        style="@style/WidthMatch"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            style="@style/TextViewItem"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/record_lessons" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+</LinearLayout>

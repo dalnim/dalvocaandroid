@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:background="@color/backgroundColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    tools:visibility="visible"
+    >
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:padding="0dp">
+        <TextView
+            android:id="@+id/tvBookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="22sp"
+            android:autoSizeMinTextSize="12sp"
+            android:gravity="center"
+            android:textIsSelectable="true"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/textPrimaryColor"
+            android:background="@color/backgroundColor"
+            tools:text = "Book title Book title Book title Book title Book title Book title  Book title Book title Book title Book title "
+            />
+
+    </LinearLayout>
+</LinearLayout>

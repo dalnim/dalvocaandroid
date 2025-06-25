@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutFooter"
+    style="@style/Layout_Footer"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivFooterSort"
+        style="@style/ImageView_Header"
+        android:padding="@dimen/padding_icon_header"
+        android:src="@drawable/ic_sort" />
+
+    <LinearLayout
+        style="@style/Wrap"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivFooterLevel"
+            style="@style/ImageView_Header"
+            android:padding="@dimen/padding_icon_header"
+            android:src="@drawable/ic_menu_level" />>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivFooterSpeak"
+        style="@style/ImageView_Header"
+        android:padding="@dimen/padding_icon_header"
+        android:src="@drawable/ic_speak" />
+</LinearLayout>

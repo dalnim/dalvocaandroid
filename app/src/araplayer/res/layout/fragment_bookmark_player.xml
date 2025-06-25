@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:animateLayoutChanges="true"
+    android:keepScreenOn="true"
+    android:weightSum="3">
+
+    <FrameLayout
+        android:id="@+id/llPlayer"
+        style="@style/Match"
+        android:background="@color/black"
+        android:layout_weight="1">
+
+        <com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/playerView"
+            style="@style/Match"
+            app:auto_show="true"
+            app:fastforward_increment="10000"
+            app:repeat_toggle_modes="none"
+            app:resize_mode="fixed_width"
+            app:rewind_increment="10000"
+            app:show_timeout="0"
+            app:surface_type="surface_view"
+            app:use_controller="false" />
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/ll_repeat"
+                layout="@layout/layout_bookmark_player_play_repeat" />
+        </LinearLayout>
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvRubyBottom"
+            style="@style/Player_Subtitle_Ruby"
+            android:layout_gravity="center|bottom" />
+
+        <TextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Player_Subtitle_Ruby"
+            android:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/llCenter"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:background="@color/transparentBlack"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivCenterPlay"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/exo_controls_pause"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvCenterText"
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_signup"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <include
+        android:id="@+id/layout_player_subtitle_table"
+        layout="@layout/layout_player_subtitle_table"/>
+</LinearLayout>

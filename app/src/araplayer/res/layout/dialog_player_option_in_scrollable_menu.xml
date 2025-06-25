@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/scrollable_menu_open_option_desc" />
+        <androidx.core.widget.NestedScrollView
+            style="@style/Match">
+        <LinearLayout
+            android:id="@+id/llPlayRepetition"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llPlayBeforeASubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/before_a_subtitle" />
+
+                    <TextView
+                        android:id="@+id/tvPlayBeforeASubtitle"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        android:text="AUTO" />
+
+                    <ImageView
+                        style="@style/ImageView_Player_Option_Icon_Arrow"/>
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayAfterASubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/after_a_subtitle" />
+
+                    <TextView
+                        android:id="@+id/tvPlayAfterASubtitle"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        android:text="AUTO" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llKeepPlayingBetweenSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/keep_playing_between_subtitles" />
+
+                    <TextView
+                        android:id="@+id/tvKeepPlayingBetweenSubtitle"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        android:text="AUTO" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSkipPlayingNoSubtitlePart"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scSkipPlayingNoSubtitlePart"
+                    style="@style/SwitchSetting"
+                    android:padding="10dp"
+                    android:text="@string/msg_skip_playing_no_subtitle_part"
+                    android:textColor="@color/textPrimaryColor" />
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvOK"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/close"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

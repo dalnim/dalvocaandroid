@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WidthMatch"
+    android:id="@+id/root"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:background="@color/home_side_menu_item_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_manual_2"
+            android:id="@+id/ivIcon"
+          />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView_Left_Naviation_Title"
+            android:layout_gravity="center"
+            android:background="@color/transparent"
+            android:layout_weight="1"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:gravity="center"
+            tools:text="title"/>
+    </LinearLayout>
+
+    <View
+        style="@style/DividerDialog" />
+
+<!--    <include layout="@layout/layout_line_horizontal" />-->
+</LinearLayout>

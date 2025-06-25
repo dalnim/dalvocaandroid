@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--    <string name="app_name" tools:ignore="MissingTranslation">Ara Converse</string>-->
+    <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
+    <!--Screen How To Use-->
+    <!--    <string name="app_introduction" translatable="false">App introduction</string>-->
+
+    <!--    <string name="app_introduction_1" translatable="false">Listen ordinary people\'s voice from world</string>-->
+    <!--    <string name="app_introduction_2" translatable="false">You can record your voice and listen</string>-->
+    <!--    <string name="app_introduction_3" translatable="false">Improve listening skill by unlimited repetition.</string>-->
+    <!--    <string name="app_introduction_4" translatable="false">You can bookmark the difficult sentences</string>-->
+    <!--    <string name="app_introduction_5" translatable="false">There are many workbooks for you</string>-->
+
+    <!--    <string name="app_introduction_1" translatable="false">Listen ordinary Korean people\'s voice</string>-->
+    <!--    <string name="app_introduction_2" translatable="false">You can record your voice and listen after Korean\'s voice</string>-->
+    <!--    <string name="app_introduction_3" translatable="false">Improve listening skill by unlimited repetition.</string>-->
+    <!--    <string name="app_introduction_4" translatable="false">You can bookmark the difficult sentences</string>-->
+    <!--    <string name="app_introduction_5" translatable="false">You can practice writing Hangul</string>-->
+
+    <!--    AraHangul-->
+<!--    <string name="app_introduction" translatable="false">Giới thiệu ứng dụng</string>-->
+<!--    <string name="app_introduction_1" translatable="false">Bạn có thể luyện viết Hangul</string>-->
+<!--    <string name="app_introduction_2" translatable="false">Bạn có thể luyện gõ Hangul</string>-->
+<!--    <string name="app_introduction_3" translatable="false">Nghe giọng nói của người Hàn Quốc</string>-->
+<!--    <string name="app_introduction_4" translatable="false">Bạn có thể tham gia trò chuyện nhóm của Kakao để gặp gỡ những người Hàn Quốc thực sự</string>-->
+<!--    <string name="app_introduction_5" translatable="false">Sử dụng Ara Hangul miễn phí.</string>-->
+
+    <string name="conv_home_menu_hangul" translatable="false">Hangul</string>
+    <string name="conv_home_menu_previous_practice" translatable="false">Previous</string>
+    <string name="conv_home_menu_basic_expression" translatable="false">Cơ bản</string>
+    <string name="conv_home_menu_travel_airport" translatable="false">Sân bay</string>
+    <string name="conv_home_menu_travel_restaurant" translatable="false">Thức ăn</string>
+    <string name="conv_home_menu_travel_hotel" translatable="false">Khách sạn</string>
+    <string name="conv_home_menu_travel_transport" translatable="false">Vận chuyển</string>
+    <string name="conv_home_menu_travel_shopping" translatable="false">Mua sắm</string>
+    <string name="conv_home_menu_travel_tour" translatable="false">Tham quan</string>
+    <string name="conv_home_menu_travel_telephone" translatable="false">Điện thoại</string>
+    <string name="conv_home_menu_travel_emergency" translatable="false">Khẩn cấp</string>
+    <string name="conv_home_menu_record" translatable="false">Ghi âm</string>
+    <string name="conv_home_menu_bookmark" translatable="false">Dấu trang</string>
+    <string name="nav_bottom_menu_main" translatable="false">Chính</string>
+    <string name="nav_bottom_menu_main_hangul" translatable="false">Chính</string>
+    <string name="nav_bottom_menu_bookmark" translatable="false">dấu trang</string>
+    <string name="nav_bottom_menu_workbook" translatable="false">Sổ làm việc</string>
+    <string name="nav_bottom_menu_hangul" translatable="false">Hangul</string>
+
+
+    <string name="conv_home_menu_practice_hangul_writing" translatable="false">Thực hành Viết Hangul</string>
+    <string name="conv_home_menu_practice_hangul_typing" translatable="false">Thực hành Gõ Hangul</string>
+    <string name="conv_home_menu_final_consonants" translatable="false">Phụ âm cuối</string>
+    <string name="conv_home_menu_combine_consonants_and_vowels" translatable="false">Kết hợp các phụ âm và nguyên âm</string>
+    <string name="conv_home_menu_combination_vowels" translatable="false">Các Nguyên âm Kết hợp</string>
+    <string name="conv_home_menu_vowels" translatable="false">Nguyên âm</string>
+    <string name="conv_home_menu_double_consonants" translatable="false">Phụ âm đôi</string>
+    <string name="conv_home_menu_consonants" translatable="false">Phụ âm</string>
+    <string name="nav_bottom_menu_hangul_writing" translatable="false">Viết</string>
+    <string name="nav_bottom_menu_hangul_typing" translatable="false">Thực hành</string>
+    <string name="menu_naver_cafe_writing_practice_paper_download" translatable="false">Tải xuống bảng tính Hangul</string>
+
+</resources>

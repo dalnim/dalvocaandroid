@@ -1,0 +1,69 @@
+<resources>
+    <string-array name="how_to_use_list">
+        <item>@string/app_introduction</item>
+        <item>@string/tb_wordbooks</item>
+    </string-array>
+    <string-array name="attachment_options">
+        <item>@string/photo</item>
+        <item>@string/camera</item>
+        <item>@string/recording_</item>
+    </string-array>
+    <string-array name="income_text_message_options">
+        <item>@string/copy_message</item>
+        <item>@string/reply</item>
+    </string-array>
+    <string-array name="outcome_text_message_options">
+        <item>@string/copy_message</item>
+        <item>@string/reply</item>
+        <item>@string/edit_message</item>
+        <item>@string/delete_message</item>
+    </string-array>
+    <string-array name="income_photo_message_options">
+        <item>@string/open_image</item>
+        <item>@string/download_image</item>
+    </string-array>
+    <string-array name="outcome_photo_message_options">
+        <item>@string/delete_image</item>
+        <item>@string/open_image</item>
+        <item>@string/download_image</item>
+    </string-array>
+    <string-array name="income_voice_message_options">
+        <item>@string/download_voice</item>
+    </string-array>
+    <string-array name="outcome_voice_message_options">
+        <item>@string/delete_voice</item>
+        <item>@string/download_voice</item>
+    </string-array>
+    <string-array name="level_options">
+        <item>@string/student_level_low_beginner</item>
+        <item>@string/student_level_beginner</item>
+        <item>@string/student_level_low_intermediate</item>
+        <item>@string/student_level_intermediate</item>
+        <item>@string/student_level_low_advanced</item>
+        <item>@string/student_level_advanced</item>
+    </string-array>
+    <string-array name="correct_pronunciation_options">
+        <item>@string/correct_pronunciation_never</item>
+        <item>@string/correct_pronunciation_sometimes</item>
+        <item>@string/correct_pronunciation_frequently</item>
+    </string-array>
+    <string-array name="speaking_speed_options">
+        <item>@string/speaking_speed_slow</item>
+        <item>@string/speaking_speed_normal</item>
+        <item>@string/speaking_speed_fast</item>
+    </string-array>
+    <string-array name="reading_speed_options">
+        <item>@string/reading_speed_slow</item>
+        <item>@string/reading_speed_normal</item>
+        <item>@string/reading_speed_fast</item>
+    </string-array>
+    <string-array name="exam_type_options">
+        <item>@string/word_meaning</item>
+        <item>@string/meaning_word</item>
+        <item>@string/random</item>
+    </string-array>
+    <string-array name="lesson_type_options">
+        <item>@string/phone</item>
+        <item>@string/text_chat</item>
+    </string-array>
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:background="@color/backgroundColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        style="@style/Wrap"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/tv_index"
+            style="@style/TextViewSubItem" />
+
+        <View
+            android:id="@+id/vBookCoverImage"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:background="@color/colorBlue" />
+        <TextView
+            android:id="@+id/tvInAppBuyBook"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:gravity="center"
+            android:background="@color/primaryColor"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:text="@string/inapp_buy_book"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <com.dalread.component.CustomFontSizeTextView
+            android:id="@+id/tv_name"
+            style="@style/TextViewItem"
+            android:ellipsize="middle"
+            android:maxLines="2"
+            app:defaultTextSize="@dimen/item_text_size"
+            tools:text = "Book title Book title Book title Book title Book title Book title Book title Book title Book title Book title "
+             />
+
+        <TextView
+            android:id="@+id/tv_count"
+            style="@style/TextViewItem"
+            android:layout_marginTop="16dp"
+            tools:text="Count"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivInformation"
+        style="@style/Wrap"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_info"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/ic_check"
+        style="@style/Wrap"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp"
+        tools:ignore="ContentDescription" />
+</LinearLayout>

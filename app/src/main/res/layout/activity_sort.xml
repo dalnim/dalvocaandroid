@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/activity_horizontal_margin_item"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_DalRead_Speak_Title"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/word_list_sort_title" />
+
+        <TextView
+            android:id="@+id/btnSortAsc"
+            style="@style/Button_Base"
+            android:text="@string/word_list_sort_asc"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnSortDesc"
+            style="@style/Button_Base"
+            android:text="@string/word_list_sort_desc"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/Button_Base"
+            android:text="@string/login_btn_cancel"
+            android:textColor="@color/colorRed" />
+    </LinearLayout>
+
+</RelativeLayout>

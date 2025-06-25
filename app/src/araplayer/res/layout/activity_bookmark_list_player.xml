@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightIcon="@drawable/ic_play_white_24dp"
+        app:rightText="@string/edit"
+        app:title="@string/bookmark_list" />
+
+    <TextView
+        android:id="@+id/tvRepeatTimes"
+        style="@style/WidthMatch"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:background="@color/backgroundCellHeaderColor"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="18sp"
+        android:text="@string/repeat_times" />
+
+    <com.yanzhenjie.recyclerview.SwipeRecyclerView
+        android:id="@+id/rvList"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:background="@color/backgroundColor"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_player_bookmark"/>
+
+    <include layout="@layout/layout_line_horizontal" />
+
+    <RelativeLayout
+        style="@style/WidthMatch"
+        android:background="@color/backgroundBottomNavBarColor"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llSelect"
+            style="@style/Wrap"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                style="@style/ImageView_Player"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:src="@mipmap/ic_menu_level_n" />
+
+            <TextView
+                style="@style/TextViewSettingLabelBase"
+                android:layout_gravity="center"
+                android:text="@string/select"
+                tools:text="select"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRepeat"
+            style="@style/Wrap"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                style="@style/ImageView_Player"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:src="@drawable/ic_repetition" />
+
+            <TextView
+                style="@style/TextViewSettingLabelBase"
+                android:layout_gravity="center"
+                android:text="@string/repeat" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group>
+        <item
+            android:id="@+id/sort"
+            android:title="@string/sortFiles"
+            app:actionViewClass="android.widget.TextView" />
+        <item
+            android:id="@+id/settings"
+            android:title="@string/setting"
+            app:actionViewClass="android.widget.TextView" />
+        <item
+            android:id="@+id/ftp"
+            android:title="@string/FTP"
+            app:actionViewClass="android.widget.TextView" />
+
+    </group>
+</menu>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/edit_profile"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"/>
+
+    <ScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/v_name"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_nation"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/nation" />
+
+                <TextView
+                    android:id="@+id/tv_nation"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_city"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/city" />
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_gender"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/gender" />
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_age"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/age" />
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_bio"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/bio" />
+
+                <TextView
+                    android:id="@+id/tv_bio"
+                    style="@style/TextViewSettingValue"
+                    android:ellipsize="end"
+                    android:maxLines="2" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:background="@color/backgroundGrayColor">
+
+
+        <ImageView
+            android:id="@+id/ivWordList"
+            style="@style/ImageView_Player"
+            android:src="@drawable/ic_word_list"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintEnd_toStartOf="@+id/ivRefresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivAdjustTableHeight" />
+
+        <ImageView
+            android:id="@+id/ivRefresh"
+            style="@style/ImageView_Player"
+            android:src="@drawable/ic_refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintEnd_toStartOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivWordList"
+            app:layout_constraintTop_toTopOf="@+id/ivAdjustTableHeight" />
+
+        <ImageView
+            android:id="@+id/ivAdjustTableHeight"
+            style="@style/ImageView_Player"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_adjust_table_height2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivClear"
+            style="@style/ImageView_Player"
+            android:src="@drawable/ic_baseline_delete_forever_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintEnd_toStartOf="@+id/ivTranslate"
+            app:layout_constraintStart_toEndOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintTop_toTopOf="@+id/ivAdjustTableHeight" />
+
+        <ImageView
+            android:id="@+id/ivTranslate"
+            style="@style/ImageView_Player"
+            android:src="@drawable/ic_translate_black"
+            app:tint="@color/icon_day_only_color2"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAdjustTableHeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivClear"
+            app:layout_constraintTop_toTopOf="@+id/ivAdjustTableHeight"
+            />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

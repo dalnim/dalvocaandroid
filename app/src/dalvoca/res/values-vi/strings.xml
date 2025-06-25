@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Screen How To Use-->
+    <string name="app_introduction">Giới thiệu ứng dụng</string>
+    <string name="app_introduction_1">1</string>
+    <string name="app_introduction_2">2</string>
+    <string name="app_introduction_3">3</string>
+    <string name="app_introduction_4">4</string>
+    <string name="app_introduction_5">5</string>
+</resources>

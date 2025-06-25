@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <LinearLayout
+            android:id="@+id/llRegenerateThumbnailList"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/regenerate_thumbnail_list"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAutoScrolling"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/auto_scroll_list"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llKnownPhrases"
+            style="@style/WidthMatch"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <RelativeLayout style="@style/WidthMatch">
+
+                <TextView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_circle_light_blue"
+                    android:gravity="center"
+                    android:text="!"
+                    android:textSize="16sp" />
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/known_phrases"
+                    android:textColor="@color/colorButtonOkEnable"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llUnknownPhrases"
+            style="@style/WidthMatch"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <RelativeLayout style="@style/WidthMatch">
+
+                <TextView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_circle_grey"
+                    android:gravity="center"
+                    android:text="X"
+                    android:textSize="16sp" />
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/unknown_phrases"
+                    android:textColor="@color/colorButtonOkEnable"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

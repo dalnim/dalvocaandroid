@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/tb_wordbooks_hangul"
+        app:leftIcon="@drawable/ic_back"/>
+
+    <include
+        android:id="@+id/includeWorkbooksHangul"
+        layout="@layout/layout_wordbooks_hangul" />
+</LinearLayout>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@+id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"
+        app:title="@string/etc" />
+
+    <ScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewSettingHeader"
+                android:text="@string/push_notification" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_enable_notification"
+                style="@style/SwitchSetting"
+                android:text="@string/enable" />
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_before_start"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/before_begin_class" />
+
+                <TextView
+                    android:id="@+id/tv_before_start"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/v_before_finish"
+                style="@style/ItemSetting">
+
+                <TextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/before_finish_class" />
+
+                <TextView
+                    android:id="@+id/tv_before_finish"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/v_my_info"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewSettingHeader"
+                    android:text="@string/my_info" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_lead_lesson"
+                    style="@style/SwitchSetting"
+                    android:text="@string/lead_lesson" />
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_level"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/student_level" />
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_free_talking"
+                    style="@style/SwitchSetting"
+                    android:text="@string/free_talking" />
+
+                <View style="@style/Divider" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_small_talk"
+                    style="@style/SwitchSetting"
+                    android:text="@string/small_talk" />
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_correct_pronunciation"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/correct_pronunciation" />
+
+                    <TextView
+                        android:id="@+id/tv_correct_pronunciation"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_speaking_speed"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/speaking_speed" />
+
+                    <TextView
+                        android:id="@+id/tv_speaking_speed"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_reading_speed"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/reading_speed" />
+
+                    <TextView
+                        android:id="@+id/tv_reading_speed"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_repeat_topics"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/repeat_topics" />
+
+                    <TextView
+                        android:id="@+id/tv_repeat_topics"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_repeat_count"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/repeat_count" />
+
+                    <TextView
+                        android:id="@+id/tv_repeat_count"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:id="@+id/v_exam_type"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/exam_type" />
+
+                    <TextView
+                        android:id="@+id/tv_exam_type"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_record_lesson"
+                    style="@style/SwitchSetting"
+                    android:text="@string/record_lesson" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/v_study_order"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewSettingHeader"
+                    android:text="@string/study_order_at_a_normal_lesson" />
+
+                <LinearLayout
+                    android:id="@+id/v_phrases_to_study"
+                    style="@style/ItemSetting">
+
+                    <TextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/phrases_to_study" />
+
+                    <TextView
+                        android:id="@+id/tv_phrases_to_study"
+                        style="@style/TextViewSettingValue" />
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_hide_parts_of_words"
+                    style="@style/SwitchSetting"
+                    android:text="@string/hide_parts_of_words" />
+
+                <View style="@style/Divider" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_hide_all_phrases"
+                    style="@style/SwitchSetting"
+                    android:text="@string/hide_all_phrases" />
+
+                <View style="@style/Divider" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_random_questions"
+                    style="@style/SwitchSetting"
+                    android:text="@string/random_questions" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

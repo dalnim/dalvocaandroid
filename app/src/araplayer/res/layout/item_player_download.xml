@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    style="@style/WidthMatch"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivStatus"
+        style="@style/ImageView_Player"
+        android:src="@drawable/ic_download_gray_24dp" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextView_Header"
+            android:ellipsize="middle"
+            android:maxLines="3"
+            tools:text="Downloading video title Downloading video title Downloading video title Downloading video title "/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/TextView_Value"
+            android:lines="1"
+            tools:text="Status"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/make_favorite"
+        android:title="@string/make_favorite" />
+
+    <item
+        android:id="@+id/add_to_favorite"
+        android:title="@string/add_to_favorite" />
+
+    <item
+        android:id="@+id/add_workbook"
+        android:title="@string/add_other_workbook_here" />
+
+    <item
+        android:id="@+id/copy"
+        android:title="@string/copy_selected_text" />
+
+    <item
+        android:id="@+id/backup"
+        android:title="@string/backup_selected_text" />
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/open_settings" />
+
+    <item
+        android:id="@+id/quiz"
+        android:title="@string/make_a_quiz" />
+
+</menu>

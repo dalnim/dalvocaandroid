@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            android:id="@+id/tv_all"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/select_all"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_none"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/unselect_all"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_unknown"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/select_only_unknown_words"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_range"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/select_range_title"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_last"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/last_selected"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

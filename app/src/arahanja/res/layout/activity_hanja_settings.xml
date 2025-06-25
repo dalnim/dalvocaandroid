@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/title_setting" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Match"
+        android:background="@color/backgroundColor">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_choose_lang"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <com.dalread.component.CustomFontSizeTextView
+                style="@style/TextViewSettingHeader"
+                android:text="@string/choose_lang" />
+
+            <LinearLayout
+                android:id="@+id/v_menu_value"
+                style="@style/ItemSetting">
+
+                <com.dalread.component.CustomFontSizeTextView
+                    style="@style/TextViewSettingLabel"
+                    android:text="@string/menu_displaying" />
+
+                <com.dalread.component.CustomFontSizeTextView
+                    android:id="@+id/tv_menu_value"
+                    style="@style/TextViewSettingValue" />
+
+                <ImageView
+                    style="@style/Wrap"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+        </LinearLayout>
+
+        <com.dalread.component.CustomFontSizeTextView
+            style="@style/TextViewSettingHeader"
+            android:text="@string/etc" />
+
+        <LinearLayout
+            android:id="@+id/ll_etc"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <LinearLayout style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/v_choose_theme"
+                    style="@style/ItemSetting">
+
+                    <com.dalread.component.CustomFontSizeTextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/choose_theme" />
+
+                    <com.dalread.component.CustomFontSizeTextView
+                        android:id="@+id/tv_selected_theme"
+                        style="@style/TextViewSettingValue"
+                        android:gravity="right"/>
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout style="@style/ItemSetting"
+                    android:orientation="horizontal">
+                    <com.dalread.component.CustomFontSizeTextView
+                        android:id="@+id/tvAppVersionItem"
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/app_version" />
+
+                    <com.dalread.component.CustomFontSizeTextView
+                        android:id="@+id/tvAppVersionValue"
+                        style="@style/TextViewSettingValue"
+                        android:layout_height="36dp"
+                        android:gravity="center_vertical|right"
+                        android:layout_marginEnd="12dp"
+                        tools:text="0.0.1"/>
+                </LinearLayout>
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHanjaFontSize"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/ItemSetting"
+                    android:orientation="horizontal">
+                    <com.dalread.component.CustomFontSizeTextView
+                        style="@style/TextViewSettingLabel"
+                        android:text="@string/menu_hanja_font_size" />
+
+                    <com.dalread.component.CustomFontSizeTextView
+                        android:id="@+id/tvFontSize"
+                        style="@style/TextViewSettingValue"
+                        android:layout_weight="1"
+                        tools:text="@string/display_font_size_list_smallest"/>
+
+                    <ImageView
+                        style="@style/Wrap"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+        </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

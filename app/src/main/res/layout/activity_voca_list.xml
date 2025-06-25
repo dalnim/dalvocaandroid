@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llRoot"
+    style="@style/ViewBase"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.dalread.component.Toolbar
+            android:id="@+id/header"
+            style="@style/WidthMatch"
+            app:leftIcon="@drawable/ic_back"
+            app:rightText="@string/menu"
+            app:title="@string/tb_word_list"/>
+
+        <include
+            android:id="@+id/LayoutItemWordListPlayerHeader"
+            layout="@layout/item_word_list_player_header"
+            android:visibility="gone"/>
+
+        <me.zhanghai.android.fastscroll.FastScrollScrollView
+            android:id="@+id/fssvPreview"
+            android:background="@color/backgroundColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_voca_4buttons" />
+        </me.zhanghai.android.fastscroll.FastScrollScrollView>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nvBottom"
+            style="@style/WidthMatch"
+            android:layout_alignParentBottom="true"
+            app:itemBackground="@color/backgroundColor"
+            app:itemIconTint="@drawable/selector_voca"
+            app:itemTextColor="@drawable/selector_voca"
+            app:menu="@menu/menu_bottom_word_list" />
+    </LinearLayout>
+
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabChatApi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"
+        app:backgroundTint="@color/fab_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_globe"
+        tools:visibility="visible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"
+        app:backgroundTint="@color/fab_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_globe"
+        tools:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

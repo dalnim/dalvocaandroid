@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SegmentedGroup">
+        <attr name="sc_corner_radius" format="dimension" />
+        <attr name="sc_border_width" format="dimension" />
+        <attr name="sc_tint_color" format="color" />
+        <attr name="sc_checked_text_color" format="color" />
+        <attr name="sc_unchecked_tint_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="AwesomeRadioButton">
+        <attr name="awesome_text" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="CompoundButton">
+        <attr name="android:button" />
+    </declare-styleable>
+
+    <declare-styleable name="Header">
+        <attr name="title" format="string|reference" />
+        <attr name="searchShow" format="boolean|reference" />
+        <attr name="leftIcon" format="integer|reference" />
+        <attr name="leftIcon2" format="integer|reference" />
+        <attr name="rightIcon" format="integer|reference" />
+        <attr name="rightIcon2" format="integer|reference" />
+        <attr name="rightText" format="string|reference" />
+        <attr name="rightColor" format="integer|reference" />
+        <attr name="rightShow" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FuriganaView">
+        <attr name="jText" format="string" />
+        <attr name="line_spacing" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="TextViewOutline">
+        <attr name="outlineSize" format="dimension"/>
+        <attr name="outlineColor" format="color|reference"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:shadowDx"/>
+        <attr name="android:shadowDy"/>
+        <attr name="android:shadowColor"/>
+    </declare-styleable>
+
+    <declare-styleable name="ReadMoreTextView">
+        <attr name="trimExpandedText" format="string" />
+        <attr name="trimCollapsedText" format="string" />
+        <attr name="trimLength" format="integer" />
+        <attr name="showTrimExpandedText" format="boolean" />
+        <attr name="colorClickableText" format="color" />
+        <attr name="trimLines" format="integer" />
+        <attr name="trimMode">
+            <enum name="trimModeLine" value="0"/>
+            <enum name="trimModeLength" value="1"/>
+        </attr>
+        <attr name="textIsSelectable" format="boolean"/>
+        <attr name="enableTrimMode" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomFontSizeTextView">
+        <attr name="defaultTextSize" format="dimension" />
+        <attr name="defaultWidth" format="dimension" />
+        <attr name="defaultHeight" format="dimension" />
+    </declare-styleable>
+</resources>

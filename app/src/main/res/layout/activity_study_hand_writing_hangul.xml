@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundGrayColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/study_writing"
+        app:leftIcon="@drawable/ic_back"/>
+
+    <RelativeLayout
+        style="@style/WidthMatch"
+        android:background="@color/backgroundGrayColorPopupBody"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivSpeaker"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_volume_up_outline_48dp" />
+
+        <ImageView
+            android:id="@+id/ivRecord"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_mic_none_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvPronounce"
+            style="@style/WidthMatch"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@id/ivRecord"
+            android:layout_toEndOf="@id/ivSpeaker"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="26sp"
+            tools:text="기역(Giyeok)"/>
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/Match">
+
+        <include
+            android:id="@+id/v_study"
+            layout="@layout/fragment_study_hand_writing" />
+
+        <TextView
+            android:id="@+id/tv_toast"
+            style="@style/VocaToastBlack"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/recording"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

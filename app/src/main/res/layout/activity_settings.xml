@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:id="@+id/root"
+    android:background="@color/backgroundCellColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/title_setting" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Match">
+
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+<!--            choose_lang-->
+            <LinearLayout
+                android:id="@+id/llTableHeaderChooseLanguage"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvTableHeaderChooseLanguage"
+                    style="@style/Table_Header"
+                    android:text="@string/choose_lang" />
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llStudyLang"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/study_language" />
+                    <TextView
+                        android:id="@+id/tvStudyLangValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        tools:text="English"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMenuDisplayLang"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llMenuDisplayLangInside"
+                    style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        android:id="@+id/tvMenuDisplayLangItem"
+                        style="@style/Table_Item"
+                        android:text="@string/menu_displaying" />
+                    <TextView
+                        android:id="@+id/tvMenuDisplayLangValue"
+                        style="@style/Table_Item_Value"
+                        android:gravity="right"
+                        android:layout_weight="1"
+                        tools:text="korean"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMotherTongueLang"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Table_Item"
+                        android:text="@string/mother_tongue" />
+                    <TextView
+                        android:id="@+id/tvMotherTongueLangValue"
+                        style="@style/Table_Item_Value"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:text="Korean"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llLangLevel"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Table_Item"
+                        android:text="@string/language_level" />
+                    <TextView
+                        android:id="@+id/tvLangLevel"
+                        style="@style/Table_Item_Value"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:text="중급"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <!--            Play Voice -->
+            <LinearLayout
+                android:id="@+id/llTableHeaderPlayVoice"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Table_Header"
+                    android:text="@string/play_voice" />
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llReadCountValueToPlayTts"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/read_count" />
+                    <TextView
+                        android:id="@+id/tvReadCountValueToPlayTtsValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:layout_weight="1"
+                        android:gravity="right" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPreferredNativeSpeakersCount"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/preferred_native_speakers" />
+                    <TextView
+                        android:id="@+id/tvPreferredNativeSpeakersCount"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:layout_weight="1"
+                        android:gravity="right" />
+                    <ImageView
+                        android:id="@+id/ivPreferredNativeSpeakersCountArrow"
+                        style="@style/Item_Setting_Cell_Arrow" />
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llIncludeMyVoice"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scIncludeMyVoice"
+                        style="@style/Item_Setting_Switch"
+                        android:checked="true"
+                        android:text="@string/include_my_voice" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPauseTimeToRepeatTts"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPauseTimeToRepeatTts"
+                        style="@style/Item_Setting_Switch"
+                        android:checked="false"
+                        android:text="@string/pause_time_to_repeat_tts" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayMotherTongueOnlyFirstRoundFinishOnConversation"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPlayMotherTongueOnlyFirstRoundFinishOnConversation"
+                        style="@style/Item_Setting_Switch"
+                        android:checked="true"
+                        android:text="@string/play_mother_tongue_only_first_round_on_conversation" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llIncludeMotherTongueSubtitle"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scIncludeMotherTongueSubtitle"
+                        style="@style/Item_Setting_Switch"
+                        android:text="@string/include_mother_tongue_subtitle" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayDifficultWordsBeforePlayingSubtitles"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPlayDifficultWordsBeforePlayingSubtitles"
+                        style="@style/Item_Setting_Switch"
+                        android:text="@string/play_difficult_words_before_playing_subtitles" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llIncludeMeaning"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scIncludeMeaning"
+                        style="@style/Item_Setting_Switch"
+                        android:text="@string/include_meaning" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+
+            <!--            tts_speed -->
+            <LinearLayout
+                android:id="@+id/llTableGroupTtsSpeed"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llTableHeaderTtsSpeed"
+                    style="@style/WidthMatch"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/Table_Header"
+                        android:text="@string/tts_speed" />
+                    <View style="@style/Item_Setting_Cell_Divider" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLetStudy"
+                    style="@style/Table_Item_Base"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textPrimaryColor"
+                    tools:text="Let's study"/>
+
+                <LinearLayout
+                    style="@style/ItemSetting"
+                    android:gravity="center_vertical"
+                    android:background="@color/backgroundCellColor"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp">
+
+                    <TextView
+                        style="@style/Table_Item_Base"
+                        android:text="@string/speed" />
+
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/sbPlayTtsSpeed"
+                        style="@style/SeekBarSetting"
+                        android:max="100" />
+
+                    <TextView
+                        android:id="@+id/tvPlayTtsSpeed"
+                        style="@style/Table_Item_Base"
+                        tools:text="16"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBtnSayTts"
+                    style="@style/Table_Item_Base"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/btn_button"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/say"
+                    android:textColor="@color/colorBlue" />
+
+            </LinearLayout>
+            <!--            etc -->
+            <LinearLayout
+                android:id="@+id/llTableHeaderEtc"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvTableHeaderEtc"
+                    style="@style/Table_Header"
+                    android:text="@string/etc" />
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAppVersion"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llAppVersionInside"
+                    style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        android:id="@+id/tvAppVersionItem"
+                        style="@style/Table_Item"
+                        android:text="@string/app_version" />
+                    <TextView
+                        android:id="@+id/tvAppVersionValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:gravity="center_vertical|right" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llShowAdvancedMode"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scShowAdvancedMode"
+                        style="@style/SwitchSetting"
+                        android:text="@string/setting_menu_advanced_mode" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llGptWebMenuValue"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/setting_menu_gpt_web_menu" />
+                    <TextView
+                        android:id="@+id/tvGptWebMenuValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:gravity="center_vertical|right" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWebDictionary"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/web_dictionary" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llChooseDarkTheme"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llChooseDarkThemeInside"
+                    style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        android:id="@+id/tvChooseDarkThemeItem"
+                        style="@style/Table_Item"
+                        android:text="@string/choose_theme" />
+                    <TextView
+                        android:id="@+id/tvChooseDarkThemeValue"
+                        style="@style/Table_Item_Value"
+                        android:gravity="right"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llChooseGpt"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/setting_menu_choose_gpt" />
+                    <TextView
+                        android:id="@+id/tvChooseGptValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:gravity="right"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSecureScreen"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scSecureScreen"
+                        style="@style/Item_Setting_Switch"
+                        android:checked="true"
+                        android:text="@string/setting_enable_secure_screen" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llChooseFoldersForMedia"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llChooseFoldersForMediaInside"
+                    style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        android:id="@+id/tvChooseFoldersForMediaItem"
+                        style="@style/Table_Item"
+                        android:text="@string/setting_menu_folders_for_media" />
+                    <TextView
+                        android:id="@+id/tvChooseFoldersForMediaValue"
+                        style="@style/Table_Item_Value"
+                        android:gravity="right"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDisplayEnglishMeaningToo"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scDisplayEnglishMeaningToo"
+                        style="@style/Item_Setting_Switch"
+                        android:text="@string/display_english_meaning_too" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llKeepDisplayingBackgroundHintWhenWriting"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scKeepDisplayingBackgroundHintWhenWriting"
+                        style="@style/Item_Setting_Switch"
+                        android:text="@string/setting_keep_displaying_background_hint_when_writing" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCountOfNotRatedWordBeforePlaying"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                    <TextView
+                        style="@style/Item_Setting_Cell_Label"
+                        android:text="@string/count_not_rated_words_only_to_display_in_subtitle" />
+                    <TextView
+                        android:id="@+id/tvCountOfNotRatedWordBeforePlayingValue"
+                        style="@style/Item_Setting_Cell_Sub_Label"
+                        android:gravity="right"
+                        android:layout_weight="1"
+                        tools:text="55555"/>
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llKeepPlayingOnBackgroundMode"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scKeepPlayingOnBackgroundMode"
+                        style="@style/SwitchSetting"
+                        android:text="@string/keep_playing_on_background_mode" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayVideoAutomaticallyWhenOpenIt"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPlayVideoAutomaticallyWhenOpenIt"
+                        style="@style/SwitchSetting"
+                        android:text="@string/play_video_automatically_when_open_it" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayVideoFromWhereYouLeft"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scPlayVideoFromWhereYouLeft"
+                        style="@style/SwitchSetting"
+                        android:text="@string/play_video_from_where_you_left" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHide4ButtonsOnPlayingScreen"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scHide4ButtonsOnPlayingScreen"
+                        style="@style/SwitchSetting"
+                        android:text="@string/setting_menu_hide_4_buttons_on_playing_screen" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/llShowVideoInCameraFolder"-->
+<!--                style="@style/Item_Setting_Cell"-->
+<!--                android:orientation="vertical">-->
+<!--                <LinearLayout style="@style/WidthMatch">-->
+<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                        android:id="@+id/scShowVideoInCameraFolder"-->
+<!--                        style="@style/SwitchSetting"-->
+<!--                        android:text="@string/show_video_in_dcim" />-->
+<!--                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>-->
+<!--                </LinearLayout>-->
+<!--                <View style="@style/Item_Setting_Cell_Divider" />-->
+<!--            </LinearLayout>-->
+
+
+            <LinearLayout
+                android:id="@+id/llTranslateSubtitleFromServer"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scTranslateSubtitleFromServer"
+                        style="@style/SwitchSetting"
+                        android:text="@string/translate_subtitle_from_server" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSyncSubtitlesAtServer"
+                style="@style/Item_Setting_Cell"
+                android:orientation="vertical">
+                <LinearLayout style="@style/WidthMatch">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scSyncSubtitlesAtServer"
+                        style="@style/SwitchSetting"
+                        android:text="@string/sync_subtitles_at_server" />
+                    <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+                </LinearLayout>
+                <View style="@style/Item_Setting_Cell_Divider" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+        <!--            quiz (DalVoca) -->
+        <LinearLayout
+            android:id="@+id/llTableHeaderQuiz"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Table_Header"
+                android:text="@string/quiz" />
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMaxQuiz"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                <TextView
+                    style="@style/Table_Item"
+                    android:text="@string/max_quiz" />
+                <TextView
+                    android:id="@+id/tvMaxQuiz"
+                    style="@style/Table_Item_Value"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    tools:text="20"/>
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDisplayPronunciation"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/WidthMatch">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scDisplayPronunciation"
+                    style="@style/Item_Setting_Switch"
+                    android:text="@string/display_pronunciation" />
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAllowChat"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/WidthMatch">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scAllowChat"
+                    style="@style/SwitchSetting"
+                    android:text="@string/allow_chat" />
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llShareMyRecordings"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/WidthMatch">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scShareMyRecordings"
+                    style="@style/SwitchSetting"
+                    android:text="@string/share_my_recordings" />
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAutoPlay"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/WidthMatch">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scAutoPlay"
+                    style="@style/SwitchSetting"
+                    android:text="@string/auto_play_in_recording_all" />
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llHanjaFontSize"
+            style="@style/Item_Setting_Cell"
+            android:orientation="vertical">
+            <LinearLayout style="@style/Item_Setting_Cell_Inside">
+                <TextView
+                    style="@style/Item_Setting_Cell_Label"
+                    android:text="@string/menu_hanja_font_size" />
+                <TextView
+                    android:id="@+id/tvFontSize"
+                    style="@style/Item_Setting_Cell_Sub_Label"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    tools:text="@string/display_font_size_list_smallest"/>
+                <ImageView style="@style/Item_Setting_Cell_Arrow"/>
+            </LinearLayout>
+            <View style="@style/Item_Setting_Cell_Divider" />
+        </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

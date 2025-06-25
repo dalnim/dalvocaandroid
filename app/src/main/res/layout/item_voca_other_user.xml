@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <ImageView
+        android:id="@+id/ic_play"
+        style="@style/Wrap"
+        android:padding="@dimen/icon_play_padding"
+        android:src="@drawable/ic_volume_up_48dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ic_send"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="center"
+        android:src="@mipmap/ic_icons_push_homework"
+        />
+
+    <ImageView
+        android:id="@+id/ic_right"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_main_menu"
+        android:icon="@drawable/ic_book"
+        android:title="@string/nav_bottom_menu_main"/>
+    <item
+        android:id="@+id/nav_main_bookmark"
+        android:icon="@drawable/ic_favorite_off"
+        android:title="@string/nav_bottom_menu_bookmark" />
+<!--    <item-->
+<!--        android:id="@+id/nav_main_dictionary"-->
+<!--        android:icon="@drawable/ic_book_vertical"-->
+<!--        android:title="@string/nav_bottom_menu_dictionary" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/nav_main_workbook"-->
+<!--        android:icon="@drawable/ic_word_list"-->
+<!--        android:title="@string/nav_bottom_menu_workbook" />-->
+
+    <item
+        android:id="@+id/nav_main_hangul_writing"
+        android:icon="@drawable/ic_nav_bottom_writing_hangul"
+        android:title="@string/nav_bottom_menu_hangul_writing" />
+    <item
+        android:id="@+id/nav_main_hangul_typing"
+        android:icon="@drawable/ic_nav_bottom_keyboard"
+        android:title="@string/nav_bottom_menu_hangul_typing" />
+
+    <item
+        android:id="@+id/nav_main_chat_gpt"
+        android:icon="@drawable/ic_chatgpt"
+        android:title="@string/nav_bottom_menu_chat_gpt" />
+</menu>

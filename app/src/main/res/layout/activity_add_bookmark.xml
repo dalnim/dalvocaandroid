@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header_text_left" />
+
+    <LinearLayout
+        style="@style/Layout_Padding"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            style="@style/ImageView_Bookmark"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivFavicon"
+                style="@style/ImageView_Bookmark" />
+
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                style="@style/Wrap"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/item_spacing_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etName"
+                style="@style/EditText_Main"
+                android:hint="@string/bookmark_hint_name" />
+
+            <EditText
+                android:id="@+id/etUrl"
+                style="@style/EditText_Main"
+                android:hint="@string/bookmark_hint_url" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

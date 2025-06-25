@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ic_refresh"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_refresh_24dp" />
+
+    <TextView
+        android:id="@+id/tvVoca"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_grey_border_white_background"
+        android:textSize="@dimen/item_text_size" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_voca"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="@dimen/study_english_small_box_offset" />
+
+    <TextView
+        android:id="@+id/tv_practice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/item_text_size" />
+</LinearLayout>

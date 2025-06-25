@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    style="@style/WidthMatch"
+    android:background="@color/backgroundCellColor"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_weight="1"
+        style="@style/TextView_Title"
+        tools:text="title"/>
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        style="@style/ImageView_Item_Movie"
+        android:layout_marginLeft="@dimen/activity_vertical_margin_item"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_checkbox_1_checked" />
+</LinearLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <LinearLayout
+            android:id="@+id/llShow4Buttons"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvShow4Buttons"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_show_4_buttons"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llShowSearchDictonaryOption"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvShowSearchDictonaryOption"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_show_search_dictionary_option"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llShowPlayAllWords"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvShowPlayAllWords"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_show_play_all_word"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llWordList"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_word_list"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llOpenSetting"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvOpenSetting"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/open_settings"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llClearSearchHistory"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvClearSearchHistory"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/menu_clear_search_history"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCopy"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/copy"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMakeRolePlaying"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_make_role_playing"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llChatGpt"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/dialog_menu_open_chat_gpt"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBackToHome"
+            style="@style/Match"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvBackToHome"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/back_to_home"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

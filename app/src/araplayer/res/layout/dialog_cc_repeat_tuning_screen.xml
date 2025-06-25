@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/color_text"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <ImageView
+                android:id="@+id/tv_sync_previous_dialogue_end_time_to_current_dialog_start_time"
+                style="@style/WidthMatch"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_sync_previous_dialogue_end_time_to_current_dialog_start_time" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <ImageView
+                android:id="@+id/tv_sync_current_dialogue_start_time_to_previous_dialog_end_time"
+                style="@style/WidthMatch"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_sync_current_dialogue_start_time_to_previous_dialog_end_time" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <ImageView
+                android:id="@+id/tv_sync_current_dialogue_end_time_to_next_dialog_start_time"
+                style="@style/WidthMatch"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_sync_current_dialogue_end_time_to_next_dialog_start_time" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <ImageView
+                android:id="@+id/tv_sync_next_dialogue_start_time_to_current_dialog_end_time"
+                style="@style/WidthMatch"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_sync_next_dialogue_start_time_to_current_dialog_end_time" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

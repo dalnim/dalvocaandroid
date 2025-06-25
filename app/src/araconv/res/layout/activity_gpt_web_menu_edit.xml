@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2sp"
+    android:orientation="vertical">
+
+    <ScrollView style="@style/Match">
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:text="Shortcut 단축어"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/etShortcut"
+                style="@style/TextView_Hanja_Edit"
+                android:hint="Enter shortcut phrase"/>
+
+            <TextView
+                android:text="Expanded phrase 전체 문구"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etExpandedPharse"
+                style="@style/TextView_Hanja_Sentence_Edit"
+                android:hint="Enter expanded phrase 전체 문구를 입력하세요. 전체 문구를 입력할때 %는 현재 복사된 문구로 대치됩니다." />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/btnCancel"
+                    style="@style/Button_Base"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_4dp_gray"
+                    android:text="@string/login_btn_cancel"
+                    android:layout_marginEnd="30dp"
+                    android:textColor="@color/textVeryLiteWhiteColor" />
+                <TextView
+                    android:id="@+id/btnOk"
+                    style="@style/Button_Base"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_4dp_gray"
+                    android:text="@string/tts_ok"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@drawable/btn_ok_color" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

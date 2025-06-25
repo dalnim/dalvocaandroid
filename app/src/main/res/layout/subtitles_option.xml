@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header_back" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/Layout_Padding"
+        android:orientation="vertical">
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="@drawable/background_border_white"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/subtitleTitle"
+                style="@style/TextView_Title"
+                android:textSize="20sp"
+                android:text="@string/subtitle"/>
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_marginTop="@dimen/activity_vertical_margin_item"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/languages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="@drawable/background_border_white"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tvEtcTitle"
+                style="@style/TextView_Title"
+                android:textSize="20sp"
+                android:text="@string/etc"/>
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_marginTop="@dimen/activity_vertical_margin_item"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:id="@+id/idArrow_Encoding"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+                    <TextView
+                        android:layout_weight="3"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/encoding"/>
+                    <TextView
+                        android:layout_weight="1"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="Auto"
+                        android:id="@+id/encoding_value"
+                        android:alpha="0.5"/>
+                    <ImageView
+                        android:alpha="0.4"
+                        android:layout_gravity="center_vertical"
+                        style="@style/ImageView_Item_Movie"
+                        android:padding="5dp"
+                        android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                        android:src="@mipmap/ic_right" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:id="@+id/idArrow_List"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_weight="4"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/words_list"/>
+                    <ImageView
+                        android:alpha="0.4"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        style="@style/ImageView_Item_Movie"
+                        android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                        android:src="@mipmap/ic_right" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:id="@+id/idArrow_Mode"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_weight="3"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/subtitle_mode"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/mode_value"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="Normal"
+                        android:alpha="0.5"/>
+                    <ImageView
+                        android:alpha="0.4"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        style="@style/ImageView_Item_Movie"
+                        android:layout_marginRight="@dimen/activity_vertical_margin_item"
+                        android:src="@mipmap/ic_right" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/movie_path"/>
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/path"
+                        android:layout_weight="1"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:text="Normal"
+                        android:alpha="0.5"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

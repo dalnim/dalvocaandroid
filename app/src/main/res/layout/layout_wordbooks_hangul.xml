@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:id="@+id/llRoot"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:id="@+id/gl_option"
+        style="@style/WidthMatch"
+        android:columnCount="2">
+
+        <ImageView
+            android:id="@+id/v_hangul_1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_hangul_1" />
+
+        <ImageView
+            android:id="@+id/v_hangul_2"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_hangul_2" />
+
+        <ImageView
+            android:id="@+id/v_hangul_3"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_hangul_3" />
+
+        <ImageView
+            android:id="@+id/v_hangul_4"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_hangul_4" />
+
+
+        <ImageView
+            android:id="@+id/vPracticeHangul2"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_hangul_writing" />
+
+
+        <ImageView
+            android:id="@+id/vPracticeHangul1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_hangul_typing" />
+
+    </GridLayout>
+</LinearLayout>

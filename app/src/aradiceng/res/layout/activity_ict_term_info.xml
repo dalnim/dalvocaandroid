@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/BackgroundHanjaVocaInfoMain"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/detail_info" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/layoutItemHanjaSentenceInfoIconsHeader"
+            layout="@layout/item_ict_term_info_icons_header" />
+
+        <ScrollView style="@style/WidthMatch">
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEngAbbr"
+                    style="@style/WidthMatch"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+                    android:minHeight="48dp"
+                    android:textStyle="bold"
+                    android:lineSpacingMultiplier="1"
+                    tools:text="Eng Abbr Eng Abbr"/>
+
+
+                <TextView
+                    android:id="@+id/tvEngFull"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+                    android:minHeight="48dp"
+                    android:textSize="24sp"
+                    tools:text="Eng Full " />
+
+                <TextView
+                    android:id="@+id/tvUrl"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="@color/color_web_url"
+                    android:minHeight="48dp"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="Url " />
+
+                <TextView
+                    android:id="@+id/tvKoTitle"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+                    android:minHeight="48dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="Korean Short Korean Short " />
+
+                <TextView
+                    android:id="@+id/tvKoShort"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_marginTop="4dp"
+                    android:minHeight="48dp"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="22sp"
+                    tools:text="Korean Full Korean Full Korean Full " />
+
+                <TextView
+                    android:id="@+id/tvKoFull"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_marginTop="4dp"
+                    android:minHeight="48dp"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="22sp"
+                    tools:text="Korean Full Korean Full Korean Full " />
+            </LinearLayout>
+        </ScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_info"
+            style="@style/WidthMatch"
+            android:layout_height="0dp"
+            android:background="@color/color_grouped_radical_background"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_voca_hanja_word_grid" />
+
+<!--        <me.zhanghai.android.fastscroll.FastScrollScrollView-->
+<!--            android:id="@+id/fssv_preview"-->
+<!--            android:background="@color/color_grouped_radical_background"-->
+<!--            android:layout_weight="0.6"-->
+<!--            style="@style/WidthMatch">-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_info"-->
+<!--                style="@style/WidthMatch"-->
+<!--                tools:itemCount="1"-->
+<!--                tools:listitem="@layout/item_voca_hanja_word_grid"/>-->
+<!--        </me.zhanghai.android.fastscroll.FastScrollScrollView>-->
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:visibility="gone"
+        style="@style/Match"
+        />
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/studied_today"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/send"/>
+
+    <LinearLayout
+        android:id="@+id/v_start_time"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/start_time" />
+
+        <TextView
+            android:id="@+id/tv_start_time"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_start_time"
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_finish_time"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/end_time" />
+
+        <TextView
+            android:id="@+id/tv_finish_time"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_finish_time"
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/tutor" />
+
+        <TextView
+            android:id="@+id/tv_tutor"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/student" />
+
+        <TextView
+            android:id="@+id/tv_student"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:id="@+id/v_last_topic"
+        style="@style/ItemSetting">
+
+        <TextView
+            style="@style/TextViewSettingLabel"
+            android:text="@string/last_topic" />
+
+        <TextView
+            android:id="@+id/tv_last_book"
+            style="@style/TextViewSettingValue" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_last_book"
+            style="@style/Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:text="@string/studied_topics" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_book"
+        style="@style/Match" />
+</LinearLayout>

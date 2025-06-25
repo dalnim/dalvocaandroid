@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose_subtitle_group"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/scHideKnownDialog"
+                style="@style/SwitchSetting"
+                android:gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="@string/hide_known_dialogs"
+                android:textColor="@color/textPrimaryColor" />
+
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <LinearLayout
+                android:id="@+id/llDeleteUselessSubtitles"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDeleteUselessSubtitles"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/delete_useless_subtitles"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSelectSubtitles"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSelectSubtitles"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/select_subtitles"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/close"
+                android:textColor="@drawable/btn_ok_color"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

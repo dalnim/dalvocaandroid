@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View style="@style/DividerDialogThick" />
+
+        <LinearLayout
+            android:id="@+id/llSelectAll"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSelectAll"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/media_list_more_menu_select_all"
+                android:textColor="@drawable/btn_ok_color"
+
+                android:textSize="16sp" />
+
+            <View style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llUnSelectAll"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUnSelectAll"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/media_list_more_menu_unselect_all"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/divider_tv_edit"
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llConvertToHiddenFiles"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvConvertToHiddenFiles"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/media_list_more_menu_convert_to_hidden_files"
+                android:textColor="@drawable/btn_ok_color"
+
+                android:textSize="16sp" />
+
+            <View style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llConvertToNormalFiles"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvConvertToNormalFiles"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/media_list_more_menu_convert_to_normal_files"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDeleteFile"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDeleteFile"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/delete"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRemoveFromPlaylist"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRemoveFromPlaylist"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/media_list_more_menu_remove_from_playlist"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View style="@style/DividerDialogThick" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

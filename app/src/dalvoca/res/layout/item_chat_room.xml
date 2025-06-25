@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/iv_room_avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_chat_on" />
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_room_name"
+            style="@style/Wrap"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_last_message"
+            style="@style/Wrap"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_last_date"
+        style="@style/Wrap"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp" />
+</LinearLayout>

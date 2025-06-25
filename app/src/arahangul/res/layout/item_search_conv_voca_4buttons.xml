@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:background="@color/backgroundColor"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/llVocaPronounce"
+                style="@style/Wrap"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <com.dalread.component.CustomFontSizeTextView
+                    android:id="@+id/tvVoca"
+                    style="@style/Textview_Voca"
+                    android:layout_weight="1"
+                    android:textIsSelectable="true"
+                    android:layout_marginEnd="16dp"
+                    app:defaultTextSize="@dimen/item_voca_size"
+                    tools:text="Voca Voca"/>
+
+                <com.dalread.component.CustomFontSizeTextView
+                    android:id="@+id/tvShortPronounce"
+                    style="@style/Textview_Pronounce"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:textIsSelectable="true"
+                    app:defaultTextSize="@dimen/item_pronounce_size"
+                    tools:visibility="visible"
+                    tools:text="pronounce"/>
+            </LinearLayout>
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvLongPronounce"
+                style="@style/Textview_Pronounce"
+                android:textIsSelectable="true"
+                android:visibility="gone"
+                app:defaultTextSize="@dimen/item_pronounce_size"
+                tools:visibility="visible"
+                tools:text="Long pronounce"/>
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvMeaningEnglish"
+                style="@style/Textview_Meaning"
+                android:textIsSelectable="true"
+                app:defaultTextSize="@dimen/item_meaning_size_small"
+                tools:text="(Meaning English)"/>
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvMeaning"
+                style="@style/Textview_Meaning"
+                android:textIsSelectable="true"
+                app:defaultTextSize="@dimen/item_meaning_size_small"
+                tools:text="Meaning"/>
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvMeaningEnglishDetailed"
+                style="@style/Textview_Meaning"
+                android:textIsSelectable="true"
+                app:defaultTextSize="@dimen/item_meaning_size_small"
+                tools:text="(Meaning Detailed English)"/>
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvMeaningDetailed"
+                style="@style/Textview_Meaning"
+                android:textIsSelectable="true"
+                app:defaultTextSize="@dimen/item_meaning_size_small"
+                tools:text="Meaning Detailed"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        style="@style/WidthMatch"
+        android:layout_marginTop="5dp"
+        android:padding="0dp">
+
+        <TextView
+            android:id="@+id/tv_index"
+            style="@style/TextViewSubItem"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"
+            android:layout_alignParentStart="true"
+            android:text="1"/>
+
+
+        <ImageView
+            android:id="@+id/ivMic"
+            style="@style/ImageView_Player_Circle_No_Margin"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/tv_index"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_mic_none_black_24dp" />
+
+
+        <ImageView
+            android:id="@+id/ivEditView"
+            style="@style/ImageView_Player_Circle_No_Margin"
+            android:src="@drawable/ic_edit2"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="100dp"
+            app:tint="@color/black" />
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llSpeaker"-->
+<!--            style="@style/Wrap"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
+
+
+            <ImageView
+                android:id="@+id/ivSpeaker"
+                style="@style/ImageView_Player_Circle_No_Margin"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_volume_up_48dp" />
+
+<!--        </LinearLayout>-->
+
+
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                style="@style/ImageView_Player_Circle_No_Margin"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="100dp"
+                android:src="@drawable/ic_favorite_new_off"
+                tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/llKnowValue"
+            style="@style/Wrap"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivKnow"
+                style="@style/ImageView_VocaKnow_With_Bookmark"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_voca_know_circle_notrated" />
+
+
+            <ImageView
+                android:id="@+id/ivKnowPronounce"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@id/ivKnow"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/ic_unknown_pronounce"
+                tools:visibility="visible"/>
+
+
+        </LinearLayout>
+        <!--        </LinearLayout>-->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_4_buttons"
+        style="@style/WidthMatch"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/iv_known"
+            style="@style/ButtonGrade"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_no_border_voca_know_known"
+            android:text="!" />
+
+        <TextView
+            android:id="@+id/iv_grade_1"
+            style="@style/ButtonGrade"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/iv_grade_2"
+            style="@style/ButtonGrade"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
+            android:text="2" />
+
+        <TextView
+            android:id="@+id/iv_unknown"
+            style="@style/ButtonGrade"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_no_border_voca_know_unknown"
+            android:text="X" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,185 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_two">32dp</dimen>
+    <dimen name="activity_vertical_margin_two">32dp</dimen>
+    <dimen name="activity_horizontal_margin_item">8dp</dimen>
+    <dimen name="activity_vertical_margin_item">8dp</dimen>
+
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing_text">10dp</dimen>
+    <dimen name="button_bottom_base_vertical_spacing_text">14dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+
+    <dimen name="dialog_horizontal_margin">40dp</dimen>
+    <dimen name="dialog_vertical_margin">16dp</dimen>
+
+    <dimen name="header_size">48dp</dimen>
+    <dimen name="word_list_segment_size">20dp</dimen>
+
+    <dimen name="font_splash">50sp</dimen>
+    <dimen name="font_splash_language">30sp</dimen>
+    <dimen name="font_item_word_list">23sp</dimen>
+    <dimen name="font_item_word_meaning">18sp</dimen>
+    <dimen name="font_signup">22sp</dimen>
+    <dimen name="font_header">18sp</dimen>
+    <dimen name="font_popup_header">16sp</dimen>
+    <dimen name="font_title">16sp</dimen>
+    <dimen name="font_bottom_button">16sp</dimen>
+    <dimen name="font_cast_name_in_media">14sp</dimen>
+    <dimen name="font_table_header">18sp</dimen>
+    <dimen name="font_table_item">16sp</dimen>
+    <dimen name="font_table_item_value">16sp</dimen>
+    <dimen name="font_player_option_sub_header">16sp</dimen>
+    <dimen name="font_video_title_in_video_list">14sp</dimen>
+    <dimen name="font_value">14sp</dimen>
+    <dimen name="font_edittext_main_large">24sp</dimen>
+    <dimen name="font_Left_Navigation_UserName">20sp</dimen>
+    <dimen name="font_Left_Navigation_Title">18sp</dimen>
+    <dimen name="font_inf_value">12sp</dimen>
+    <dimen name="font_memo">10sp</dimen>
+    <dimen name="font_quiz_4_buttons">14sp</dimen>
+    <dimen name="font_showcaseview_title">18sp</dimen>
+    <dimen name="padding_icon_header">12dp</dimen>
+    <dimen name="edit_text_padding">10dp</dimen>
+    <dimen name="edit_text_margin">5dp</dimen>
+    <dimen name="item_spacing_horizontal">5dp</dimen>
+    <dimen name="border_radius">5dp</dimen>
+    <dimen name="border_width">1dp</dimen>
+
+    <dimen name="radio_button_conner_radius">5dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+    <dimen name="padding_view_word_list">10dp</dimen>
+    <dimen name="padding_image_word_list">5dp</dimen>
+
+    <dimen name="size_reading_list">85dp</dimen>
+
+    <dimen name="toolbar_padding">8dp</dimen>
+    <dimen name="toolbar_icon_padding">4dp</dimen>
+    <dimen name="toolbar_icon_size">32dp</dimen>
+    <dimen name="toolbar_icon_text_size">32sp</dimen>
+    <dimen name="icon_double_volumn_up_margin">4dp</dimen>
+    <dimen name="icon_double_volumn_up_padding">8dp</dimen>
+    <dimen name="study_sum_padding">8dp</dimen>
+    <dimen name="study_sum_margin_top">12dp</dimen>
+    <dimen name="icon_play_padding">8dp</dimen>
+    <dimen name="word_name_margin_top">8dp</dimen>
+    <dimen name="word_name_text_size">14sp</dimen>
+    <dimen name="word_meaning_margin_top">12dp</dimen>
+    <dimen name="tutor_name_margin_top">12dp</dimen>
+    <dimen name="tutor_name_margin_top2">8dp</dimen>
+    <dimen name="tutor_name_margin_bottom">8dp</dimen>
+    <dimen name="tutor_name_text_size">12sp</dimen>
+    <dimen name="feedback_margin_top">8dp</dimen>
+    <dimen name="feedback_margin_bottom">8dp</dimen>
+    <dimen name="icon_right_padding_left">-8dp</dimen>
+    <dimen name="button_study_margin_left">8dp</dimen>
+    <dimen name="button_confirm_margin">16dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="test_summary_text_size">14sp</dimen>
+    <dimen name="test_summary_margin">8dp</dimen>
+    <dimen name="test_question_text_size">20sp</dimen>
+    <dimen name="test_question_margin_top">40dp</dimen>
+    <dimen name="test_question_width">256dp</dimen>
+    <dimen name="test_first_answer_margin_top">32dp</dimen>
+    <dimen name="test_answer_margin_top">16dp</dimen>
+    <dimen name="test_answer_text_size">20sp</dimen>
+    <dimen name="test_answer_button_width">240dp</dimen>
+    <dimen name="test_answer_icon_margin_bottom">100dp</dimen>
+    <dimen name="item_setting_switch_padding_left">10sp</dimen>
+    <dimen name="item_setting_switch_padding_right">10dp</dimen>
+    <dimen name="item_setting_switch_padding_top">2dp</dimen>
+    <dimen name="item_setting_switch_padding_bottom">2dp</dimen>
+
+    <dimen name="setting_header_text_size">14sp</dimen>
+    <dimen name="setting_header_padding_top">4dp</dimen>
+    <dimen name="setting_switch_padding_top">12dp</dimen>
+    <dimen name="setting_header_padding_left">12dp</dimen>
+
+
+
+    <dimen name="setting_label_text_size">14sp</dimen>
+    <dimen name="study_english_small_box_width">80dp</dimen>
+    <dimen name="study_english_small_box_height">45dp</dimen>
+    <dimen name="study_english_small_box_offset">8dp</dimen>
+    <dimen name="study_hanja_small_box_width">60dp</dimen>
+    <dimen name="study_hanja_small_box_margin">10dp</dimen>
+    <dimen name="study_hanja_small_box_height">100dp</dimen>
+    <dimen name="study_chinese_box_size">240dp</dimen>
+    <dimen name="item_padding_top_bottom">8dp</dimen>
+    <dimen name="item_padding_left_right">12dp</dimen>
+
+    <dimen name="item_subtitle_size">18sp</dimen>
+    <dimen name="item_subtitle_meaning_size">18sp</dimen>
+    <dimen name="title_play_all_count">16sp</dimen>
+    <dimen name="item_voca_size">16sp</dimen>
+    <dimen name="item_voca_size_linespacing">0.8</dimen>
+    <dimen name="item_pronounce_size">15sp</dimen>
+    <dimen name="item_pronounce_size_linespacing">0.8</dimen>
+    <dimen name="item_meaning_size">20sp</dimen>
+    <dimen name="item_meaning_size_small">14sp</dimen>
+    <dimen name="item_meaning_size_small_linespacing">0.8</dimen>
+    <dimen name="item_text_hanja_size">28sp</dimen>
+    <dimen name="item_hanja_book_voca_size">30sp</dimen>
+    <dimen name="item_hanja_book_unknown_voca_size">24sp</dimen>
+    <dimen name="item_hanja_book_meaning_size">24sp</dimen>
+    <dimen name="item_hanja_book_meaning_detailed_size">20sp</dimen>
+    <dimen name="item_title_gagya">24sp</dimen>
+    <dimen name="sub_item_text_size">12sp</dimen>
+    <dimen name="header_text_size">14sp</dimen>
+    <dimen name="last_watched_video_title_text_size">13sp</dimen>
+    <dimen name="grade_text_size">18sp</dimen>
+    <dimen name="rv_pronounce_symbol_margin">16dp</dimen>
+    <dimen name="item_pronounce_symbol_size">32dp</dimen>
+    <dimen name="tokbox_button_size">100dp</dimen>
+    <dimen name="tokbox_item_avatar_size">120dp</dimen>
+    <dimen name="tokbox_item_mic_size">30dp</dimen>
+    <dimen name="voca_hanja_margin_start">10dp</dimen>
+
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="widget_border_width">48dp</dimen>
+    <dimen name="widget_border_height">44dp</dimen>
+    <dimen name="widget_flag_text_size">10sp</dimen>
+    <dimen name="widget_day_text_size">10sp</dimen>
+    <dimen name="widget_time_text_size">16sp</dimen>
+    <dimen name="widget_name_text_size">12sp</dimen>
+    <dimen name="widget_name_margin_top">0dp</dimen>
+
+    <dimen name="font_player_subtitle_ruby">18sp</dimen>
+    <dimen name="font_player_subtitle_ruby_fullscreen">28sp</dimen>
+
+    <dimen name="bg_voca_know_width">24dp</dimen>
+    <dimen name="bg_voca_know_height">24dp</dimen>
+
+    <dimen name="scrollable_menu_item_width">60dp</dimen>
+    <dimen name="scrollable_menu_icon_size">36dp</dimen>
+
+    <dimen name="ad_view_vertical_padding">10dp</dimen>
+    <dimen name="minimum_panel_in_player_width">200dp</dimen>
+
+    <dimen name="card_corner_radius">6dp</dimen>
+    <dimen name="subitle_extension_radius">15dp</dimen>
+
+    <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
+    <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+
+    <dimen name="today_voca_text_size">20sp</dimen>
+    <dimen name="today_voca_meaning_text_size">18sp</dimen>
+
+
+    <dimen name="item_text_size">16sp</dimen>
+    <dimen name="item_text_size_prompt_edit">14sp</dimen>
+    <dimen name="term_text_size_in_cell">16sp</dimen>
+
+    <dimen name="cell_stt_difficult_word_and_meaning_text_size">16sp</dimen>
+    <dimen name="cell_stt_study_lang_text_size">18sp</dimen>
+    <dimen name="cell_stt_mother_tongue_lang_text_size">18sp</dimen>
+    <dimen name="cell_stt_timestamp_text_size">14sp</dimen>
+
+    <dimen name="app_corner_radius">16dp</dimen>
+
+    <dimen name="item_practice_title_study_lang">16sp</dimen>
+    <dimen name="item_practice_title_mother_tongue">14sp</dimen>
+
+</resources>

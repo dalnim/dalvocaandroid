@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/TextView_Player_Option_Layout_Item"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        style="@style/ImageView_Player_Play"
+        android:scaleType="fitCenter"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/ic_no_avatar" />
+
+    <LinearLayout
+        style="@style/Match"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView_Cast_Name"
+            android:layout_weight="1"
+            android:text="real_name"
+            android:textSize="@dimen/font_header" />
+
+        <TextView
+            android:id="@+id/tv_character_name"
+            style="@style/TextView_Character_name"
+            android:layout_weight="1"
+            android:text="character_name"
+            android:textSize="@dimen/font_header" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        style="@style/ImageView_Item_Movie"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+
+</LinearLayout>

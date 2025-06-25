@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">DalVoca</string>
+    <!--Screen How To Use-->
+    <string name="app_introduction">App introduction</string>
+    <string name="app_introduction_1">Listen to sentences recorded by native speakers.</string>
+    <string name="app_introduction_2">Choose \"!\" for known phrases, Choose \"1\" or \"2\" to add as a memorization target</string>
+    <string name="app_introduction_3">Other users can see sentences marked as \"1\". They will help you memorize them.</string>
+    <string name="app_introduction_4">Only you and your tutor can see sentences marked as \"2\".</string>
+    <string name="app_introduction_5">Make a custom workbook by selecting phrases you want to practice more.</string>
+</resources>

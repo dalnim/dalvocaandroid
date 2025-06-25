@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <ImageView
+        android:id="@+id/ic_play"
+        style="@style/Wrap"
+        android:padding="@dimen/icon_play_padding"
+        android:src="@drawable/ic_volume_up_48dp" />
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_word_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="@dimen/word_meaning_margin_top" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="@dimen/tutor_name_margin_top2"
+            android:orientation="horizontal">
+
+            <!--put Star View here-->
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                style="@style/TextViewSubItem" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_tutor_name"
+            style="@style/TextViewFeedback"
+            android:layout_marginTop="@dimen/feedback_margin_top" />
+    </LinearLayout>
+
+    <ImageView
+        style="@style/Wrap"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+</LinearLayout>

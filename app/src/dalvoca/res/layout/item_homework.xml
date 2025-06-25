@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch">
+
+    <LinearLayout
+        android:id="@+id/v_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRed"
+            android:gravity="center"
+            android:text="@string/reading_list_item_delete"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/item_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_foreground"
+        style="@style/ItemBase"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/item_padding_top_bottom"
+        android:paddingBottom="@dimen/item_padding_top_bottom">
+
+        <ImageView
+            android:id="@+id/ic_play"
+            style="@style/Wrap"
+            android:padding="@dimen/icon_play_padding"
+            android:src="@drawable/ic_volume_up_48dp" />
+
+        <LinearLayout
+            style="@style/FillRemainHorizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_word_name"
+                style="@style/TextViewItem" />
+
+            <TextView
+                android:id="@+id/tv_word_meaning"
+                style="@style/TextViewItem"
+                android:layout_marginTop="@dimen/word_meaning_margin_top" />
+
+            <TextView
+                android:id="@+id/tv_tutor_name"
+                style="@style/TextViewSubItem"
+                android:layout_marginTop="@dimen/tutor_name_margin_top" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_study"
+            style="@style/ButtonBlue"
+            android:layout_marginLeft="@dimen/button_study_margin_left"
+            android:text="@string/btn_study" />
+
+        <ImageView
+            android:id="@+id/ic_right"
+            style="@style/Wrap"
+            android:paddingLeft="@dimen/icon_right_padding_left"
+            android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+    </LinearLayout>
+</RelativeLayout>

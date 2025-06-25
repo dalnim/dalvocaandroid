@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundWhiteColor"
+    tools:context="com.dalread.activity.OcrBackup"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="@string/hanja_home_menu_convert_to_hanja" />
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Match"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
+
+
+            <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/ivZoomedPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_ocr_sample_hanja"
+             />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#166e78"
+            android:orientation="horizontal"
+            >
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/ivCopy"
+                style="@style/ImageView_Player"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_copy"
+                app:tint="@color/backgroundBlackColor"
+                />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/btnRotateBackward"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_rotate_left_24"
+                app:tint="@color/backgroundBlackColor" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/ivConvertToHanja"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_play_circle_filled_24"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/btnRotateForward"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_rotate_right_24"
+                app:tint="@color/backgroundBlackColor" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/ivWordList"
+                style="@style/ImageView_Player"
+                android:layout_gravity="center_vertical"
+                app:tint="@color/backgroundBlackColor"
+                android:src="@drawable/ic_word_list"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/svMain"
+            style="@style/WidthMatch">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/OCRTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:text="@string/ocr_hanja_explanation"
+                    android:textAlignment="center"
+                    android:textColor="@color/textPrimaryColor"
+                    android:backgroundTint="@color/backgroundWhiteColor"
+                    android:textIsSelectable="true"
+                    android:textSize="24dp" />
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvContent"
+                    style="@style/TextViewHanjaBookMeaningDetailed"
+                    android:textSize="30dp"
+                    android:layout_marginTop="5dp" />
+
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvContentDifficultWord"
+                    style="@style/TextViewHanjaBookMeaningDetailed"
+                    android:textSize="30dp"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:visibility="gone"
+        style="@style/Match"
+        />
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

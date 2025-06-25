@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundGrayColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/typing_practice"
+        app:rightText="@string/info"
+        app:leftIcon="@drawable/ic_back" />
+
+    <ScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:padding="10dp">
+    <RelativeLayout
+        style="@style/WidthMatch"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivSpeaker"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_volume_up_outline_48dp" />
+
+        <ImageView
+            android:id="@+id/ivMic"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:visibility="invisible"
+            android:src="@drawable/ic_mic_none_black_24dp" />
+
+        <ImageView
+            android:id="@+id/ivEye"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_visibility_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvCountdownFinishPractice"
+            style="@style/Wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/ivEye"
+            android:layout_toEndOf="@id/ivSpeaker"
+            android:gravity="center_horizontal"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:textSize="24sp"
+            tools:text="11"/>
+
+        <TextView
+            android:id="@+id/tv_practice_turn"
+            style="@style/Wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/ivMic"
+            android:layout_toEndOf="@id/ivEye"
+            android:gravity="center_horizontal"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:textSize="24sp"
+            tools:text="1/20"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/llTypeArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/btn_grey_border_white_background"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_countdown_start_practice"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_no_border_grey_background"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            style="@style/Wrap"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/tvHint"
+                style="@style/Wrap"
+                android:textColor="@color/color_stop"
+                android:lineSpacingMultiplier="0.8"
+                android:textSize="48sp"
+                tools:text="hint"/>
+
+            <EditText
+                android:id="@+id/etInput"
+                style="@style/Wrap"
+                android:minWidth="1dp"
+                android:background="@null"
+                android:lineSpacingMultiplier="0.8"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:padding="0dp"
+                android:textSize="48sp"
+                tools:text="input"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvToast"
+            style="@style/VocaToastBlack"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/recording"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tvMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="@dimen/item_text_size"
+        tools:text="Meaning"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

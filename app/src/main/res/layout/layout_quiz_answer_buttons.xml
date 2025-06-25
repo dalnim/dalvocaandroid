@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRoot"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/btnAnswer1"
+        style="@style/Button_Quiz_4_Buttons"
+        android:layout_marginTop="16dp"
+        tools:text="Answer 1 Answer 1 Answer 1 Answer 1 Answer 1 Answer 1"
+        app:layout_constraintEnd_toStartOf="@+id/btnAnswer2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAnswer2"
+        style="@style/Button_Quiz_4_Buttons"
+        tools:text="Answer 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAnswer1"
+        app:layout_constraintTop_toTopOf="@+id/btnAnswer1" />
+
+    <Button
+        android:id="@+id/btnAnswer3"
+        style="@style/Button_Quiz_4_Buttons"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnswer1"
+        app:layout_constraintStart_toStartOf="@+id/btnAnswer1"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnswer1"
+        tools:text="Answer 3" />
+
+    <Button
+        android:id="@+id/btnAnswer4"
+        style="@style/Button_Quiz_4_Buttons"
+        tools:text="Answer 4"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnswer2"
+        app:layout_constraintStart_toStartOf="@+id/btnAnswer2"
+        app:layout_constraintTop_toTopOf="@+id/btnAnswer3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

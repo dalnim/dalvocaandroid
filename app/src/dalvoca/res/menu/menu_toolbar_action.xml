@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tb_quiz"
+        android:title="@string/tb_quiz" />
+
+    <item
+        android:id="@+id/tb_history"
+        android:title="@string/tb_history" />
+
+</menu>

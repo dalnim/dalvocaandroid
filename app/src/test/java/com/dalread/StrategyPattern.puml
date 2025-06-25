@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Vehicle {
+    ICarBrake brakeBehavior
+    brake()
+	abstract void brake()
+}
+
+class K1 extends Vehicle {
+    void brake() //HandBrake
+}
+
+
+
+Vehicle o-> ICarBrake
+
+'Vehicle <|-- K1
+Vehicle <|-- K1Plus
+Vehicle <|-- K2
+Vehicle <|-- K3
+Vehicle <|-- K4
+
+interface ICarBrake {
+brake()
+}
+class HandBrake {
+brake()
+}
+class FootBrake {
+brake()
+}
+class ButtonBrake {
+brake()
+}
+
+ICarBrake <|.. HandBrake
+ICarBrake <|.. FootBrake
+ICarBrake <|.. ButtonBrake
+@enduml

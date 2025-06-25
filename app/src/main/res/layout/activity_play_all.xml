@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/play_all_words"
+        app:leftIcon="@drawable/ic_back"
+        app:rightIcon="@drawable/ic_more_vert_white_24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_voca"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_playlist_by_tts"/>
+
+    <include
+        android:id="@+id/layoutPlayAll"
+        layout="@layout/layout_play_all" />
+</LinearLayout>

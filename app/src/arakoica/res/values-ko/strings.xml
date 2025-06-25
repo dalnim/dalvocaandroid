@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">아라ICT</string>
+    <!--Screen How To Use-->
+    <string name="app_introduction">아라ICT 소개</string>
+    <string name="app_introduction_1">ICT 분야 주로 쓰이는 약어들 모음입니다.</string>
+    <string name="app_introduction_2">정부 과제에서 주로 쓰이는 약어들도 있습니다.</string>
+    <string name="app_introduction_3">자주 쓰는 약어를 북마크하면 항상 맨위에 보입니다.</string>
+    <string name="app_introduction_4">필터링 기능이 있어서 원하는 약어를 쉽게 검색할수 있습니다.</string>
+    <string name="app_introduction_5">찾아본 약어는 검색이력에 자동으로 등록됩니다.</string>
+
+    <string name="edit_term_label_eng_abbr" translatable="false">약어(영문)</string>
+    <string name="edit_term_edittext_eng_abbr" translatable="false">약어(영문)</string>
+    <string name="edit_term_label_eng_full" translatable="false">전체 단어(영문)</string>
+    <string name="edit_term_edittext_eng_full" translatable="false">전체 단어(영문)</string>
+    <string name="edit_term_label_ko_title" translatable="false">한글 제목</string>
+    <string name="edit_term_edittext_ko_title" translatable="false">한글 제목</string>
+    <string name="edit_term_label_hanja_title" translatable="false">한자</string>
+    <string name="edit_term_edittext_hanja_title" translatable="false">한자</string>
+    <string name="edit_term_label_ko_short" translatable="false">한글 요약</string>
+    <string name="edit_term_edittext_ko_short" translatable="false">한글 요약</string>
+    <string name="edit_term_label_ko_full" translatable="false">한글 설명</string>
+    <string name="edit_term_edittext_ko_full" translatable="false">한글 설명</string>
+
+    <string name="edit_term_label_group_ict" translatable="false">ICT 용어</string>
+    <string name="edit_term_label_group_hw" translatable="false">하드웨어 용어</string>
+    <string name="edit_term_label_group_gis" translatable="false">GIS 용어</string>
+    <string name="edit_term_label_group_etc" translatable="false">기타 용어</string>
+
+    <string name="edit_term_label_group_nation" translatable="false">특정 국가에서 사용됨</string>
+    <string name="edit_term_edittext_group_nation" translatable="false">국가코드(예, KO, JP) </string>
+
+    <string name="dialog_menu_show_ict_term" translatable="false">ICT용어 보이기</string>
+    <string name="dialog_menu_show_etc_term" translatable="false">잘안쓰는 용어 보이기</string>
+    <string name="add_new_term">새 용어 추가하기</string>
+
+    <string name="choice_copy_term_eng_abbr" translatable="false">영문 약어</string>
+    <string name="choice_copy_term_eng_full" translatable="false">영문 약어 풀이</string>
+    <string name="choice_copy_term_ko_title" translatable="false">한글 제목</string>
+    <string name="choice_copy_term_hanja_title" translatable="false">한자</string>
+    <string name="choice_copy_term_ko_short" translatable="false">한글 요약</string>
+    <string name="choice_copy_term_ko_full" translatable="false">한글 설명</string>
+    <string name="choice_copy_term_all" translatable="false">전체(탭으로 분리)</string>
+
+    <string name="title_add_term">용어 추가</string>
+    <string name="title_edit_term">용어 수정</string>
+    <string name="dialogs_refresh_ict_term_list_after_time" translatable="false">최신 서버 데이타로 업데이트</string>
+</resources>

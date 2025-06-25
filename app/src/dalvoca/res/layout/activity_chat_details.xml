@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llLayout"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:rightColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvCalling"
+        style="@style/WidthMatch"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        style="@style/Match" />
+</LinearLayout>

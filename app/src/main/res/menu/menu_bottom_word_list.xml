@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_grade"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/nav_title_memorization" />
+
+    <item
+        android:id="@+id/nav_alphabet"
+        android:icon="@drawable/ic_circle_outline_black_24dp"
+        android:title="@string/nav_title_alphabet" />
+
+    <item
+        android:id="@+id/nav_frequency"
+        android:icon="@drawable/ic_check_box_outline_blank_black_24dp"
+        android:title="@string/nav_title_frequency" />
+
+</menu>

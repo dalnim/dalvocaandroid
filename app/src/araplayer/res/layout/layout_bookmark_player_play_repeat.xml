@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llControl"
+            style="@style/WidthMatch"
+            android:background="@color/color_player_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/ivRepeatPlay"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_new_play" />
+
+            <TextView
+                android:id="@+id/tvRepeatMin"
+                style="@style/Wrap"
+                android:padding="10dp" />
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sbRepeatRange"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                app:rsb_gravity="center"
+                app:rsb_mode="range" />
+
+            <TextView
+                android:id="@+id/tvRepeatMax"
+                style="@style/Wrap"
+                android:padding="10dp" />
+
+            <ImageView
+                android:id="@+id/ivRepeatEye"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_new_eye_open" />
+
+            <ImageView
+                android:id="@+id/ivRepeatClose"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_close_white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Player_text_top_fullscreen"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            tools:text="tv title"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSpeed"
+        style="@style/Wrap"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivAudioSpeedMinus"
+            style="@style/ImageView_Player_Circle"
+            android:src="@drawable/ic_speed_minus" />
+
+        <TextView
+            android:id="@+id/tvAudioSpeedValue"
+            style="@style/ImageView_Player_Circle"
+            android:background="@drawable/ic_speed_value"
+            android:gravity="center"
+            android:text="1.0x" />
+
+        <ImageView
+            android:id="@+id/ivAudioSpeedPlus"
+            style="@style/ImageView_Player_Circle"
+            android:src="@drawable/ic_speed_plus" />
+    </LinearLayout>
+</RelativeLayout>

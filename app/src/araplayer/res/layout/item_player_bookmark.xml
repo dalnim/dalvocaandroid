@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_player_height"
+    android:background="@color/backgroundCellColor"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/ivRemove"
+        style="@style/ImageView_Player"
+        android:src="@drawable/ic_delete_black_24dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/izbVideoThumbnail"
+        style="@style/ImageView_MovieList_Square"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/btn_no_border_black_background"
+        android:padding="1dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvContent"
+            style="@style/WidthMatch" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:textColor="@color/textPrimaryColor"
+            style="@style/Wrap"
+            tools:text="time"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivMove"
+        style="@style/ImageView_Player"
+        android:src="@drawable/ic_menu_gray_24dp" />
+</LinearLayout>

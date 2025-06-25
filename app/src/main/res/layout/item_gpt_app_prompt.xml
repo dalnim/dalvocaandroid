@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:background="@color/chat_bubble_guide">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/appPromptMore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivAppProfile"
+            android:layout_width="31.2dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_practice_introduction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAppPrompt"
+            style="@style/TextViewItem"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="14sp"
+            android:textIsSelectable="true"
+            android:maxLines="50"
+            android:textColor="@color/dayNightLiteWhiteColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivAppProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pronounce Pronounce Pronounce Pronounce Pronounce Pronounce " />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupGptUserPromptMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="divider, appPromptMore"
+        tools:visibility="visible"
+        />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintTop_toBottomOf="@+id/appPrompt"
+        app:layout_constraintBottom_toTopOf="@+id/appPromptMore" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appPromptMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_conversation_a"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appPrompt">
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvUserPromptMore"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:gravity="center|left"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/ivArrowRight"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:text="user prompt more" />-->
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/start"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBlack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

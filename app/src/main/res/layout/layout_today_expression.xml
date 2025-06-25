@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRoot"
+    android:background="@color/backgroundTodayExpression"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/vToday"
+        style="@style/WidthMatch"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            style="@style/TextViewItem"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:text="@string/today_expression" />
+
+        <LinearLayout
+            android:id="@+id/llVocaPronounce"
+            style="@style/Wrap"
+            android:layout_marginTop="10dp"
+            android:weightSum="2"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvTodayVoca"
+                style="@style/Wrap"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/textPrimaryColor"
+                android:lineSpacingMultiplier="0.8"
+                android:textSize="@dimen/grade_text_size"
+                android:ellipsize="middle"
+                android:maxLines="3"
+                tools:text="Today Voca Today Voca Today Voca Today Voca Today "/>
+
+            <TextView
+                android:id="@+id/tvShortPronounce"
+                style="@style/Textview_Pronounce"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textIsSelectable="true"
+                android:ellipsize="middle"
+                android:maxLines="3"
+                app:defaultTextSize="@dimen/item_pronounce_size"
+                tools:text="pronounce pronounce pronounce pronounce pronounce "/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvLongPronounce"
+            style="@style/Textview_Pronounce"
+            android:gravity="center_horizontal"
+            android:textIsSelectable="true"
+            android:visibility="visible"
+            app:defaultTextSize="@dimen/item_pronounce_size"
+            tools:visibility="visible"
+            tools:text="Long pronounce"/>
+
+        <TextView
+            android:id="@+id/tvTodayMeaningEnglish"
+            style="@style/WidthMatch"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/textPrimaryColor"
+            android:lineSpacingMultiplier="0.8"
+            android:textSize="@dimen/grade_text_size"
+            android:ellipsize="middle"
+            android:maxLines="3"
+            android:visibility="gone"
+            tools:text="tvTodayMeaningEnglish tvTodayMeaningEnglish tvTodayMeaningEnglish tvTodayMeaningEnglish "/>
+
+        <TextView
+            android:id="@+id/tvTodayMeaning"
+            style="@style/WidthMatch"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryColor"
+            android:lineSpacingMultiplier="0.8"
+            android:textSize="@dimen/grade_text_size"
+            android:ellipsize="middle"
+            android:maxLines="3"
+            tools:text="Today Meaning Today Meaning Today Meaning Today Meaning Today Meaning "/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        style="@style/WidthMatch"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        >
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/ivSpeaker"
+                style="@style/ImageView_Today_Expression"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_volume_up_outline_48dp"
+                app:tint="@color/iconTernaryColor"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/llVocaKnow"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="visible"-->
+<!--                android:orientation="horizontal">-->
+                <ImageView
+                    android:id="@+id/ivKnow"
+                    style="@style/ImageView_Today_Expression"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_voca_know_text_1st"
+                    app:tint="@color/iconTernaryColor"
+                    />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+<!--            </LinearLayout>-->
+
+            <ImageView
+                android:id="@+id/vRefresh"
+                android:src="@drawable/ic_refresh"
+                style="@style/ImageView_Today_Expression"
+                android:padding="7dp"
+                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                app:tint="@color/iconTernaryColor"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+
+            <ImageView
+                android:id="@+id/vChatGpt"
+                android:src="@drawable/ic_chatgpt"
+                style="@style/ImageView_Today_Expression"
+                android:padding="7dp"
+                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                app:tint="@color/iconTernaryColor"
+                />
+        </LinearLayout>
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</LinearLayout>

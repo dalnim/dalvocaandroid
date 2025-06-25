@@ -1,0 +1,28 @@
+<resources>
+    <dimen name="item_player_height">110dp</dimen>
+    <dimen name="item_folder_height">60dp</dimen>
+<!--    <dimen name="font_player_subtitle_ruby">16sp</dimen>-->
+<!--    <dimen name="font_player_subtitle_ruby_fullscreen">28sp</dimen>-->
+    <dimen name="font_player_subtitle_ruby_vertical">20sp</dimen>
+    <dimen name="font_player_subtitle_meaning">22sp</dimen>
+    <dimen name="font_player_subtitle_meaning_vertical">18sp</dimen>
+    <dimen name="font_player_subtitle_prev_next">20sp</dimen>
+    <dimen name="font_player_subtitle_prev_next_2">14sp</dimen>
+    <dimen name="font_player_text_top_fullscreen">22sp</dimen>
+    <dimen name="font_player_sleep_time_title">14sp</dimen>
+    <dimen name="font_player_text_top_vertical">16sp</dimen>
+
+    <dimen name="font_video_information">16sp</dimen>
+    <dimen name="font_video_information_play">22sp</dimen>
+    <dimen name="font_video_information_play_button_desc">16sp</dimen>
+    <dimen name="font_video_information_detail">20sp</dimen>
+    <dimen name="font_video_information_long_text">16sp</dimen>
+
+    <dimen name="layout_shadowing_size">100dp</dimen>
+    <dimen name="progress_recording_count_down_height">12dp</dimen>
+
+    <dimen name="font_multiplayer_screen_button">24sp</dimen>
+
+    <dimen name="font_multiplayer_screen_count">28sp</dimen>
+    <dimen name="font_multiplayer_screen_center_text">16sp</dimen>
+</resources>

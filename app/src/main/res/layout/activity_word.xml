@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header_text_left" />
+
+    <LinearLayout
+        style="@style/Layout_Padding"
+        android:background="@color/colorBackgroundWordChange"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivStatus"
+                style="@style/ImageView_Item"
+                android:src="@mipmap/ic_unknown" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/TextView_Item_WordList"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_item"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/font_item_word_list"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivSpeak"
+                style="@style/ImageView_Item"
+                android:src="@drawable/ic_speaker_human" />
+
+            <TextView
+                android:id="@+id/tvSpeak"
+                style="@style/TextView_Item_WordList"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_item"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorWordPronounce"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/font_item_word_list" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:visibility="invisible">
+
+                <ImageView
+                    style="@style/ImageView_Item"
+                    android:src="@drawable/ic_memo" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageView
+                    android:id="@+id/ivFavorite"
+                    style="@style/ImageView_Item"
+                    android:src="@drawable/ic_memo" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/ivDicSystem"
+                    style="@style/ImageView_Item"
+                    android:src="@mipmap/ic_dic_system" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMean"
+            style="@style/TextView_Item_WordList"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin_item"
+            android:background="@color/colorBackgroundWordListTextMean"
+            android:padding="@dimen/activity_horizontal_margin_item" />
+
+        <TextView
+            android:id="@+id/tvHanaj"
+            style="@style/TextView_Item_WordList"
+            android:padding="@dimen/activity_horizontal_margin_item" />
+
+    </LinearLayout>
+
+</LinearLayout>

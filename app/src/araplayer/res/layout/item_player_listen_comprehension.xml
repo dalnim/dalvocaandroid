@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llItem"
+    style="@style/TextView_Player_Option_Layout_Item"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivRemove"
+        style="@style/Wrap"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_close_black_24dp"
+        app:tint="@color/support_recycler_color_text_gray"/>
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextView_Title"
+            android:layout_marginStart="5dp"
+            tools:text="name"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/TextView_Value"
+            android:layout_marginStart="5dp"
+            android:visibility="gone"
+            tools:text="description"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivMove"
+        style="@style/Wrap"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_menu_gray_24dp" />
+</LinearLayout>

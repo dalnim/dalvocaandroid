@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WidthMatch"
+    android:background="@color/color_play_background">
+
+    <TextView
+        android:id="@+id/tv_header"
+        style="@style/TextViewItem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/click_mic_to_start_stt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_play"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/tv_header"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_volume_up_48dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivStt"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignTop="@id/ic_play"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_mic_none_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnPause"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/ic_play"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header" />
+
+    <ToggleButton
+        android:id="@+id/btnPause"
+        style="@style/ButtonBlue"
+        android:layout_alignBottom="@id/ic_play"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textOff="@string/pause"
+        android:textOn="@string/resume"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

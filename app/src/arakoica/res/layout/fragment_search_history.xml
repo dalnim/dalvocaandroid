@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            style="@style/Match"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <me.zhanghai.android.fastscroll.FastScrollScrollView
+                android:id="@+id/fssv_preview"
+                android:background="@color/backgroundColor"
+                style="@style/Match">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_info"
+                    style="@style/WidthMatch"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_term_ict"/>
+            </me.zhanghai.android.fastscroll.FastScrollScrollView>
+        </LinearLayout>
+</LinearLayout>

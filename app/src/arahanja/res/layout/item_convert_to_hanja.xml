@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="@string/hanja_home_menu_convert_to_hanja" />
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/v_reading"
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/v_reading_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etContent"
+                            style="@style/WidthMatch"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/textPrimaryColor"
+                            android:maxLines="3"
+                            android:layout_weight="1"
+                            android:hint="@string/type_hanja_here" />
+
+                        <ImageView
+                            android:id="@+id/iv_parse_content_to_make_ruby_text"
+                            style="@style/ImageView_Player"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_convert_to_hanja"
+                            android:layout_gravity="center|bottom"
+                            />
+
+
+
+                    </LinearLayout>
+                    <com.dalread.component.FuriganaView
+                        android:id="@+id/tvBookHanjaFurigana"
+                        style="@style/TextViewHanjaBookMeaning"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <include
+                android:id="@+id/v_adjust_height_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/item_convert_to_hanja_adjust_table_height_header" />
+
+            <ScrollView
+                android:id="@+id/v_reading_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_grouped_radical_background"
+                android:layout_weight="1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_hanja_candidate"
+                    style="@style/Match"
+                    android:visibility="visible"
+                    tools:spanCount="1"
+                    tools:listitem="@layout/item_voca_hanja_word_grid"
+                    />
+
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        style="@style/Match"
+        android:visibility="gone"
+        />
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

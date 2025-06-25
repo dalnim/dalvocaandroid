@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/admin" />
+
+    <LinearLayout
+        android:id="@+id/gl_option"
+        style="@style/WidthMatch"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/v_lesson_admin"
+            style="@style/WidthMatch"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_study_history" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tb_lessons_admin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_realm_db"
+            style="@style/WidthMatch"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_quiz" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/realm_db" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gl_ruby"
+        style="@style/WidthMatch"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/v_ruby_table"
+            style="@style/WidthMatch"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_wordbooks" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/admin_ruby_table" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_ruby_text_view"
+            style="@style/WidthMatch"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_wordbooks" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/admin_ruby_text_view" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/v_unicode"
+            style="@style/WidthMatch"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorites" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/unicode" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

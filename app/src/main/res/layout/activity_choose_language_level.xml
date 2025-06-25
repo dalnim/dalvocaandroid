@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChooseLanguageLevel">
+
+    <TextView
+        android:id="@+id/tvLangLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/menu_langauge_level"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnWordLevelBeginner"
+        style="@style/LanguageLevelButtonStyle"
+        android:layout_marginTop="50dp"
+        android:text="@string/sign_up_word_level_beginner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLangLevel" />
+
+    <Button
+        android:id="@+id/btnWordLevelPreIntermediate"
+        style="@style/LanguageLevelButtonStyle"
+        android:text="@string/sign_up_word_level_pre_intermediate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelBeginner" />
+
+    <Button
+        android:id="@+id/btnWordLevelIntermediate"
+        style="@style/LanguageLevelButtonStyle"
+        android:text="@string/sign_up_word_level_intermediate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelPreIntermediate" />
+
+    <Button
+        android:id="@+id/btnWordLevelPostIntermediate"
+        style="@style/LanguageLevelButtonStyle"
+        android:text="@string/sign_up_word_level_post_intermediate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelIntermediate" />
+
+    <Button
+        android:id="@+id/btnWordLevelAdvanced"
+        style="@style/LanguageLevelButtonStyle"
+        android:text="@string/sign_up_word_level_advanced"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelPostIntermediate" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/btnWordLevelBeginner"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/sign_up_word_level_beginner"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvLangLevel" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnWordLevelPreIntermediate"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textSize="24sp"-->
+<!--        android:text="@string/sign_up_word_level_pre_intermediate"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelBeginner" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnWordLevelIntermediate"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textSize="24sp"-->
+<!--        android:text="@string/sign_up_word_level_intermediate"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelPreIntermediate" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnWordLevelPostIntermediate"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textSize="24sp"-->
+<!--        android:text="@string/sign_up_word_level_post_intermediate"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelIntermediate" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnWordLevelAdvanced"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textSize="24sp"-->
+<!--        android:text="@string/sign_up_word_level_advanced"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnWordLevelPostIntermediate" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/speaking_practice"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/color_header_background">
+
+        <RelativeLayout
+            android:id="@+id/v_book_info"
+            style="@style/Match"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/ic_avatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_avatar_m" />
+
+            <include
+                android:id="@+id/ic_play_all"
+                layout="@layout/ic_double_volumn_up"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/tv_book_name"
+                style="@style/TextViewItem"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@id/ic_play_all"
+                android:layout_toEndOf="@id/ic_avatar" />
+
+            <TextView
+                android:id="@+id/tv_a"
+                style="@style/TextViewItem"
+                android:layout_below="@id/tv_book_name"
+                android:layout_alignStart="@id/tv_book_name"
+                android:layout_alignEnd="@id/tv_book_name"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tv_b"
+                style="@style/TextViewItem"
+                android:layout_below="@id/tv_a"
+                android:layout_alignStart="@id/tv_book_name"
+                android:layout_alignEnd="@id/tv_book_name"
+                android:layout_marginTop="4dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/v_start_count_down"
+            style="@style/Match"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:text="@string/start" />
+
+            <TextView
+                android:id="@+id/tv_start_count_down"
+                style="@style/TextViewHeader"
+                android:layout_marginTop="32dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/v_app_turn"
+            style="@style/TextViewItem"
+            android:layout_gravity="center"
+            android:text="@string/app_turn" />
+
+        <TextView
+            android:id="@+id/v_your_turn"
+            style="@style/TextViewItem"
+            android:layout_gravity="center"
+            android:text="@string/your_turn" />
+
+        <LinearLayout
+            android:id="@+id/v_recording"
+            style="@style/Match"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:text="@string/recording" />
+
+            <TextView
+                android:id="@+id/tv_record_time_left"
+                style="@style/TextViewHeader"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/grade_text_size" />
+
+            <TextView
+                style="@style/TextViewItem"
+                android:layout_marginTop="8dp"
+                android:text="@string/tap_here_to_finish" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_round_left"
+            style="@style/TextViewItem"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_voca"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

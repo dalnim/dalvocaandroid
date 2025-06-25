@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Wrap"
+    android:orientation="horizontal"
+    android:padding="@dimen/item_spacing_horizontal">
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        style="@style/ImageView_Item_Bookmark"
+        android:src="@mipmap/ic_bm_edit" />
+
+    <LinearLayout
+        style="@style/ImageView_Bookmark"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout style="@style/ImageView_Bookmark">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                style="@style/ImageView_Bookmark"
+                android:padding="@dimen/item_spacing_horizontal"
+                android:src="@mipmap/ic_dalread" />
+
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                style="@style/Wrap"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextView_Title"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:lines="2" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        style="@style/ImageView_Item_Bookmark"
+        android:src="@mipmap/ic_bm_delete" />
+</LinearLayout>

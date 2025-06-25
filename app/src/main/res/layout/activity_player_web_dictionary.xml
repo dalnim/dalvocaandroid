@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/web_dictionary"
+        app:rightText="@string/add"
+        app:rightColor="@color/white"/>
+
+    <com.yanzhenjie.recyclerview.SwipeRecyclerView
+        android:id="@+id/rvList"
+        style="@style/WidthMatch"
+        tools:listitem="@layout/item_web_dictionary"/>
+</LinearLayout>

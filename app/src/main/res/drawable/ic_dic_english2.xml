@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="50dp"
+    android:height="50dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+  <path
+      android:pathData="M25,1.25C31.558,1.25 37.496,3.908 41.794,8.206C46.092,12.504 48.75,18.442 48.75,25C48.75,31.558 46.092,37.496 41.794,41.794C37.496,46.092 31.558,48.75 25,48.75C18.442,48.75 12.504,46.092 8.206,41.794C3.908,37.496 1.25,31.558 1.25,25C1.25,18.442 3.908,12.504 8.206,8.206C12.504,3.908 18.442,1.25 25,1.25Z"
+      android:strokeWidth="2.5"
+      android:fillColor="@color/icon_dic_hanja_background"
+      android:strokeColor="@color/icon_dic_hanja_circle_outline"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M33.208,36.524l0,-3.492l-11.196,0l0,-7.488l8.532,0l0,-3.456l-8.532,0l0,-6.768l10.98,0l0,-3.492l-15.408,0l0,24.696z"
+      android:strokeWidth="1"
+      android:fillColor="@color/icon_dic_hanja_text"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+</vector>

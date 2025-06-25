@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:background="@color/backgroundCellColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/tvVoca"
+        style="@style/Wrap"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="4dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="28sp"
+        tools:text="教"/>
+
+    <TextView
+        android:id="@+id/tv_meaning_pronounce_hanja"
+        style="@style/TextViewItem"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/textPrimaryColor"
+        tools:text="가르칠 교"/>
+
+    <ImageView
+        android:id="@+id/ivShowVocaInGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        android:padding="5dp"
+        android:src="@drawable/ic_show_voca_in_group2"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
+
+    <ImageView
+        android:id="@+id/ic_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_arrow_right_round" />
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/DialogNoPadding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/chat_message"
+            android:textColor="@color/color_text"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etInputMessage"
+                style="@style/EditText_Main"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_weight="1"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_chat_message"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/color_text" />
+
+            <ImageView
+                android:id="@+id/ivSendMessage"
+                style="@style/ImageView_Item"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_send" />
+        </LinearLayout>
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose_message"
+            android:textColor="@color/color_text"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            android:id="@+id/tv_close"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/close"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

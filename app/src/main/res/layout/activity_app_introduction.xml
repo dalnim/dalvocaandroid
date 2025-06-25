@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:background="@color/backgroundWhiteColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/app_introduction" />
+
+    <RelativeLayout style="@style/Match">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/v_pager"
+            style="@style/Match" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/v_dot"
+            style="@style/WidthMatch"
+            android:layout_alignParentBottom="true"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+    </RelativeLayout>
+</LinearLayout>

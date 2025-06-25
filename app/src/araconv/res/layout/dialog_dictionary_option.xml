@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/scSearchInStudyLang"
+                style="@style/SwitchSetting"
+                android:checked="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text="@string/dialog_menu_search_in_study_lang"
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <TextView
+                android:id="@+id/tv_ok"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/ok"
+                android:textColor="@drawable/btn_ok_color"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

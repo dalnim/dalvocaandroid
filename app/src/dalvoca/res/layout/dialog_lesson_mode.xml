@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            android:id="@+id/tv_normal_lesson_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/normal_lesson_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_role_playing_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/role_playing_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_grammar_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/grammar_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_reading_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/reading_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_exam_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/exam_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_review_mode"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/review_mode"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:leftIcon2="@drawable/ic_search"
+        app:rightIcon="@drawable/ic_save"
+        app:title="@string/opensubtitles" />
+
+    <TextView
+        android:id="@+id/tv_video_file_name"
+        style="@style/TextViewSettingHeader"
+        android:text=""
+        android:enabled="true"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true" />
+
+    <me.zhanghai.android.fastscroll.FastScrollScrollView
+        android:id="@+id/fssv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/setting_header_padding_left"
+            android:background="@color/backgroundColor"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="@dimen/item_text_size" />
+    </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+    <TextView
+        style="@style/TextViewSettingHeader"
+        android:text="@string/subtitle_list" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</LinearLayout>

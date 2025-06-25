@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="29dp"
+    android:height="33dp"
+    android:viewportWidth="29"
+    android:viewportHeight="33">
+  <path
+      android:pathData="M1.0039,17.1861C1.0039,8.7306 6.5796,2.3182 14.369,1.1166C15.034,1.0101 15.7049,0.9431 16.3782,0.9159C16.7475,0.8754 17.1978,0.8358 17.3212,1.3164C17.4446,1.7575 17.0319,1.9177 16.7427,2.0779C11.6903,4.8512 8.9726,10.4342 9.9581,16.0157C10.9435,21.5971 15.4185,25.9668 21.1296,26.9243C23.0967,27.2582 25.1159,27.1486 27.0331,26.6039C27.1231,26.5586 27.2214,26.5314 27.3223,26.5238C27.5682,26.5643 27.9008,26.6039 27.978,26.7641C28.0378,26.998 27.9929,27.2458 27.8546,27.4455C27.3196,27.9814 26.744,28.4769 26.1326,28.9279C20.3068,33.0958 12.3253,32.8478 6.782,28.3267C3.2361,25.6546 1.113,21.5612 1.0039,17.1861L1.0039,17.1861Z"
+      android:strokeWidth="1"
+      android:fillColor="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+      android:fillType="nonZero"
+      android:strokeColor="@color/iconPrimaryWhiteColor"/>
+  <path
+      android:pathData="M23.3,8.5278C23.2287,9.4873 22.9062,10.4112 22.365,11.2068C21.7839,12.0275 20.8407,12.5154 19.835,12.5154C18.8293,12.5154 17.8861,12.0275 17.305,11.2068C16.2453,9.7997 16.1121,7.901 16.965,6.3598C17.5217,5.2125 18.7104,4.5093 19.984,4.5738C21.2861,4.651 22.412,5.5082 22.833,6.7428C23.045,7.3378 23.13,7.9328 23.3,8.5278Z"
+      android:strokeWidth="1"
+      android:fillColor="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+      android:fillType="nonZero"
+      android:strokeColor="@color/iconPrimaryWhiteColor"/>
+  <path
+      android:pathData="M25.704,12.8448C26.3989,12.92 27.0456,13.2359 27.532,13.7378C28.7225,15.0535 28.7225,17.0571 27.532,18.3728C26.7003,19.2963 25.3057,19.443 24.3,18.7128C23.5078,18.0791 23.0431,17.1224 23.0347,16.108C23.0264,15.0936 23.4753,14.1294 24.257,13.4828C24.7192,13.227 25.2035,13.0135 25.704,12.8448Z"
+      android:strokeWidth="1"
+      android:fillColor="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+      android:fillType="nonZero"
+      android:strokeColor="@color/iconPrimaryWhiteColor"/>
+</vector>

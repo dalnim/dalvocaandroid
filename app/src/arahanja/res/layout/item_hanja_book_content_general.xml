@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:leftIcon2="@drawable/ic_new_eye_open2"
+        app:rightText="@string/menu"
+        app:title="hanja book" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+            <me.zhanghai.android.fastscroll.FastScrollScrollView
+                android:id="@+id/fssv_preview"
+                android:background="@color/color_grouped_radical_background"
+                style="@style/Match">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_books"
+                    style="@style/Match"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_voca_book_content"
+                    />
+            </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:visibility="gone"
+        style="@style/Match"
+        />
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

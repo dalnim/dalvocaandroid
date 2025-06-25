@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <LinearLayout
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ic_play"
+            style="@style/Wrap"
+            android:padding="@dimen/icon_play_padding"
+            android:src="@drawable/ic_volume_up_48dp" />
+
+        <TextView
+            android:id="@+id/tv_study_count"
+            style="@style/TextViewSubItem"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_word_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_grade_number"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_circle_orange"
+        android:gravity="center"
+        android:textSize="@dimen/grade_text_size" />
+
+    <ImageView
+        android:id="@+id/ic_right"
+        style="@style/Wrap"
+        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+</LinearLayout>

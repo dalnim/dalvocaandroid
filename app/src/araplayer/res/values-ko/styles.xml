@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="TextView_Player_Option_Sub_Header_Top" parent="@style/TextView_Player_Option_Sub_Header">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_header</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@color/backgroundColorOutOfTable</item>
+    </style>
+
+    <style name="TextView_Value_Video_Information_tb_title" parent="TextView_Value_Video_Information_tb_value">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+</resources>

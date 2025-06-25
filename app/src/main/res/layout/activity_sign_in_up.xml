@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llLogInHeader"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLogIn"
+                    style="@style/Popup_Header_Text"
+                    android:text="@string/login_title"
+                    android:textColor="@color/primaryColor" />
+
+                <TextView
+                    android:id="@+id/tvLogInMarker"
+                    style="@style/Popup_Header_Marker" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignUpHeader"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSignUp"
+                    style="@style/Popup_Header_Text"
+                    android:text="@string/login_sign_up"
+                     />
+
+                <TextView
+                    android:id="@+id/tvSignUpMarker"
+                    style="@style/Popup_Header_Marker"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <ScrollView
+            style="@style/Match"
+            android:paddingVertical="2dp">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSignInUpMessage"
+                    style="@style/Wrap"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/login_message_to_sign_up"
+                    android:textColor="@color/textSignInUpMessageColor" />
+
+                <EditText
+                    android:id="@+id/etMail"
+                    style="@style/EditText_Main"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/background_edittext_center_round"
+                    android:hint="@string/sign_up_id_mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    style="@style/EditText_PassWord"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/background_edittext_center_round"
+                    android:hint="@string/login_password"
+                    android:imeOptions="actionNext"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llLogInBody"
+                    style="@style/WidthMatch"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tvChangePassword"
+                        style="@style/Wrap"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="@string/login_change_password"
+                        android:textSize="16sp"
+                        android:textColor="@color/textSignInUpMessageColor"
+
+                        />
+
+
+                    <LinearLayout
+                        style="@style/Match"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/btnLogIn"
+                            style="@style/Button_Base"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_border_4dp_primary_color"
+                            android:text="@string/login_btn_ok"
+                            android:textColor="@color/textLiteWhiteColor" />
+
+                        <TextView
+                            android:id="@+id/btnCancel"
+                            style="@style/Button_Base"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_border_4dp_gray"
+                            android:text="@string/login_btn_cancel"
+                            android:textColor="@color/textLiteWhiteColor" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSignUpBody"
+                    style="@style/WidthMatch"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <EditText
+                        android:id="@+id/etRetypePassword"
+                        style="@style/EditText_PassWord"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="5dp"
+
+                        android:background="@drawable/background_edittext_center_round"
+                        android:hint="@string/sign_up_retype_password"
+                        android:imeOptions="actionNext" />
+
+                    <EditText
+                        android:id="@+id/etName"
+                        style="@style/EditText_Main"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/background_edittext_center_round"
+                        android:hint="@string/sign_up_name"
+                        android:imeOptions="actionDone" />
+
+                    <TextView
+
+                        style="@style/Wrap"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:text="@string/sign_up_my_level"
+                        android:textSize="12sp"
+                        android:textColor="@color/textSignInUpMessageColor"
+
+                        />
+
+                    <Spinner
+                        android:id="@+id/spLevel"
+                        style="@style/WidthMatch"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:layout_marginEnd="@dimen/activity_vertical_margin"
+                        android:background="@drawable/background_spinner"
+                        android:entries="@array/array_sign_up_word_level"
+                        android:textColor="@color/textPrimaryColor" />
+
+
+                    <TextView
+                        android:id="@+id/btnSignUp"
+                        style="@style/Button_Base"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_border_4dp_primary_color"
+                        android:text="@string/sign_up_button"
+                        android:textColor="@color/textLiteWhiteColor" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

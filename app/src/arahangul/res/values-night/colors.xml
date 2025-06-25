@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAppTint">#323D50</color>
+    <color name="primaryColor">#323D56</color>
+    <color name="primaryLightColor">@color/black</color>
+    <color name="primaryLightestColor">@color/color_blue</color>
+    <color name="primaryDarkColor">#222A39</color>
+    <color name="secondaryColor">@color/color_yellow</color>
+    <color name="secondaryLightColor">@color/color_gray</color>
+    <color name="secondaryDarkColor">#222A39</color>
+
+    <color name="backgroundTodayExpression">#394257</color>
+
+    <color name="icon_dic_hanja_text">#5E7193</color>
+    <color name="icon_dic_hanja_circle_outline">#5E7193</color>
+    <color name="icon_dic_hanja_background">#00000000</color>
+
+    <color name="BackgroundHanjaVocaInfoMain">#323D56</color>
+
+
+</resources>

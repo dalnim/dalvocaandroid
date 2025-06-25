@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/study_writing"
+        app:leftIcon="@drawable/ic_back"/>
+
+    <TextView
+        android:id="@+id/tvItemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/item_title_gagya"
+        tools:text="consonants + vowels(자음 + 모음 2)"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_voca"
+        style="@style/Match"
+        tools:itemCount="3"
+        android:background="@color/backgroundColor"
+        tools:listitem="@layout/item_wordbooks_hangul_sub"/>
+</LinearLayout>

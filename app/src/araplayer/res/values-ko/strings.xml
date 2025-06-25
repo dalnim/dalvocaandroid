@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
+<!--    <string name="app_name" translatable="false">아라 플레이어</string>-->
+    <string name="app_name" translatable="false">아라 멀티 비디오 플레이어</string>
+
+    <string name="msg_confirm_rename_file_by_backup_and_delete_and_restore_method">안드로이드에서 보안이슈때문에 파일 이름변경을 허용하지 않습니다.\n\n이 팝업을 닫으면 안드로이드에서 파일을 삭제하겠냐고 물어봅니다.삭제를 선택하면 파일을 삭제하기 전에 백업을 받아두고 복원할때 이름을 변경하니 놀라지 마세요. \n계속 하시겠습니까?</string>
+    <string name="msg_confirm_refresh_pull_to_refresh">비디오 리스트를 갱신하시겠습니까?</string>
+    <string name="msg_confirm_refresh_pull_to_refresh_music">뮤직 리스트를 갱신하시겠습니까?</string>
+    <string name="msg_confirm_cancel_sleeping">잠자기를 취소하시겠습니까?</string>
+    <string name="msg_cancel_sleeping">잠자기를 취소하였습니다.</string>
+    <string name="msg_will_sleep_in_future">%1$s분 후에 잠자기모드로 들어갑니다.</string>
+    <string name="msg_will_sleep_on_time">시간이 되면 잠자기모드로 들어갑니다.</string>
+    <string name="msg_will_sleep_in_future_title">~분 후에 잠자기모드로 들어갑니다.</string>
+    <string name="msg_cancel_now">잠자기모드로 들어갑니다.</string>
+
+    <string name="subtitle_files">자막 파일</string>
+    <string name="select_subtitle">자막 선택</string>
+    <string name="download_subtitle">자막 다운로드</string>
+    <string name="detach_subtitle">현재 자막 연결 끊기</string>
+
+    <string name="show_subtitle_files">자막 파일 보기기</string>
+    <string name="hide_subtitle_files">자막 파일 숨기기</string>
+    <string name="format_video">비디오파일 수 : %1$d</string>
+    <string name="msg_no_subtitle">자막을 찾지 못했습니다.!</string>
+    <string name="tv_no_subtitle">자막을 찾지 못했습니다. 찾기 버튼을 눌러서 자막을 검색해서 찾아보세요.</string>
+    <string name="tv_select_subtitle_to_display">자막 리스트에서 원하는 자막을 클릭하면 여기에 표시됩니다.\n\n자막을 다운받을려면 자막을 선택한후 우상단의 다운로드 버튼을 누르세요.</string>
+    <string name="search_other_subtitles">다른 자막 검색하기</string>
+    <string name="search_subtitles">자막 다운로드</string>
+    <string name="msg_write_video_title">자막을 검색할 비디오 이름을 적으세요.</string>
+    <string name="format_subtitle">%1$d 자막</string>
+
+    <string name="show_subtitle_file_list">자막 파일 보이기</string>
+
+    <string name="video_file_name">비디오파일 경로</string>
+    <string name="video_file_name_description">전체 파일 경로(가운데 생략)</string>
+    <string name="subtitle_file_name">자막 파일 이름</string>
+    <string name="subtitle_file_name_description">여기를 눌러서 자막을 선택/다운로드 하기</string>
+    <string name="edit_subtitles">자막 수정</string>
+    <string name="subtitle_study_language">자막 (학습어)</string>
+    <string name="subtitle_mother_tongue">자막 (모국어)</string>
+    <string name="first_subtitle_file">첫번째 자막 파일</string>
+    <string name="second_subtitle_file">두번째 자막 파일</string>
+    <string name="use_second_subtitle_file">두번째 자막 파일 사용하기</string>
+    <string name="second_subtitle_file_desc">두번째 자막파일에서는 항상 번역(모국어)자막만 있어야 합니다.(학습어 자막은 첫번째 자막파일에서만 가져옴)\n통합자막(SMI만 지원)일경우는 첫번째 자막파일만 선택하면 됩니다.</string>
+    <string name="format_edit_subtitles">%1$d / %2$d 자막</string>
+    <string name="edit_this_subtitle">자막 수정</string>
+    <string name="translate_this_subtitle">이 자막 번역하기</string>
+    <string name="translate_subtitle">자막 번역</string>
+
+    <string name="translate_warning_msg">자막 번역은 기계 번역으로 품질이 좋지 않습니다. 그리고 번역된 대사가 없는 대사만 번역합니다.</string>
+    <string name="recommend_codec">[권장되는 파일은 MP4파일에 코덱은 비디오(H.264) 오디오(AAC)입니다.]</string>
+    <string name="video_information_msg_you_know_words">이 비디오의 총 %2$s개의 단어중 %1$s개가 아는 단어입니다. (%3$s)</string>
+    <string name="release_date">출시일</string>
+    <string name="director">감독</string>
+    <string name="writer">작가</string>
+    <string name="cast">출연</string>
+    <string name="guest_stars">특별 출연</string>
+    <string name="genre">장르</string>
+    <string name="resolution">해상도</string>
+    <string name="codec">코덱</string>
+    <string name="video_description">줄거리</string>
+    <string name="choose_metadata">영화정보 선택</string>
+    <string name="clear_metadata">영화정보 지우기</string>
+    <string name="credits">출연</string>
+    <string name="format_episodes">%1$s 에피소드</string>
+    <string name="season">시즌</string>
+    <string name="seasons">시즌</string>
+    <string name="episodes">에피소드</string>
+    <string name="format_episode_name">에피소드 %1$d\n%2$s</string>
+    <string name="video_overview">[줄거리]</string>
+    <string name="msg_indexing_video_files">비디오 리스트 갱신중&#8230;\n(시간이 최대 몇분 정도 걸릴수 있습니다.)</string>
+    <string name="msg_indexing_music_files">뮤직 리스트 갱신중&#8230;</string>
+    <string name="error_msg_parser_sub_title">자막 분석 에러\n(자막 포맷 또는 인터넷 상태를 확인해주세요)</string>
+    <string name="error_msg_parser_sub_database_title">서버에서 자막 분석중 에러발생\n(자막 포맷이 올바른지 확인해주세요)</string>
+    <string name="video_information">비디오 정보</string>
+    <string name="trailer">트레일러(예고편)</string>
+
+    <string name="playback_swipe_forward_backward">화면을 좌우로 스와이프했을때 앞/뒤 이동 시간</string>
+    <string name="playback_tap_on_forward_backward">버튼을 눌렀을때 앞/뒤 이동 시간</string>
+
+
+    <string name="open_video_information">비디오 정보 열기</string>
+
+    <string name="msg_change_tongue_language_analyze_again_video_information">모국어를 변경하면 "비디오 정보" 뷰에서 "다시분석하기"를 실행해야 뜻이 제대로 보입니다.</string>
+    <string name="this_word_is_not_in_the_dictionary">(이 단어는 사전에 없습니다. 사전에 추가하면 뜻을 표시할수 있습니다.)</string>
+
+    <string name="sleep">잠자기</string>
+    <string name="cancel_sleep">잠자기 취소</string>
+    <string name="change_full_screen_subtitle_view_background_color">자막 배경색 변경</string>
+    <string name="desc_listen_comprehension_1">\"한번에 반복할 자막수\"를 \"자막 표시 방법 및 순서\"대로 반복재생후 다음 그룹으로 가서 같은 패턴으로 반복합니다.</string>
+    <string name="desc_listen_comprehension_2">한개의 자막을 선택한 "자막 반복 횟수"만큼 아래 패턴으로 반복한후 다음 한개의 자막을 반복합니다.\n"자막 숨기기 - 자막 보이기 - 어려운 단어만 보이기 (반복)"</string>
+
+    <string name="message_subtitle_font_size">자막 폰트 크기(자막테이블) : %1$d\n자막 폰트 크기(전체화면) : %2$d</string>
+    <string name="message_change_resize_mode">화면 모드 : %1$s</string>
+    <string name="resize_mode_fit">알맞게</string>
+    <string name="resize_mode_fixed_width">넓이 고정</string>
+    <string name="resize_mode_fixed_height">높이 고정</string>
+    <string name="resize_mode_fill">채우기</string>
+    <string name="resize_mode_zoom">확대</string>
+
+    <string name="choose_subtitle1_first">첫번째 자막을 먼저 선택하세요.</string>
+    <string name="download_subtitle_file">자막 파일 다운로드</string>
+    <string name="download_subtitle_file_message">자막 타입 : %1$s\n파일명에 확장자를 붙이지 마세요.</string>
+    <string name="download_file_started">다운로드를 시작합니다.</string>
+
+    <!-- Footer Main Screen Movie -->
+    <string name="nav_video">비디오</string>
+    <string name="nav_home_multiplayer_free">아라 멀티 플레이어</string>
+    <string name="nav_home_multiplayer">아라 멀티 플레이어</string>
+<!--    <string name="nav_video_jp">비디오 (일본어)</string>-->
+<!--    <string name="nav_video_cn">비디오 (중국어)</string>-->
+    <string name="nav_music">뮤직</string>
+    <string name="nav_network">네트웍</string>
+    <string name="track_selection_title">트랙 선택</string>
+    <string name="video_folder_en">영어 비디오 폴더</string>
+    <string name="video_folder_jp">일본어 비디오 폴더</string>
+    <string name="video_folder_cn">중국어 비디오 폴더</string>
+    <string name="video_folder_multi_player">멀티 플레이어 폴더</string>
+    <string name="music_folder_en">영어 뮤직 폴더</string>
+    <string name="music_folder_jp">일본어 뮤직 폴더</string>
+    <string name="music_folder_cn">중국어 뮤직 폴더</string>
+    <string name="video_folder">비디오 폴더</string>
+    <string name="msg_downloaded_file_path">다운로드된 파일은 아래경로에 있습니다.\n%1$s</string>
+    <string name="msg_video_folder">아래 경로에 있는 비디오만 보여줍니다.\n%1$s</string>
+    <string name="msg_no_videos_for_random_play" translatable="false">랜덤 플레이 대상이 되는 비디오가 없거나 이미 모두 로드되어 있습니다..\n\n플레이리스트에 파일을 추가하거나 숨김 비디오 리스트에 파일을 추가하세요.</string>
+    <string name="msg_no_videos_for_random_play_in_play_list" translatable="false">플레이리스트에 파일이 없습니다. 숨김 비디오 리스트에서 파일을 가져올까요?</string>
+    <string name="msg_music_folder">아래 경로에 있는 뮤직만 보여줍니다.\n%1$s</string>
+    <string name="refresh_video_list">비디오 리스트 갱신</string>
+    <string name="refresh_music_list">뮤직 리스트 갱신</string>
+
+    <string name="msg_pause_video_first_to_zoom">화면을 확대/축소할려면 먼저 비디오 재상을 멈추세요. 확대된 화면을 이동할때도 정지시에만 가능합니다.</string>
+    <string name="scrollable_menu_rotate_screen">화면\n회전</string>
+    <string name="scrollable_menu_subtitle_group">자막\n그룹</string>
+    <string name="scrollable_menu_left_hand_mode">왼손\n모드</string>
+    <string name="scrollable_menu_shadowing">쉐도잉</string>
+    <string name="scrollable_menu_delay_subtitle">자막\n시간</string>
+    <string name="scrollable_menu_sleep">수면\n모드</string>
+    <string name="scrollable_menu_embedded_tracks">내장\n트랙</string>
+    <string name="scrollable_menu_night_mode">야간\n모드</string>
+    <string name="scrollable_menu_web_dictionary">웹 사전</string>
+    <string name="scrollable_menu_open_option">옵션</string>
+    <string name="scrollable_menu_open_option_desc">옵션 (이 비디오에만 적용)</string>
+    <string name="scrollable_menu_open_setting">세팅</string>
+    <string name="scrollable_menu_open_setting_desc">세팅 (모든 비디오에 적용)</string>
+    <string name="scrollable_menu_open_listen_comprehension_option_desc">듣기\n옵션</string>
+    <string name="scrollable_menu_screen_resize">화면\n크기</string>
+    <string name="scrollable_menu_mirror_mode">좌우\n반전</string>
+    <string name="scrollable_menu_flip_vertically">상하\n반전</string>
+    <string name="tv_seasons">시리즈</string>
+
+    <string name="enable_change_table_width">자막 테이블 넓이 조절</string>
+    <string name="choose_playing_screen_theme">플레이어 테마 설정</string>
+    <string name="player_theme_1">플레이어 테마 1</string>
+    <string name="player_theme_2">플레이어 테마 2</string>
+
+    <string name="play_subtitle_time">자막 재생 시간</string>
+    <string name="before_a_subtitle">반복재생시 자막의 시작시간을 조절</string>
+    <string name="after_a_subtitle">반복재생시 자막의 끝시간을 조절</string>
+    <string name="keep_playing_between_subtitles">계속 재생할 자막간 최소 시간</string>
+    <string name="msg_refresh_subtitle_keep_the_changes">이 비디오에는 북마크등 변경한 정보가 있습니다.\n정보를 계속 사용할까요?</string>
+    <string name="play_videos">비디오 재생</string>
+    <string name="listen_comprehension">듣기 연습</string>
+    <string name="listen_comprehension_hide_the_subtitle">자막 숨기기</string>
+    <string name="listen_comprehension_show_the_subtitle">자막 보이기</string>
+    <string name="listen_comprehension_show_difficult_words_only">어려운 단어만 보이기</string>
+    <string name="listen_comprehension_format_time">%1$d 번</string>
+    <string name="listen_comprehension_format_times">%1$d 번</string>
+    <string name="full_screen_hidden_buttons_transparency">전체 화면에서 숨김 버튼의 투명도 조절</string>
+    <string name="full_screen_subtitle_view_transparency">전체 화면에서 자막 뷰의 투명도 조절</string>
+    <string name="hidden_buttons_transparency" translatable="false">숨김 버튼의 투명도 조절</string>
+
+    <string name="multi_player_setting_dialog_menu_random_play_mode" translatable="false">랜덤 재생</string>
+    <string name="multi_player_setting_dialog_menu_transparency_hidden_buttons_full_screen" translatable="false">숨김 버튼의 투명도 조절</string>
+    <string name="multi_player_setting_dialog_menu_hide_4_buttons" translatable="false">반투명 버튼 숨기기</string>
+    <string name="multi_player_setting_dialog_menu_advanced_mode" translatable="false">고급 모드</string>
+    <string name="transparency_subtitle_view">자막 뷰의 투명도 조절</string>
+    <string name="no_data_tv_season">텔레비젼 시리즈가 없습니다.</string>
+    <string name="no_data_video_files">폰에 비디오 파일이 없습니다.\n(앱에서 비디오 파일과 자막 파일을 제공해주지 않습니다.)\n\n비디오 파일을 폰에 복사한후에 이 화면을 아래로 당기세요.</string>
+    <string name="no_data_hidden_video_files">숨긴 비디오 파일이 없습니다.\n\n숨기고자 하는 비디오 파일을 꾹 누른후 숨김을 선택하면 여기에 표시됩니다.</string>
+    <string name="no_down_loading_data">다운로드중인 파일이 없습니다.\n\n(파일 다운로드를 먼저 시작하세요.)</string>
+
+    <string name="export_as_a_png_file">PNG파일 만들기</string>
+    <string name="export_as_a_png_file_description">확장자(PNG)는 붙이지 마세요.\n(추출된 파일은 비디오파일과 같은 폴더에 있습니다)</string>
+    <string name="export_as_a_png_file_description_to_picture_folder">확장자(PNG)는 붙이지 마세요.\n(추출된 파일은 %1$s 폴더에 있습니다)</string>
+
+    <string name="title_not_rated_words_only_in_subtitle">자막에 있는 단어입니다. 아는 단어는 !, 처음 보는 단어는 X, 알거 같은 단어는 1 또는 2를 누르세요. (1은 다른 유저에게 보입니다.)</string>
+    <string name="count_not_rated_words_only_to_display_in_subtitle">재생전에 보여줄 모르는 단어 수</string>
+
+    <string name="title_shadowing_listening_video_voice">녹음전에 비디오 소리 듣기</string>
+    <string name="title_shadowing_listening_my_voice">내 녹음 소리 듣기</string>
+    <string name="title_shadowing_recording">녹음하기…</string>
+    <string name="message_subtitle_end_time_greater_than_start_time">자막의 종료시간은 시작시간보다 커야 합니다.</string>
+    <string name="message_subtitle_start_time_less_than_end_time">자막의 시작시간은 종료시간보다 작아야 합니다.</string>
+    <string name="messsage_listen_comprehension_mode_starts">듣기 연습 모드를 시작합니다.</string>
+    <string name="messsage_listen_comprehension_mode_ends">듣기 연습 모드를 종료합니다.</string>
+    <string name="messsage_enter_hidden_video_files">숨김 비디오 파일 리스트 입니다.</string>
+    <string name="messsage_insert_subtitle_no">자막 시간이 겹칩니다. 시작시간이나 끝시간을 조절하세요.</string>
+    <string name="messsage_insert_subtitle_overlap_start_time">시작시간이 이전 자막과 일부 겹칩니다.</string>
+    <string name="messsage_insert_subtitle_overlap_end_time">끝시간이 다음 자막과 일부 겹칩니다.</string>
+
+    <string name="add_media_to_playlist">플레이리스트에 추가</string>
+    <string name="remove_media_from_playlist">플레이리스트에서 제거</string>
+    <string name="create_new_playlist">플레이리스트 만들기</string>
+    <string name="enter_playlist_name">플레이리스트 이름</string>
+    <string name="more_than_1_songs">%d 곡</string>
+    <string name="less_or_equal_than_1_songs">%d 곡</string>
+    <string name="msg_confirm_delete_playlist">이 플레이리스트를 지우겠습니까?</string>
+
+    <string name="message_no_lyric">이 곡에는 가사가 없습니다.</string>
+
+    <string name="multiple_player">멀티 플레이어</string>
+    <string name="choose_number_of_screens">스크린 수</string>
+
+    <string name="msg_reason_request_manage_external_storage">안드로이드 버전 11 이후부터는 보안 정책이 바뀌어서 “모든 파일에 대한 접근” 권한이 필요합니다.\n\n권한이 필요한 이유 : 시스템에 있는 동영상 파일과 자막파일을 검색, 유저 선택에 의한 동영상 파일 삭제 기능 또는 파일명 변경 기능, 자막 수정후 저장 기능</string>
+    <string name="msg_reason_request_manage_external_storage_for_multi_player" translatable="false">안드로이드 버전 11 이후부터는 보안 정책이 바뀌어서 “모든 파일에 대한 접근” 권한이 필요합니다.\n\n권한이 필요한 이유 : 숨김 동영상 파일 검색과 일반 비디오파일을 숨김비디오 파일로 일괄 변환하기 위해</string>
+    <string name="msg_warning_need_manage_external_storage_for_multi_player" translatable="false">앱을 실행하기 위해서는 “모든 파일에 대한 접근” 권한이 반드시 필요합니다. 권한을 주시겠습니까? \n\n권한이 필요한 이유 : 숨김 동영상 파일 검색과 일반 비디오파일을 숨김비디오 파일로 일괄 변환하기 위해</string>
+    <string name="multiplayer_screen_clear_history">재생 이력 삭제</string>
+    <string name="msg_ask_multiplayer_screen_clear_history">재생 이력을 삭제 하시겠습니까?</string>
+    <string name="msg_ok_multiplayer_screen_clear_history">재생 이력 삭제 성공</string>
+    <plurals name="multi_plyaer_screen_count">
+        <item quantity="other">스크린 %d개</item>
+    </plurals>
+    <string name="multi_player_watch_video">비디오 보기</string>
+    <string name="msg_ask_multiplayer_open_last_watched_videos">마지막에 본 비디오를 열겠습니까?</string>
+
+    <string name="screen_resize_fit_mode" translatable="false">맞춤 모드</string>
+    <string name="screen_resize_fixed_width_mode" translatable="false">가로 고정 모드</string>
+    <string name="screen_resize_fixed_height_mode" translatable="false">세로 고정 모드</string>
+    <string name="screen_resize_fill_mode" translatable="false">채우기 모드</string>
+    <string name="screen_resize_zoom_mode" translatable="false">확대 모드</string>
+
+    <string name="multi_player_play_view_menu_play_all_videos">모든 비디오 재생하기</string>
+    <string name="multi_player_pause_view_menu_play_all_videos">모든 비디오 중지하기</string>
+    <string name="multi_player_swap_screen_positions" translatable="false">화면 위치 바꾸기</string>
+    <string name="multi_player_screen_store_layout" translatable="false">현재 비디오 저장/불러오기</string>
+    <string name="multi_player_hide_all_videos_ui">모든 비디오 UI 숨기기</string>
+    <string name="multi_player_resize_all_videos" translatable="false">모든 비디오 리사이즈</string>
+    <string name="multi_player_choose_number_of_screens" translatable="false">스크린 수</string>
+    <string name="multi_player_select_videos_to_play" translatable="false">비디오 선택</string>
+    <string name="multi_player_play_all_videos_ab_repeat">모든 비디오의 AB반복 재생하기</string>
+    <string name="multi_player_play_all_videos_intervals" translatable="false">모든 비디오 시간차 재생</string>
+    <string name="multi_player_move_all_videos_to_start" translatable="false">모든 비디오 맨 처음으로</string>
+    <string name="multi_player_mute_all_videos">모든 비디오 소리끄기</string>
+    <string name="multi_player_unmute_all_videos">모든 비디오 소리켜기</string>
+
+    <string name="dialog_title_play_all_videos_intervals" translatable="false">간격</string>
+    <string name="dialog_title_select_fixed_screen_id_for_random_video_play" translatable="false">오토 랜덤 플레이\n(랜덤 제외 스크린)</string>
+    <string name="dialog_title_select_media_folder_for_video" translatable="false">아래 폴더에 있는 비디오만 검색합니다.</string>
+    <string name="dialog_button_cancel_auto_random_for_random_video_play" translatable="false">오토 랜덤 플레이 취소</string>
+    <string name="toast_cancelled_auto_random_for_random_video_play" translatable="false">오토 랜덤 플레이가 취소 되었습니다.</string>
+
+    <string name="multi_player_play_saved_ab_repeat" translatable="false">저장된 AB반복구간 재생</string>
+    <string name="multi_player_delete_saved_ab_repeat" translatable="false">저장된 AB반복구간 삭제</string>
+    <string name="multi_player_load_same_videos" translatable="false">같은 화면으로 채우기</string>
+    <string name="multi_player_video_menu_show_video_title">비디오 제목 보기</string>
+
+    <string name="subtitle_selector_subtitle_connected">자막 파일 연결됨</string>
+    <string name="subtitle_selector_subtitle_not_connected">여기를 눌러서 자막파일을 연결하세요.</string>
+    <string name="login_message_to_log_in_open_subtitle_1">OpenSubtitle의 계정이 필요합니다.</string>
+    <string name="login_message_to_log_in_open_subtitle_2">여기를 눌러서 회원가입을 하세요.</string>
+    <string name="toast_subtitle_group_deleted_subtitles">삭제됨 : </string>
+    <string name="subtitle_group_show_all_subtitles">전체 자막 표시</string>
+    <string name="subtitle_group_selected_all_displayed_subtitles">표시된 모든 자막 선택됨</string>
+    <string name="subtitle_group_unselected_all_displayed_subtitles">자막 선택 해제됨</string>
+
+    <string name="msg_info_remain_open_subtitle_request">OpenSubtitle 싸이트에서는 하루에 최대 %1$d개 자막을 다운받을수 있습니다.\n현재 %2$d개 자막을 다운 받았습니다.\n\n(24시간 뒤에 다시 초기화 됩니다.)</string>
+    <string name="msg_info_advanced_mode">고급 기능을 활성화 하면 다음과 같은 기능을 사용할수 있습니다.\n\n자막 수정, 수면 모드, 화면 좌우/상하 조절 등</string>
+    <string name="msg_info_multiplayer_advanced_mode" translatable="false">고급 기능을 활성화 하면 다음과 같은 기능을 사용할수 있습니다.\n\n배속 조절</string>
+
+    <string name="dialog_message_first_hide_multi_player_tab_layout" translatable="false">백버튼을 누르면 메뉴가 다시 보입니다.</string>
+    <string name="dialog_message_first_select_multi_videos_from_menu" translatable="false">비디오를 선택하면 비어 있는 맨 처음 스크린부터, 총 스크린의 갯수만큼 로드됩니다.</string>
+    <string name="dialog_message_select_too_many_screen_count" translatable="false">너무 많은 비디오나 큰 비디오들을 선택하면 선택하면 제대로 로딩이 안될수 있습니다.</string>
+    <string name="dialog_multi_player_load_same_videos" translatable="false">다른 화면을 현재 비디오로 보시겠습니까?</string>
+    <string name="dialog_multi_player_choose_screen_to_load_same_videos" translatable="false">현재 비디오를 복사할 화면을 선택하세요</string>
+    <string name="toast_ab_repeat_time_saved" translatable="false">AB반복구간이 저장되었습니다.</string>
+    <string name="toast_ab_repeat_time_deleted" translatable="false">AB반복구간을 삭제하였습니다.</string>
+    <string name="toast_guide_exit_ab_repeat_mode" translatable="false">AB반복 모드를 빠져나갈려면 화면을 더블 클릭해보세요.</string>
+    <string name="text_play_pinned_screen" translatable="false">같은 영상 반복</string>
+    <string name="text_play_unpinned_screen" translatable="false">같은 영상 반복 해제</string>
+    <string name="text_play_ab_repeat_time_on_screen" translatable="false">AB구간 재생</string>
+    <string name="text_exit_ab_repeat_time_on_screen" translatable="false">AB구간 재생 해제</string>
+    <string name="text_delete_ab_repeat_time_on_screen" translatable="false">AB구간 삭제됨</string>
+    <string name="toast_all_videos_play_ab_repeat_time" translatable="false">%1$d개 동영상의 AB반복구간을 재생합니다.</string>
+    <string name="toast_play_no_saved_ab_repeat_time" translatable="false">저장된 AB반복구간이 없습니다.</string>
+    <string name="toast_all_videos_muted" translatable="false">모든 비디오가 무음 상태입니다.</string>
+    <string name="toast_all_videos_unmuted" translatable="false">모든 비디오에서 소리가 납니다.</string>
+    <string name="toast_one_video_muted" translatable="false">무음</string>
+    <string name="toast_load_video_first" translatable="false">먼저 재생할 비디오를 로드하세요.</string>
+    <string name="toast_to_hide_top_menu_open_video" translatable="false">상단 메뉴를 숨기기 위해서는 열린 비디오가 있어야 합니다.</string>
+    <string name="toast_show_top_menu" translatable="false">상단 메뉴를 표시합니다.</string>
+
+    <string name="guide_multi_player_screen_count" translatable="false">클릭하면 스크린 갯수를 1개부터 여러개로 설정할수 있습니다.</string>
+    <string name="guide_multi_player_get_free_point" translatable="false">더블 클릭하면 무료 포인트를 얻을수 있습니다.\n\n광고 보기로 포인트를 얻을수 없을때 사용하세요.</string>
+    <string name="guide_multi_player_point_deduction" translatable="false">비디오를 보면 1포인트가 차감됩니다.\n\n여기를 클릭하면 포인트를 구매할수 있습니다.</string>
+    <string name="guide_ara_player_point_deduction" translatable="false">자막을 분석하면 5포인트가 소모 됩니다. 자막이 없는 비디오를 재생하면 1포인트가 소모됩니다.(자막 분석후 재생시에는 추가 포인트 소모 없음)</string>
+    <string name="guide_video_play_and_analyze_button" translatable="false">자막이 있으면 분석하여 자막에서 모르는 단어를 추출한후 비디오를 재생합니다.\n\n이미 자막이 분석되어 있거나 자막이 없으면 바로 비디오를 재생합니다</string>
+
+    <string name="guide_multi_player_how_to_use_multi_play_view" translatable="false">플러스 아이콘 : 비디오 선택\n(재생시 무음이 기본)\n\n화면 한번 탭 : 재생/정지\n화면 가운데 더블 탭 : 메뉴 보이기/숨기\n화면 좌우측 한번 탭 : 앞뒤로 건너뛰기\n화면을 좌우로 스와이핑 : 앞뒤로 이동</string>
+    <string name="guide_multi_player_how_to_use_select_video_folders" translatable="false">이 폴더들에 비디오 파일이 있어야 합니다.</string>
+    <string name="guide_multi_player_how_to_use_select_video_top_menu" translatable="false">비디오 리스트 갱신, 숨김 비디오 리스트등의 메뉴가 있습니다.</string>
+    <string name="guide_multi_player_how_to_use_select_multi_videos_by_long_click" translatable="false">비디오를 꾹 누르고 있으면 여러 비디오를 한번에 선택할수 있습니다.</string>
+    <string name="guide_multi_player_how_to_use_multi_play_top_menu" translatable="false">모든 비디오에 대해서 한번에 조작 가능한 메뉴와 랜덤 비디오 재생하기 메뉴가 있습니다.</string>
+    <string name="guide_multi_player_how_to_use_multi_play_top_menu_hide" translatable="false">이 버튼을 클릭하면 메뉴바를 숨길수 있습니다. (백버튼을 누르면 메뉴바가 다시 보입니다.)</string>
+
+    <string name="select_video_folders_for_videos" translatable="false">다운로드 및 동영상폴더에 있는 비디오가 아래 리스트에 나타납니다.설정에서 폴더를 변경할수 있습니다.</string>
+    <string name="guide_multi_player_how_to_use_screen_stored_layouer" translatable="false">현재 보고 있는 비디오들을 저장하거나 다시 불러올수 있습니다.</string>
+
+    <string name="video_list_multi_select_menu_hide" translatable="false">숨김</string>
+    <string name="video_list_multi_select_menu_show" translatable="false">안숨김</string>
+    <string name="video_list_multi_select_menu_play" translatable="false">재생</string>
+    <string name="video_list_multi_select_menu_add_item_to_playlist" translatable="false">플레이리스트</string>
+    <string name="video_list_multi_select_menu_more" translatable="false">More</string>
+
+    <string name="toast_select_videos_first" translatable="false">먼저 비디오를 선택하세요.</string>
+    <plurals name="toast_moved_selected_videos_to_hidden_list">
+        <item quantity="other">선택한 %d개 파일이 숨긴 비디오 리스트로 이동되었습니다.</item>
+    </plurals>
+    <plurals name="toast_moved_selected_videos_to_normal_list">
+        <item quantity="other">선택한 %d개 파일이 일반 비디오 리스트로 이동되었습니다.</item>
+    </plurals>
+    <string name="dialog_message_first_show_back_drop_image" translatable="false">동영상의 현재화면을 큰 이미지로 보여줍니다.\n\n동영상을 재생할려면 가운데 플레이 버튼을 누르세요.</string>
+
+    <string name="dialog_title_choose_to_delete_ab_repeat" translatable="false">삭제할 AB Repeat 리스트 선택</string>
+
+    <string name="play_from_playlist_dialog_title" translatable="false">플레이 리스트에서 재생</string>
+
+    <string name="playlist_dialog_title" translatable="false">플레이 리스트</string>
+    <string name="playlist_dialog_title_choose_to_delete" translatable="false">삭제할 플레이 리스트 선택</string>
+    <string name="playlist_dialog_button_select" translatable="false">선택</string>
+    <string name="playlist_dialog_button_from_hidden_folder" translatable="false">숨김비디오 리스트에서</string>
+    <string name="playlist_dialog_button_cancel" translatable="false">취소</string>
+
+    <string name="type_input_dialog_title_create_playlist" translatable="false">플레이 리스트 이름</string>
+    <string name="type_input_dialog_subtitle_create_playlist" translatable="false">플레이 리스트를 여러개를 한번에 만들려면 콤마로 구분하세요.</string>
+
+<!--    <string name="toast_create_playlist_success" translatable="false">플레이리스트 생성 성공</string>-->
+    <string name="toast_create_playlist_success">플레이리스트 %d개 생성 성공.</string>
+    <string name="toast_create_playlist_failed">총 %1$d개 중 %2$d개 생성 성공.(%3$d개 실패)</string>
+
+    <string name="toast_create_playlist_fail_duplicated_name" translatable="false">생성 실패. 이미 존재하는 이름입니다.</string>
+    <string name="toast_create_playlist_fail_empty_name" translatable="false">생성 실패. 플레이 리스트 이름이 비어있습니다.</string>
+    <string name="toast_selected_videos_added_to_playlist" translatable="false">선택한 비디오들이 플레이 리스트에 추가되었습니다.</string>
+    <string name="toast_need_to_select_videos_to_add_playlist" translatable="false">비디오들을 먼저 선택하세요.</string>
+    <string name="toast_selected_videos_removed" translatable="false">선택한 플레이 리스트들이 삭제되었습니다.</string>
+    <string name="toast_no_selected_videos_to_remove" translatable="false">삭제할 플레이 리스트가 없습니다.</string>
+
+    <string name="toast_no_ab_repeat_removed" translatable="false">삭제할 AB Repeat 항목이 없습니다.</string>
+    <string name="toast_all_ab_repeat_removed" translatable="false">%1$d개의 AB Repeat 항목이 모두 삭제되었습니다.</string>
+    <string name="toast_some_ab_repeat_removed" translatable="false">총 %1$d개 중 %2$d개의 AB Repeat 항목이 삭제되었습니다.</string>
+
+    <string name="toast_volume_status_muted" translatable="false">음소거 상태입니다. 볼륨을 조절할려면 음소거부터 해제하세요.</string>
+    <string name="toast_no_playlist_selected" translatable="false">아무 플레이 리스트도 선택하지 않았습니다.</string>
+    <string name="toast_clear_selection_first_to_load_videos" translatable="false">비디오를 로드 할려면 체크박스부터 해제하세요.</string>
+    <string name="toast_current_videos_replaced" translatable="false">이미 저장된 비디오를 갱신했습니다.</string>
+    <string name="toast_current_videos_stored" translatable="false">현재 비디오들을 저장했습니다.</string>
+    <string name="toast_current_videos_stored_nothing_happen" translatable="false">아무 변경도 없습니다.</string>
+    <string name="view_title_playlist" translatable="false">플레이 리스트</string>
+    <string name="activity_title_stored_layout" translatable="false">저장된 비디오들</string>
+
+    <string name="toast_converted_to_hidden_files" translatable="false">파일명앞에 . 이 추가됨</string>
+    <string name="toast_converted_to_normal_files" translatable="false">파일명앞에 . 이 제거됨</string>
+</resources>

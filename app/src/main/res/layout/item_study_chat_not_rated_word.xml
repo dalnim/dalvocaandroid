@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word"
+            style="@style/TextViewItemVoca"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_4_buttons"
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/iv_known"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/btn_no_border_voca_know_known"
+            android:text="!"
+            android:textColor="@color/colorBlack" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/iv_grade_1"
+            style="@style/ButtonGrade"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
+            android:text="1"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/iv_grade_2"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
+            android:text="2"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/iv_unknown"
+            style="@style/ButtonGrade"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btn_no_border_voca_know_unknown"
+            android:text="X"
+            android:textColor="@color/colorBlack" />
+    </LinearLayout>
+</LinearLayout>

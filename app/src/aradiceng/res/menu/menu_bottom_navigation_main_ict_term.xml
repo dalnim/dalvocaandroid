@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_main_ict_term_list"
+        android:icon="@drawable/ic_book"
+        android:title="@string/action_main_list"/>
+
+    <item
+        android:id="@+id/nav_main_search_history"
+        android:icon="@drawable/ic_word_list"
+        android:title="@string/action_main_search_history" />
+</menu>

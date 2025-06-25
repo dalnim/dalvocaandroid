@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_play_background"
+            android:padding="8dp"
+            android:text="@string/menu"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/v_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:text="@string/make_a_call"/>
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_menu_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_menu_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <LinearLayout
+            android:id="@+id/v_menu_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/choose_message"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_menu_chat_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_menu_chat_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/chat_message"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_menu_voice_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/voice_call"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_menu_use_speaker_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/use_speaker_phone"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_menu_mute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/mute"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/v_menu_invite"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/invite_a_user_"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_menu_change_role"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/change_study_role"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_current_guide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/current_guide"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_show_hide_student_meaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/hide_student_meaning"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_menu_student_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/student_option"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_refresh_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/refresh_user_list"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_menu_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_play_background"
+            android:padding="8dp"
+            android:textSize="14sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

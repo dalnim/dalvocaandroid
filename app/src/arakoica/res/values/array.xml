@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_choice_copy_term">
+        <item>@string/choice_copy_term_eng_abbr</item>
+        <item>@string/choice_copy_term_eng_full</item>
+        <item>@string/choice_copy_term_ko_title</item>
+        <item>@string/choice_copy_term_hanja_title</item>
+        <item>@string/choice_copy_term_ko_short</item>
+        <item>@string/choice_copy_term_ko_full</item>
+        <item>@string/choice_copy_term_all</item>
+    </string-array>
+</resources>

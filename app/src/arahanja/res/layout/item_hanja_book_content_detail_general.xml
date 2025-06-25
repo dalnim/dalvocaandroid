@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dalread.component.page_curl.PageCurlFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llRoot"
+    style="@style/Match">
+
+    <LinearLayout
+        style="@style/Match"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/v_reading_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvBookHanjaFurigana"
+                    style="@style/TextViewHanjaBookVoca"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp" />
+
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvBookUnknownWordInfoFurigana"
+                    style="@style/TextViewHanjaBookUnknownVoca"
+                    android:layout_marginTop="5dp" />
+
+                <!--                    <com.dalread.component.CustomFontSizeTextView-->
+                <!--                        android:id="@+id/tvUnknownWordInfo"-->
+                <!--                        style="@style/TextViewHanjaBookUnknownVoca"-->
+                <!--                        android:textColor="@color/textPrimaryColor"-->
+                <!--                        android:textIsSelectable="true"-->
+                <!--                        android:layout_marginTop="4dp"-->
+                <!--                        app:defaultTextSize="@dimen/item_hanja_book_unknown_voca_size"-->
+                <!--                        tools:text="Difficutl Voca"-->
+                <!--                        />-->
+            </LinearLayout>
+        </ScrollView>
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="16dp"-->
+        <!--            android:background="@drawable/bg_view_adjust_height" />-->
+
+        <LinearLayout
+            android:id="@+id/v_adjust_height_reading"
+            style="@style/WidthMatch"
+            android:background="@drawable/bg_view_adjust_height"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivPrev"
+                style="@style/ImageView_previous_next"
+                android:src="@drawable/ic_left"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/ivCopy"
+                style="@style/ImageView_Player"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_copy2" />
+
+            <ImageView
+                android:id="@+id/ivWebSearch"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_globe_empty" />
+
+            <TextView
+                android:id="@+id/tvBookName"
+                style="@style/TextView_Value"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/font_header"
+                tools:text="1/123" />
+
+            <ImageView
+                android:id="@+id/ivEditView"
+                style="@style/ImageView_Player"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_edit2" />
+
+            <ImageView
+                android:id="@+id/ivWordList"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_word_list" />
+
+            <ImageView
+                android:id="@+id/ivNext"
+                style="@style/ImageView_previous_next"
+                android:src="@drawable/ic_right"
+                app:tint="@color/black" />
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/v_reading_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvBookMeaning"
+                    style="@style/TextViewHanjaBookMeaning"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp" />
+
+                <com.dalread.component.FuriganaView
+                    android:id="@+id/tvBookMeaningDetailed"
+                    style="@style/TextViewHanjaBookMeaningDetailed"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="25dp" />
+
+                <!--                    <com.dalread.component.CustomFontSizeTextView-->
+                <!--                        android:id="@+id/tvBookMeaning"-->
+                <!--                        style="@style/TextViewHanjaBookMeaning"-->
+                <!--                        android:textColor="@color/textPrimaryColor"-->
+                <!--                        android:textIsSelectable="true"-->
+                <!--                        android:layout_marginTop="10dp"-->
+                <!--                        app:defaultTextSize="@dimen/item_hanja_book_meaning_size"-->
+                <!--                        tools:text="Meaning"/>-->
+                <!--                    <com.dalread.component.CustomFontSizeTextView-->
+                <!--                        android:id="@+id/tvBookMeaningDetailed"-->
+                <!--                        style="@style/TextViewHanjaBookMeaningDetailed"-->
+                <!--                        android:layout_marginTop="10dp"-->
+                <!--                        android:textColor="@color/textPrimaryColor"-->
+                <!--                        android:textIsSelectable="true"-->
+                <!--                        app:defaultTextSize="@dimen/item_hanja_book_meaning_detailed_size"-->
+                <!--                        tools:text="Meaning Detailed"/>-->
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</com.dalread.component.page_curl.PageCurlFrameLayout>

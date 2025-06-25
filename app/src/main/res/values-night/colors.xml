@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="arrowColor">#121212</color>
+    <color name="colorAppTint">#323D56</color>
+    <color name="primaryColor">#323D56</color>
+    <color name="primaryLightColor">#CC3ED6A4</color>
+    <color name="primaryLightestColor">#993ED6A4</color>
+    <color name="primaryDarkColor">#34BD90</color>
+    <color name="secondaryColor">#fb8c00</color>
+    <color name="secondaryLightColor">#ffbd45</color>
+    <color name="secondaryDarkColor">#c25e00</color>
+    <color name="ternaryColor">#60606A</color>
+    <color name="ternaryLightColor">#4D4D53</color>
+    <color name="actionMenuTextColor">#CCFFFFFF</color>
+
+    <color name="buttonBlackAtDayColor">@color/DayBlackNightWhite</color>
+
+
+    <color name="backgroundBottomNavBarColor">#CC121212</color>
+    <color name="backgroundButtonGrayColor">@color/backgroundColor</color>
+    <color name="backgroundColor">@color/araconv_home_background_dark</color>
+    <color name="backgroundColorOutOfTable">#323D56</color>
+    <color name="backgroundCellColor">@color/araconv_dark</color>
+    <color name="backgroundCellHeaderColor">#141822</color>
+    <color name="backgroundCellHeaderTopColor">#CC2E2E2E</color>
+    <color name="backgroundCellItemColor">@color/backgroundColor</color>
+    <color name="backgroundCellSubtitleNormalColor">@color/backgroundColor</color>
+    <color name="backgroundCellSubtitleCurrentPlayingColor">#5E5E5E</color>
+    <color name="backgroundCellSubtitleHidedAutomaticallyColor">#CC4A4A4A</color>
+    <color name="backgroundDialogColor">@color/araconv_home_background_dark</color>
+    <color name="backgroundDialogBorderColor">#777777</color>
+    <color name="backgroundEditTextColor">#2E2E2E</color>
+    <color name="backgroundEditTextLoginColor">#272727</color>
+
+    <color name="backgroundPopupColor">@color/backgroundColor</color>
+    <color name="backgroundSwitchOffColor">#5E7193</color>
+    <color name="backgroundSwitchOffDotColor">#88A2CF</color>
+    <color name="backgroundSwitchOnColor">#5E7193</color>
+    <color name="backgroundSwitchOnDotColor">@color/primaryColor</color>
+    <color name="backgroundTableColor">#141822</color>
+    <color name="backgroundToolbarColor">@color/colorBlack</color>
+    <color name="backgroundVideoInformationViewColor">#141822</color>
+    <color name="backgroundRectangleOverPlayingScreenForPlayIconsColor">#66323D56</color>
+    <color name="backgroundRectangleInTableForPlayIconsColor">#323D56</color>
+
+    <color name="backgroundBlackColor">#CC000000</color>
+    <color name="backgroundDarkGrayColor">#1E1E1E</color>
+    <color name="backgroundGrayColor">#555555</color>
+    <color name="backgroundGrayColorPopupHeader">@color/backgroundColor</color>
+    <color name="backgroundGrayColorPopupBody">@color/backgroundColor</color>
+    <color name="backgroundLiteWhiteColor">#80FFFFFF</color>
+    <color name="backgroundWhiteColor">@color/dayNightWhiteColor</color>
+
+    <color name="imageColor">#5E7193</color>
+    <color name="backgroundTodayExpression">@color/backgroundColor</color>
+
+    <color name="textEditTextColor">#5E7193</color>
+    <color name="textDeleteOnRedBackgroundColor">#CCFFFFFF</color>
+    <color name="textRedColor">#CCFE3824</color>
+    <color name="textPrimaryColor">#777777</color>
+    <color name="textPrimaryWhiteColor">#777777</color>
+    <color name="textSecondaryColor">@color/textDayWhiteNightDarkWhiteColor</color>
+    <color name="textDrawableCheckedColor">@color/colorBlue</color>
+    <color name="textDrawableUnCheckedColor">@color/textPrimaryColor</color>
+    <color name="textVeryLiteWhiteColor">@color/dayNightVeryLiteWhiteColor</color>
+    <color name="textLiteWhiteColor">@color/dayNightLiteWhiteColor</color>
+    <color name="textCellHeaderColor">#5E7193</color>
+    <color name="textCellItemColor">#5E7193</color>
+    <color name="textCellItemValueColor">#5E7193</color>
+<!--    <color name="textDayWhiteNightBlack">@color/white</color>-->
+    <color name="textDaySteelBlueNightWhite">@color/white</color>
+    <color name="textDayWhiteNightLightWhiteColor">@color/dayNightWhiteColor</color>
+    <color name="textGrayColor">#5E7193</color>
+    <color name="textDayWhiteNightDarkWhiteColor">@color/dayNightDarkWhiteColor</color>
+    <color name="textSignInUpMessageColor">@color/md_grey_800</color>
+    <color name="textReadMoreColor">#FC6946</color>
+
+    <color name="color_ruby_text_normal">#292929</color>
+    <color name="color_ruby_text_unknown_meaning">#A83224</color>
+
+    <color name="colorBorderBackgroundDialog">#7A7A7A</color>
+    <color name="textWhiteColor">#6D6D6D</color>
+
+    <color name="checkboxColor_checked">#1E9870</color>
+    <color name="checkboxColor_unchecked">#CCE3E3E3</color>
+
+    <color name="cellDividerColor">@color/backgroundDialogBorderColor</color>
+    <color name="cellDividerThickColor">#FFFFFF</color>
+
+    <color name="DayBlackNightWhite">#FFFFFF</color>
+    <color name="DayBlackNightLightWhite">#DCDCDC</color>
+
+    <color name="rubyTextDifficultWordAndMeaningColor">@color/textPrimaryColor</color>
+    <color name="rubyTextDifficultWordAndMeaningInTableColor">@color/textPrimaryColor</color>
+
+    <color name="rubyTextNormalColor">#777777</color>
+    <color name="rubyTextNormalInTableColor">#777777</color>
+
+    <color name="rubyTextUnknownColor">#CCFE3824</color>
+    <color name="rubyTextUnknownPronounceColor">#CCFF00FF</color>
+
+    <color name="dayTransparentNightHalfTransparentBlackColor">#80000000</color>
+    <color name="dayWhiteNightBlackColor">#000000</color>
+    <color name="dayNightVeryLiteWhiteColor">#DCDCDC</color>
+    <color name="dayNightLiteWhiteColor">#CACACA</color>
+    <color name="dayNightWhiteColor">#8F8F8F</color>
+    <color name="dayNightDarkWhiteColor">#777777</color>
+
+    <color name="color_voca_know_known">#28A7B5</color>
+    <color name="color_voca_know_memorization">#F5A623</color>
+    <color name="color_voca_know_unknown">#9E5645</color>
+    <color name="color_voca_know_amki_grade_1">#B38231</color>
+    <color name="color_voca_know_amki_grade_2">#48556C</color>
+    <color name="color_voca_know_not_rated">#BFBFBF</color>
+    <color name="color_voca_bookmark">#B69F42</color>
+
+    <color name="videoDurationOvalSolid">#595959</color>
+    <color name="videoDurationOvalStroke">#EFEFEF</color>
+    <color name="videoDurationOvalGradient">#CCCCCC</color>
+
+    <color name="color_seek_bar_background">#33323D56</color>
+    <color name="color_seek_bar_progress">#CC323D56</color>
+    <color name="color_player_play_top_btn_background">#323D56</color>
+
+    <color name="iconPrimaryWhiteColor">#777777</color>
+    <color name="iconPrimaryBlackColor">#777777</color>
+    <color name="iconPrimaryBackground">@color/blue_light</color>
+    <color name="icon_on_color">#FF7C00</color>
+    <color name="icon_off_color">#5E7193</color>
+    <color name="icon_off_color_night_lite_white">@color/dayNightLiteWhiteColor</color>
+
+    <color name="icon_eye_on_color">#FF7C00</color>
+    <color name="icon_eye_off_color">#88A2CF</color>
+    <color name="icon_eye_off_gray_color">#FF7C00</color>
+
+    <color name="chat_bubble_chatbot">#383838</color>
+    <color name="chat_bubble_user">#FFEA2F</color>
+    <color name="chat_bubble_guide">#212121</color>
+    <color name="chat_background">#272727</color>
+    <color name="fab_background">#05635A</color>
+
+    <color name="color_divider">#979797</color>
+
+    <color name="background_season_item">#323D56</color>
+
+    <color name="video_play_subtitle_language_selected">#FBC684</color>
+    <color name="video_play_subtitle_language_unselected">#777777</color>
+
+    <color name="avatar_circle_background">#636363</color>
+<!--    <color name="favorite_fill">@color/ternaryLightColor</color>-->
+
+    <color name="colorBackgroundButtonPress">#323D56</color>
+<!--    <color name="colorBackGroundNew">@color/araconv_home_background_dark</color>-->
+<!--    <color name="colorHeaderNew">#252525</color>-->
+<!--    <color name="colorTextNew">#FFFFFF</color>-->
+
+    <color name="color_grouped_radical_background">#3E3E3E</color>
+    <color name="color_grouped_radical_normal">@color/black</color>
+
+    <color name="paid_icon">#573804</color>
+
+    <color name="icon_dic_hanja_text">#5E7193</color>
+    <color name="icon_dic_hanja_circle_outline">#5E7193</color>
+    <color name="icon_dic_hanja_background">#00000000</color>
+    <color name="BackgroundHanjaVocaInfoMain">#323D56</color>
+
+
+    <color name="home_side_menu_item_background">@color/araconv_dark</color>
+    <color name="home_side_menu_top_avatar_rectangle">@color/araconv_dark</color>
+
+</resources>

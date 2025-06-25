@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"
+        app:title="@string/view_titile_delete_subtitles" />
+    <!-- Search box -->
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/textPrimaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/tvGuide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/voca_filter_text_view_guide_to_delete"
+        android:textColor="@color/textPrimaryColor"
+        android:background="@color/backgroundGrayColorPopupHeader"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"  />
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:background="@color/backgroundGrayColorPopupHeader"
+        app:layout_constraintTop_toBottomOf="@+id/tvGuide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+        <ImageView
+            android:id="@+id/ivMic"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_mic_none_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivShowAll"
+            />
+        <ImageView
+            android:id="@+id/ivVocaKnow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_voca_know_gray_circle_known"
+            app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivShowAll"
+             />
+        <ImageView
+            android:id="@+id/ivSubtitleDialogHided"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_filter_alt_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivShowAll"
+            app:tint="@color/iconTernaryColor" />
+        <ImageView
+            android:id="@+id/ivSelectRange"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_linear_scale_24"
+            app:tint="@color/iconTernaryColor"
+            app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivShowAll"
+            />
+    </LinearLayout>
+
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/fs_Content"
+        style="@style/Match"
+        android:visibility="visible"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivShowAll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llButtons"
+        app:supportSwipeToRefresh="false"
+        app:handleDrawable="@drawable/fast_scroller_handle"
+        app:handleHasFixedSize="true"
+        app:handleHeight="48dp"
+        app:handleVisibilityDuration="1000"
+        app:handleWidth="24dp">
+
+        <!-- Recycler view -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_subtitle_group" />
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+<!--    &lt;!&ndash; Button bar &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/buttonBar"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+        <!-- Hide button -->
+    <ImageView
+        android:id="@+id/ivShowAll"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:src="@drawable/ic_menu_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ivDelete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:tint="@color/backgroundGrayColor" />
+
+        <!-- Delete button -->
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+        app:layout_constraintEnd_toStartOf="@+id/ivSelectAll"
+        app:layout_constraintStart_toEndOf="@+id/ivShowAll"
+        app:layout_constraintTop_toTopOf="@+id/ivSelectAll"
+        app:tint="@color/backgroundGrayColor" />
+
+        <!-- Select all button -->
+    <ImageView
+        android:id="@+id/ivSelectAll"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_checkbox"
+        app:layout_constraintBottom_toBottomOf="@+id/ivShowAll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivShowAll"
+         />
+
+<!--    </LinearLayout>-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

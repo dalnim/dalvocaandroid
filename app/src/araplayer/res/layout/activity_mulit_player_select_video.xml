@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightIcon2="@drawable/ic_toolbar_sort"
+        app:title="@string/video" />
+
+    <LinearLayout
+        android:id="@+id/llMultiPlayerVideoList"
+        style="@style/Match"
+        android:orientation="vertical"
+        android:paddingBottom="0dp">
+
+        <TextView
+            android:id="@+id/tvPlaylistName"
+            style="@style/TextView_Value_Video_Information"
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="@color/transparent"
+            android:text="Playlist name"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/tvGuide"
+            style="@style/TextView_Value_Video_Information"
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="@color/transparent"
+            android:text="@string/select_video_folders_for_videos"/>
+        <include
+            android:id="@+id/llvideo_folder_for_study_language_info"
+            layout="@layout/layout_video_folder_for_study_language_info"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+            android:id="@+id/fs_List"
+            style="@style/Match"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:handleDrawable="@drawable/fast_scroller_handle"
+            app:handleHasFixedSize="true"
+            app:handleHeight="48dp"
+            app:handleVisibilityDuration="1000"
+            app:handleWidth="24dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVideo"
+                style="@style/Match"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_select_video" />
+        </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+        <LinearLayout
+            android:id="@+id/mediaListLayoutEdit"
+            style="@style/WidthMatch"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:background="@color/backgroundLightBlackColor"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/btnShowHideSelectedMedia"
+                style="@style/LayoutItemEdit"
+                android:layout_weight="1">
+
+                <ImageView
+                    style="@style/MultiImageItemEdit"
+                    android:src="@drawable/baseline_folder_white_24" />
+
+                <TextView
+                    android:id="@+id/tvShowHideSelectedMedia"
+                    style="@style/Wrap"
+                    android:textColor="@color/textPrimaryWhiteColor"
+                    android:text="@string/video_list_multi_select_menu_hide" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnPlaySelectedMedia"
+                style="@style/LayoutItemEdit"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_two"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_two">
+
+                <ImageView
+                    style="@style/MultiImageItemEdit"
+                    android:src="@drawable/ic_play_white_24dp" />
+
+                <TextView
+                    android:id="@+id/tvPlaySelectedMedia"
+                    style="@style/Wrap"
+                    android:textColor="@color/textPrimaryWhiteColor"
+                    android:text="@string/video_list_multi_select_menu_play" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAddItemToPlaylist"
+                style="@style/LayoutItemEdit"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_two"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_two">
+
+                <ImageView
+                    style="@style/MultiImageItemEdit"
+                    android:src="@drawable/baseline_playlist_add_24" />
+
+                <TextView
+                    android:id="@+id/tvbtnAddItemToPlaylist"
+                    style="@style/Wrap"
+                    android:textColor="@color/textPrimaryWhiteColor"
+                    android:text="@string/video_list_multi_select_menu_add_item_to_playlist" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnMore"
+                style="@style/LayoutItemEdit"
+                android:layout_weight="1">
+
+                <ImageView
+                    style="@style/MultiImageItemEdit"
+                    android:src="@drawable/ic_more_horiz_white_24dp" />
+
+                <TextView
+                    android:id="@+id/tvMore"
+                    style="@style/Wrap"
+                    android:textColor="@color/textPrimaryWhiteColor"
+                    android:text="@string/video_list_multi_select_menu_more" />
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/btnSelectAllMedia"-->
+<!--                style="@style/LayoutItemEdit"-->
+<!--                android:layout_weight="1">-->
+
+<!--                <ImageView-->
+<!--                    style="@style/ImageItemEdit"-->
+<!--                    android:src="@drawable/ic_folder_system" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_select_all"-->
+<!--                    style="@style/Wrap"-->
+<!--                    android:text="@string/select_all" />-->
+<!--            </LinearLayout>-->
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

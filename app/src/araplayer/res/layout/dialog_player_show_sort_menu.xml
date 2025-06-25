@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/sort"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <TextView
+            android:id="@+id/tv_sort_created_date_asc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_created_date_asc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_created_date_desc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_created_date_desc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_file_size_asc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_file_size_asc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_file_size_desc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_file_size_desc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_file_name_asc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_file_name_asc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_file_name_desc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_file_name_desc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_difficulty_asc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_difficulty_asc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_sort_difficulty_desc"
+            style="@style/Button_Base"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/sort_difficulty_desc"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

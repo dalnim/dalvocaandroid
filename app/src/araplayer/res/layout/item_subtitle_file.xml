@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundCellColor"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/ivIconNormal"
+        style="@style/ImageView_MovieList"
+        android:padding="1dp"
+        android:src="@drawable/ic_file_subtitle" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSubtitlePath"
+            style="@style/Match"
+            android:textColor="@color/textSecondaryColor"
+            android:text="file path"
+             />
+
+        <TextView
+            android:id="@+id/tvSubtitleName"
+            style="@style/TextView_Subtitle_FileName"
+
+            android:text="file name.srt"
+            android:textStyle="bold" />
+
+        <RelativeLayout style="@style/WidthMatch">
+
+            <TextView
+                android:id="@+id/tvSize"
+                style="@style/Wrap"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/textSecondaryColor"
+                android:text="877.3 MB"
+                android:textSize="@dimen/font_inf_value" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        style="@style/ImageView_Item_Movie"
+        android:layout_marginLeft="@dimen/activity_vertical_margin_item"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_checkbox_1_checked" />
+</LinearLayout>

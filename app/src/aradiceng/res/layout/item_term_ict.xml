@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:background="@color/backgroundColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDifficultWordAndMeaning"
+            style="@style/TextViewItemSttInCell"
+            android:textSize="@dimen/cell_stt_difficult_word_and_meaning_text_size"
+            tools:text="Eng Full Eng Full "/>
+        <TextView
+            android:id="@+id/tvStudyLangValue"
+            style="@style/TextViewItemSttInCell"
+            android:textSize="@dimen/cell_stt_study_lang_text_size"
+            tools:text="Eng Full Eng Full "/>
+        <TextView
+            android:id="@+id/tvMotherTongueLangValue"
+            style="@style/TextViewItemSttInCell"
+            android:textSize="@dimen/cell_stt_mother_tongue_lang_text_size"
+            tools:text="Korean Short Korean Short Korean Short "/>
+        <TextView
+            android:id="@+id/tvStartEndTime"
+            style="@style/TextViewItemSttInCell"
+            android:textSize="@dimen/cell_stt_timestamp_text_size"
+            android:visibility="gone"
+            tools:text="Korean Full Korean Full Korean Full Korean Full Korean Full Korean Full Korean Full "
+            tools:visibility="visible"/>
+    </LinearLayout>
+</LinearLayout>

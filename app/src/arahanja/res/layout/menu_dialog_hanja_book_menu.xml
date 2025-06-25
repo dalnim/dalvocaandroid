@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/llWordList"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWordList"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/word_list_title"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRefreshVocaFromServer"
+                style="@style/Match"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvRefreshVocaFromServer"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dialog_menu_refresh_hanja_from_server"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCopyBookAllContents"
+                style="@style/Match"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvCopyBookAllContents"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dialog_menu_copy_book_all_contents"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBookStyle"
+                style="@style/Match"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tvBookStyle"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dialog_menu_book_style_table_view"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llOpenNormalTextViewForHurigana"
+                style="@style/Match"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvOpenNormalTextViewForHurigana"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dialog_menu_open_normal_text_view_for_hurigana"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_home"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvBackToHome"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/back_to_home"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

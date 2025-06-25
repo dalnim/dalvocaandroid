@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/setting" />
+        <androidx.core.widget.NestedScrollView
+            style="@style/Match">
+        <LinearLayout
+            android:id="@+id/llPlayRepetition"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llSwipeForwardBackward"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/playback_swipe_forward_backward" />
+
+                    <TextView
+                        android:id="@+id/tvSwipeForwardBackward"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="180sec" />
+
+                    <ImageView
+                        style="@style/ImageView_Player_Option_Icon_Arrow"/>
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTapOnForwardBackward"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/playback_tap_on_forward_backward" />
+
+                    <TextView
+                        android:id="@+id/tvTapOnForwardBackward"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="3sec" />
+
+                    <ImageView
+                        style="@style/ImageView_Player_Option_Icon_Arrow"/>
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHiddenButtonsTransparencyOnFullScreen"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/multi_player_setting_dialog_menu_transparency_hidden_buttons_full_screen" />
+
+                    <TextView
+                        android:id="@+id/tvHiddenButtonsTransparencyOnFullScreen"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="100%" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llShowAdvancedMode"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scShowAdvancedMode"
+                    style="@style/SwitchSetting"
+                    android:text="@string/multi_player_setting_dialog_menu_advanced_mode" />
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRandomPlayMode"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scRandomPlayMode"
+                    style="@style/SwitchSetting"
+                    android:text="@string/multi_player_setting_dialog_menu_random_play_mode" />
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHide4Buttons"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scHide4Buttons"
+                    style="@style/SwitchSetting"
+                    android:text="@string/multi_player_setting_dialog_menu_hide_4_buttons" />
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvClose"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/close"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:id="@+id/tv_group"-->
+<!--    style="@style/WidthMatch"-->
+<!--    android:background="@color/colorBlue"-->
+<!--    android:gravity="center"-->
+<!--    android:padding="16dp"-->
+<!--    android:textColor="@color/colorWhite"-->
+<!--    android:textSize="18sp" />-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WidthMatch"
+    android:background="@color/color_play_background"
+    android:layout_height="80dp">
+
+    <LinearLayout
+        android:id="@+id/v_foreground"
+        style="@style/WidthMatch"
+
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/HeightMatch"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_group"
+                style="@style/WidthMatch"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/item_hanja_book_meaning_size"
+                tools:text="title"/>
+            <TextView
+                android:id="@+id/tv_know_word_count"
+                style="@style/WidthMatch"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:textSize="@dimen/item_hanja_book_meaning_size"
+                tools:text="word count"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivWordList"
+            style="@style/ImageView_Player"
+            android:src="@mipmap/ic_edit"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:tint="@color/black" />
+    </LinearLayout>
+</LinearLayout>

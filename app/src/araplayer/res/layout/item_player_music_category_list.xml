@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:textColor="@color/textPrimaryColor"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMusicCategoryList"
+        style="@style/WidthMatch"
+        android:background="@color/backgroundColor"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingHorizontal="3dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_player_music_category_list_landscape"
+        />
+
+
+</LinearLayout>

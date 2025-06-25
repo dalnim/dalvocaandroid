@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch"
+    android:background="@color/color_play_background">
+
+    <ImageView
+        android:id="@+id/ic_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_close_black_24dp" />
+
+    <TextView
+        android:id="@+id/tv_header"
+        style="@style/TextViewItem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/upload_or_record_again" />
+
+    <ImageView
+        android:id="@+id/ic_play"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/tv_header"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_volume_up_48dp" />
+
+    <ImageView
+        android:id="@+id/ic_record"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignTop="@id/ic_play"
+        android:layout_centerHorizontal="true"
+        android:padding="4dp"
+        android:src="@drawable/ic_mic_none_black_24dp" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        style="@style/ButtonBlue"
+        android:layout_alignBottom="@id/ic_play"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/upload" />
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthMatch"
+    android:background="@color/color_nav_background"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_know"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/grade_text_size" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingStart="0dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvVoca"
+            style="@style/Wrap"
+            android:textColor="@color/colorBlack"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tv_pronounce"
+            style="@style/TextViewItem"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_meaning_detailed"
+            style="@style/TextViewItem"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/colorBlack" />
+    </LinearLayout>
+</LinearLayout>

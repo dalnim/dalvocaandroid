@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llFolder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:textColor="@color/textPrimaryColor"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        style="@style/Match"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical"
+        android:textColor="@color/textPrimaryColor">
+
+        <TextView
+            style="@style/TextViewFontMedium"
+            android:layout_width="match_parent"
+            android:background="@color/backgroundSeasonListColor"
+            android:gravity="center"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:text="@string/tv_seasons"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="@dimen/font_value" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVideoSeasonList"
+            style="@style/WidthMatch"
+            android:background="@color/backgroundSeasonListColor"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="3dp"
+            android:visibility="gone"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_player_season_landscape"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvNoDataTvSeason"
+            style="@style/Match"
+            android:background="@color/backgroundSeasonListColor"
+            android:gravity="center"
+            android:text="@string/no_data_tv_season"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="@dimen/font_title"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

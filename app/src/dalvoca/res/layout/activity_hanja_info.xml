@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightText="@string/menu"
+        app:title="@string/hanja_info" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_info"
+        style="@style/WidthMatch" />
+</LinearLayout>

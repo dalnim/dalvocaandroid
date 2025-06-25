@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/color_text"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/ll_show_known_word_count"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_show_known_word_count"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="Show known words count"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBackToHome"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvBackToHome"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/back_to_home"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

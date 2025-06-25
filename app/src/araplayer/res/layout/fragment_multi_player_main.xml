@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:background="@color/multiPrimaryDarkColor"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llMainMultiplePlayerFragment"
+        style="@style/Match"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:paddingBottom="0dp">
+
+        <Button
+            android:id="@+id/btnWatchRewardedAd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/multiPlayerBackgroundLightBlackColor"
+            android:layout_gravity="center"
+            android:layout_marginBottom="48dp"
+            android:text="@string/btn_watch_ads"
+            android:textSize="@dimen/font_multiplayer_screen_button"
+            app:layout_constraintBottom_toTopOf="@+id/tvRemainPoint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRemainPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:visibility="visible"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:text="100 Points"
+            app:layout_constraintBottom_toTopOf="@+id/llCenterButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"  />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llCenterButtons"
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnScreenCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:text="Screen count"
+                android:textColor="@color/textPrimaryWhiteColor"
+                android:textSize="@dimen/font_multiplayer_screen_count"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivScreenCount"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="-8dp"
+                android:src="@drawable/baseline_arrow_drop_down_24"
+                app:layout_constraintBottom_toBottomOf="@+id/btnScreenCount"
+                app:layout_constraintStart_toEndOf="@+id/btnScreenCount"
+                app:layout_constraintTop_toTopOf="@+id/btnScreenCount" />
+
+            <ImageView
+                android:id="@+id/btnWatchVideo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_play_circle_multi_player"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnScreenCount" />
+<!--            <Button-->
+<!--                android:id="@+id/btnWatchVideo"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="@string/multi_player_watch_video"-->
+<!--                android:textSize="@dimen/font_multiplayer_screen_button"-->
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/ivClearMultiScreenHistory"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/llCenterButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_delete_multi_black_24dp" />
+
+        <ImageView
+            android:id="@+id/ivSetPoint0"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/llCenterButtons"
+            app:layout_constraintStart_toEndOf="@+id/ivClearMultiScreenHistory"
+            app:layout_constraintTop_toBottomOf="@+id/llCenterButtons"
+            app:srcCompat="@drawable/ic_download_circle"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/adViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+        </FrameLayout>
+
+<!--        <Space-->
+<!--            android:id="@+id/space"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

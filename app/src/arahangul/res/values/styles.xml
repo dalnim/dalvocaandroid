@@ -1,0 +1,67 @@
+<resources>
+
+    <style name="ImageView_Player">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="ImageView_previous_next">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="HomeHanjaMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_marginTop">@dimen/home_hanja_menu_margin_top</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="HomeHanjaMenuImageView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="HomeAraConvMenuText" parent="Wrap">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+        <item name="android:textSize">@dimen/home_araconv_menu_text_size</item>
+        <item name="android:lineSpacingMultiplier">@dimen/home_araconv_menu_text_lineSpacingMultiplier</item>
+        <item name="android:layout_marginTop">@dimen/home_hanja_menu_text_margin_top</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="defaultTextSize">@dimen/home_araconv_menu_text_size</item>
+    </style>
+
+
+    <style name="HomeHanjaMenuBottomLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginEnd">50dp</item>
+        <item name="android:background">@color/backgroundGrayColor</item>
+    </style>
+
+    <style name="ReadMoreTextViewHanjaMeaningInInformationView" parent="Wrap">
+        <item name="android:textSize">@dimen/hanja_meaning_text_size_in_information_view</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+
+    <style name="ImageView_Player_Circle_No_Margin">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+</resources>

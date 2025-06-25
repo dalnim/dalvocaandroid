@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_naver"
+        android:icon="@mipmap/ic_dic_system"
+        android:orderInCategory="0"
+        android:title="@string/naver" />
+
+    <item
+        android:id="@+id/nav_daum"
+        android:icon="@mipmap/ic_dic_system"
+        android:orderInCategory="1"
+        android:title="@string/daum" />
+
+    <item
+        android:id="@+id/nav_wiki"
+        android:icon="@mipmap/ic_dic_system"
+        android:orderInCategory="2"
+        android:title="@string/wiki" />
+
+    <item
+        android:id="@+id/nav_namu_wiki"
+        android:icon="@mipmap/ic_dic_system"
+        android:orderInCategory="3"
+        android:title="@string/namu_wiki" />
+
+</menu>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/WidthMatch">
+
+    <LinearLayout
+        android:id="@+id/v_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRed"
+            android:gravity="center"
+            android:text="@string/reading_list_item_delete"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/item_text_size" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/v_foreground"
+        style="@style/ItemBase"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:id="@+id/v_play"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_index"
+                style="@style/TextViewSubItem"
+                android:layout_marginStart="12dp" />
+
+            <ImageView
+                android:id="@+id/ic_play"
+                style="@style/Wrap"
+                android:padding="@dimen/icon_play_padding"
+                android:src="@drawable/ic_volume_up_48dp" />
+
+            <TextView
+                android:id="@+id/tv_evaluate"
+                style="@style/TextViewSubItem"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_name_meaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="40dp"
+            android:layout_toEndOf="@id/v_play"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextViewItem" />
+
+            <TextView
+                android:id="@+id/tv_meaning"
+                style="@style/TextViewItem"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Wrap"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_right"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/ic_drag"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="16dp"
+                android:src="@drawable/ic_drawer_menu"
+                app:tint="@color/color_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_below="@id/v_name_meaning"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_known"
+                style="@style/ButtonGrade"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/btn_no_border_light_blue_background"
+                android:text="!" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/btn_grade_1"
+                style="@style/ButtonGrade"
+                android:background="@drawable/btn_no_border_orange_background"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/btn_grade_2"
+                style="@style/ButtonGrade"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/btn_no_border_orange_background"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/btn_exclude"
+                style="@style/ButtonGrade"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/btn_no_border_grey_background"
+                android:text="X" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

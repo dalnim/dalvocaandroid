@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="ImageView_Player">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="TextViewItemSttInCell" parent="Wrap">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+        <item name="android:textSize">@dimen/term_text_size_in_cell</item>
+        <item name="defaultTextSize">@dimen/item_text_size</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+</resources>

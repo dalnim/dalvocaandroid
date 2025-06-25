@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/from_dictionary"
+        android:title="@string/add_word_from_dictionary" />
+
+    <item
+        android:id="@+id/from_wordbook"
+        android:title="@string/add_word_from_wordbook" />
+
+    <item
+        android:id="@+id/edit_sorting"
+        android:title="@string/edit_sorting" />
+
+</menu>

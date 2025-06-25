@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:animateLayoutChanges="true"
+    android:background="@color/black"
+    android:keepScreenOn="true"
+    android:orientation="horizontal">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        android:visibility="gone"
+        app:leftIcon="@drawable/ic_back"
+        tools:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/llPlayTopAraMusic"
+        style="@style/WidthMatch"
+        android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_player_play_top_btn_background">
+
+            <ImageView
+                android:id="@+id/ivBackMusicPlayer"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_back" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/Match"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/sbPlayer"
+                style="@style/PlayerSeekBar"
+                android:maxHeight="50dp" />
+
+            <TextView
+                android:id="@+id/tvVideoStartTime"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center|start"
+                android:lines="1"
+                android:textColor="@color/textPrimaryWhiteColor"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:text="00:00:00" />
+
+            <TextView
+                android:id="@+id/tvVideoEndTime"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center|end"
+                android:lines="1"
+                android:textColor="@color/textPrimaryWhiteColor"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:text="00:00:00" />
+
+            <com.dalread.component.TextViewOutline
+                android:id="@+id/tvMediaTitle"
+                style="@style/Player_text_top_fullscreen"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/tvVideoEndTime"
+                android:layout_toEndOf="@id/tvVideoStartTime"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="@color/textPrimaryWhiteColor"
+                tools:text="vide file name" />
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sbPlay"
+                style="@style/Match"
+                android:visibility="gone"
+                app:rsb_gravity="center"
+                app:rsb_mode="single" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_player_play_top_btn_background">
+
+            <ImageView
+                android:id="@+id/ivMenuMusicPlayer"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_more_horiz_black_24dp"
+                app:tint="@color/backgroundWhiteColor" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/llPlayer"
+        style="@style/Match"
+        android:background="@color/black">
+
+        <com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/playerView"
+            style="@style/Match"
+            app:auto_show="true"
+            app:fastforward_increment="10000"
+            app:repeat_toggle_modes="none"
+            app:resize_mode="fixed_width"
+            app:rewind_increment="10000"
+            app:show_timeout="0"
+            app:surface_type="texture_view"
+            app:use_controller="false" />
+
+        <LinearLayout
+            android:id="@+id/llRubyBottom"
+            style="@style/WidthMatch"
+            android:layout_gravity="center|bottom"
+            android:background="@color/color_player_background_subtitle_transparent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:layout_height="50dp">
+
+            <com.dalread.component.FuriganaView
+                android:id="@+id/tvRubyBottom"
+                style="@style/Player_Subtitle_Ruby" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/llPlaySub"
+                layout="@layout/layout_player_play_sub"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/ll_play"
+                layout="@layout/layout_player_play"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/ll_repeat"
+                layout="@layout/layout_player_play_repeat"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/ll_delay_subtitle"
+                layout="@layout/layout_player_delay_subtitle"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/layout_listen_comprehension"
+            layout="@layout/layout_player_play_listen_comprehension"
+            android:visibility="gone"
+            tools:visibility="gone" />
+
+
+        <LinearLayout
+            android:id="@+id/llCenter"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:background="@color/transparentBlack"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCenterPlay"
+                style="@style/ImageView_Player_Play"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_new_play"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvCenterText"
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/textPrimaryWhiteColor"
+                android:textSize="@dimen/font_signup"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivLockAll"
+            style="@style/ImageView_Player"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_lock_off"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvPinchZoomClose"
+            style="@style/Player_text_indicate_title"
+            android:layout_gravity="left"
+            android:layout_marginEnd="5dp"
+            android:text="230%"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvSleepTime"
+            style="@style/Player_text_indicate_title"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:text="0:00:00"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/rlShowButtonsOnFullScreenLeft"
+            style="@style/Wrap"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:id="@+id/ll_show_buttons_on_full_screen_left"
+                style="@style/Wrap"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivListenComprehension1"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_listen_comprehension_1_full_screen" />
+
+                <ImageView
+                    android:id="@+id/ivWebDictionary"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_globe" />
+
+                <ImageView
+                    android:id="@+id/ivTranslate"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_translate_full_screen" />
+
+                <ImageView
+                    android:id="@+id/ivShowButtonsSubtitleEye"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_new_eye_open" />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ivListenComprehension2"-->
+<!--                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"-->
+<!--                    android:layout_marginBottom="5dp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:src="@drawable/ic_listen_comprehension_2_full_screen" />-->
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/rlShowButtonsOnFullScreen"
+            style="@style/Wrap"
+            android:layout_gravity="center|right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:id="@+id/llShowButtonsOnFullScreenRight"
+                style="@style/Wrap"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivShowButtonsRepetitionByAbRightOnMainPlayerScreen"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_repeat_ab" />
+
+                <ImageView
+                    android:id="@+id/ivShowButtonsRepetitionByCcRight"
+                    style="@style/ImageView_Player_Circle_No_Margin_Buttons_On_Full_Screen"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_new_repetition_cc_full_screen" />
+
+                <ImageView
+                    android:id="@+id/ivShowButtonsPlayPause"
+                    style="@style/ImageView_Player_Circle_No_Margin"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_playpause" />
+
+                <ImageView
+                    android:id="@+id/iv_bookmark_right"
+                    style="@style/ImageView_Item_Bookmark"
+                    android:src="@drawable/ic_subtitle_on"
+                    android:visibility="invisible"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvShowButtonsKnowValueRight"
+                    style="@style/ImageView_Player_Circle_No_Margin"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/bg_circle_voca_know_known"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grade_text_size"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_show_buttons_know_pronounce_right"
+                    style="@style/ImageView_Item_Bookmark"
+                    android:src="@drawable/ic_unknown_pronounce"
+                    android:visibility="invisible"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_show_buttons_bookmark"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/ic_favorite_new_on" />
+
+                <TextView
+                    android:id="@+id/tv_show_buttons_know_value"
+                    style="@style/ImageView_Player_Circle_No_Margin"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_circle_orange"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grade_text_size"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_show_buttons_know_pronounce"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/ic_unknown_pronounce" />
+
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/adjustableBarView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/backgroundRectangleInTableForPlayIconsColor"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCloseAdjustableBarView"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_circle_close" />
+
+            <ImageView
+                style="@style/ImageView_Player"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_adjust_table_width" />
+
+            <ImageView
+                android:id="@+id/ivResetAdjustableBarView"
+                style="@style/ImageView_Player"
+                android:layout_gravity="bottom"
+                android:src="@drawable/ic_circle_restore" />
+        </FrameLayout>
+
+        <include
+            android:id="@+id/layout_shadowing"
+            layout="@layout/layout_shadowing" />
+
+        <include
+            android:id="@+id/layout_listening_recorded_subtitle"
+            layout="@layout/layout_listening_recorded_subtitle" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/layoutPlayerSubtitleTable"
+        layout="@layout/layout_player_subtitle_table" />
+</LinearLayout>

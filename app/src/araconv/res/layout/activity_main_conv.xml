@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    style="@style/Match"
+
+    tools:openDrawer="start">
+
+    <LinearLayout
+        style="@style/ViewBase"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <com.dalread.component.Toolbar
+            android:id="@id/header"
+            style="@style/WidthMatch"
+            app:leftIcon="@drawable/ic_drawer_menu"
+            app:rightText="@string/menu"
+            app:title="@string/nav_bottom_menu_main" />
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            style="@style/Match"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                style="@style/Match"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/adViewContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search"
+            style="@style/WidthMatch" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nvBottom"
+            style="@style/WidthMatch"
+            app:itemBackground="@color/backgroundColor"
+            app:itemIconTint="@drawable/selector_voca"
+            app:itemTextColor="@drawable/selector_voca"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_bottom_navigation_main" />
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_left"
+        style="@style/HeightMatch"
+        android:layout_gravity="start"
+        android:background="@color/home_side_menu_item_background" />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

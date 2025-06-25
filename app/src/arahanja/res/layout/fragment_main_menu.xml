@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    style="@style/Match"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        style="@style/ViewBase"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/svMenu"
+            style="@style/Match">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/include_todayExpression"
+                    layout="@layout/layout_today_expression_type2" />
+
+                <include
+                    android:id="@+id/include_inapp_points"
+                    layout="@layout/layout_inapp_points" />
+
+                <GridLayout
+                    android:id="@+id/gl_option"
+                    style="@style/WidthMatch"
+                    android:layout_gravity="center_horizontal"
+                    android:columnCount="3">
+
+
+                    <LinearLayout
+                        android:id="@+id/vLastReadBook"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_hanja_home_menu_last_read_book" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_last_read_book" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/vRadicals"
+                        style="@style/HomeHanjaMenu"
+                        >
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_radical_2" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/group_hanja_by_radical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vStrokes"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_strokes_2" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/group_hanja_by_stroke" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vHangulGroup"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_hangul2" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/group_hanja_by_hangul_alphabet" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vVocaLevel"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_level" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/group_hanja_by_level" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vWorkbooks"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_book_vertical" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/tb_wordbooks" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vHanjaIdioms"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_idioms" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_hanja_idioms" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vLevelKoreaType1"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_level_korea_type_1" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/level_korea_type_1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vLevelKoreaType2"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_level_korea_type_2" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/level_korea_type_2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vLevelKoreaType3"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_level_korea_type_3" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/level_korea_type_3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vConvertToHanjaView"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_convert_to_hanja" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_convert_to_hanja"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vBookmarkList"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:padding="5dp"
+
+                            android:src="@drawable/ic_bookmark_ribbon" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_bookmark_list" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vUnicodeHanja"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:padding="5dp"
+
+                            android:src="@drawable/ic_translate_black" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_unicode_hanja" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vAppendHanjaToHangulView"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_hangul" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/hanja_home_menu_append_hanja_to_hangul" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/vQuizView"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_hangul" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/quiz" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vPracticeQuiz"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+
+                            android:src="@drawable/ic_practice_conversation"
+                            android:background="@color/primaryColor"
+                            />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="@string/quiz" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vOCR"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_home_hangul" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeHanjaMenuText"
+                            android:text="OCR" />
+                    </LinearLayout>
+                </GridLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

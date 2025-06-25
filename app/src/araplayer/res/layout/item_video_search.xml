@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItem"
+    style="@style/TextView_Player_Option_Layout_Item"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        style="@style/ImageView_Player_Play"
+        android:scaleType="fitCenter"/>
+
+    <LinearLayout
+        android:id="@+id/llVideoList"
+        style="@style/Match"
+        android:paddingLeft="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextView_Title"
+            android:layout_weight="1"
+            tools:text="movie name"/>
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TextView_Description"
+            tools:text="movie date"/>
+    </LinearLayout>
+
+
+</LinearLayout>

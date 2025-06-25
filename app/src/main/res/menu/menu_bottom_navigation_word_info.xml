@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_info"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/word_info" />
+
+    <item
+        android:id="@+id/nav_native"
+        android:icon="@drawable/ic_circle_outline_black_24dp"
+        android:title="@string/native_voice" />
+
+<!--    <item-->
+<!--        android:id="@+id/nav_backup"-->
+<!--        android:icon="@drawable/ic_check_box_outline_blank_black_24dp"-->
+<!--        android:title="@string/backup" />-->
+
+</menu>

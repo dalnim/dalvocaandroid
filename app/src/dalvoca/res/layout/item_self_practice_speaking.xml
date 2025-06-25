@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_index"
+            style="@style/TextViewSubItem"
+            android:layout_marginStart="16dp" />
+
+        <ImageView
+            android:id="@+id/ic_play"
+            style="@style/Wrap"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/icon_play_padding"
+            android:src="@drawable/ic_volume_up_48dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_word_pronounce"
+            style="@style/TextViewItem"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_word_meaning"
+            style="@style/TextViewItem"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</LinearLayout>

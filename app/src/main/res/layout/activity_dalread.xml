@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dalread.component.LinearLayoutThatDetectsSoftKeyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:id="@+id/llSegment"
+        style="@style/WidthMatch"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_view_word_list">
+
+        <LinearLayout
+            android:id="@+id/llUser"
+            style="@style/View_Word_List_Segment"
+            android:background="@drawable/segment_radio_left"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivUser"
+                style="@style/Image_Word_List_Segment"
+                android:src="@drawable/ic_dr_user" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLevel1"
+            style="@style/View_Word_List_Segment"
+            android:background="@drawable/segment_radio_middle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLevel1"
+                style="@style/Image_Word_List_Segment"
+                android:src="@drawable/ic_dr_level_1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLevel2"
+            style="@style/View_Word_List_Segment"
+            android:background="@drawable/segment_radio_middle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLevel2"
+                style="@style/Image_Word_List_Segment"
+                android:layout_weight="1"
+                android:src="@drawable/ic_dr_level_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLevel3"
+            style="@style/View_Word_List_Segment"
+            android:background="@drawable/segment_radio_middle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLevel3"
+                style="@style/Image_Word_List_Segment"
+                android:src="@drawable/ic_dr_level_3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLevel4"
+            style="@style/View_Word_List_Segment"
+            android:background="@drawable/segment_radio_right"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLevel4"
+                style="@style/Image_Word_List_Segment"
+                android:src="@drawable/ic_dr_level_4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/ProgressBar_Horizontal"
+        android:background="@color/colorWhite"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/bg_progress_bar_horizontal" />
+
+    <WebView
+        android:id="@+id/webView"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:fillViewport="true" />
+    <include
+        layout="@layout/layout_admob"/>
+</com.dalread.component.LinearLayoutThatDetectsSoftKeyboard>

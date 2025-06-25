@@ -1,0 +1,98 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLightBlackColor"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llTopMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundBlackColor"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/hideTopMenu"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:layout_marginStart="8dp"
+            android:onClick="onMenuButtonClick"
+            android:src="@drawable/baseline_expand_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ivRotateVideo"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:onClick="onMenuButtonClick"
+            android:src="@drawable/ic_phone_rotate"
+            app:layout_constraintBottom_toBottomOf="@+id/hideTopMenu"
+            app:layout_constraintEnd_toStartOf="@+id/ibAllPlayPause"
+            app:layout_constraintStart_toEndOf="@+id/hideTopMenu"
+            app:layout_constraintTop_toTopOf="@+id/hideTopMenu" />
+
+        <ImageButton
+            android:id="@+id/ibAllPlayPause"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:onClick="onMenuButtonClick"
+            android:src="@drawable/baseline_play_arrow_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibRandomPlay"
+            app:layout_constraintStart_toEndOf="@+id/ivRotateVideo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/ibRandomPlay"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:onClick="onMenuButtonClick"
+            android:src="@drawable/ic_random_play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibAllSpeaker"
+            app:layout_constraintStart_toEndOf="@+id/ibAllPlayPause"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/ibAllSpeaker"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:padding="4dp"
+            android:onClick="onMenuButtonClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/baseline_volume_off_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivAllVideosMenu"
+            app:layout_constraintStart_toEndOf="@+id/ibRandomPlay"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ivAllVideosMenu"
+            style="@style/MultiPlayerScreenMenuImageButtonStyle"
+            android:layout_marginEnd="8dp"
+            android:onClick="onMenuButtonClick"
+            android:src="@drawable/ic_top_right_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!-- FragmentContainerView를 동적으로 추가할 공간 -->
+
+        </GridLayout>
+
+
+
+
+</LinearLayout>

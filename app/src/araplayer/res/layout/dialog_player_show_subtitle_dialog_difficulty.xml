@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp"
+            android:background="@color/colorBorderBackgroundDialog" />
+
+        <androidx.core.widget.NestedScrollView style="@style/Match">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/v_1st_amki_grade_subtitles"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_voca_know"
+                        android:backgroundTint="@color/color_voca_know_amki_grade_1"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sc_1st_amki_grade_subtitles"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_or_word_1st_amki_grade"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_2nd_amki_grade_subtitles"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_voca_know"
+                        android:backgroundTint="@color/color_voca_know_amki_grade_2"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sc_2nd_amki_grade_subtitles"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_or_word_2nd_amki_grade"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_difficult_subtitles"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_voca_know"
+                        android:backgroundTint="@color/color_voca_know_unknown"
+                        android:gravity="center"
+                        android:text="X"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sc_difficult_subtitles"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_or_word_difficult"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_known_subtitles"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_voca_know"
+                        android:backgroundTint="@color/color_voca_know_known"
+                        android:gravity="center"
+                        android:text="!"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sc_known_subtitles"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/subtitle_or_word_known"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_subtitles_that_needs_to_practice_pronunciation"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        style="@style/Wrap"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_circle_light_blue"
+                            android:gravity="center"
+                            android:text="!"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_know_pronounce"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="-8dp"
+                            android:src="@drawable/ic_unknown_pronounce" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sc_subtitles_that_needs_to_practice_pronunciation"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/subtitles_that_needs_to_practice_pronunciation"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/dv_add"
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    style="@style/Button_Base"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/ok"
+                    android:textColor="@drawable/btn_ok_color" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:orientation="vertical">
+<!--This xml is to remove compile error(Missing symbol), So I made unused symbols here.-->
+    <TextView
+        android:id="@+id/ivCopy"
+        style="@style/TextView_Title"/>
+    <TextView
+        android:id="@+id/ivWordList"
+        style="@style/TextView_Title"/>
+    <TextView
+        android:id="@+id/ivEditView"
+        style="@style/TextView_Title"/>
+
+    <TextView
+        android:id="@+id/iv_known"
+        style="@style/ButtonGrade"
+ />
+
+    <TextView
+        android:id="@+id/iv_grade_1"
+        style="@style/ButtonGrade"
+ />
+
+    <TextView
+        android:id="@+id/iv_grade_2"
+        style="@style/ButtonGrade"
+ />
+
+    <TextView
+        android:id="@+id/iv_unknown"
+        style="@style/ButtonGrade"
+ />
+</LinearLayout>

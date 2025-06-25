@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="50dp"
+    android:height="50dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+  <path
+      android:pathData="M25,2C31.3513,2 37.1013,4.5744 41.2635,8.7365C45.4256,12.8987 48,18.6487 48,25C48,31.3513 45.4256,37.1013 41.2635,41.2635C37.1013,45.4256 31.3513,48 25,48C18.6487,48 12.8987,45.4256 8.7365,41.2635C4.5744,37.1013 2,31.3513 2,25C2,18.6487 4.5744,12.8987 8.7365,8.7365C12.8987,4.5744 18.6487,2 25,2Z"
+      android:strokeWidth="3"
+      android:fillColor="@color/icon_dic_hanja_background"
+      android:strokeColor="@color/icon_dic_hanja_circle_outline"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M17.8823,40L17.8823,37.9977L33.0525,37.9977L33.0525,40L37,40C36.8695,38.7986 36.8043,37.6974 36.8043,35.962L36.8043,14.4039C36.8043,13.2359 36.8369,12.2681 36.9674,11C36.0702,11.1224 35.1456,11.1606 33.8167,11.1661L17.6539,11.1669C16.1532,11.1669 15.0766,11.1335 14.0326,11C14.1305,12.1013 14.1957,13.2693 14.1957,14.5708L14.1957,35.962C14.1957,37.5305 14.1305,38.8654 14,40L17.8823,40ZM33.0525,22.4465L17.8823,22.4465L17.8823,14.7043L33.0525,14.7043L33.0525,22.4465ZM33.0525,34.4937L17.8823,34.4937L17.8823,25.9505L33.0525,25.9505L33.0525,34.4937Z"
+      android:strokeWidth="1"
+      android:fillColor="@color/icon_dic_hanja_text"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+</vector>

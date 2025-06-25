@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Screen How To Use-->
+    <string name="app_introduction">앱 소개</string>
+    <string name="app_introduction_1">다양한 원어민이 녹음한 영어문장을 들어보세요</string>
+    <string name="app_introduction_2">아는것은 \"!\"로\n암기대상 우선순위는 \"1\" 또는 \"2\"를 선택</string>
+    <string name="app_introduction_3">암기대상 \"1\"는 다른 사람에게 보입니다.\n\n다른사람들이 나에게 도와줄때 사용합니다.</string>
+    <string name="app_introduction_4">암기대상 \"2\"는 튜터에게만 보여요.</string>
+    <string name="app_introduction_5">듣고 싶은 것만 선택하여 내 단어장을 만들어서 들어보세요.</string>
+</resources>

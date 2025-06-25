@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/color_grouped_radical_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"
+        app:title="@string/tb_difficult_word_list" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/v_top_section"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/tv_top"
+                    android:scrollbars = "vertical"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:background="@null"
+                    android:padding="20dp"
+                    android:textSize="@dimen/sentence_diff_words_view_sentence_text_size"
+                    android:text=""
+                    android:hint="@string/type_here"
+                     />
+            </ScrollView>
+
+            <include
+                android:id="@+id/v_adjust_height_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/item_sentence_diff_words_height_header" />
+
+            <ScrollView
+                android:id="@+id/v_bottom_section"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_grouped_radical_background"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_bottom"
+                    android:scrollbars = "vertical"
+                    style="@style/TextViewItemSelectable"
+                    android:layout_width="match_parent"
+                    android:padding="20dp"
+                    android:textSize="@dimen/sentence_diff_words_view_words_text_size"
+                    android:text=""
+                    tools:text="Bottom text Bottom text Bottom text Bottom text Bottom text Bottom text Bottom text Bottom text Bottom text "
+                    />
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/all_subtitles_except"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                style="@style/SwitchSetting"
+                android:checked="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:enabled="false"
+                app:thumbTint="#AACDFE"
+                app:thumbTintMode="src_atop"
+                app:trackTint="#1462F3"
+                android:visibility="gone"
+                android:text="@string/all_subtitles_except_chosen_hided"
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:visibility="gone"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_music_symbol"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_music_symbol'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_paired_bracket"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_paired_bracket'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_all_capitals"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_all_capitals'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_including_url"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_including_url'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_no_study_lang_character"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_no_study_lang_character'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_shorter_3_known_words"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_shorter_than_3_known_words'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_subtitle_to_hide_shorter_3_known_words"
+                style="@style/TextView_Player_Option_Layout_Item"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:visibility="visible"
+                tools:visibility="visible"
+                >
+
+                <TextView
+                    android:id="@+id/tv_subtitle_to_hide_shorter_3_known_words"
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:text='@string/all_subtitles_except_shorter_than_3_known_words_number' />
+
+                <TextView
+                    android:id="@+id/tv_subtitle_to_hide_shorter_3_known_words_number"
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center"
+                    android:alpha="0.4"
+                    android:gravity="right"
+                    android:text="3" />
+
+                <ImageView
+                    style="@style/ImageView_Player_Option_Icon_Arrow"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/v_subtitle_to_hide_shorter_3_known_words"
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_longer_20_words"
+                style="@style/SwitchSetting"
+                android:checked="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_longer_20_words'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_subtitle_to_hide_longer_20_words"
+                style="@style/TextView_Player_Option_Layout_Item"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:visibility="visible"
+                tools:visibility="visible"
+                >
+
+                <TextView
+                    android:id="@+id/tv_subtitle_to_hide_longer_20_words"
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:text='@string/all_subtitles_except_longer_20_words_number' />
+
+                <TextView
+                    android:id="@+id/tv_subtitle_to_hide_longer_20_words_number"
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center"
+                    android:alpha="0.4"
+                    android:gravity="right"
+                    android:text="20" />
+
+                <ImageView
+                    style="@style/ImageView_Player_Option_Icon_Arrow"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_known_subtitles"
+                style="@style/SwitchSetting"
+                android:checked="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_known_subtitles'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_subtitle_to_hide_except_unknown_subtitles"
+                style="@style/SwitchSetting"
+                android:checked="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text='@string/all_subtitles_except_except_unknown_subtitles'
+                android:textColor="@color/textPrimaryColor" />
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp" />
+            <LinearLayout
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_cancel"
+                    style="@style/Button_Base"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/cancel"
+                    android:textColor="@color/colorRed"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/layout_line_vertical" />
+
+                <TextView
+                    android:id="@+id/tv_apply"
+                    style="@style/Button_Base"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/menu_apply"
+                    android:textColor="@drawable/btn_ok_color"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

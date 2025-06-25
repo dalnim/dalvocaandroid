@@ -1,0 +1,595 @@
+{
+  "project_info": {
+    "project_number": "840983988897",
+    "firebase_url": "https://dalread-web.firebaseio.com",
+    "project_id": "dalread-web",
+    "storage_bucket": "dalread-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:26a7175d4d02ca80953ee0",
+        "android_client_info": {
+          "package_name": "com.araonesoft.aramultiplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:16ea231e5fc07bf8953ee0",
+        "android_client_info": {
+          "package_name": "com.araonesoft.aramultiplayerpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:1fd1698a20f2ec59953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araconv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:3a2e924d8b7374a4953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araconv_chinese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:02db45591647a502953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araconv_japanese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:2931bb05b7ede0c2953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araconv_korea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:98b14b029cad7b7d953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.aradiceng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:4cc21eac8a7abb12953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.arahangul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:05a28f6515cf20fa953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.arahanja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:ce2be94b3ebadcab953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.arakoica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:ce084f1d7d7d00c7953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.aramusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:ef0a7ab46b4381ea953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.aramusic_japanese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:11c303e9f2dce600953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-6mdc7s1u7pc5dkqo66p11nj8dvtl4gc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dalnimsoft.araplayer",
+            "certificate_hash": "5cf486b6b191e364f3d682cd806eb907abf8ae19"
+          }
+        },
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:f52e1c697b7ab43a953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araplayer_chinese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:a3fc88d16eb759ef953ee0",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.araplayer_japanese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840983988897:android:06a8cff1aac40c67",
+        "android_client_info": {
+          "package_name": "com.dalnimsoft.dalvoca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFvM0tbV1HkZfGpayPBpsYUNVZqttJAa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840983988897-i1a129i79sh4eb7oga9j07kr5k120p1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840983988897-11ecig89f675qlepjmbj8engdqasosj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dalnimsoft.dalvoca.widget"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

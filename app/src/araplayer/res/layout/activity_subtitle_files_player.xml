@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/subtitle_files"
+        app:rightText="@string/select"
+        app:rightColor="@color/white"/>
+    <TextView
+        android:id="@+id/tv_video_file_name"
+        style="@style/TextViewSettingHeader"
+        android:text=""
+        android:enabled="true"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"
+        />
+
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/fs_Content"
+        style="@style/Match"
+        android:visibility="visible"
+        app:supportSwipeToRefresh="false"
+        app:handleDrawable="@drawable/fast_scroller_handle"
+        app:handleHasFixedSize="true"
+        app:handleHeight="48dp"
+        app:handleVisibilityDuration="1000"
+        app:handleWidth="24dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContent"
+            style="@style/Match"
+            tools:listitem="@layout/item_subtitle_file"/>
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+
+</LinearLayout>

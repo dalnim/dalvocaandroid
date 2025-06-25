@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gptResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chat_background"
+        app:layout_constraintBottom_toTopOf="@id/responseMore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivGptIcon"-->
+<!--            android:layout_width="36dp"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:paddingStart="5dp"-->
+<!--            android:src="@drawable/ic_dic_korean"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvGptResponse"
+            style="@style/TextViewItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_bubble_rounded_corner_chatbot"
+            android:maxLines="100"
+            android:padding="8dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/DayBlackNightLightWhite"
+            android:textIsSelectable="true"
+            android:visibility="visible"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDiffcultWords"
+            tools:text="yourChat yourChat "
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/layoutTopIcon"
+            layout="@layout/item_gpt_chat_top_icons_left"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tvDiffcultWords"
+            style="@style/TextViewItem"
+            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="8dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/textPrimaryColor"
+            android:textIsSelectable="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutTopIcon"
+            tools:text="tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv "
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="30dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupGptResponseMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="divider, responseMore"
+        tools:visibility="visible"
+        />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintTop_toBottomOf="@+id/gptResponse"
+        app:layout_constraintBottom_toTopOf="@+id/responseMore" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/responseMore"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/backgroundWhiteColor"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gptResponse">
+
+        <TextView
+            android:id="@+id/tvResponseMore"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:paddingStart="10dp"
+            android:gravity="center|left"
+            app:layout_constraintEnd_toStartOf="@+id/ivArrowRight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="user prompt more" />
+
+        <ImageView
+            android:id="@+id/ivArrowRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_keyboard_arrow_right_black_36_64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvResponseMore"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBlack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

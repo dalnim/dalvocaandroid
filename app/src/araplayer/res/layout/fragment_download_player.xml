@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match">
+
+    <RelativeLayout
+        android:id="@+id/v_tooltip"
+        android:orientation="vertical"
+        android:layout_gravity="top|center"
+        style="@style/Wrap"/>
+
+    <LinearLayout
+        android:id="@+id/llContent"
+        style="@style/Match"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvDownloadMediaPath"
+            style="@style/WidthMatch"
+            android:padding="10dp"
+            android:layout_gravity="top"
+            android:gravity="center"
+            android:background="@color/backgroundLanguageVideoFolderColor"
+            android:text="video_folder_for_study_language_info"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContent"
+            style="@style/Match"
+            android:layout_weight="1"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_player_download" />
+        <TextView
+            android:id="@+id/tvNoDownloadData"
+            style="@style/HeightMatch"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/no_down_loading_data"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="@dimen/font_title"
+            android:visibility="gone"
+            tools:visibility="gone"/>
+    </LinearLayout>
+
+</FrameLayout>

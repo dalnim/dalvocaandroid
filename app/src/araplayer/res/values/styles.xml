@@ -1,0 +1,257 @@
+<resources>
+
+    <style name="TextView_Player_Option_Sub_Header" parent="@style/WidthMatch">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+        <item name="android:textSize">@dimen/font_title</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@color/backgroundCellHeaderColor</item>
+    </style>
+
+    <style name="TextView_Player_Option_Sub_Header_Top" parent="@style/TextView_Player_Option_Sub_Header">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_header</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@color/backgroundColorOutOfTable</item>
+    </style>
+
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="ImageView_Player_Delay_Subtitle">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="ImageView_Player">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="ImageView_Player_Small">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+
+    <style name="ImageView_Player_No_Margin">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="ImageView_Player_Subtitle_Show_Hide">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="ImageView_Player_Circle">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+
+
+    <style name="ImageView_Player_Option_Icon">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+
+
+    <style name="ImageView_Player_Video_Information">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="ImageView_Player_Play">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="ImageView_Player_Play_In_Multi_Player">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="ImageView_Player_Small_In_Multi_Player" parent="ImageView_Player_Small">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ImageView_4_buttons_In_Multi_Player" parent="ImageView_Player_Small_In_Multi_Player">
+        <item name="android:alpha">0</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="ImageView_Caster_Video_Information">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">320dp</item>
+    </style>
+
+    <style name="ImageView_Player_Play_Small">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="ImageView_Player_Play_Small2">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="Player_Subtitle_TableView" parent="@style/WidthMatch">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_player_subtitle_ruby</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Player_Subtitle_Ruby" parent="@style/WidthMatch">
+<!--        On Android 12, android:shadowColor affects to the background color too. -_- -->
+<!--        <item name="android:shadowColor">@color/gray</item>-->
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:textSize">@dimen/font_player_subtitle_ruby_fullscreen</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Player_title_on_screen" parent="@style/WidthMatch">
+        <item name="android:shadowColor">@color/gray</item>
+        <!--        <item name="android:shadowRadius">5</item>-->
+        <!--        <item name="android:shadowDx">3</item>-->
+        <!--        <item name="android:shadowDy">3</item>-->
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:textSize">@dimen/font_player_subtitle_ruby</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="Player_Subtitle_Meaning" parent="@style/Wrap">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:shadowColor">@color/color_ruby_text_normal</item>
+<!--        <item name="android:shadowDx">3</item>-->
+<!--        <item name="android:shadowDy">3</item>-->
+<!--        <item name="android:shadowRadius">5</item>-->
+        <item name="android:shadowDx">0.5</item>
+        <item name="android:shadowDy">0.5</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">@color/textPrimaryWhiteColor</item>
+        <item name="android:textSize">@dimen/font_player_subtitle_meaning</item>
+        <item name="outlineColor">@color/color_ruby_text_normal</item>
+        <item name="outlineSize">2dp</item>
+    </style>
+
+    <style name="Player_text_top_fullscreen" parent="@style/Player_Subtitle_Meaning">
+        <item name="android:textSize">@dimen/font_player_text_top_fullscreen</item>
+    </style>
+
+    <style name="Player_text_indicate_title" parent="@style/Player_Subtitle_Meaning">
+        <item name="android:textSize">@dimen/font_player_sleep_time_title</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="TextView_Value_Video_Information" parent="Wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_video_information</item>
+    </style>
+
+    <style name="TextView_Value_Video_Information_tb_value" parent="Wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_video_information</item>
+    </style>
+
+    <style name="TextView_Value_Video_Information_tb_title" parent="TextView_Value_Video_Information_tb_value">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <!--    <style name="TextView_Value_Video_Information.DarkLightMode">-->
+<!--        <item name="android:textColor">@color/colorTextNew</item>-->
+<!--    </style>-->
+
+    <style name="TextView_Value_Video_Information_play" parent="Wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_video_information_play</item>
+    </style>
+
+<!--    <style name="TextView_Value_Video_Information_play.DarkLightMode">-->
+<!--        <item name="android:textColor">@color/colorTextNew</item>-->
+<!--    </style>-->
+
+    <style name="TextView_Value_Video_Information_detail" parent="Wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_video_information_detail</item>
+    </style>
+
+<!--    <style name="TextView_Value_Video_Information_detail.DarkLightMode">-->
+<!--        <item name="android:textColor">@color/colorTextNew</item>-->
+<!--    </style>-->
+
+    <style name="TextView_Value_Video_Information_Long_Text" parent="Wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_video_information_long_text</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+
+    </style>
+
+<!--    <style name="TextView_Value_Video_Information_Long_Text.DarkLightMode">-->
+<!--        <item name="android:textColor">@color/colorTextNew</item>-->
+<!--    </style>-->
+
+    <style name="TrackSelectionDialogThemeOverlay" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="windowNoTitle">false</item>
+    </style>
+
+    <style name="LayoutItemEdit" parent="Wrap">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ImageItemEdit">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="tint">@drawable/selector_voca</item>
+    </style>
+
+    <style name="MultiImageItemEdit" parent="ImageItemEdit">
+        <item name="tint">@null</item>
+    </style>
+
+    <style name="MultiPlayerScreenMenuImageButtonStyle">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+</resources>

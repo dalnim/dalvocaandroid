@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingTop="6dp"
+    android:id="@+id/replay"
+    android:paddingBottom="6dp"
+    android:paddingRight="15dp"
+    android:background="#bb9b9b9b">
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:layout_gravity="center_vertical"
+        android:textColor="#000"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - B"
+        android:layout_gravity="center_vertical"
+        android:textColor="#000"
+        android:textSize="16sp"/>
+</LinearLayout>

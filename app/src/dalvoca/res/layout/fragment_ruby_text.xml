@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ViewBase"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_ruby"
+            style="@style/EditText_Search"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            style="@style/ButtonBlue"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center"
+            android:text="@string/send" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <CheckedTextView
+                android:id="@+id/ckTutor"
+                style="@style/TextView_Header"
+                android:layout_width="wrap_content"
+                android:drawableRight="@drawable/ic_checkbox"
+                android:drawablePadding="5dp"
+                android:text="@string/tutor" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_setting"
+            style="@style/ButtonBlue"
+            android:layout_marginLeft="16dp"
+            android:text="@string/setting" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Match"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tv_ruby"
+            style="@style/WidthMatch"
+            android:textSize="30sp" />
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

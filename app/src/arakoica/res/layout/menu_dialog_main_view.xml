@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <ScrollView style="@style/WidthMatch">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/llRefreshIctTermListAfterTime"
+                style="@style/WidthMatch"
+                android:visibility="visible"
+                android:orientation="vertical"
+                tools:visibility="visible"
+                >
+
+                <TextView
+                    android:id="@+id/tvRefreshIctTermListAfterTime"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dialogs_refresh_ict_term_list_after_time"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAddTerm"
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:visibility="visible"
+                >
+
+                <TextView
+                    android:id="@+id/tvAddTerm"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/add_new_term"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llShowIctTerm"
+                style="@style/WidthMatch"
+                android:visibility="visible"
+                android:orientation="vertical"
+                >
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scShowIctTerm"
+                    style="@style/SwitchSetting"
+                    android:checked="false"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:text='@string/dialog_menu_show_ict_term'
+                    android:textColor="@color/textPrimaryColor" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llShowLocalTerm"
+                style="@style/WidthMatch"
+                android:visibility="visible"
+                android:orientation="vertical"
+                >
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scShowLocalTerm"
+                    style="@style/SwitchSetting"
+                    android:checked="false"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:text='@string/dialog_menu_show_etc_term'
+                    android:textColor="@color/textPrimaryColor" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/llBackToHome"
+                style="@style/WidthMatch"
+                android:visibility="gone"
+                android:orientation="vertical"
+                tools:visibility="visible"
+                >
+                <TextView
+                    android:id="@+id/tvBackToHome"
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/back_to_home"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/close"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

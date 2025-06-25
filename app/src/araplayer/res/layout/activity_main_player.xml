@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    style="@style/Match"
+    tools:openDrawer="start">
+
+    <FrameLayout
+        style="@style/Match">
+        <LinearLayout
+            style="@style/ViewBase"
+            android:orientation="vertical">
+
+            <com.dalread.component.Toolbar
+                android:id="@id/header"
+                style="@style/WidthMatch"
+                app:leftIcon="@drawable/ic_drawer_menu"
+                app:rightIcon="@drawable/ic_search"
+                app:rightIcon2="@drawable/ic_toolbar_sort"
+                app:title="@string/app_name" />
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                style="@style/Match"
+                android:background="@drawable/background_table_view"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                style="@style/WidthMatch">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/nvBottom"
+                    style="@style/WidthMatch"
+                    app:itemBackground="@color/backgroundColor"
+                    app:itemIconTint="@drawable/selector_voca"
+                    app:itemTextColor="@drawable/selector_voca"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/menu_bottom_navigation_main_player" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutEdit"
+                    style="@style/WidthMatch"
+                    android:visibility="gone"
+                    android:padding="24dp"
+                    android:background="@color/backgroundColor"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/btnHideMedia"
+                        style="@style/LayoutItemEdit"
+                        android:layout_alignParentStart="true">
+
+                        <ImageView
+                            style="@style/ImageItemEdit"
+                            android:src="@drawable/ic_folder_system" />
+
+                        <TextView
+                            android:id="@+id/tv_show_hide"
+                            style="@style/Wrap"
+                            android:text="@string/hide" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llAddMediaToPlaylist"
+                        style="@style/LayoutItemEdit"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin_two"
+                        android:layout_toStartOf="@id/btnDeleteMedia">
+
+                        <ImageView
+                            style="@style/ImageItemEdit"
+                            android:src="@drawable/ic_folder_system" />
+
+                        <TextView
+                            android:id="@+id/tvAddMediaToPlaylist"
+                            style="@style/Wrap"
+                            android:text="@string/add_media_to_playlist" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnSelectAllMedia"
+                        style="@style/LayoutItemEdit"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            style="@style/ImageItemEdit"
+                            android:src="@drawable/ic_folder_system" />
+
+                        <TextView
+                            android:id="@+id/tv_select_all"
+                            style="@style/Wrap"
+                            android:text="@string/select_all" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnDeleteMedia"
+                        style="@style/LayoutItemEdit"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin_two"
+                        android:layout_toStartOf="@id/btnSelectAllMedia">
+
+                        <ImageView
+                            style="@style/ImageItemEdit"
+                            android:src="@drawable/ic_delete_black_24dp" />
+
+                        <TextView
+                            style="@style/Wrap"
+                            android:text="@string/delete" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutPopupMenuPlaylist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/md_blue_grey_900"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline" >
+
+                <LinearLayout
+                    android:id="@+id/layoutAddToPlaylist"
+                    style="@style/Match"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/PlaylistPopupHeaderTitle"
+                        android:text="@string/add_media_to_playlist" />
+
+                    <View
+                        style="@style/Divider_Play"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnCreateNewPlaylist"
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal"
+                        android:background="?selectableItemBackground"
+                        android:padding="@dimen/padding_icon_header">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/PlaylistPopupIcon"
+                            android:src="@drawable/ic_add_white_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Match"
+                            android:layout_marginStart="@dimen/padding_icon_header"
+                            android:text="@string/create_new_playlist"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        style="@style/Match"
+                        android:id="@+id/rvPlaylist"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutEditPlaylist"
+                    style="@style/Match"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPlaylistName"
+                        style="@style/PlaylistPopupHeaderTitle" />
+
+                    <View
+                        style="@style/Divider_Play"
+                        android:layout_below="@id/tvPlaylistName"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnDeletePlaylist"
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:background="?selectableItemBackground"
+                        android:padding="@dimen/padding_icon_header">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_delete_black_24dp"
+                            android:tint="@color/white"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Match"
+                            android:layout_marginStart="@dimen/padding_icon_header"
+                            android:text="@string/delete"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/font_title"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnRenamePlaylist"
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal"
+                        android:layout_above="@id/btnDeletePlaylist"
+                        android:background="?selectableItemBackground"
+                        android:padding="@dimen/padding_icon_header">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/Wrap"
+                            android:src="@drawable/ic_edit_black_24dp"
+                            android:tint="@color/white"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Match"
+                            android:layout_marginStart="@dimen/padding_icon_header"
+                            android:text="@string/rename"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/font_title"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_left"
+        style="@style/HeightMatch"
+        android:layout_gravity="start"
+        android:background="@color/home_side_menu_item_background"/>
+
+<!--    <com.github.chrisbanes.photoview.PhotoView-->
+<!--        android:id="@+id/iv_zoomed_photo"-->
+<!--        style="@style/zoomed_photo"-->
+<!--        android:visibility="gone"/>-->
+</androidx.drawerlayout.widget.DrawerLayout>

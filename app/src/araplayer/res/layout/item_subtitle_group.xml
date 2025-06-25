@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/subtitle_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/textPrimaryColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="subtitle" />
+
+    <TextView
+        android:id="@+id/tvIndex"
+        style="@style/TextViewSubItem2"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical|left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitle_text"
+        tools:text="1" />
+
+    <ImageView
+        android:id="@+id/ivMic"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/ic_mic_none_black_24dp"
+
+        app:layout_constraintStart_toEndOf="@+id/tvIndex"
+        app:layout_constraintTop_toTopOf="@+id/tvIndex" />
+
+
+    <ImageView
+        android:id="@+id/ivBookmark"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_favorite_off"
+        app:layout_constraintEnd_toStartOf="@+id/ivKnow"
+        app:layout_constraintStart_toEndOf="@+id/tvIndex"
+        app:layout_constraintTop_toTopOf="@+id/tvIndex" />
+
+    <ImageView
+        android:id="@+id/ivKnow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_voca_know_circle_1st"
+        app:layout_constraintEnd_toStartOf="@+id/ivCheck"
+        app:layout_constraintStart_toEndOf="@+id/ivBookmark"
+        app:layout_constraintTop_toTopOf="@+id/ivBookmark" />
+
+    <ImageView
+        android:id="@+id/ivVocaKnowPronounce"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_unknown_pronounce"
+        app:layout_constraintBottom_toBottomOf="@+id/ivKnow"
+        app:layout_constraintEnd_toStartOf="@+id/ivKnow"
+        app:layout_constraintTop_toTopOf="@+id/ivKnow" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/ivCheck"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="16dp"
+        app:buttonCompat="@drawable/ic_checkbox_1"
+        app:layout_constraintBottom_toBottomOf="@+id/ivKnow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBookmark" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

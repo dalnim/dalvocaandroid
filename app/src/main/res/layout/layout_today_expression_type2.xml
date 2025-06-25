@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRoot"
+    android:background="@color/backgroundTodayExpression"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/llSpeaker"
+        style="@style/HeightMatch"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        >
+
+        <ImageView
+            android:id="@+id/ivSpeaker"
+            style="@style/ImageView_Player_Circle_No_Margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_volume_up_outline_48dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/vToday"
+        style="@style/WidthMatch"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            style="@style/TextViewItem"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/today_expression" />
+
+        <com.dalread.component.CustomFontSizeTextView
+            android:id="@+id/tvTodayVoca"
+            style="@style/Wrap"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/today_voca_text_size"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:text="Today Voca Today Voca Today Voca Today Voca Today Voca "/>
+
+        <com.dalread.component.CustomFontSizeTextView
+            android:id="@+id/tvTodayMeaning"
+            style="@style/Wrap"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="@dimen/grade_text_size"
+            android:maxLines="2"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:text="Today Meaning Today Meaning Today Meaning Today Meaning Today Meaning "/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llKnow"
+        style="@style/HeightMatch"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+
+        <ImageView
+            android:id="@+id/ivKnow"
+            style="@style/TextView_VocaKnow"
+            android:src="@drawable/ic_voca_know_circle_notrated"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            style="@style/TextView_VocaKnow"
+            android:layout_weight="1"
+             />
+
+        <ImageView
+            android:id="@+id/vRefresh"
+            android:src="@drawable/ic_refresh"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            />
+    </LinearLayout>
+</LinearLayout>

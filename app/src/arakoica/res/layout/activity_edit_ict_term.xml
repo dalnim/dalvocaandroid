@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/color_recording_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"
+        app:title="@string/title_edit_phrase" />
+
+    <ScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:id="@+id/ivWebSearch"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_globe_empty"
+                    />
+                <ImageView
+                    android:id="@+id/ivWebDictionaryEn"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dic_hanja_english"
+                    />
+                <ImageView
+                    android:id="@+id/ivWebDictionaryEn2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dic_english2"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivWebDictionaryKorean"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dic_korean"
+                    />
+                <ImageView
+                    android:id="@+id/ivWebDictionary"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dic_hanja_korean"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_below="@id/tvVoca"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/tvVocaId"
+                    style="@style/TextView_Hanja_Edit_Title"
+                    android:textIsSelectable="true"
+                    android:gravity="left"
+                    android:text="voca id" />
+
+                <TextView
+                    android:text="@string/edit_term_label_eng_abbr"
+                    style="@style/TextView_Hanja_Edit_Title" />
+
+                <EditText
+                    android:id="@+id/etEngAbbr"
+                    android:hint="@string/edit_term_label_eng_abbr"
+                    android:paddingStart="10dp"
+                    android:layout_height="30dp"
+                    style="@style/TextView_Hanja_Edit" />
+
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/TextView_Hanja_Edit_Title"
+                        android:text="@string/edit_term_label_eng_full" />
+                    <EditText
+                        android:id="@+id/etEngFull"
+                        style="@style/TextView_Hanja_Edit"
+                        android:layout_height="30dp"
+                        android:hint="@string/edit_term_label_eng_full" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="@string/edit_term_label_ko_title"
+                    style="@style/TextView_Hanja_Edit_Title" />
+                <EditText
+                    android:id="@+id/etKoTitle"
+                    style="@style/TextView_Hanja_Edit"
+                    android:hint="@string/edit_term_label_ko_title" />
+
+                <TextView
+                    android:text="@string/edit_term_label_hanja_title"
+                    style="@style/TextView_Hanja_Edit_Title" />
+                <EditText
+                    android:id="@+id/etHanjaTitle"
+                    style="@style/TextView_Hanja_Edit"
+                    android:hint="@string/edit_term_label_hanja_title" />
+
+
+                <TextView
+                    android:text="@string/edit_term_label_ko_short"
+                    style="@style/TextView_Hanja_Edit_Title" />
+                <EditText
+                    android:id="@+id/etKoShort"
+                    style="@style/TextView_Hanja_Edit"
+                    android:hint="@string/edit_term_label_ko_short" />
+
+                <TextView
+                    android:text="@string/edit_term_label_ko_full"
+                    style="@style/TextView_Hanja_Edit_Title" />
+
+                <EditText
+                    android:id="@+id/etKoFull"
+                    style="@style/TextView_Hanja_Sentence_Edit"
+                    android:layout_height="400dp"
+                    android:hint="@string/edit_term_label_ko_full" />
+
+                <TextView
+                    android:text="@string/edit_term_label_url"
+                    style="@style/TextView_Hanja_Edit_Title" />
+                <EditText
+                    android:id="@+id/etUrl"
+                    style="@style/TextView_Hanja_Edit"
+                    android:hint="@string/edit_term_edittext_url" />
+
+                <TextView
+                    android:text="@string/edit_term_label_group_nation"
+                    style="@style/TextView_Hanja_Edit_Title" />
+                <EditText
+                    android:id="@+id/etGroupNation"
+                    style="@style/TextView_Hanja_Edit"
+                    android:hint="@string/edit_term_edittext_group_nation" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scIctTermGroupIct"
+                    style="@style/SwitchInEditor"
+                    android:text="@string/edit_term_label_group_ict" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scIctTermGroupHw"
+                    style="@style/SwitchInEditor"
+                    android:text="@string/edit_term_label_group_hw" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scIctTermGroupGis"
+                    style="@style/SwitchInEditor"
+                    android:text="@string/edit_term_label_group_gis" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scIctTermGroupEtc"
+                    style="@style/SwitchInEditor"
+                    android:text="@string/edit_term_label_group_etc" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

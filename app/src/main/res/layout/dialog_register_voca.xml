@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Layout_Dialog"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:text="@string/register"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialogThick"
+                />
+
+            <RelativeLayout
+                android:id="@+id/v_known"
+                style="@style/WidthMatch">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_voca_know_circle2_known" />
+<!--                -->
+<!--                <TextView-->
+<!--                    android:layout_width="26dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/bg_voca_know"-->
+<!--                    android:backgroundTint="@color/color_voca_know_known"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textColor="@color/iconPrimaryWhiteColor"-->
+<!--                    android:text="!"-->
+<!--                    android:textSize="16sp" />-->
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/known_phrase"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/v_exclude"
+                style="@style/WidthMatch">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_voca_know_circle2_unknown" />
+
+<!--                <TextView-->
+<!--                    android:layout_width="26dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/bg_voca_know"-->
+<!--                    android:backgroundTint="@color/color_voca_know_unknown"-->
+<!--                    android:textColor="@color/iconPrimaryWhiteColor"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="X"-->
+<!--                    android:textSize="16sp" />-->
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/unknown_phrase"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/v_grade_1"
+                style="@style/WidthMatch">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_voca_know_circle2_1st" />
+
+<!--                <TextView-->
+<!--                    android:layout_width="26dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/bg_voca_know"-->
+<!--                    android:backgroundTint="@color/color_voca_know_amki_grade_1"-->
+<!--                    android:textColor="@color/iconPrimaryWhiteColor"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="1"-->
+<!--                    android:textSize="16sp" />-->
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/target_1"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/v_grade_2"
+                style="@style/WidthMatch">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_voca_know_circle2_2nd" />
+
+<!--                <TextView-->
+<!--                    android:layout_width="26dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/bg_voca_know"-->
+<!--                    android:backgroundTint="@color/color_voca_know_amki_grade_2"-->
+<!--                    android:textColor="@color/iconPrimaryWhiteColor"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="2"-->
+<!--                    android:textSize="16sp" />-->
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/target_2"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/v_known_pronounce"
+                style="@style/WidthMatch">
+
+                <ImageView
+                    android:id="@+id/ic_known_pronounce"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_known_pronounce" />
+
+                <TextView
+                    android:id="@+id/tv_known_pronounce"
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/known_pronunciation"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/v_add_my_workbook"
+                style="@style/WidthMatch">
+
+                <TextView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_circle_light_blue"
+                    android:textColor="@color/iconPrimaryWhiteColor"
+                    android:gravity="center"
+                    android:text="M"
+                    android:textSize="16sp" />
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/add_to_book"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/v_bookmark"
+                style="@style/WidthMatch"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_bookmark"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_favorite_new_off"/>
+
+                <TextView
+                    android:id="@+id/tv_bookmark"
+                    style="@style/Wrap"
+                    android:layout_centerInParent="true"
+                    android:text="@string/add_bookmark"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+                <View
+                    style="@style/DividerDialog" />
+            </RelativeLayout>
+
+            <View
+                style="@style/DividerDialogThick"
+                />
+
+            <RelativeLayout
+                android:id="@+id/v_action"
+                style="@style/WidthMatch"
+                >
+
+                <TextView
+                    android:id="@+id/tv_action"
+                    style="@style/Button_Base"
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/close"
+                    android:textColor="@drawable/btn_ok_color" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

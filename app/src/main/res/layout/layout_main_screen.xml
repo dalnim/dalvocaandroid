@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarHeader"
+        style="@style/Layout_Header"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <include layout="@layout/layout_header" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/layoutData"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            style="@style/WidthMatch"
+            android:orientation="horizontal">
+
+            <com.dalread.component.ClearableEditText
+                android:id="@+id/etSearch"
+                style="@style/EditText_Main"
+                android:layout_margin="@dimen/edit_text_margin"
+                android:layout_weight="1"
+                android:background="@drawable/background_edittext"
+                android:drawablePadding="@dimen/edit_text_margin"
+                android:imeOptions="actionGo" />
+
+            <TextView
+                android:id="@+id/tvCancel"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/edit_text_margin"
+                android:text="@string/login_btn_cancel"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/ProgressBar_Horizontal"
+            android:background="@color/colorWhite"
+            android:indeterminate="false"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/bg_progress_bar_horizontal" />
+
+        <com.github.ksoichiro.android.observablescrollview.ObservableWebView
+            android:id="@+id/webView"
+            style="@style/Match"
+            android:layout_below="@id/llSearch"
+            android:fillViewport="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listBookmark"
+            style="@style/Match"
+            android:layout_below="@id/llSearch"
+            android:visibility="gone" />
+
+        <include
+            layout="@layout/layout_main_footer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/header_size"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <include layout="@layout/layout_admob" />
+</LinearLayout>

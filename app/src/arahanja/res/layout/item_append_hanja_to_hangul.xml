@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    style="@style/ViewBase"
+    android:background="@color/color_play_background"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightColor="@color/white"
+        app:rightText="@string/menu"
+        app:title="@string/hanja_home_menu_convert_to_hanja" />
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        style="@style/Match"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/iv_convert_to_hanja"
+                style="@style/ImageView_Player"
+                android:src="@mipmap/ic_menu_list"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/iv_show_word_list"
+                style="@style/ImageView_Player"
+                android:src="@mipmap/ic_menu_list"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/ivWordList"
+                style="@style/ImageView_Player"
+                android:src="@mipmap/ic_edit"
+                android:layout_marginRight="25dp"
+                app:tint="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_reading"
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/v_reading_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/et_content"
+                            style="@style/WidthMatch"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:hint="@string/type_hanja_here" />
+
+                        <ImageView
+                            android:id="@+id/iv_parse_content_to_make_ruby_text"
+                            style="@style/ImageView_Player"
+                            android:src="@mipmap/ic_book"
+                            android:layout_gravity="center|bottom"
+                            app:tint="@color/black" />
+                    </LinearLayout>
+                    <com.dalread.component.FuriganaView
+                        android:id="@+id/tvBookHanjaFurigana"
+                        style="@style/TextViewHanjaBookVoca"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <View
+                android:id="@+id/v_adjust_height_reading"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:background="@drawable/bg_view_adjust_height" />
+
+            <ScrollView
+                android:id="@+id/v_reading_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_weight="1">
+
+                <LinearLayout
+                    style="@style/WidthMatch"
+                    android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_info"
+                        style="@style/Match"
+                        tools:spanCount="5"
+                        tools:listitem="@layout/item_voca_hanja_word_grid"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_hanja_candidate"
+                        style="@style/Match"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        style="@style/Match"
+        />
+</LinearLayout>

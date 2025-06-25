@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/menu"/>
+
+    <RelativeLayout style="@style/Match"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGroupLandscape"
+            style="@style/WidthMatch"
+            android:background="@color/color_grouped_radical_normal"
+            android:visibility="visible"
+            tools:listitem="@layout/item_grouped_radical"
+            tools:itemCount="1"
+            tools:visibility="visible"/>
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                style="@style/Match"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGroupVertical"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_grouped_radical_normal"/>
+
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llRadical"
+                        style="@style/WidthMatch"
+                        android:layout_height="130dp"
+                        android:background="@color/color_ruby_dialog_header"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/ic_bookmark"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_search"
+                            tools:visibility="visible"
+                            tools:ignore="ContentDescription" />
+
+                        <LinearLayout
+                            style="@style/Wrap"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                style="@style/Match"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvVoca"
+                                    style="@style/Wrap"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginEnd="16dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="28sp"
+                                    tools:text="VOCA" />
+
+                                <TextView
+                                    android:id="@+id/tv_meaning_pronounce"
+                                    style="@style/FillRemainHorizontal"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="20sp"
+                                    tools:text="pronounce" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                style="@style/Match"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_unknown_word_info"
+                                    style="@style/Wrap"
+                                    android:ellipsize="end"
+                                    android:text=""
+                                    android:layout_weight="1"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="18sp"
+                                    tools:text="unknown word info " />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                style="@style/Match"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_detail_info"
+                                    style="@style/WidthMatch"
+                                    android:layout_gravity="top"
+                                    android:ellipsize="end"
+                                    android:gravity="top"
+                                    android:maxLines="2"
+                                    android:text="@string/meaning_detail"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="18sp"
+                                    tools:text="Detail Info" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/WidthMatch"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/ivWordList"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:padding="10dp"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_word_list"
+                                />
+
+                            <ImageView
+                                android:id="@+id/ivPracticeQuiz"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:padding="10dp"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_main_tabbar_quiz"
+                                />
+
+                            <ImageView
+                                android:id="@+id/ivEye"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:padding="10dp"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_new_eye_open" />
+
+                        </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_know"-->
+<!--                            android:layout_width="32dp"-->
+<!--                            android:layout_height="32dp"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:textColor="@color/colorBlack"-->
+<!--                            android:textSize="18sp"-->
+<!--                            android:visibility="gone"-->
+<!--                            tools:visibility="visible"-->
+<!--                            />-->
+
+                    </LinearLayout>
+
+                    <me.zhanghai.android.fastscroll.FastScrollScrollView
+                        android:id="@+id/fssv_preview"
+                        android:background="@color/color_grouped_radical_background"
+                        style="@style/Match">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_info"
+                            style="@style/Match"
+                            android:layout_marginRight="2dp"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_voca_hanja_word_grid"/>
+                    </me.zhanghai.android.fastscroll.FastScrollScrollView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search"
+            style="@style/Match"
+            />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

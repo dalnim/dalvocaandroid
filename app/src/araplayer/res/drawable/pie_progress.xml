@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/iconPrimaryWhiteColor" />
+            <stroke android:color="@color/videoDurationOvalStroke" android:width="1dp" />
+        </shape>
+    </item>
+    <item>
+        <shape
+            android:innerRadiusRatio="100"
+            android:shape="ring"
+            android:thicknessRatio="3"
+            android:useLevel="true">
+            <gradient
+                android:centerColor="@color/videoDurationOvalGradient"
+                android:endColor="@color/videoDurationOvalGradient"
+                android:startColor="@color/videoDurationOvalGradient"
+                android:type="sweep"
+                android:useLevel="true" />
+        </shape>
+    </item>
+
+
+</layer-list>

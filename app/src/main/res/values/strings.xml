@@ -1,0 +1,1881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">DalPlayer</string>
+
+    <!--Screen How To Use-->
+    <string name="app_introduction" translatable="false">App introduction</string>
+    <string name="app_introduction_1_arahanja" translatable="false">You can look up Hanja(Chinese characters in Korea) endlessly.</string>
+    <string name="app_introduction_2_arahanja" translatable="false">You can see Hanja as a decomposed form.</string>
+    <string name="app_introduction_3_arahanja" translatable="false">You can look up difficult Hanja during web surfing.</string>
+    <string name="app_introduction_4_arahanja" translatable="false">There is a today\'s expression.</string>
+    <string name="app_introduction_5_arahanja" translatable="false">AraHanja has various type of workbooks.</string>
+
+
+    <string name="app_introduction_1_araplayer" translatable="false">Ask ChatGPT with the difficult subtitles.</string>
+    <string name="app_introduction_2_araplayer" translatable="false">The best video player for language learners.</string>
+    <string name="app_introduction_3_araplayer" translatable="false">You can see the difficult words while watching videos.</string>
+    <string name="app_introduction_4_araplayer" translatable="false">It can turn of/off the subtitles automatically while watching videos.</string>
+    <string name="app_introduction_5_araplayer" translatable="false">You can sync subtitles and voices easily.</string>
+
+    <string name="app_introduction_1_araconv_korean" translatable="false">Learn Korean for free with ChatGPT.</string>
+    <string name="app_introduction_1_araconv_chinese" translatable="false">Learn Chinese for free with ChatGPT.</string>
+    <string name="app_introduction_1_araconv_japanese" translatable="false">Learn Japanese for free with ChatGPT.</string>
+    <!--    <string name="app_introduction_2_araconv_korean" translatable="false">ChatGPT creates role-playing material for you.</string>-->
+    <!--    <string name="app_introduction_3_araconv_korean" translatable="false">IStudy with speaking mode and sentence completion mode.</string>-->
+    <!--    <string name="app_introduction_4_araconv_korean" translatable="false">Listen on repeat mode to improve your listening skills.</string>-->
+    <!--    <string name="app_introduction_5_araconv_korean" translatable="false">You can bookmark the difficult sentences</string>-->
+    <string name="app_introduction_1_araconv" translatable="false">Learn English for free with ChatGPT.</string>
+    <string name="app_introduction_2_araconv" translatable="false">ChatGPT creates role-playing material for you.</string>
+    <string name="app_introduction_3_araconv" translatable="false">Study with speaking mode and sentence completion mode.</string>
+    <string name="app_introduction_4_araconv" translatable="false">Listen on repeat mode to improve your listening skills.</string>
+    <string name="app_introduction_5_araconv" translatable="false">Register frequently used prompts with ChatGPT for easy access.</string>
+
+    <!--    AraHangul-->
+    <!--    <string name="app_introduction" translatable="false">App introduction</string>-->
+    <string name="app_introduction_1_arahangul" translatable="false">Feel free to ask ChatGPT</string>
+    <string name="app_introduction_2_arahangul" translatable="false">You can practice writing Hangul</string>
+    <string name="app_introduction_3_arahangul" translatable="false">You can practice typing Hangul</string>
+    <string name="app_introduction_4_arahangul" translatable="false">Listen ordinary Korean people\'s voice</string>
+    <string name="app_introduction_5_arahangul" translatable="false">You can join Kakao\'s group chat to meet real Koreans</string>
+
+    <!--    <string name="app_introduction">App introduction</string>-->
+    <!--    <string name="app_introduction_1">The best music player for language learners.</string>-->
+    <!--    <string name="app_introduction_2">You can see the difficult words while listening musics.</string>-->
+    <!--    <string name="app_introduction_3">Listen endlessly the difficult lyrics by hiding the easy words.</string>-->
+    <!--    <string name="app_introduction_4">It can turn of/off the subtitles automatically while listening musics.</string>-->
+    <!--    <string name="app_introduction_5">You can sync lyrics and voices easily.</string>-->
+
+    <!--    <string name="app_introduction">App introduction</string>-->
+    <string name="app_introduction_1_aramultiplayer" translatable="false">The best video player for multiple screen shots.</string>
+    <string name="app_introduction_2_aramultiplayer" translatable="false">You can play or stop all videos at once.</string>
+    <string name="app_introduction_3_aramultiplayer" translatable="false">You can watch same videos in different screens as welll</string>
+    <string name="app_introduction_4_aramultiplayer" translatable="false">It stops playing videos when it goes background mode.</string>
+    <string name="app_introduction_5_aramultiplayer" translatable="false">It has A-B Repeat mode so you can watch favorite screens endlessly</string>
+
+    <string name="loading">Loading…</string>
+    <!-- CONFIRM EXIT -->
+    <string name="msg_confirm_title">Exit</string>
+    <string name="msg_refresh">Refresh</string>
+    <string name="msg_confirm_exit_app">Do you want to exit this app?</string>
+    <string name="msg_confirm_exit">Do you want to exit?</string>
+    <string name="msg_confirm_exit_gpt">Do you want to exit chatGPT?</string>
+    <string name="msg_confirm_refresh">Refresh meaning can take long time.do you want to continue?</string>
+    <string name="msg_confirm_yes">Yes</string>
+    <string name="msg_confirm_no">No</string>
+    <string name="msg_confirm_choose">Choose</string>
+    <string name="msg_confirm_cancel">Cancel</string>
+    <!-- ADMOD -->
+    <string name="error_msg_billing_unavailable">In-app billing service is unavailable, please upgrade Android Market/Play to version >= 3.9.16</string>
+    <string name="error_msg_billing_not_init">Billing not initialized.</string>
+    <string name="btn_watch_ads" translatable="false">Watch AD</string>
+    <string name="msg_ads_remove_success">Removed AD successfully!</string>
+    <string name="msg_ads_restore_success">Restoration successful!</string>
+    <string name="msg_ads_wait_to_load_ads" translatable="false">The ad is loading. Please wait a moment.</string>
+    <!-- TTS -->
+    <string name="tts_title">Text to Speech</string>
+    <string name="tts_info">Text to Speech is not available. Do you want to install it?</string>
+    <string name="tts_ok">OK</string>
+    <string name="tts_cancel">Cancel</string>
+    <string name="tts_open_setting">Open setting</string>
+    <string name="error_msg_tts_not_supported">This Language is not supported</string>
+    <string name="error_msg_tts_initializing">Error occurred while initializing Text-To-Speech engine</string>
+    <string name="error_msg_check_mute">Please check mute</string>
+    <string name="error_msg_zero_volume">Please check the volume</string>
+    <!-- SPLASH -->
+    <string name="splash_copyright" translatable="false">Copyright © 2024 AraOneSoft.\nAll rights reserved.</string>
+    <!-- Action Bar Main -->
+    <string name="action_main_wordlist">WordList</string>
+    <string name="action_main_list">List</string>
+    <string name="action_main_search_history">History</string>
+    <!-- MENU -->
+    <string name="menu_log_in">Log In/Sign up</string>
+    <string name="menu_log_out">Log Out</string>
+    <string name="menu_delete_account">Delete Account</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_naver_cafe_manual">Manual</string>
+    <string name="menu_kakaotalk_groupchat">Talk Koreans</string>
+    <string name="menu_kakaotalk_groupchat1">Kakao Talk</string>
+    <string name="menu_kakaotalk_groupchat_arahangul">Study Hangul together</string>
+    <string name="menu_mail">Mail</string>
+    <string name="menu_app_download">App Download</string>
+    <string name="menu_share_app">Share this app</string>
+    <string name="menu_rate_app">Review this app</string>
+    <string name="menu_my_apps">Other apps</string>
+    <string name="menu_remove_ad_banner">Remove Ad Banner</string>
+    <string name="menu_restore_purchase">Restore purchase</string>
+    <string name="menu_user_name">User name</string>
+    <string name="menu_points">%1$s Points</string>
+    <string name="help">How to use</string>
+    <string name="backup_realm_db">Backup RealmDB</string>
+    <!-- SEND MAIL -->
+    <string name="send_mail_title">Send mail…</string>
+    <string name="send_mail_subject">Hello</string>
+    <string name="send_mail_body">Hello</string>
+    <string name="send_mail_msg_success">Sent mail</string>
+    <string name="send_mail_msg_failed">An error occurred when trying to compose this email</string>
+    <!--Sign up-->
+    <string name="sign_up_title">Sign Up</string>
+    <string name="sign_up_message">Welcome, please create your account</string>
+    <string name="sign_up_message_hidden_files">Please set password for hidden files</string>
+    <string name="log_in_message_hidden_files">Type the password for hidden files</string>
+    <string name="sign_up_id_mail">ID(Mail)</string>
+    <string name="sign_up_password">Password (4 characters or more)</string>
+    <string name="sign_up_retype_password">Retype Password</string>
+    <string name="sign_up_name">Name</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="sign_up_my_level">My Level</string>
+    <!-- SIGN UP WORD LEVEL -->
+<!--    <string name="sign_up_word_level_none">Know Nothing</string>-->
+    <string name="sign_up_word_level_beginner">Beginner</string>
+    <string name="sign_up_word_level_pre_intermediate">Pre_Intermediate</string>
+    <string name="sign_up_word_level_intermediate">Intermediate</string>
+    <string name="sign_up_word_level_post_intermediate">Post_Intermediate</string>
+    <string name="sign_up_word_level_advanced">Advanced</string>
+<!--    <string name="sign_up_word_level_god">Know Everything</string>-->
+    <!--Login-->
+    <string name="login_title">Login</string>
+    <string name="login_message_to_sign_up">Don\'t have an account? Tap to sign up</string>
+    <string name="login_enter_user_info">Login</string>
+    <string name="login_id_mail">ID(Mail)</string>
+    <string name="login_password">Password</string>
+    <string name="login_btn_ok">OK</string>
+    <string name="login_change_password">Change Password</string>
+    <string name="login_sign_up">Sign Up</string>
+    <string name="login_btn_cancel">Cancel</string>
+    <!--Change password-->
+    <string name="change_password_title">Change Password</string>
+    <string name="change_password_mail">ID(Mail)</string>
+    <string name="change_password_current_password">Current Password</string>
+    <string name="change_password_enter_new_password">Type New Password</string>
+    <string name="change_password_new_password">New Password</string>
+    <string name="change_password_retype_password">Retype Password</string>
+    <string name="change_password_btn_ok">OK</string>
+    <string name="change_password_btn_cancel">Cancel</string>
+    <!-- ERROR -->
+    <string name="error_msg_null">Null</string>
+    <string name="error_selected_text">Please select text correctly.</string>
+    <string name="error_msg_check_mail">Please check the e-mail address</string>
+    <string name="error_msg_password_does_not_match">Password does not match</string>
+    <string name="error_msg_new_password_does_not_match">New password does not match</string>
+    <string name="error_msg_current_password_is_wrong">Current Password is wrong</string>
+    <string name="error_msg_longer_than_4_characters_password">Password must be longer than 4 characters</string>
+    <string name="error_msg_longer_than_2_characters_name">Name entered must be longer than 2 characters</string>
+
+    <string name="msg_signup_fail">Sign-up failed</string>
+    <string name="msg_signup_fail_idMail_alreadyUsed">This e-mail has been registered already</string>
+    <string name="msg_signup_success">Sign-up successful</string>
+    <string name="msg_logout_fail">Failed to log out</string>
+    <string name="msg_logout_success">Logged out successfully</string>
+    <string name="msg_delete_account_success">Deleted account successfully</string>
+    <string name="msg_delete_account_fail">Failed to deleted account</string>
+    <string name="msg_login_fail">Failed to log in</string>
+    <string name="msg_login_fail_to_open_subtitle">Failed login to OpenSubtitle.com account</string>
+    <string name="msg_login_success">Log in succeeded</string>
+    <string name="msg_change_password_fail">Failed to change password</string>
+    <string name="msg_change_password_current_password_wrong">Password change failed : Current password entered does not match</string>
+    <string name="msg_change_password_success">Password successfully changed</string>
+    <string name="msg_bookmark_already_registered">Already bookmarked.</string>
+    <string name="msg_bookmark_fail_to_upload">Failed to update bookmark</string>
+    <string name="msg_dal_read_text_error">Error</string>
+    <!-- SETTING LANGUAGE -->
+    <string name="setting_title">Settings</string>
+    <string name="setting_mother_tongue">Mother tongue</string>
+    <string name="setting_show_word_meaning">Show definition</string>
+    <string name="setting_show_pronounce">Show pronunciation</string>
+    <string name="setting_user_release_server">Use Release Server</string>
+    <string name="setting_language_default">Default</string>
+    <string name="setting_language_ar">العربية</string>
+    <string name="setting_language_ch_s">简体中文</string>
+    <string name="setting_language_ch_t">繁體中文</string>
+    <string name="setting_language_de">Deutsch</string>
+    <string name="setting_language_en">English</string>
+    <string name="setting_language_es">Español</string>
+    <string name="setting_language_fr">Français</string>
+    <string name="setting_language_it">Italiano</string>
+    <string name="setting_language_ja">日本語</string>
+    <string name="setting_language_ko">한국어</string>
+    <string name="setting_language_pt">Português</string>
+    <string name="setting_language_ru">Русский</string>
+    <string name="setting_language_vn">Tiếng Việt</string>
+    <string name="setting_btn_save">SAVE</string>
+    <string name="setting_speed">Speed</string>
+    <string name="setting_speed_speak">Speak</string>
+    <string name="setting_my_level">Change my word level</string>
+    <string name="setting_buy_point">Buy point</string>
+    <!-- SETTING BUY POINT -->
+    <string name="setting_buy_point_success">Buy point succeeded</string>
+    <string name="setting_buy_point_points">%1$s Points</string>
+    <string name="setting_buy_point_currency">$ %1$s</string>
+    <!-- SETTING MY LEVEL -->
+    <string name="setting_my_change_level_title">My level</string>
+    <string name="setting_my_change_level_words_known">Familiar words</string>
+    <string name="setting_my_change_level_words_unknown">Unfamiliar words</string>
+    <string name="setting_my_change_level_words_bookmarked">Bookmarked words</string>
+    <string name="setting_my_change_level_words_unique">Unique words</string>
+    <!-- SETTING CHANGE MY LEVEL -->
+    <string name="setting_change_my_level">Change word level</string>
+    <!-- BOOKMARKS -->
+    <string name="bookmark_edit_title">Edit Bookmarks</string>
+    <string name="bookmark_btn_save">Save</string>
+    <string name="bookmark_hint_name">Website name</string>
+    <string name="bookmark_hint_url">URL with http(s)://</string>
+    <!-- SEND DIALOG -->
+    <string name="send_dialog_read">Read</string>
+    <string name="send_dialog_info">Add meaning to unfamiliar word</string>
+    <string name="send_dialog_main_contents">Main Contents</string>
+    <string name="send_dialog_clipboard_contens">Clipboard"'"s contents</string>
+    <string name="send_dialog_selected_text">Selected Text</string>
+    <string name="send_dialog_whole_html">Whole HTML</string>
+    <string name="send_dialog_cancel">Cancel</string>
+    <!-- MERCURY -->
+    <string name="error_mercury_msg">Error to get main contents.\n Use Select text instead.</string>
+    <string name="error_mercury_cannot_read">Unable to extract main contents.</string>
+    <!-- CONFIRM -->
+    <string name="confirm_translate_title">Info</string>
+    <string name="confirm_translate_info">You have something to read.  Would you like to proceed?</string>
+    <string name="confirm_btn_cancel">Cancel</string>
+    <string name="confirm_btn_go_to_read">Go to read</string>
+    <string name="confirm_btn_go_to_word_list">Go to word list</string>
+    <string name="confirm_btn_yes">Yes</string>
+
+    <string name="open_with_meaning">Open with meaning</string>
+    <string name="open_movie">Open Movie</string>
+
+    <!-- WORD DEFINITION -->
+    <string name="word_definition_title">Word Definition</string>
+    <string name="word_definition_edit">Edit</string>
+    <!-- DALREAD -->
+    <string name="dal_read_title">Reading</string>
+    <string name="dal_read_change_segment_change_level">Change level : %1$s</string>
+    <string name="dal_read_change_segment_my_level">My Level</string>
+    <string name="dal_read_change_segment_beginner_level">beginner level</string>
+    <string name="dal_read_change_segment_intermediate_level">intermediate level</string>
+    <string name="dal_read_change_segment_advanced_level">advanced level</string>
+    <string name="dal_read_change_segment_native_level">I know everything</string>
+    <!-- READING LIST -->
+    <string name="reading_list_title">Reading List</string>
+    <string name="reading_list_item_delete">Delete</string>
+    <string name="reading_list_search">Type to search</string>
+    <string name="reading_list_item_words">Words : %1$s</string>
+    <!-- READING LIST INFO -->
+    <string name="reading_list_info_information">Information</string>
+    <string name="reading_list_info_save">Save</string>
+    <string name="reading_list_info_title">Title</string>
+    <string name="reading_list_info_difficulty">Difficulty</string>
+    <string name="reading_list_info_unique_words">Unique words</string>
+    <string name="reading_list_info_known_words">Familiar words</string>
+    <string name="reading_list_info_unknown_words">Unfamiliar words</string>
+    <string name="reading_list_info_bookmarked_words">Bookmarked words</string>
+    <!-- WORD LIST -->
+    <string name="word_list_title">Word list</string>
+    <string name="word_list_search">Search</string>
+    <string name="word_list_size">%1$s out of %2$s Words</string>
+    <string name="word_title">Edit meaning of Word</string>
+    <string name="word_btn_ok">OK</string>
+    <string name="word_btn_cancel">Cancel</string>
+    <string name="word_list_sort_title">Sort</string>
+    <string name="word_list_sort_asc">A-Z</string>
+    <string name="word_list_sort_desc">Z-A</string>
+    <string name="word_list_sort_appearance">Appearance Order</string>
+    <string name="word_list_sort_frequency">Frequency Order</string>
+    <string name="word_list_sort_cancel">Cancel</string>
+    <string name="word_list_speck_title">Read all sentences</string>
+    <string name="word_list_speck_1">Read the sentence once</string>
+    <string name="word_list_speck_3">Read the sentence 3 times</string>
+    <string name="word_list_speck_5">Read the sentence 5 times</string>
+    <string name="word_list_speck_10">Read the sentenced 10 time</string>
+    <string name="word_list_speck_cancel">Cancel</string>
+
+    <string name="error_msg_bookmark_api_fail">Failed to update bookmark</string>
+    <string name="error_msg_getlist_api_fail">Unable to get word list</string>
+    <string name="error_msg_word_unknown_api_fail">Failed to set word as unfamiliar</string>
+
+    <string name="error_msg_word_change_fail">Failed to update word"'"s info</string>
+    <string name="error_msg_word_change_success">Info successfully added</string>
+    <string name="error_msg_word_change_need_to_check">An error has occurred. Ensure definition has been entered before saving</string>
+
+    <string name="error_msg_open_failed_wordlist">Unable to open wordlist</string>
+    <string name="main_title" translatable="false">DalRead English Lite</string>
+    <!-- ADMOD -->
+    <string name="admob_banner_footer" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="billing_base_64" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkhs/eYpCBvd1UgKaFD5kvgn6sVvu02YxkK/tJfOucVojdeq7m1XD9gXzOtEu96kkqplMucRt/zs72e1giMEE6HRdLHXdwG+HNgePNGU6o0VPj+qLKWnoUJLYWzgZXOtl33EiLLvfLAf3Q1Tbc7tcRbEmYtFN/oJw8zhXhuI6ldx/LpC/nYasFdXOaYG3//E6fN2GSs0gaTQZsbP9mg+tYNbf4nnWR+YuWdhqQq3EibfLx5k85VZLYLn8m+49yMse9wymNarDUFwoMXqVe6Vvf6MGVdtBDAbIdqPs4EFy4tUvqABBAlq524zMd2eWe5HoPCCac3Nn7v8yxpaa2vvU0QIDAQAB</string>
+    <string name="billing_admob_project_id" translatable="false">dalread_english_remove_admob</string>
+    <!-- Footer Main Screen Movie -->
+    <!--    <string name="local">Videos</string>-->
+    <!--    <string name="nav_music">Videos</string>-->
+    <!--    <string name="local_test" translatable="false">Videos_Test</string>-->
+    <!--    <string name="network">Network</string>-->
+    <string name="settings">Settings</string>
+
+    <string name="subtitle">Subtitle</string>
+    <string name="english">ENGLISH</string>
+    <string name="korean">KOREAN</string>
+    <string name="chinese">CHINESE</string>
+    <string name="japanese">JAPANESE</string>
+
+
+    <string name="encoding">Subtitle Encoding</string>
+    <string name="words_list">Words List</string>
+    <string name="subtitle_mode">Subtitle mode</string>
+
+
+    <!-- Encoding list -->
+    <string name="encoding_title">Encoding</string>
+    <string name="auto">Auto</string>
+    <string name="euc_kr">EUC-KR</string>
+    <string name="euc_jp">EUC-JP</string>
+    <string name="utf">UTF-8</string>
+
+    <string name="normal">Normal</string>
+    <string name="table">Table View</string>
+
+    <string name="movie_options">Movie Options</string>
+    <string name="movie_setting">Movie Setting</string>
+    <string name="playback">Playback</string>
+    <string name="gesture">Gesture</string>
+    <string name="fast_backward_and_forward">Fast Backward And Forward</string>
+    <string name="seeking_type">Seeking Type</string>
+    <string name="play_bg">Play on background</string>
+
+    <string name="show_subtitle">Show Subtitles</string>
+    <string name="text_outline">Text Outline</string>
+    <string name="font">Font</string>
+    <string name="font_type">Font Type</string>
+    <string name="font_size">Font Size</string>
+    <string name="line_height">Line Height</string>
+    <string name="unknown_word_color">Unknown Word Color</string>
+    <string name="font_size_meaning">Font Size of Meaning</string>
+    <string name="font_size_pronounce">Font Size of Pronounce</string>
+    <string name="font_color_meaning">Font Color of Meaning</string>
+    <string name="font_color_pronounce">Font Color of Pronounce</string>
+
+    <string name="options">Options</string>
+    <string name="setting">Setting</string>
+    <string name="wordlist">Wordlist</string>
+    <string name="bookmarks">Bookmark list</string>
+    <string name="sortFiles">Sort Files</string>
+    <string name="FTP">FTP</string>
+    <string name="opensubtitles">OpenSubtitles</string>
+
+    <string name="dragLeft">Drag Left/Right</string>
+    <string name="dragUpLeft">Drag Up/Down on Left Screen</string>
+    <string name="dragUpRight">Drag Up/Down on Right Screen</string>
+    <string name="dragLeftSub">Drag Left/Right on Subtitle</string>
+    <string name="dragUpSub">Drag Up/Down on Subtitle</string>
+    <string name="singleTap">Single Tap on Screen</string>
+    <string name="doubleTrap">Double Tap on Screen</string>
+    <string name="longTrap">Long Tap on Screen</string>
+    <string name="seek">Seek</string>
+    <string name="brightness">Brightness</string>
+    <string name="volume">Volume</string>
+    <string name="next_pre">Next/Previous</string>
+    <string name="position">Position</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="show_hide_menu">Show/Hide Menu</string>
+    <string name="screen_lock">Screen Lock</string>
+
+    <string name="main_title_movie">DalPlayer 61</string>
+    <string name="how_to_open_movie">How to open a movie</string>
+    <string name="while_watching_movie">While watching a movie</string>
+    <string name="file_sharing">To use file sharing on itunes to add movies</string>
+    <string name="download_movie">To download a movie from FTP site</string>
+    <string name="made_by">Dalmovie Made By</string>
+    <string name="website">www.dalread.com</string>
+    <string name="dalmovies">DalMovie</string>
+    <string name="all_videos">All Videos</string>
+    <string name="movie_path">Path:</string>
+    <string name="select">Select</string>
+    <string name="video_bookmark_list">Video Bookmark List</string>
+    <string name="bookmark_list">Bookmark List</string>
+    <string name="thumbnail_list">Thumbnail List</string>
+    <string name="repeat">Repeat</string>
+
+    <!-- CONFIRM UPDATE APP -->
+    <string name="msg_confirm_update_app_title">Update App</string>
+    <string name="msg_confirm_update_app_msg">There is a latest app. Please update it</string>
+    <string name="msg_confirm_update_app_yes_btn">YES</string>
+    <string name="msg_confirm_update_app_no_btn">NO</string>
+
+    <!-- LTE Mode -->
+    <string name="info_mobile_lte_mode_title">Info</string>
+    <string name="info_mobile_lte_mode_msg">You\'re using LTE but the server is local server. Please use wifi to use a local server.</string>
+    <string name="info_mobile_lte_mode_ok_btn">OK</string>
+
+    <string name="logout_title">Warning</string>
+    <string name="logout_message">Are you sure to log out?</string>
+    <string name="delete_account_message">Are you sure to delete your account?</string>
+    <string name="logout_btn_yes">@string/yes_upper</string>
+    <string name="logout_btn_no">@string/no_upper</string>
+    <string name="make_a_voice_call">Make a voice call</string>
+    <string name="join_the_voice_call">Join the voice call</string>
+
+    <!-- DALVOCA -->
+    <string name="app_version">App version</string>
+    <!--Bottom Navigation Bar-->
+    <string name="nav_title_study">Study</string>
+    <string name="nav_title_memorization">Memorization</string>
+    <string name="nav_title_feedback">Feedback</string>
+    <string name="nav_title_test">Test</string>
+    <string name="nav_title_original">Original</string>
+    <string name="nav_title_alphabet">Alphabet</string>
+    <string name="nav_title_grade">Memorization target</string>
+    <string name="nav_title_favorites">My Workbooks</string>
+    <string name="nav_title_homework">Homework</string>
+    <string name="nav_title_recording_all">Recording All</string>
+    <string name="nav_title_targets">Memorization\nTargets</string>
+    <string name="nav_title_chatting">Chatting</string>
+    <string name="nav_title_practice_with_people">Conversation\nPractice</string>
+    <string name="nav_title_frequency">Frequency</string>
+    <!--Toolbar-->
+    <string name="tb_quiz">Quiz</string>
+    <string name="tb_hanja_quiz">Hanja Quiz</string>
+    <string name="tb_wordbooks">Workbooks</string>
+    <string name="tb_word_list">Word list</string>
+    <string name="tb_difficult_word_list">Difficult words</string>
+    <string name="tb_wordbooks_hangul">Hangul</string>
+    <string name="tb_history">Study history</string>
+    <string name="tb_right_text">---</string>
+    <string name="tb_finish">Finish</string>
+    <string name="tb_hand_writing">Handwriting</string>
+    <string name="tb_choosing">Choose words</string>
+    <string name="tb_lessons_student">Lessons (Student)</string>
+    <string name="tb_lessons_tutor">Lessons (Tutor)</string>
+    <string name="tb_lessons_student_break_line">Lessons\n(Student)</string>
+    <string name="tb_lessons_tutor_break_line">Lessons\n(Tutor)</string>
+    <string name="tb_app_download">App Download</string>
+    <string name="tb_in_app_buy" translatable="false">In App Purchase</string>
+    <string name="tb_normal_text" translatable="false">Copy</string>
+    <!--Screen Choose Language-->
+    <string name="choose_study_language">Choose Study Language</string>
+    <string name="choose_display_language">Choose native language</string>
+    <!--Screen Study-->
+    <string name="btn_study">Study</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="tpl_word_count">STUDY LIST: %s</string>
+    <string name="tpl_feedback_count">PRONOUNCE FEEDBACK: %s</string>
+    <string name="msg_max_1st_grade">Primary memorization targets are full. Would you like to add this phrase as a secondary memorization target?</string>
+    <!--Screen Test-->
+    <string name="tpl_test_summary">Questions: %1$s/%2$s \t Correct: %3$s/%4$s (%5$s score)</string>
+    <string name="msg_need_4_words_to_make_quiz">Four phrases are necessary to make a quiz.</string>
+    <!--Screen Workbooks-->
+    <string name="title_wordbooks">Workbooks</string>
+    <string name="user_wordbooks">List</string>
+    <string name="server_wordbooks">List</string>
+    <string name="all_for_memorization">All words for memorization</string>
+    <string name="tpl_wb_item_count">Count : %s</string>
+    <string name="tpl_wb_word_count">%s Words</string>
+    <string name="tpl_wb_known_word_count">Familiar words : %1$d / %2$d</string>
+    <string name="tpl_grade">%1$s grade (%2$s)</string>
+    <string name="tpl_exclude">Excluded Word (%s)</string>
+    <string name="tpl_known">Known phrases (%s)</string>
+    <string name="tpl_unknown">Unknown phrases (%s)</string>
+    <string name="tpl_study_count">Study: %s</string>
+    <string name="choose_wordbook_type">Choose Workbook Type</string>
+    <string name="wordbook_type_word">Word</string>
+    <string name="wordbook_type_sentence">Sentence</string>
+    <string name="title_new_wordbook">New favorite</string>
+    <string name="msg_type_wordbook_name">Type favorite\'s name</string>
+    <string name="hint_type_wordbook_name">Favorite\'s name</string>
+    <string name="msg_name_empty">Please type favorite\'s name.</string>
+    <string name="msg_book_name_existed">There is same name of favorite.</string>
+    <string name="add_word">Add word</string>
+    <string name="add_word_from_dictionary">Add word from dictionary</string>
+    <string name="add_word_from_wordbook">Add word from workbook</string>
+    <string name="edit_sorting">Edit sorting</string>
+    <string name="save">Save</string>
+    <string name="msg_no_word_selected">There is no word selected.</string>
+    <string name="all_words">All words</string>
+    <string name="all_sentences">All sentences</string>
+    <string name="msg_no_user_book">There is no my workbook.</string>
+    <string name="msg_add_to_book_success">Added to my workbook successfully.</string>
+    <string name="msg_add_to_book_failed">Add to my workbook failed.</string>
+    <!--Screen Settings-->
+    <string name="title_setting">Setting</string>
+    <string name="choose_lang">Choose language</string>
+    <string name="study">Study</string>
+    <string name="mother_tongue">Mother tongue</string>
+    <string name="play_voice">Play voice</string>
+    <string name="play_voice_in_play_all_words">Play voice in \"Play All Words\"</string>
+    <string name="read_count">Read count per word</string>
+    <string name="preferred_native_speakers">Preferred native speakers</string>
+    <string name="preferred_native_speakers_max">Preferred native speakers</string>
+    <string name="all_native_speakers">List of native speakers</string>
+    <string name="include_my_voice">Include my voice</string>
+    <string name="setting_enable_secure_screen" translatable="false">Enable screen capture</string>
+    <string name="language_level">Langauge level</string>
+    <string name="pause_time_to_repeat_tts">Pause time to practice speaking after playing</string>
+    <string name="play_mother_tongue_only_first_round_on_conversation">Play mother tongue only first round in conversation.</string>
+    <string name="include_meaning">Include meaning</string>
+    <string name="display_english_meaning_too">Display English meaning too</string>
+    <string name="setting_keep_displaying_background_hint_when_writing">Keep displaying background hint when writing</string>
+    <string name="background_mode">Background mode</string>
+    <string name="tts_speed">TTS Speed</string>
+    <string name="speed">Speed</string>
+    <string name="say">Say</string>
+    <string name="etc">ETC</string>
+    <string name="user_role">User Role</string>
+    <string name="main_student">Main Student</string>
+    <string name="student">Student</string>
+    <string name="main_tutor">Main Tutor</string>
+    <string name="tutor">Tutor</string>
+    <string name="observer">Observer</string>
+    <string name="student_format">Student - %s</string>
+    <string name="tutor_format">Tutor - %s</string>
+    <string name="display_pronunciation">Display pronunciation</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="light_theme">Light mode</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="system_default_theme">System default</string>
+    <string name="show_subtitle_table_when_open">Show subtitle table when I open it</string>
+    <!--Screen Add Word-->
+    <string name="tpl_aw_word_count">Count (%s)</string>
+    <string name="register">Register</string>
+    <string name="remove">Remove</string>
+    <string name="target_1">Primary target</string>
+    <string name="target_2">Secondary target</string>
+    <string name="target_3">Third target</string>
+    <string name="known_phrases">Known phrases</string>
+    <string name="half_known_phrases">Half known phrases</string>
+    <string name="unknown_phrases">Unknown phrases</string>
+    <string name="not_determined">Not determined</string>
+    <string name="add_to_book">Add to my workbook</string>
+    <string name="msg_removed">Unregistered. Re-register is free.</string>
+    <!--Screen Search-->
+    <string name="search_in_title">Search in title</string>
+    <string name="search_in_meaning">Search in meaning</string>
+    <string name="search_start_with">Start with this</string>
+    <string name="search_end_with">End with this</string>
+    <string name="search_example_memorize" formatted="false">\"?\" replaces one character : ex) b?y -> boy, buy…\n\"*\" replaces many characters  : ex) b*t -> but, bought…</string>
+    <string name="search_example_voca" formatted="false">Example)\nschool : searches that exactly matched \"school\"\n%school : search words that start with \"school\"\nschool% : search words that ends with \"school\"</string>
+    <!--Screen History-->
+    <string name="study_history_date">Study History (Date)</string>
+    <string name="study_history_word">Study History (Word)</string>
+    <string name="date">Date</string>
+    <string name="word">Word</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="tomorrow">Tomorrow</string>
+    <!--Screen Playlist-->
+    <string name="play_index">Playing : %1$d / %2$d</string>
+    <string name="play_all_words">Play All Words</string>
+    <string name="combine">Combine MP3</string>
+    <string name="folder_name">Folder name</string>
+    <string name="copied">Copied</string>
+    <string name="choose">Choose</string>
+    <string name="choose_subtitle_group">Choose Subtitle Group</string>
+    <string name="select_all">Select All</string>
+    <string name="btn_open_bookmarked_items_only">Bookmarked items only</string>
+    <string name="btn_open_selected_items_only">Selected items only</string>
+    <string name="btn_open_all_items">All items</string>
+    <string name="title_select_range">Select</string>
+    <string name="title_select_range_count_to_select" translatable="false">Select %3$d items from %2$d (Total %1$d) </string>
+    <string name="title_check_item">Check All</string>
+    <string name="unselect_all">Unselect All</string>
+    <string name="last_selected">Last selected words</string>
+    <string name="make_favorite">Make favorite</string>
+    <string name="create_success">Create success</string>
+    <string name="create_fail">Create fail</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="add_success">Add success</string>
+    <string name="add_fail">Add fail</string>
+    <string name="menu_choose_item_in_playlist_all">Check all items</string>
+    <string name="menu_choose_item_in_playlist_none">Uncheck all items</string>
+    <string name="menu_choose_item_in_playlist_last_chosen">Check last checked items</string>
+    <!--Screen Study-->
+    <string name="writing">Writing</string>
+    <string name="study_writing">Study Writing</string>
+    <string name="speaking">Speaking</string>
+    <string name="study_speaking">Study Speaking</string>
+    <string name="ready_to_record">Ready to record</string>
+    <string name="recording">Recording…</string>
+    <string name="tpl_record_time_left">(%d seconds left)</string>
+    <string name="msg_practice_before_record">Practice 5 times before recording\nthen record your speaking only once.\nTutor will evaluate your speaking.</string>
+    <string name="msg_making_sentence">Making sentence by tapping on word boxes.</string>
+    <string name="tpl_practice_writing">Practice %d times</string>
+    <string name="msg_back_to_beginning">Back to the beginning</string>
+    <!--Screen Word Info-->
+    <string name="word_info">Phrase information</string>
+    <string name="native_voice">Native speakers voice</string>
+    <string name="record_this_phrase">Click here to record this phrase</string>
+    <string name="open_naver">Open Naver dictionary</string>
+    <string name="example">Example</string>
+    <!--Screen Native Speaker-->
+    <string name="native_speaker">Native Speaker</string>
+    <string name="all">All</string>
+    <string name="record">To record</string>
+    <string name="tpl_wb_recorded_word_count">Recorded : %1$s / %2$s</string>
+    <string name="tpl_total_recorded_word_count">Recorded : %d</string>
+    <!--Screen Edit Meaning-->
+    <string name="title_edit_meaning">Edit Meaning</string>
+    <string name="title_add_sentence">Add Sentence</string>
+    <string name="title_edit_phrase">Edit Phrase</string>
+    <string name="pronunciation_symbol">Pronunciation Symbol</string>
+    <string name="pronunciation">Pronunciation</string>
+    <string name="meaning">Meaning</string>
+    <string name="meaning_detail">Detail info</string>
+    <string name="meaning_eng">Meaning English</string>
+    <string name="meaning_detail_eng">Detail info English</string>
+    <!--Screen Practice With People-->
+    <string name="invite_a_user">Invite a user to practice with</string>
+    <string name="self_practice">Self practice</string>
+    <string name="join_speaking_room">Join this room (Speaking practice)</string>
+    <string name="join_writing_room">Join this room (Writing practice)</string>
+    <string name="phrase_list">Phrase List1</string>
+    <string name="speaking_practice">Speaking practice</string>
+    <string name="writing_practice">Writing practice</string>
+    <string name="menu">Menu</string>
+    <string name="menu_to_copy">Choose option to copy</string>
+    <string name="menu_langauge_level">Choose Langauge Level</string>
+    <string name="menu_displaying">Menu Displaying</string>
+    <string name="menu_font_size">Font Size</string>
+    <string name="start_over">Start Over</string>
+    <string name="start_over_listen1" translatable="false">Start Over Listen comprehension 1 : %1$d times</string>
+    <string name="tpl_a">A: %s</string>
+    <string name="tpl_b">B: %s</string>
+    <string name="you">You</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="stop">Stop</string>
+    <string name="tap_here_to_finish">(Tap here to finish)</string>
+    <string name="more_time_to_go">%d more time to go</string>
+    <string name="app_turn">It\'s Dalvoca\'s turn.\nPrepare your sentence.</string>
+    <string name="your_turn">Listen to your sentence by Dalvoca.\nThen record your sentence.</string>
+    <string name="confirm_stop_practice">You\'re on the practicing.\nDo you want to exit?</string>
+    <string name="confirm_practice_more">You have finished practice. Do you want to practice more?</string>
+    <string name="msg_need_practice">You have to practice User A and User B both to listen to your practice.</string>
+    <!--Download voice files-->
+    <string name="confirm_download_voice_files_dialog_message">There are new voice files (%sMB) and you\'re NOT on WIFI mode.\nWant to download voice files now?</string>
+    <!--Upload voice files-->
+    <string name="confirm_upload_voice_files_dialog_message">Do you want to upload your recorded voice file to server?</string>
+    <!--General-->
+    <string name="msg_under_development">Under development.</string>
+    <string name="msg_no_internet">There is no internet.</string>
+    <string name="msg_log_in_required">You need to log in.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="file_deletion_cancelled" translatable="false">File deletion has been cancelled.</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="search">Search</string>
+    <string name="create">Create</string>
+    <string name="hint_type_search_keyword">Type keyword</string>
+    <string name="delete">Delete</string>
+    <string name="uploading">Uploading…</string>
+    <string name="warning">Warning</string>
+    <string name="info">Info</string>
+    <string name="detail_info">Detail Info</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="yes_upper">YES</string>
+    <string name="no_upper">NO</string>
+    <string name="help_">Help</string>
+    <string name="today_expression">Today\'s expression</string>
+    <string name="not_available">N/A</string>
+    <string name="practice">Practice</string>
+    <string name="typing_practice">Typing practice</string>
+    <string name="tpl_start">START\n%d</string>
+    <string name="does_not_match">Does not match</string>
+    <string name="tpl_practice_hangul_score">Your score is %d.\nDo you want to practice other words?</string>
+    <string name="tpl_practice_hangul_more">Do you want to practice other words?</string>
+    <string name="msg_amki_grade_1">Clicking the \"1\" button means you want to mark this phrase as a primary memorization target. Other people can see these phrases to help you memorize it.</string>
+    <string name="msg_amki_grade_2">Clicking the \"2\" button means you want to mark this phrase as a secondary memorization target. Only your friends and your tutor can see these phrases to help you.(Will have this feature later)</string>
+    <string name="msg_amki_grade_known">Clicking the \"!\" button means you know this phrase perfectly.</string>
+    <string name="msg_amki_grade_unknown">Clicking the \"X\" button means you don\'t know this phrase at all. This phrase will not be added to your targets list in the main menu.</string>
+    <string name="tpl_downloading">Downloading: %1$d / %2$d</string>
+    <string name="msg_download_in_background">Click to download in the background mode</string>
+    <string name="know_question_mark">Know?</string>
+    <string name="do_you_know_this">Do you know this?</string>
+    <string name="tpl_voca_from">From: %1$s (%2$d)</string>
+    <string name="help_us">Help us</string>
+    <string name="msg_no_meaning">This phrase has no meaning. Would you update the meaning?</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="tpl_join_date">Since %s</string>
+    <string name="score">Score</string>
+    <string name="following">Following</string>
+    <string name="follower">Followers</string>
+    <string name="msg_no_bio">No bio written yet!</string>
+    <string name="favorite_users">Favorite users</string>
+    <string name="block_users">Block users</string>
+    <string name="name">Name</string>
+    <string name="nation">Nation</string>
+    <string name="city">City</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="bio">Bio</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="teenager">Teenager</string>
+    <string name="adult">Adult</string>
+    <string name="select_range_filter_title" translatable="false">Number of times to practice at once</string>
+<!--    <string name="select_range_filter_desc" translatable="false">Adjust the number of times to practice at once.</string>-->
+    <string name="select_range_title">Select range</string>
+    <string name="select_random">Select random</string>
+    <string name="range_from">From</string>
+    <string name="range_to">To</string>
+    <string name="type">Type</string>
+    <string name="speaking_excellent">Excellent</string>
+    <string name="speaking_good">Good</string>
+    <string name="speaking_not_bad">Bad</string>
+    <string name="msg_cannot_record_while_calling">Recording is not allowed during a call.</string>
+    <string name="all_user_list">All user list</string>
+    <string name="add">Add</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="hint_add_nickname">Make a nickname for this user</string>
+    <string name="first_grade_phrases">Primary memorization targets</string>
+    <string name="hint_add_desc">Notes about this user</string>
+    <string name="title_add_desc">Write about this user</string>
+    <string name="set_to_all_phrases">Choose</string>
+    <string name="upload">Upload</string>
+    <string name="upload_or_record_again">Upload your voice or record again.</string>
+    <string name="record_and_upload">Record and upload your voice.</string>
+    <string name="msg_delete_homework_list">Do you want to delete all homework list?</string>
+    <string name="max_homework">Max Homework</string>
+    <string name="max_quiz">Max Quiz</string>
+    <string name="max_hanja_quiz">Max Hanja Quiz</string>
+    <string name="allow_chat">Allow Chat</string>
+    <string name="share_my_recordings">Share my profile/recordings</string>
+    <string name="chat">Chat</string>
+    <string name="people">People</string>
+    <string name="hint_enter_a_message">Enter a message</string>
+    <string name="photo">Photo</string>
+    <string name="camera">Camera</string>
+    <string name="recording_">Recording</string>
+    <string name="send_or_record_again">Tap the mic to record.</string>
+    <string name="recording_tap_to_stop">Tap the mike to record. To finish recording, tap the mike again.</string>
+    <string name="recording_tap_to_stop_and_upload_file">Tap the mic to record.\n\nTo finish recording, tap the mike again.\n\nYou can turn on auto uploading your recording file to the server</string>
+    <string name="send">Send</string>
+    <string name="copy_message">Copy message</string>
+    <string name="edit_message">Edit message</string>
+    <string name="delete_message">Delete message</string>
+    <string name="delete_image">Delete image</string>
+    <string name="open_image">Open image</string>
+    <string name="download_image">Download image</string>
+    <string name="delete_voice">Delete voice</string>
+    <string name="download_voice">Download voice</string>
+    <string name="reply">Reply</string>
+    <string name="backup">Backup</string>
+    <string name="backup_recording">Backup recording</string>
+    <string name="backed_up">Backed up</string>
+    <string name="backup_voice_recordings">Backup voice recordings</string>
+    <string name="backup_selected_text">Backup selected text</string>
+    <string name="msg_delete_all_backup">Do you want to delete all backup voice recordings?</string>
+    <string name="asc">asc</string>
+    <string name="desc">desc</string>
+    <string name="tpl_version">Version: %s</string>
+    <string name="blink_mode">Blink mode</string>
+    <string name="normal_mode">Normal mode</string>
+    <string name="study_mode">Return to lesson</string>
+    <string name="about_study_mode">About lesson</string>
+    <string name="edit_room_name">Edit room name</string>
+    <string name="tpl_chat_users">Chat users(%d)</string>
+    <string name="tpl_study_users">Study users(%d)</string>
+    <string name="exit_study_mode">Exit lesson</string>
+    <string name="finish_study_mode">Finish lesson</string>
+    <string name="chat_mode">Chat room</string>
+    <string name="evaluate_student_speaking">Evaluate student\'s speaking</string>
+    <string name="feedback_to_student">Feedback to student</string>
+    <string name="type_your_opinion">Type your opinion</string>
+    <string name="message">Message</string>
+    <string name="finish_study">Finish Study</string>
+    <string name="select_a_wordbook">Select a topic</string>
+    <string name="save_as_a_next_wordbook">Save as the next topic</string>
+    <string name="tpl_saved_as_a_next_wordbook">Saved %s as the next topic</string>
+    <string name="tpl_repeat">(Repeat: %1$d/%2$d)</string>
+    <string name="tpl_index">(Topics: %1$d/%2$d)</string>
+    <string name="display_sentence_as_star">Display sentences as ***</string>
+    <string name="restore_sentence_from_star">Show original sentences</string>
+    <string name="hide_show_student_sentence">Hide/Show student\'s sentence</string>
+    <string name="invite_a_user_">Invite a user</string>
+    <string name="change_study_role">Change study role</string>
+    <string name="tpl_move_to_book_name">Workbooks - %s</string>
+    <string name="hide_known_and_excellent_sentences">Hide ! and A sentences</string>
+    <string name="hide_known_sentences">Hide known("!") sentences</string>
+    <string name="hide_excellent_sentences">Hide excellent("A") sentences</string>
+    <string name="show_all_sentences">Show all sentences</string>
+    <string name="msg_confirm_modify">Do you want to send message without modifying?</string>
+    <string name="msg_confirm_modify_yes">Yes (I\'ll send it without modifying)</string>
+    <string name="msg_confirm_modify_no">No (I\'ll modify it)</string>
+    <string name="open_word_info">Open phrase Information</string>
+    <string name="sync_a_cell">Sync a cell</string>
+    <string name="tpl_join_a_lesson">%s joined the lesson</string>
+    <string name="tpl_exit_a_lesson">%s exited the lesson</string>
+    <string name="preview_and_review">Preview &amp; Review</string>
+    <string name="tpl_lessons_admin" translatable="false">%1$s (%2$s): %3$s</string>
+    <string name="tpl_lessons_this_week">This week\'s lesson(s) (%d)</string>
+    <string name="tpl_lessons_next_week">Next week\'s lesson(s) (%d)</string>
+    <string name="tpl_lessons_other_weeks">Lesson (%1$d) : %2$s ~ %3$s</string>
+    <string name="tpl_lesson_info">%1$s (%2$d min), %3$s</string>
+    <string name="tpl_lesson_admin_info">%1$s (%2$d min)</string>
+    <string name="lessons">Lessons</string>
+    <string name="history">History</string>
+    <string name="tutors">Tutors</string>
+    <string name="students">Students</string>
+    <string name="admin">Admin</string>
+    <string name="tb_lessons_admin">Lessons (Admin)</string>
+    <string name="tpl_colon" translatable="false">: %s</string>
+    <string name="my_info">My info</string>
+    <string name="lead_lesson">Lead lesson</string>
+    <string name="student_level">Level</string>
+    <string name="correct_pronunciation">Correct pronunciation</string>
+    <string name="speaking_speed">Speaking speed</string>
+    <string name="reading_speed">Reading speed</string>
+    <string name="free_talking">Free talking</string>
+    <string name="small_talk">Small talk</string>
+    <string name="student_level_low_beginner">(L1)Low beginner</string>
+    <string name="student_level_beginner">(L2)Beginner</string>
+    <string name="student_level_low_intermediate">(L3)Low intermediate</string>
+    <string name="student_level_intermediate">(L4)Intermediate</string>
+    <string name="student_level_low_advanced">(L5)Low advanced</string>
+    <string name="student_level_advanced">(L6)Advanced</string>
+    <string name="speaking_speed_slow">Slow</string>
+    <string name="speaking_speed_normal">Normal</string>
+    <string name="speaking_speed_fast">Very fast</string>
+    <string name="reading_speed_slow">Slow</string>
+    <string name="reading_speed_normal">Normal</string>
+    <string name="reading_speed_fast">Very fast</string>
+    <string name="correct_pronunciation_never">Never</string>
+    <string name="correct_pronunciation_sometimes">Sometimes</string>
+    <string name="correct_pronunciation_frequently">Frequently</string>
+    <string name="lesson_do">Yes</string>
+    <string name="lesson_donot">No</string>
+    <string name="repeat_topics">Repeat topics</string>
+    <string name="repeat_count">Repeat count</string>
+    <string name="tpl_topic">%d topic</string>
+    <string name="tpl_topics">%d topics</string>
+    <plurals name="tpl_topics" translatable="false">
+        <item quantity="one">@string/tpl_topic</item>
+        <item quantity="other">@string/tpl_topics</item>
+    </plurals>
+    <string name="tpl_time">%d time</string>
+    <string name="tpl_times">%d times</string>
+    <plurals name="tpl_times" translatable="false">
+        <item quantity="one">@string/tpl_time</item>
+        <item quantity="other">@string/tpl_times</item>
+    </plurals>
+    <string name="msg_confirm_exit_study_mode">You\'re currently in a lesson. Do you want to exit the lesson now?</string>
+    <string name="tpl_side_glance">%1$s looks sideway this sentence\n%2$s</string>
+    <string name="notification_channel_lesson_name">Lesson</string>
+    <string name="notification_channel_lesson_description">This channel notifies time of lessons.</string>
+    <string name="tpl_lesson_start">Will start at %s.</string>
+    <string name="tpl_lesson_finish">Will finish at %s.</string>
+    <string name="push_notification">Push notification</string>
+    <string name="enable">Enable</string>
+    <string name="before_begin_class">Before begin lesson</string>
+    <string name="before_finish_class">Before finish lesson</string>
+    <string name="minute">minute</string>
+    <string name="minutes">minutes</string>
+    <plurals name="minute" translatable="false">
+        <item quantity="one">@string/minute</item>
+        <item quantity="other">@string/minutes</item>
+    </plurals>
+
+    <string name="point" translatable="false">%1$d point</string>
+    <string name="points" translatable="false">%1$d points</string>
+    <plurals name="point" translatable="false">
+        <item quantity="one">@string/point</item>
+        <item quantity="other">@string/points</item>
+    </plurals>
+
+    <string name="studied_today">Studied today</string>
+    <string name="confirm">Confirm</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="last_topic">Last topic</string>
+    <string name="studied_topics">Studied topics</string>
+    <string name="check_today_lesson">Check today\'s lesson</string>
+    <string name="msg_confirm_today_lesson">Are these correct information you learned today?</string>
+    <string name="tpl_confirm_today_lesson">%s confirmed today\'s lesson.</string>
+    <string name="tpl_refuse_today_lesson">%s refused to confirm today\'s lesson.</string>
+    <string name="lesson_message_synccell_success">Synced a cell : %1$d\n(%2$s)</string>
+    <string name="lesson_message_synccell_fail">Failed to sync a cell : %1$d\n(%2$s)</string>
+    <string name="tutor_list">Tutor list</string>
+    <string name="tpl_tutor_list">Tutors (%d)</string>
+    <string name="student_list">Student list</string>
+    <string name="tpl_student_list">Students (%d)</string>
+    <string name="msg_set_grade_to_see_original">The phrase should be !, 1, 2, X to see the original phrase.</string>
+    <string name="no_lesson">There is no lesson.</string>
+    <string name="msg_observer_let_other_users_know_display_asterisk">You\'re on Observer mode. Do you want to let other users know that you display *** in the phrases?</string>
+    <string name="msg_observer_let_other_users_know_display_original">You\'re on Observer mode. Do you want to let other users know that you display original phrases?</string>
+    <string name="msg_observer_let_other_users_know_changed_book">You\'re on Observer mode. Do you want to let other users know that you changed a wordbook?</string>
+    <string name="msg_observer_let_other_users_know_hide_show_sentence">You\'re on Observer mode. Do you want to let other users know that you Hide/Show student\'s sentence?</string>
+    <string name="msg_observer_see_messages">You\'re on Observer mode. To see a student\'s messages tap NO, to see a tutor\'s message tap YES.</string>
+    <string name="back_to_home">Back to Home</string>
+
+    <!-- CONFIRM BACK TO HOME -->
+    <string name="back_to_home_dialog_title">Confirm</string>
+    <string name="back_to_home_dialog_msg">You\'re currently in a lesson. Do you want to exit the lesson now?</string>
+    <string name="back_to_home_dialog_yes_btn">Yes</string>
+    <string name="back_to_home_dialog_no_btn">No</string>
+
+    <string name="msg_warning_save">You have edit contents. Do you want to save it?</string>
+    <string name="tpl_lesson_will_be_finished">The lesson will be finished in %s.</string>
+    <string name="voice_call">Voice call</string>
+    <string name="use_speaker_phone">Use speaker phone</string>
+    <string name="mute">Mute</string>
+    <string name="unmute">UnMute</string>
+    <string name="student_option">Student\'s option</string>
+
+    <string name="voice_call_title">Call View</string>
+    <string name="voice_call_information_title">Information</string>
+    <string name="voice_call_information_question_msg">Do you want to call this user?</string>
+    <string name="voice_call_information_receive_msg">You have a voice call from User.  Do you want to recevie it?</string>
+    <string name="voice_call_information_no">@string/no_upper</string>
+    <string name="voice_call_information_yes">@string/yes_upper</string>
+
+    <string name="show_asterisk">Menu</string>
+    <string name="voice_call_exit_when_hide_title">Confirm</string>
+    <string name="voice_call_exit_when_hide_msg">You\'re on the voice call. Do you want to end the call and lesson now?</string>
+    <string name="voice_call_exit_when_hide_no">@string/no_upper</string>
+    <string name="voice_call_exit_when_hide_yes">@string/yes_upper</string>
+
+    <string name="voice_call_exit_title">Do you want to end this call?</string>
+    <string name="voice_call_exit_btn_no">@string/no_upper</string>
+    <string name="voice_call_exit_btn_yes">@string/yes_upper</string>
+    <string name="voice_call_receive_msg_accepted">%s accepted</string>
+    <string name="voice_call_receive_msg_declined">%s declined</string>
+    <string name="voice_call_receive_msg_ended">%s ended</string>
+    <string name="voice_call_receive_msg_btn_ok">@string/ok</string>
+
+    <string name="voice_call_observer_receive_calling_title">@string/info</string>
+    <string name="voice_call_observer_receive_calling_msg">%1$s\nDo you want to join this lesson?</string>
+    <string name="voice_call_observer_receive_calling_btn_no">@string/no_upper</string>
+    <string name="voice_call_observer_receive_calling_btn_yes">@string/yes_upper</string>
+
+    <string name="voice_calling_status_touch_to_return_to_call">Touch to stop calling %1$s</string>
+    <string name="voice_calling_status_calling">Touch to stop calling %1$s (Calling&#8230;)</string>
+    <string name="topics">Topic</string>
+    <string name="exam">Exam</string>
+    <string name="msg">Msg</string>
+    <string name="move_to_next_book">Move to the next topic</string>
+    <string name="move_to_previous_book">Move to the previous topic</string>
+    <string name="sync_current_topic">Sync the current topic</string>
+    <string name="make_an_exam">Make an exam</string>
+    <string name="from_all_phrases">From all phrases</string>
+    <string name="from_memorization_targets">From memorization targets</string>
+    <string name="except_known_and_excellent">Except ! and A</string>
+    <string name="except_known">Except Known(\"!\")</string>
+    <string name="except_excellent">Except Excellent(\"A\")</string>
+    <string name="shuffle_this_exam">Reshuffle this exam</string>
+    <string name="change_to_exam_mode">Change to Exam Mode</string>
+    <string name="change_to_study_mode">Change to Lesson Mode</string>
+    <string name="student_lesson_option">Student\'s Lesson option</string>
+    <string name="new_lesson">New lesson</string>
+    <string name="lesson">Lesson</string>
+    <string name="lesson_info">Lesson info</string>
+    <string name="lesson_minutes">Lesson minutes</string>
+    <string name="join_lesson">Join lesson</string>
+    <string name="saving">Saving...</string>
+    <string name="added_new_voca">Added</string>
+    <string name="failed_to_add_new_voca">Failed to add</string>
+    <string name="saved">Saved</string>
+    <string name="failed_to_save">Failed to save</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="duplicated">Duplicated</string>
+
+    <string name="default_notification_channel_id" translatable="false">200518</string>
+
+    <string name="make_role_playing_contents">Change to Role Playing mode</string>
+    <string name="greeting">Greeting</string>
+    <string name="traffic">Traffic</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="airport">Airport</string>
+    <string name="shopping">Shopping</string>
+    <string name="paying">Paying</string>
+    <string name="role_playing">Role Play</string>
+    <string name="exam_type">Exam type</string>
+    <string name="word_meaning">Word -> Meaning</string>
+    <string name="meaning_word">Meaning -> Word</string>
+    <string name="random">Random</string>
+    <string name="msg_know_all_phrases">You know all of the phrases in this topic.</string>
+    <string name="recording_list">Recording List</string>
+    <string name="auto_play_in_recording_all">Auto play in Recording All</string>
+    <string name="msg_reuse_exam_list">Do you want to reuse current exam list?</string>
+    <string name="change_subject">Change subject</string>
+    <string name="study_words">Study words</string>
+    <string name="change_to_lesson_mode">Change to Lesson Mode</string>
+
+    <string name="admin_ruby_table">Ruby Table</string>
+    <string name="admin_ruby_text_view">Ruby Text View</string>
+    <string name="ruby_nav_new_etc">New ETC</string>
+    <string name="ruby_nav_lost_access">Lost Access</string>
+    <string name="ruby_nav_other">xxx</string>
+    <string name="ruby_dialog_word_definition_title">Word Definition</string>
+    <string name="ruby_dialog_word_definition_known_word">Known word</string>
+    <string name="ruby_dialog_word_definition_known_pronounce">Known pronounce</string>
+    <string name="ruby_dialog_word_definition_study_button">Study</string>
+    <string name="ruby_dialog_word_definition_more_button">More</string>
+
+    <string name="search_in_student_name">Search in student\'s name</string>
+    <string name="search_in_tutor_name">Search in tutor\'s name</string>
+    <string name="icon_keyboard" translatable="false">⌨️</string>
+    <string name="lesson_type">Lesson Type</string>
+    <string name="phone">Phone</string>
+    <string name="text_chat">Text Chat</string>
+    <string name="preview_review">Preview &amp; Review</string>
+    <string name="preview_today_lesson">Preview today\'s lesson</string>
+    <string name="study_primary_target">Study primary memorization target</string>
+    <string name="review">Review</string>
+    <string name="change_word_known_status">Change word\'s known status</string>
+    <string name="tpl_all_words_count">All words: %d</string>
+    <string name="wrong">Wrong</string>
+    <string name="correct">Correct</string>
+    <string name="tpl_score_and_answer_again">Score: %d\nPlease answer the wrong questions again.</string>
+    <string name="msg_finish_quiz">Congratulation.\nYou finished the quiz.</string>
+    <string name="msg_let_practice_writing">Let\'s practice writing.</string>
+    <string name="tpl_practice_index">Practice: %1$s/%2$s</string>
+    <string name="open_settings">Open setting view</string>
+    <string name="make_a_quiz">Make a quiz</string>
+    <string name="select_first_words">Select 1st phrases</string>
+    <string name="select_second_words">Select 2nd phrases</string>
+    <string name="select_only_unknown_words">Select only unknown phrases</string>
+    <string name="select_unknown_and_less_words">Select and 1st, 2nd and unknown phrases</string>
+    <string name="select_bookmarked_words">Select bookmarked</string>
+    <string name="tpl_no_support_character">%s is not in the DB</string>
+    <string name="about_study_mode_title">About Lesson Mode</string>
+    <string name="about_study_mode_description">
+            <![CDATA[Common teaching rules.\n
+Please fix your student\'s pronounciaction at any time and make the student repeat the correct pronounciation 3 times.\n
+If the student asks a question using broken English, please first correct the student\'s question and have the student repeat the question 3 times. Then answer the student\'s question.
+If the student uses broken English at any time during the lesson, always fix it with a correct sentence. Ask the student to repeat the correct sentence 3 times.
+(Just three times is enough; more repetition can make the student feel stressed!)]]></string>
+    <string name="about_study_mode_description_normal_mode">
+        <![CDATA[%s\n
+How to teach a Normal lesson mode\n
+1. The tutor will read a phrase once; the student will repeat it three times. Repeat for all phrases.
+2. Make the student read each phrase independently.
+3. Hide phrases for the student by selecting the "Display sentences as ***" option from the menu button.
+4. Once again, the tutor will read each phrase once and the student will repeat it back three times. Repeat for all phrases.
+5. Make the student read each phrase on his/her own again. After each phrase, please rate the quality of the student\'s speaking with an A, B, or C.
+6. Next, randomly select a phrase for the student to read. Do so by selecting the person icon to the left of the phrase.
+You can now move on to the next topic. You can do so by selecting the "Move to the next topic" option from the "Topic" menu.]]></string>
+    <string name="about_study_mode_description_role_playing_mode">
+        <![CDATA[%s\n
+How to conduct a role playing lesson\n
+1. Press the "Menu" button. Select the "Change to Role Playing mode" option, then select the topic to role play. Ask the student which topic he/she wants to do.
+2. Student - A (Tutor - B)
+The student will read an example sentence under the A-cell.
+(The student is able to see example sentences under A-cells, but not B-cells.)
+3. Click the refresh button & switch roles.
+Tutor - A (Student - B)
+As a teacher, you will not see any example sentences. Please look at the cell prompt and create a simple sentence that satisfies the prompt.
+If a student cannot think of what to say when it is his/her turn, prompt him/her with a simple sentence of your own. Ask the student to repeat the sentence 3 times.
+4. Click the refresh button & repeat roles.
+Tutor - A (Student - B)
+5. Click the refresh button & do "listen and repeat".
+6. Now, the student will read all A-cells. You will respond appropriately to the B-cell prompt. Have the student repeat your sentence once. If the student has trouble repeating your sentence, say your answer once more and have the student repeat it 3 times.
+7. Ask the student if he/she would like to continue practicing this role play topic, or if he/she wants to move on to another topic.]]></string>
+    <string name="about_study_mode_description_exam_mode">
+        <![CDATA[%s\n
+How to do exam mode\n
+1. The teacher will read the word once and the student will repeat the word 3 times.
+2. While the student is repeating the word 3 times, rate the student\'s speaking (A: Good, B: Okay (ex. pronounciation is a bit off), C: Bad (it seems like the student know the word at all)).
+3. The student will select the correct answer to the multiple choice question.
+4. If the student\'s answer is wrong, the teacher will read the word again and have the student repeat it 3 times.
+5. Repeat this for all the words in the list.
+6. Once you go through all the words, go back to the "Exam" menu and select the "Except ! and A" option. When you see the question "Do you want to reuse current exam list?" pop up, select "Yes".
+7. Go through the word list one more time using the same method. Once you\'ve finished, go to the "Exam" menu and select the "Change to Lesson Mode" option. From there you can move to the next topic and enter the "Exam mode" again.]]></string>
+    <string name="known_pronunciation">Known pronunciation</string>
+    <string name="unknown_pronunciation">Unknown pronunciation</string>
+    <string name="count_of_order">Count of order</string>
+    <string name="chat_message">Type a message</string>
+    <string name="choose_message">Choose a message</string>
+    <string name="hint_chat_message">Type your message here</string>
+    <string name="chat_message_title_me">Sent a message</string>
+    <string name="chat_message_title_opponent">Message : %s</string>
+    <string name="record_lesson">Record Lesson</string>
+    <string name="record_lessons">Record Lessons</string>
+    <string name="dropbox_app_key" translatable="false">3blqwxpvv1obxy9</string>
+    <string name="close">Close</string>
+    <string name="menu_apply">Apply</string>
+    <string name="study_order_at_a_normal_lesson">Study order at a normal Lesson</string>
+    <string name="phrases_to_study">Phrases to study</string>
+    <string name="hide_parts_of_words">Hide parts of words</string>
+    <string name="hide_all_phrases">Hide all phrases</string>
+    <string name="random_questions">Random questions</string>
+    <string name="make_a_call">Make a call</string>
+    <string name="open_a_call_view">Open a call view</string>
+    <string name="refresh_current_topic">Refresh current topic</string>
+    <string name="study_order_1_title">Repeat with sentences shown</string>
+    <string name="study_order_1_message">%1$d / %2$d\n%3$s\nFor each sentence, the teacher will read the sentence once and the student will repeat it three times.\n(All sentences are visible to the student).\n—————————————-\nWhile the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)\n—————————————-\nYou don\'t have to practice the last group of \"Don\'t need to practice\".\n—————————————-\nWhen the sentence set has been completed, the teacher will press the arrow in the top right corner. (The student may press it as well.)\n—————————————-\nIf you pressed OK and the lesson guide disappeared, you can press \"Menu\" in the top right corner and select \"Current lesson Guide\" to see the lesson guide again. \n—————————————-\nThe number of phrases to study can be changed in the student\'s options menu.\nIf the teacher can see the ? mark in the right of the sentence, make the student select one of the !, 1, 2, X buttons at the bottom.\n\n!:Confidently know\n1:Add to memorization list\n2:Don\'t know very well\nX:Don\'t know at all</string>
+    <string name="study_order_2_title">Repeat with sentences partially hidden</string>
+    <string name="study_order_2_message">%1$d / %2$d\nStudy the previous %3$d again.\n(Some of the words in the sentences are displayed with *** to the student.)\n—————————————-\nThis time, ask the student to read each sentence three times on his/her own.\n—————————————-\n. While the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)\n—————————————-\nIf all words in a sentence are displayed as *** to the student(the teacher can see the ? mark in the right of the sentence), the student needs to select one of the !, 1, 2, X buttons at the bottom.\n\n!:Confidently know\n1:Add to memorization list\n2:Don\'t know very well\nX:Don\'t know at all</string>
+    <string name="study_order_3_title">Repeat with sentences completely hidden</string>
+    <string name="study_order_3_message">%1$d / %2$d\nStudy the previous %3$d again.\n(The student only sees the translation while the English sentences are displayed as ***.)\n—————————————-\nThis time, ask the student to read each sentence three times on his/her own.\n—————————————-\n. While the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)</string>
+    <string name="study_order_4_title">Randomly read sentences</string>
+    <string name="study_order_4_message">%1$d / %2$d\nPractice the previous %3$d phrases randomly.\nIf there is a sentence that the student needs to practice more, the teacher will press the Sync button next to that sentence and the student will see that sentence flash yellow once. Have the student read that sentence three times on his/her own. While the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)\n—————————————-\nThe teacher will have the student practice difficult sentences multiple times.\n(The student only sees the translation while the sentences are displayed as ***.)\n—————————————-\nIf all the sentences in the list have not yet been reviewed, the teacher should press the top right arrow again. If the list has been completed, the teacher should click \Move to the next topic\" menu in the \"Topic\" button to move next topic.</string>
+    <string name="mode">Mode</string>
+    <string name="normal_lesson_mode">Normal lesson mode</string>
+    <string name="exam_mode">Exam mode</string>
+    <string name="role_playing_mode">Role playing mode</string>
+    <string name="review_mode">Review mode</string>
+    <string name="study_order_role_playing_title">Lesson Guide</string>
+    <string name="study_order_role_playing_1_message">%1$d / %2$d\nThe student will read role A\'s example sentences while the teacher will respond appropriately as role B.\n—————————————-\nThe student can see examples for role A but not for role B. The teacher only sees hints to help make appropriate sentences.\n—————————————-\nExamples are not shown to teachers because we want to expose the students to various expressions that can be used in the same situation.\n\nStudents rarely have opportunities to use role A expressions in every day life so they are shown examples, but if they know how to say role A type expressions they will also be able to discern them better.</string>
+    <string name="study_order_role_playing_2_message">%1$d / %2$d\nThe teacher will read each sentence once (both A and B roles) and the student will repeat each sentence three times.\n—————————————-\nThe teacher only sees hints to help make appropriate sentences. If the student\'s English is poor, please make the sentences as short as possible.</string>
+    <string name="study_order_role_playing_3_message">%1$d / %2$d\nThe teacher will do role A while the student does role B.\nWhen the conversation is done, the teacher will press the top right arrow.\n—————————————-\nThe student can\'t immediately see role B\'s examples, but examples can be seen by pressing the arrow at the bottom right of the sentence box and selecting \See examples\".</string>
+    <string name="study_order_role_playing_4_message">%1$d / %2$d\nThis time, the teacher will say role A expressions quickly. The student may say role B expressions at their own pace.\n—————————————-\nOnce the lesson is done, ask the student if he/she wants to practice the same role play again or do a different one.\n\nTo practice the same role play again, select the \Refresh current Role Playing\" option from the \"Role playing\" menu.\n\nTo do another role play, select the \"Change role playing topic\" option from the \"Role playing\" menu.</string>
+    <string name="refresh_current_role_playing">Refresh current Role Playing</string>
+    <string name="study_sentences">Study sentences</string>
+    <string name="current_guide">Current lesson guide</string>
+    <string name="study_order_combination_message_1">Study in sets of %1$d phrases at once.</string>
+    <string name="study_order_combination_message_2">We completed the previous %1$d phrases. Please proceed to the next %2$d phrases using the same method as before.</string>
+    <string name="see_examples">See examples</string>
+    <string name="all_sentence_list_guide_message">%1$d / %2$d\nLet\'s preview the sentences that will be used in the role play.\nFor each sentence, the teacher will read the sentence once and the student will repeat it three times.\n—————————————-\nWhile the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)\n—————————————-\nWhen the sentence set has been completed, the teacher will press the arrow in the top right corner (The student may press it as well.)\n—————————————-\nIf the teacher can see the ? mark in the right of the sentence, make the student select one of the !, 1, 2, X buttons at the bottom.\n\n!:Confidently know\n1:Add to memorization list\n2:Don\'t know very well\nX:Don\'t know at all</string>
+    <string name="all_voca_list_guide_message">%1$d / %2$d\nLet\' preview the words that will be used in the role play.\nFor each word, the teacher will read the word once and the student will repeat it three times.\n—————————————-\nWhile the student is reading the sentences 3 times, the teacher will evaluate the student\'s speaking by selecting one of three buttons (for example, the \"thumbs up\" button, please be critical and honest when evaluating students\' speaking.)\n—————————————-\nWhen the word set has been completed, the teacher will press the arrow in the top right corner (The student may press it as well.)\n—————————————-\nIf the teacher can see ? mark in the right of the word, make the student select one of the !, 1, 2, X buttons at the bottom.\n\n!:Confidently know\n1:Add to memorization list\n2:Don\'t know very well\nX:Don\'t know at all</string>
+    <string name="grammar_mode">Grammar mode</string>
+    <string name="grammar">Grammar</string>
+    <string name="student_option_">Student option</string>
+    <string name="tutor_option">Tutor option</string>
+    <string name="no_need_to_practice">Don\'t need to practice</string>
+    <string name="voice_call_join_msg">Do you want to join the voice call?</string>
+    <string name="voice_call_join_btn_no">@string/no_upper</string>
+    <string name="voice_call_join_btn_yes">@string/yes_upper</string>
+    <string name="preview_words_list">Preview words list</string>
+    <string name="exam_words_list">Exam words list</string>
+    <string name="preview_voca_list_guide_message">%1$d / %2$d\nPreview words in the topic.\n—————————————-\nFor each word, the teacher will read the word once and the student will repeat it three times.\n—————————————-\nIf the teacher can see the ? mark in the right of the word, make the student select one of the !, 1, 2, X buttons at the bottom.\n\n!:Confidently know\n1:Add to memorization list\n2:Don\'t know very well\nX:Don\'t know at all</string>
+    <string name="exam_voca_list_guide_message">%1$d / %2$d\nExam the words.\n—————————————-\nFor each word, the teacher will read the word once and the student will repeat it three times then choose the right answer.\nIf the student chooses wrong answer(displaying red button) try to choose other answer (Blue button means correct answer).\n—————————————-\nIf the student haven\'t chosen the correct answer at first try the teacher will read the word once and the student will repeat it three times again before moving on the next word.</string>
+    <string name="refresh_user_list">Refresh user list</string>
+    <string name="add_other_workbook_here">Add other workbook here</string>
+    <string name="reading_mode">Reading mode</string>
+    <string name="reading_comprehension">Reading comprehension</string>
+    <!--    <string name="preview_reading_guide_message">@string/preview_voca_list_guide_message</string>-->
+    <string name="reading_comprehension_guide_message">%1$d / %2$d\nThe teacher will ask the student to read each sentence three times on his/her own and fix his/her pronunciation as many as possible\n—————————————-\nThen do the free talking with this topic.But if the student can\'t make a sentence, let him/her know the correct sentence and repeat it three times. </string>
+    <!--    <string name="exam_reading_guide_message">@string/exam_voca_list_guide_message</string>-->
+    <!--    <string name="move_to_next_reading">Move to next reading</string>-->
+    <!--    <string name="move_to_previous_reading">Move to previous reading</string>-->
+    <!--    <string name="refresh_current_reading">Refresh current reading</string>-->
+    <!--    <string name="select_a_reading">Select a reading</string>-->
+    <!--    <string name="save_as_the_next_reading">Save as the next reading</string>-->
+    <string name="tpl_count_record">(%s record)</string>
+    <string name="play_this_phrase">Play this phrase</string>
+    <string name="stop_this_phrase">Stop this phrase</string>
+    <string name="copy_selected_text">Copy selected text</string>
+    <string name="copy">Copy</string>
+    <string name="paste" translatable="false">Paste</string>
+    <string name="preview">Preview</string>
+    <string name="display_order">Display order</string>
+    <string name="phrase">Phrase</string>
+    <string name="include_index">Include index</string>
+    <string name="include_pronunciation">Include pronunciation</string>
+    <string name="separate_by_tab">Separate by tab</string>
+    <string name="study_language">Study Language</string>
+    <string name="show_student_meaning">Show meaning to the student</string>
+    <string name="hide_student_meaning">Hide meaning to the student</string>
+    <string name="student_meaning_is_hided">(Meanings on the student\'s view are hided)</string>
+    <string name="msg_first_topic">This is the first topic</string>
+    <string name="msg_last_topic">This is the last topic</string>
+    <string name="realm_db">RealmDB</string>
+    <string name="hanja_info">Hanja Information</string>
+    <string name="tpl_radical">Radical: %s</string>
+    <string name="tpl_strokes">Strokes: %d</string>
+    <string name="tpl_level">Level: %d</string>
+    <string name="tpl_pinyin">Pinyin: %s</string>
+    <string name="tpl_type_1">Type 1: %s</string>
+    <string name="tpl_type_2">Type 2: %s</string>
+    <string name="tpl_type_3">Type 3: %s</string>
+    <string name="level_korea_type_1">Type 1</string>
+    <string name="level_korea_type_2">Type 2</string>
+    <string name="level_korea_type_3">Type 3</string>
+    <string name="tpl_common_use_korea">Common Use (Korea): %s</string>
+    <string name="tpl_common_use_japan">Common Use (Japan): %s</string>
+    <string name="tpl_common_use_china">HSK (China): %s</string>
+    <string name="tpl_kunyomi">KunYomi: %s</string>
+    <string name="tpl_onyomi">OnYomi: %s</string>
+    <string name="divide_title_decomposition">Decomposition</string>
+    <string name="confused_words">Confused words</string>
+    <string name="primary_target">Primary target</string>
+    <string name="secondary_target">Secondary target</string>
+    <string name="play_this_word">Play this word</string>
+    <string name="sort">@string/word_list_sort_title</string>
+    <string name="sort_created_date_asc">Created date(Asc)</string>
+    <string name="sort_created_date_desc">Created date(Desc)</string>
+    <string name="sort_file_size_asc">File size(Asc)</string>
+    <string name="sort_file_size_desc">File size(Desc)</string>
+    <string name="sort_file_name_asc">File name(Asc)</string>
+    <string name="sort_file_name_desc">File name(Desc)</string>
+    <string name="sort_difficulty_asc">Difficulty(Asc)</string>
+    <string name="sort_difficulty_desc">Difficulty(Desc)</string>
+    <string name="display_brightness_percent">Brightness=%1$s%%</string>
+    <string name="display_volume_percent">Volume=%1$s%%</string>
+    <string name="display_forward_backward" translatable="false">%1$s %2$s (%3$s/%4$s)</string>
+    <string name="sync">Sync</string>
+    <string name="audio">Audio</string>
+    <string name="video">Video</string>
+    <string name="codec_not_exist">Not exist</string>
+    <string name="option">Option</string>
+    <string name="display_audio_speed">Speed=%1$s</string>
+    <string name="audio_speed_text" translatable="false">%1$sx</string>
+    <string name="repeat_times">Repeat times: %1$s</string>
+    <string name="none">None</string>
+    <string name="repeating_time">Repeating Time</string>
+    <string name="repeat_1_time">1 time</string>
+    <string name="repeat_3_times">3 times</string>
+    <string name="repeat_5_times">5 times</string>
+    <string name="repeat_10_times">10 times</string>
+    <string name="repeat_20_times">20 times</string>
+    <string name="bookmark_player_display_title">%1$d/%2$d times, %3$d/%4$d dialogues</string>
+    <string name="subtitle_encoding">Subtitle Encoding</string>
+    <string name="option_phrase_list">Phrase List</string>
+    <string name="copy_subtitle">Copy subtitle</string>
+    <string name="save_subtitle">Export subtitle as a file</string>
+    <string name="copy_subtitle_1_all_content">Copy first subtitle\'s content</string>
+    <string name="copy_subtitle_2_all_content">Copy second subtitle\'s content</string>
+    <string name="subtile_encoding_parser_error">Can\'t figure out subtitle\'s encoding</string>
+    <string name="known_word_color">Known Word Color</string>
+    <string name="unknown_pronounce_color">Unknown Pronounce Color</string>
+    <string name="black">Black</string>
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="dragLeftRight">Drag Left/Right on Screen</string>
+    <string name="tapBackForWard">Tap Backward/Forward</string>
+    <string name="one_finger_gestures">One Finger Gestures</string>
+    <string name="subtitle_position">Subtitle Position</string>
+    <string name="second_format_float" translatable="false">%1$.1f Second</string>
+    <string name="second_format">%1$d Second</string>
+    <string name="seconds_format">%1$d Seconds</string>
+    <string name="dialog_list">Subtitle list</string>
+    <string name="format_size_words">%1$d words</string>
+    <string name="format_size_primary_targets">(%1$d) Primary targets</string>
+    <string name="format_size_secondary_targets">(%1$d) Secondary targets</string>
+    <string name="format_size_not_determined">(%1$d) Not determined</string>
+    <string name="format_size_unknown_phrases">(%1$d) Unknown phrases</string>
+    <string name="format_size_known_phrases">(%1$d) Known phrases</string>
+    <string name="format_size_excluded">(%1$d) Excluded</string>
+    <string name="format_frequency">Frequency: %1$d</string>
+    <string name="show_subtitle_table">Show subtitle table</string>
+    <string name="hide_subtitle_table">Hide subtitle table</string>
+    <string name="format_repeat">Repeat: %1$d</string>
+    <string name="play_this_subtitle">Play this subtitle</string>
+    <string name="copy_this_subtitle">Copy this subtitle</string>
+    <string name="gpt_with_this_subtitle">Open ChatGPT</string>
+    <string name="divide_this_subtitle">Divide this subtitle</string>
+    <string name="delete_this_subtitle">Delete this subtitle</string>
+    <string name="delete_recording_file">Delete Recording file</string>
+    <string name="merge_previous_subtitle">Merge previous subtitle</string>
+    <string name="merge_next_subtitle">Merge next subtitle</string>
+    <string name="delete_useless_subtitles" translatable="false">Delete useless subtitles</string>
+    <string name="select_subtitles" translatable="false">Select subtitles</string>
+    <string name="view_titile_delete_subtitles">Delete subtitles</string>
+    <string name="view_titile_select_subtitles" translatable="false">Select subtitles</string>
+    <string name="subtitle_group_status_total_subtitle_count" translatable="false">Total count</string>
+    <string name="subtitle_group_status_displayed_subtitle_count" translatable="false">Displayed</string>
+    <string name="subtitle_group_status_selected_subtitle_count" translatable="false">Selected</string>
+    <string name="play_all_subtitles">All subtitles</string>
+    <string name="play_all_subtitles_except_hided">All subtitles except useless subtitles</string>
+    <string name="play_bookmarked_subtitles">Bookmarked subtitles</string>
+    <string name="play_selected_subtitles">Play selected subtitles</string>
+    <string name="play_searched_subtitles">Searched subtitles</string>
+    <string name="play_recorded_subtitles">Recorded subtitles</string>
+    <string name="with_words_list">with words list</string>
+    <string name="with_subtitle_list">with subtitle list</string>
+    <string name="show_hide_a_table">Show/hide a table</string>
+    <string name="show_the_table">Show the table</string>
+    <string name="hide_the_table">Hide the table</string>
+    <string name="dictation_mode">Dictation mode</string>
+    <string name="all_easy_subtitles">All easy subtitles</string>
+    <string name="all_difficult_subtitles">All difficult subtitles</string>
+    <string name="all_1st_amki_grade_subtitles">1st amki grade subtitles</string>
+    <string name="all_2nd_amki_grade_subtitles">2nd amki grade subtitles</string>
+    <string name="all_difficult_without_amki_grade_subtitles">Difficult without amki grade subtitles</string>
+    <string name="all_difficult_pronunciation_subtitles">Difficult pronunciation subtitles</string>
+    <string name="hide_known_dialogs">Hide known dialogs during playing</string>
+    <string name="random_play_in_play_list_by_tts">Random play</string>
+    <string name="upload_recording_automatically">Uploading recording to server automatically</string>
+    <string name="youtube">Youtube</string>
+    <string name="download">Download</string>
+    <string name="download_status">Download Status</string>
+    <string name="ftp">FTP</string>
+    <string name="webdav">WebDAV</string>
+    <string name="smb">SMB</string>
+    <string name="dropbox">Dropbox</string>
+    <string name="clear">Clear</string>
+    <string name="new_server">New Server</string>
+    <string name="title">Title</string>
+    <string name="description" translatable="false">Description</string>
+    <string name="host">Host</string>
+    <string name="id">ID</string>
+    <string name="password">Password</string>
+    <string name="port">Port</string>
+    <string name="type_here">Type here</string>
+    <string name="download_file">Download file</string>
+    <string name="download_msg_waiting">Waiting…</string>
+    <string name="download_msg_completed">Completed</string>
+    <string name="download_msg_pause">Pause</string>
+    <string name="download_msg_downloading">Downloading</string>
+    <string name="download_msg_download_fail">Download fail</string>
+    <string name="clear_all">Clear All</string>
+    <string name="clear_completed">Clear completed</string>
+    <string name="msg_download_warning_mobile">You’re NOT on WIFI mode.\nDo you want to proceed?</string>
+    <string name="msg_delete_related_subtitle_file">Do you want to delete the related subtitle file(s) too?</string>
+    <string name="delete_file_question">Delete File?</string>
+    <string name="delete_yes">Yes, Delete</string>
+    <string name="msg_download_overwrite_same_file">There is a file with same name. Do you wan to overwrite it?</string>
+    <string name="smart_fewer">Smart Fewer(Min %1$d times)</string>
+    <string name="smart_few">Smart Few(Min %1$d times)</string>
+    <string name="smart_many">Smart Many(Min %1$d times)</string>
+    <string name="exoplayer_msg_error_open_video" translatable="false">Check if the format is supported, the file is valid, or too many/large files.</string>
+    <string name="exoplayer_msg_error_open_video_not_exist_file" translatable="false">The file is not existed.</string>
+    <string name="format_second">%.1f second</string>
+    <string name="format_second_int" translatable="false">%d second</string>
+    <string name="time_second_title">Time (Second)</string>
+    <string name="include_mother_tongue_subtitle">Include mother tongue subtitle (Only Listen 2)</string>
+    <string name="play_difficult_words_before_playing_subtitles">Play difficult words before playing subtitles</string>
+    <string name="play_all_difficult_words_before_playing_music">Play all difficult words before playing music</string>
+    <string name="play_title_by_tts_before_playing">Read title before playing</string>
+    <string name="reset">Reset</string>
+
+    <string name="shadow_mode">Shadow mode</string>
+    <string name="debug_or_admin_only">Debug or Admin only</string>
+    <string name="display_start_end_time">Display Start End time</string>
+    <string name="sync_subtitles_at_server">Sync subtitles at server</string>
+    <!--    <string name="msg_listen_comprehension_finished">Listen comprehension finished the round</string>-->
+    <string name="listen_comprehension_current_status_time">%1$s dialog\n(%2$s)\n(%3$s)</string>
+    <string name="listen_comprehension_current_status_times">%1$s dialogs\n(%2$s)\n(%3$s)</string>
+    <string name="listen_comprehension_2_current_status">%1$s\n(%2$s)\n(%3$s)</string>
+    <string name="listen_comprehension_1_subtitles_play_parts">part of subtitles</string>
+    <string name="study_mode_title">Study mode</string>
+    <!--    <string name="repeat_group_count">Repeat group count</string>-->
+    <string name="playing_order_in_the_group">Playing order in the group</string>
+    <string name="playing_type">Playing type</string>
+    <string name="play_subtitles_at_once">Play subtitles at once</string>
+    <string name="play_subtitles_play_parts">Play part of subtitles</string>
+    <string name="hide_useless_subtitles">Hide useless subtitles</string>
+    <!--    <string name="hide_this_subtitle">Hide this subtitle</string>-->
+    <!--    <string name="show_this_subtitle">Show this subtitle</string>-->
+    <string name="copy_subtitles">Copy subtitles</string>
+    <string name="subtitle_list">Subtitle list</string>
+    <string name="include_time">Include time</string>
+    <string name="include_hided_subtitles">Include hided subtitles</string>
+    <string name="copy_with">Copy with</string>
+    <string name="export_as_a_srt_file">Export as a SRT file</string>
+    <string name="export_as_a_srt_file_description">Don\'t add SRT suffix</string>
+    <string name="export_as_a_srt_file_description_each_language">Don\'t add SRT suffix\n\n(The subtitle file will be exported in the video\'s folder. You can find each language\'s subtitle file too. You can find the same file name with language code suffix before srt extension.)</string>
+    <string name="export_as_a_lrc_file">Export as a LRC file</string>
+    <string name="export_as_a_lrc_file_description">Don\'t add LRC suffix</string>
+    <string name="export_as_a_lrc_file_description_each_language">Don\'t add LRC suffix\n\n(The lyric file will be exported in the media\'s folder. You can find each language\'s lyric file too. You can find the same file name with language code suffix before lrc extension.)</string>
+    <string name="type_a_file_name">Type a file name</string>
+    <string name="type_title" translatable="false">Type title</string>
+    <string name="msg_export_file_warning">There is a file with same name. Do you want to overwrite it?</string>
+    <string name="msg_export_file_success">Export file succeeded\n\n%1$s</string>
+    <string name="msg_export_file_fail">Failed to export file</string>
+    <string name="msg_export_file_fail_rename_and_retry">Failed to export file\nTry other file name.</string>
+    <string name="file_name">File name</string>
+    <string name="file_name_description">File name with middle truncate</string>
+    <string name="choose_mother_tongue">Mother tongue</string>
+    <string name="open_phrase_information">Open phrase Information</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="web_dictionary">Web dictionary</string>
+    <string name="translate" translatable="false">Translate</string>
+    <string name="web_search">Web search</string>
+    <string name="copy_this_phrase">Copy this phrase</string>
+    <string name="web_dictionary_description">Put "%word%" in the URL\nEx) https://web/search?q=%word%&amp;dic=eng</string>
+    <string name="type_a_url">Type a URL</string>
+    <string name="msg_web_dictionary_delete">Do you want to delete this web dictionary?</string>
+    <string name="cant_connect_the_server">Can\'t connect the server</string>
+    <string name="edit_phrase">Edit Phrase</string>
+    <string name="symbol">Symbol</string>
+    <string name="msg_warning_web_dictionary_is_empty">There is no web dictionary. Do you want to add it?</string>
+    <string name="change_subtitle_know_status">Change subtitle\'s know status</string>
+    <string name="repeat_this_subtitle">Repeat this subtitle</string>
+    <string name="show_normal_playing_menu_ui">Show normal playing menu</string>
+    <string name="known_phrase">Known phrase</string>
+    <string name="unknown_phrase">Unkown phrase</string>
+    <string name="exclude_phrase">Exclude phrase</string>
+    <string name="primary_memorization">Primary memorization</string>
+    <string name="secondary_memorization">Secondary memorization</string>
+    <string name="add_bookmark">Add bookmark</string>
+    <string name="remove_bookmark">Remove bookmark</string>
+    <string name="clear_video_cache">Reset subtitle\'s changes</string>
+    <string name="clear_video_cache_msg">You have changed bookmark or other info in this video. Do you want to clear them?</string>
+    <string name="tpl_add_date">Add Date: %s</string>
+    <string name="tpl_language_name">Language : %s</string>
+    <string name="tpl_download_count">Download Count: %s</string>
+    <string name="google_translator">Google Translator</string>
+    <string name="second_title">Second</string>
+    <string name="both_study_mother_language">Both (Study Language-Mother Tongue)</string>
+    <string name="both_mother_study_language">Both (Mother Tongue-Study Language)</string>
+    <string name="add_subtitle_bookmark">Add subtitle bookmark</string>
+    <string name="remove_subtitle_bookmark">Remove subtitle bookmark</string>
+    <string name="quiz_list">Quiz list</string>
+    <string name="quiz_options">Quiz options</string>
+    <string name="max_quiz_count">Max quiz count</string>
+    <string name="quiz_type">Quiz type</string>
+    <string name="quiz_sources">Quiz sources</string>
+    <string name="from_difficult_words">From difficult words</string>
+    <string name="quiz_type_random">Random</string>
+    <string name="system_folder">System folder</string>
+    <string name="backup_succeeded">Backup succeeded\n\n%1$s</string>
+    <string name="backup_failed">Failed to Backup</string>
+    <string name="mail_subject_text">Thank you for using %1$s</string>
+    <string name="mail_content_text">\n\nIf you have any comments or concerns, please send me an email.\n\n
+        App name: %1$s\n
+        Version: %2$s\n
+        OS name: Android %3$s\n
+        OS version: %4$s\n\n
+        %5$s</string>
+    <string name="very_easy">Very Easy</string>
+    <string name="easy">Easy</string>
+    <string name="good">Good</string>
+    <string name="hard">Hard</string>
+    <string name="very_hard">Very Hard</string>
+    <string name="solve_a_quiz">Solve a quiz</string>
+    <string name="quiz">Quiz</string>
+    <string name="refresh_and_watch">Analyze subtitle again</string>
+    <string name="msg_analyzing">Analyzing&#8230;\n(It may take a few minutes. Thanks for your patience)</string>
+    <string name="msg_analyzing_title">Analyzing</string>
+    <string name="msg_analyzing_message">(It may take a few minutes. Thanks for your patience)</string>
+    <string name="msg_type_refresh_voice_recording_file_list_message">Please wait until all recorded voice files are found in your device. Thanks for your patience</string>
+    <string name="unicode">Unicode</string>
+    <string name="show_unicode">Show unicode</string>
+    <string name="example_sentences">Example sentences</string>
+    <string name="cjk_character">Variants</string>
+    <string name="traditional_chinese">Traditional Chinese</string>
+    <string name="simplified_chinese">Simplified Chinese</string>
+    <string name="chinese_in_japan">Chinese in Japan</string>
+    <string name="short_form">Short form</string>
+    <string name="word_info_">Word info</string>
+    <string name="handwriting_practice">Handwriting practice</string>
+    <string name="naver">Naver</string>
+    <string name="daum">Daum</string>
+    <string name="wiki">Wiki</string>
+    <string name="namu_wiki">Namu Wiki</string>
+    <string name="hanja_search">Hanja Search</string>
+    <string name="msg_no_search_result">There are no results that match your search</string>
+    <string name="difficult_subtitles">Difficult subtitles</string>
+    <string name="known_subtitles">Known subtitles</string>
+    <string name="subtitles_that_needs_to_practice_pronunciation">Subtitles that needs to practice pronunciation</string>
+    <string name="with_the_primary_target_words">with the primary target phrases</string>
+    <string name="with_the_secondary_target_words">with the secondary target phrases</string>
+    <string name="with_the_difficult_words">with the difficult phrases</string>
+    <string name="with_the_known_words">with the known phrases</string>
+    <string name="with_the_bookmarkded_words">with the bookmarked phrases</string>
+    <string name="with_the_words_to_practice_pronunciation">with the phrases to practice pronunciation</string>
+    <string name="play_difficult_subtitles">Play difficult subtitles</string>
+    <string name="play_difficult_words">Play difficult words</string>
+    <string name="play_subttile_range">Play subtitle range</string>
+    <string name="msg_play_again_started_over">Started over</string>
+    <string name="msg_subtitle_list_play_again_started_over">Started over subtitle list</string>
+    <string name="radicals">Radical</string>
+    <string name="strokes">Strokes</string>
+    <string name="voca_level">Level</string>
+    <string name="msg_warning_you_have_changed_subtitle">You have changed in the subtitle. Do you want to save it?</string>
+    <string name="see_all">See in list ></string>
+    <string name="hanja_korea">Korea</string>
+    <string name="hanja_taiwan">Taiwan</string>
+    <string name="hanja_variant_1">Variant 1</string>
+    <string name="hanja_variant_2">Variant 2</string>
+    <string name="hanja_sokja">Sokja</string>
+    <string name="hanja_short_form">Short form</string>
+    <string name="hanja_japan">Japan</string>
+    <string name="hanja_traditional">Traditional</string>
+    <string name="hanja_simplified">Simplified</string>
+    <string name="regenerate_thumbnail_list">Regenerate thumbnail list</string>
+    <string name="auto_scroll_list">Auto Scroll interval</string>
+    <string name="auto_scroll_list_interval">Auto Scroll interval(Seconds)</string>
+    <string name="thumbnail_interval">Thumbnail interval(Seconds)</string>
+    <string name="thumbnail_count_in_a_row">Thumbnail count in a row</string>
+    <string name="watch_now">Watch Now</string>
+    <string name="analyze_and_watch_now">Analyze subtitle and watch</string>
+    <string name="consume_point_to_analyze">(%1$s Point(s) will be consumed)</string>
+    <!--    <string name="play_only_dialogs_in_listen_comprehension">Play only dialogs parts</string>-->
+    <string name="mag_activate_lock_screen_first">"You need to activate \"Lock the Screen\" feature first, then click the Sleep menu again."</string>
+    <string name="msg_what_do_dialog">What do you want with this dialog?</string>
+    <string name="msg_merge_with">Merge with?</string>
+    <string name="msg_where_insert_dialog">Where do you want to insert dialog?</string>
+    <string name="insert_dialog_before">Insert before</string>
+    <string name="insert_dialog_after">Insert after</string>
+    <string name="delete_dialog">Delete</string>
+    <string name="divide_dialog">Divide</string>
+    <string name="merge_with_previous_dialog">previous dialog</string>
+    <string name="merge_with_next_dialog">next dialog</string>
+    <string name="msg_inserted">Inserted</string>
+    <string name="msg_not_enough_time_room_to_insert">Not enough time room to insert</string>
+    <string name="msg_deleted">Deleted</string>
+    <string name="msg_divided">Divided</string>
+    <string name="msg_merged">Merged</string>
+    <string name="msg_edit_subtitle_dialog">You can not undo this action. Do you want to proceed?</string>
+    <string name="msg_skip_playing_no_subtitle_part">Skip the parts that have no subtitles</string>
+    <string name="select_an_embed_subtitle_file">Select an embed subtitle file</string>
+    <string name="embed_subtitle_files">Embed Subtitle files</string>
+    <string name="delay_subtitles">Delay subtitles</string>
+    <string name="delay_audio_format">Delay subtitles\n%1$s %2$sS</string>
+    <string name="hanja_classics">Classics</string>
+    <string name="extract_hanja">Extract</string>
+    <string name="copy_name">Copy name</string>
+    <string name="rename">Rename</string>
+    <string name="toast_get_recorded_voice_count">Updating count of recorded voice per workbooks.\n\nPlease wait.</string>
+    <string name="toast_result_rename_succeed">Successfully renamed.</string>
+    <string name="toast_result_rename_failed">Rename failed.</string>
+    <string name="toast_press_twice_to_close_video" translatable="false">Press the close button twice to close the video.</string>
+    <string name="msg_video_file_name_rename">Please write the new filename without extension.</string>
+    <string name="type_new_filename">Type new filename</string>
+    <string name="msg_video_file_same_name">There is a file with same name. Do you wan to overwrite it?</string>
+    <string name="need_to_analyze_again">There are changes in the subtitle. Please tap ""Analyze again"", otherwise there can be problems using the subtitle.</string>
+    <string name="listen_comprehension_1">Listen comprehension 1</string>
+    <string name="listen_comprehension_2">Listen comprehension 2</string>
+    <string name="exit_listen_comprehension">Exit Listen comprehension</string>
+    <string name="listen_comprehension_1_start_over">Listen comprehension 1 start over</string>
+    <string name="open_arahanja_with_hanja">Open AraHanja</string>
+    <string name="dialogs_list_all">All dialogs</string>
+    <string name="dialogs_list_hided">Hided dialogs</string>
+    <string name="type_hanja_here">Type characters here</string>
+    <string name="dialogs_sync_know">Sync Know with the server</string>
+    <string name="dialogs_refersh_voice_recording_file_list">Refresh my voice recording file list</string>
+    <string name="repeat_count_per_dialog">Repeat count</string>
+    <string name="memo">Memo</string>
+    <string name="title_to_play_by_tts">(TTS Title)</string>
+    <string name="title_to_display">Title</string>
+    <string name="artist_to_play_by_tts">(TTS Artist)</string>
+    <string name="artist">Artist</string>
+    <string name="album">Album</string>
+    <string name="write_memo_for_video">Write your own memo for this video</string>
+    <string name="write_memo_for_music">Write your own memo for this music</string>
+    <string name="write_title_to_play_by_tts">Write title to play by TTS</string>
+    <string name="write_title_to_display">Write title to display</string>
+    <string name="write_artist_name_to_play_by_tts">Write artist name to play by TTS</string>
+    <string name="write_artist_name">Write artist name</string>
+    <string name="write_album_name">Write album name</string>
+
+    <string name="init_data">Initializing data… %d\%%</string>
+    <string name="first_dialogue">First dialogue</string>
+    <string name="last_dialogue">Last dialogue</string>
+    <string name="hide">Hide</string>
+    <string name="hided">Hided</string>
+    <!--    <string name="hided_subtitle">Hided. It will affect next time.</string>-->
+    <string name="deleted">Deleted</string>
+    <string name="show">Show</string>
+    <string name="mag_reset_min_max_value">Reset min/max value</string>
+    <string name="msg_delete_selected_subtitle">Do you want to delete the selected subtitle?\nYou can not undo this action. Do you want to proceed?</string>
+    <string name="msg_merge_previous_dialog">Do you want to merge this subtitle with previous subtitle?\nYou can not undo this action. Do you want to proceed?</string>
+    <string name="msg_merge_next_dialog">Do you want to merge this subtitle with next subtitle?\nYou can not undo this action. Do you want to proceed?</string>
+    <string name="msg_divide_dialog">Do you want to divide this subtitle?\nYou can not undo this action. Do you want to proceed?</string>
+    <string name="msg_save_changes">There are changes. Do you want to save it?</string>
+    <string name="choose_min_max_delay_subtitle_value">Choose max/min value(Seconds)</string>
+    <string name="subtitle_or_word_difficult">Difficult</string>
+    <string name="subtitle_or_word_known">Known</string>
+    <string name="subtitle_or_word_1st_amki_grade">1st amki grade</string>
+    <string name="subtitle_or_word_2nd_amki_grade">2nd amki grade</string>
+
+    <string name="all_subtitles_include">Only these subtitles</string>
+    <string name="all_subtitles_except">All subtitles except</string>
+    <string name="all_subtitles_except_chosen_hided">Chosen Hided</string>
+    <string name="all_subtitles_except_music_symbol">Including a music symbol, ex:"♪♫"</string>
+    <string name="all_subtitles_except_paired_bracket">Paired bracket- [] or (), ex:"[Laughing]"</string>
+    <string name="all_subtitles_except_all_capitals">All capital text, ex:"SCREAMING"</string>
+    <string name="all_subtitles_except_including_url">Including URL, ex:"www."</string>
+    <string name="all_subtitles_except_no_study_lang_character">No study language characters, ex:"123-1234"</string>
+    <string name="all_subtitles_except_1_word">One word only</string>
+    <string name="all_subtitles_except_repeated_1_word" translatable="false">Repeated same word</string>
+    <string name="all_subtitles_except_shorter_than_3_known_words">Know all words in the subtitles</string>
+    <string name="all_subtitles_except_shorter_than_3_known_words_number">Words count is shorter than %1$d words\nex:"See you later"</string>
+    <string name="all_subtitles_except_longer_20_words">Too many words in the subtitles</string>
+    <string name="all_subtitles_except_longer_20_words_number">Words count is longer than %1$d words</string>
+    <string name="all_subtitles_except_known_subtitles">Known subtitles(!)</string>
+    <string name="all_subtitles_except_except_unknown_subtitles">But, Always show these subtitles (1, 2, X)</string>
+
+    <string name="sync_is_finished">Sync is finished</string>
+    <string name="msg_you_know_how_many_words">You know : %1$s / %2$s words.</string>
+    <string name="show_all_words">All words</string>
+    <string name="show_difficult_words">Difficult words</string>
+    <string name="updated_with_latest_data_from_server">Updated with latest data from server.</string>
+    <string name="updated_with_latest_data_from_loal" translatable="false">Updated with latest data.</string>
+    <string name="toast_select_file_first" translatable="false">Select a file first</string>
+    <string name="toast_select_item_first" translatable="false">Select an item first</string>
+    <string name="toast_nothing_to_update">Nothing to update</string>
+    <string name="toast_no_data_in_the_server">No data in the server</string>
+    <string name="toast_no_data_to_show">No data to show</string>
+    <string name="toast_no_data_to_download">No data to download</string>
+    <string name="toast_no_date_is_changed">Nothing to save</string>
+    <string name="toast_fail_to_get_point_close_and_open_app_again" translatable="false">Failed to get points. Please close and reopen the app.</string>
+
+    <string name="update">Update</string>
+    <string name="file_is_not_existed">The file is not existed. Please check it first.</string>
+    <string name="show_normal_video_files">Show normal video files</string>
+    <string name="show_hidden_video_files">Show hidden video files</string>
+    <string name="msg_video_files_swipe">What do you want to with this file?</string>
+    <plurals name="msg_video_files_confirm_delete" translatable="false">
+        <item quantity="one">Do you want to delete this file?\nYou cannot undo this action.</item>
+        <item quantity="other">Do you want to delete these %d files?\nYou cannot undo this action.</item>
+    </plurals>
+    <plurals name="msg_video_files_confirm_convert_to_hidden_files" translatable="false">
+        <item quantity="one">Would you like to add a . to the selected file (the filename will change)?</item>
+        <item quantity="other">Would you like to add a . to the selected %d files (the filenames will change)?</item>
+    </plurals>
+    <plurals name="msg_video_files_confirm_convert_to_normal_files" translatable="false">
+        <item quantity="one">Would you like to remove a . from the selected file (the filename will change)?</item>
+        <item quantity="other">Would you like to remove a . from the selected %d files (the filenames will change)?</item>
+    </plurals>
+
+    <plurals name="msg_video_files_removed_from_playlist" translatable="false">
+        <item quantity="one">The selected file has been removed from the playlist.</item>
+        <item quantity="other">The selected %d files have been removed from the playlist.</item>
+    </plurals>
+
+    <string name="msg_video_items_confirm_delete" translatable="false">Are you sure you want to delete these items?\nThe actual video files will not be deleted.</string>
+    <string name="msg_delete_recording_file_confirm">Do you want to delete this recorded voice file?\nYou can not undo this action. Do you want to proceed?</string>
+
+    <string name="repeat_times_no_title">%d/%d times</string>
+    <string name="max_character_in_meaning">You can type the meaning up to 20 characters</string>
+    <string name="textview_title_meaning_english">English Meaning\n%1$s</string>
+    <string name="textview_title_meaning_english_detailed">English Detailed Meaning\n%1$s</string>
+    <string name="right_hand_mode">Right hand mode</string>
+    <string name="left_hand_mode">Left hand mode</string>
+
+
+    <string name="msg_log_in_required_to_edit_meaning">You need to log in to edit meaning.</string>
+    <string name="check">check</string>
+    <string name="empty_string" translatable="false"></string>
+    <string name="msg_invalid_sentence_to_add">The Voca is not valid.</string>
+    <string name="msg_already_exist_in_server">The Voca is already existed in server.</string>
+    <string name="msg_error_while_check_in_server">Error while checking the new voca is in server DB</string>
+    <string name="add_new_sentence">Add a new sentence</string>
+    <string name="transparency">transparency</string>
+    <string name="make_half_transparent">Opacity</string>
+
+    <string name="read_more">read more</string>
+    <string name="read_less">read less</string>
+
+    <string name="msg_button_play">Tap play button to analyze subtitle</string>
+    <string name="msg_introduce_media_title_before_playing">This song\'s title is %1$s</string>
+    <string name="msg_introduce_media_title_and_artist_before_playing">This song\'s title is %2$s from %1$s</string>
+    <string name="msg_introduce_media_title_before_repeating_playing">title %1$s</string>
+    <string name="msg_introduce_media_title_and_artist_before_repeating_playing">title %2$s from %1$s</string>
+    <string name="webview_back">Back</string>
+    <string name="stt_fail">Can\'t convert voice to text</string>
+    <string name="stt_success">Click \"OK\" to copy text\n\n%1$s</string>
+    <string name="stt_start">Convert your voice to text</string>
+    <string name="choice_word">Word</string>
+    <string name="choice_word_with_bracket">(Word)</string>
+    <string name="choice_word_pronounce">Word(Pronounciation)</string>
+    <string name="choice_pronounce_word">Pronounciation(Word)</string>
+    <string name="choice_word_pronounce_meaning">Word(Pronounciation) Meaning</string>
+    <string name="choice_pronounce_word_meaning">Pronounciation(Word) Meaning</string>
+    <string name="show_ruby_pronounce_for_all_hanja">Show pronounce for all Chinese characters</string>
+    <string name="show_ruby_pronounce_for_difficult_words_hanja">Show pronounce for diffcult Chinese characters only</string>
+    <string name="init_search_keyword_result">Reset</string>
+    <string name="display_font_size_list_smallest">Smallest</string>
+    <string name="display_font_size_list_smaller">Smaller</string>
+    <string name="display_font_size_list_small">Small</string>
+    <string name="display_font_size_list_normal">Normal</string>
+    <string name="display_font_size_list_big">Big</string>
+    <string name="display_font_size_list_bigger">Bigger</string>
+    <string name="display_font_size_list_biggest">Biggest</string>
+
+    <string name="dialog_menu_hide_4_buttons">Hide 4 buttons</string>
+    <string name="dialog_menu_show_4_buttons">Show 4 buttons</string>
+    <string name="dialog_menu_show_search_dictionary_option">Show Search Option</string>
+    <string name="dialog_menu_show_play_all_word" >Play all words</string>
+    <string name="dialog_menu_word_list" translatable="false">Word List</string>
+    <string name="dialog_menu_change_all_known">Change all to Known</string>
+    <string name="dialog_menu_change_all_unknown">Change all to Unknown</string>
+    <string name="msg_indexing_list">Indexing list&#8230;</string>
+
+    <string name="inapp_buy_book">Buy</string>
+    <string name="inapp_buy" translatable="false">Buy</string>
+    <string name="inapp_buy_book_temp_free">Temp Free</string>
+    <string name="inapp_buy_book_login_free">Login Free</string>
+    <string name="search_in_current_list" translatable="false">Search in the list below</string>
+    <string name="search_in_dictionary" translatable="false">Search</string>
+
+    <string name="msg_change_tongue_language_analyze_again_video_information" translatable="false">Change mother tongue </string>
+    <string name="count_not_rated_words_only_to_display_in_subtitle" translatable="false">Count not rated words only to display before playing TTS</string>
+
+    <string name="keep_playing_on_background_mode">Keep playing on background mode</string>
+    <string name="keep_displaying_hint_on_practicing" translatable="false">Keep displaying hint</string>
+    <string name="play_video_automatically_when_open_it">Play a video automatically when it is opened</string>
+    <string name="play_video_from_where_you_left">Play from where you left</string>
+    <string name="play_music_between_lyrics_only">Play between lyrics only</string>
+    <string name="play_video_between_subtitles_only">Play between subtitles only</string>
+    <string name="show_video_in_dcim">Show video in the camera folder</string>
+    <string name="translate_subtitle_from_server">Get translated subtitle from server</string>
+
+    <string name="menu_hanja_font_size" translatable="false">Hanja Font Size</string>
+    <string name="dialog_message_start_hanul_writing">Let\'s practice writing with the given words\n\nClick NEXT button when you\'re done</string>
+    <string name="dialog_message_start_hanul_typing">Let\'s practice typing with the given words</string>
+
+    <string name="title_view_choose_study_langauge">Study Language</string>
+    <string name="title_view_choose_menu_langauge">Menu Language</string>
+    <string name="title_view_choose_mother_langauge">Mother Tongue</string>
+    <string name="title_voca_count">Item count : %1$d</string>
+
+    <string name="btn_show_recorded_count">Recorded count</string>
+    <string name="dialog_message_download_my_voice_file">Do you want to download your recorded voice files from the server?</string>
+    <string name="toast_set_mic_black_my_recorded_voice_item">Set mic color to black for recorded items</string>
+    <string name="toast_no_my_recorded_voice_file">There is no my recorded voice file.</string>
+    <string name="toast_show_my_recorded_voice_file_count">There are %1$d voice files you recorded in your phone.</string>
+    <string name="message_recorded_voice_for_all_items">You recorded all items already.\n\n You can click "All" menu to see the recorded item list</string>
+    <string name="toast_listen_my_voice_recording">Listen my voice recording.</string>
+    <string name="toast_repeat_after_tts">Practice speaking</string>
+    <string name="toast_listen_my_recording_while_uploading_to_server">Listen my recording while uploading it to server</string>
+    <string name="toast_listen_my_recording">Listen my recording</string>
+    <string name="messsage_ask_to_ignore_battery_optimiszations">To use app without any abnormal stop, please give a permission not to optimizer battery</string>
+    <string name="messsage_ask_to_delete_item" translatable="false">Do you want to delete?</string>
+    <string name="messsage_ask_to_delete_item_with_name" translatable="false">Do you want to delete %1$s?</string>
+
+    <string name="left_navi_items_in_app_purchase" translatable="false">In App Purchase</string>
+    <string name="remove_ads">Remove Ads</string>
+    <string name="restrore_ads">Restore Ads</string>
+
+    <string name="desc_listen_comprehension_2_voca_list">Each item is repeating by the selected option.\nYou can choose SMART option to varify the repetition count by the length of difficulty.\nKNOWN phrases are repeated only once"</string>
+    <string name="toast_need_meaning_to_save_voca">There is nothing to save.(Empty meaning is not also allowed)</string>
+
+    <string name="permission_needed_title">Permission needed</string>
+    <string name="permission_needed_message_record_audio">Need microphone permission to record audio.\nClick \"Open setting\" and grant the permission</string>
+    <string name="permission_needed_message_read_write_external_storage">Need Read/Write external permission.\nClick \"Open setting\" and grant the permission</string>
+    <string name="permission_needed_message_read_write_external_storage_multiplayer" translatable="false">Need Read external permission to load video files.\nClick \"Open setting\" and grant the permission</string>
+    <string name="open_app_details_settings">Open setting</string>
+    <string name="permission_denied" translatable="false">Permissions denied</string>
+
+    <string name="title_toolbar_home_normal_video_mode">Video</string>
+    <string name="title_toolbar_home_hidden_video_mode">Hidden Video</string>
+
+    <string name="view_title_search_history" translatable="false">Search History</string>
+
+    <string name="menu_clear_search_history" translatable="false">Clear Search History</string>
+    <string name="dialog_title_clear_search_history" translatable="false">Do you want to clear all search Histories?</string>
+    <string name="dialog_title_play_all_interval" translatable="false">Intervals</string>
+    <string name="choice_copy_studylang">Study Language</string>
+    <string name="choice_copy_studylang_meaning">Study + Mother Tongue</string>
+    <string name="choice_copy_studylang_meaning_ab">Study + Mother Tongue (AB)</string>
+    <string name="choice_copy_studylang_one_line_meaning_one_line">Study + Mother Tongue (One Line)</string>
+    <string name="choice_copy_meaning">Mother Tongue Language</string>
+
+    <string name="toast_message_cancel_sending_message_to_gpt">Message sending cancelled</string>
+    <string name="toast_word_level_updated">List of known words are updated.</string>
+    <string name="all_known_vocas_in_sentence">You know all words in the sentence.</string>
+
+    <string name="media_list_more_menu_select_all" translatable="false">Select All</string>
+    <string name="media_list_more_menu_unselect_all" translatable="false">Unselect All</string>
+    <string name="media_list_more_menu_remove_from_playlist" translatable="false">Remove from playlist</string>
+
+    <string name="media_list_more_menu_convert_to_hidden_files" translatable="false">Add . to filename</string>
+    <string name="media_list_more_menu_convert_to_normal_files" translatable="false">Remove . from filename</string>
+
+    <string name="setting_menu_folders_for_media" translatable="false">Folders for videos</string>
+    <string name="setting_menu_create_playlist" translatable="false">Create Playlist</string>
+    <string name="setting_menu_delete_playlist" translatable="false">Delete Playlist</string>
+    <string name="setting_menu_playlist" translatable="false">Playlist</string>
+    <string name="setting_menu_hide_4_buttons_on_playing_screen">Hide both side buttons on playing screen</string>
+    <string name="setting_menu_gpt_web_menu" translatable="false">ChatGpt Menu</string>
+    <string name="setting_menu_choose_gpt" translatable="false">Choose Gpt</string>
+    <string name="setting_menu_advanced_mode" translatable="false">Advanced Mode</string>
+
+    <string name="dialog_title_ask_what_to_do_with_copied_text" translatable="false">Want to add text</string>
+    <string name="dialog_prefix_ask_what_to_do_with_copied_text" translatable="false">I am studying [[STUDY_LANG_NAME]]. I have a question about the following sentence.</string>
+    <string name="choice_ask_what_to_do_with_copied_text_none" translatable="false">No thanks.</string>
+    <string name="choice_ask_what_to_do_with_copied_text_explain_studylang" translatable="false">Explain about [[STUDY_LANG_NAME]] sentence</string>
+    <string name="choice_ask_what_to_do_with_copied_text_rephrase_studylang" translatable="false">Rephrase [[STUDY_LANG_NAME]] sentence.</string>
+    <string name="choice_ask_what_to_do_with_copied_text_translate_into_studylang" translatable="false">Translate into [[STUDY_LANG_NAME]].</string>
+    <string name="choice_ask_what_to_do_with_copied_text_translate_into_mother_tongue" translatable="false">Translate into [[MOTHER_TONGUE_LANG_NAME]].</string>
+    <string name="choice_ask_what_to_do_with_copied_text_is_mother_tongue_correct" translatable="false">Is [[MOTHER_TONGUE_LANG_NAME]] translation correct?</string>
+    <string name="choice_ask_what_to_do_with_copied_text_what_meaning" translatable="false">Explain the above.</string>
+    <string name="choice_ask_what_to_do_with_copied_text_explain_grammar_of_studylang" translatable="false">Explain [[STUDY_LANG_NAME]] grammar.</string>
+
+    <string name="dialog_title_copy_sentence_conv_practice" translatable="false">Copy sentence before ChatGPT</string>
+    <string name="choice_copy_sentence_conv_practice_0" translatable="false">No Copy</string>
+    <string name="choice_copy_sentence_conv_practice_1" translatable="false">Copy</string>
+    <string name="choice_copy_sentence_conv_practice_2" translatable="false">Include previous sentence</string>
+    <string name="choice_copy_sentence_conv_practice_3" translatable="false">Include 2 previous sentences</string>
+
+    <string name="watching_this_video" translatable="false">I am watching %1$s. I have a question about the following subtitle. </string>
+
+    <string name="dialog_title_open_gpt_from_araconv_home_view" translatable="false">Choose option</string>
+    <string name="open_gpt_from_araconv_home_view_0" translatable="false">Open</string>
+    <string name="open_gpt_from_araconv_home_view_1" translatable="false">Practice Role Playing</string>
+
+    <string name="dialog_title_open_gpt_from_araconv_conversation_view" translatable="false">This dialogue is copied, just paste it in the ChatGPT.</string>
+    <string name="open_gpt_from_araconv_conversation_view_0" translatable="false">Practice Role Playing</string>
+    <string name="open_gpt_from_araconv_conversation_view_1" translatable="false">Rephrase</string>
+
+    <string name="dialog_message_type_new_name" translatable="false">Type new name</string>
+    <string name="toast_name_should_not_be_empty" translatable="false">Name should not be empty</string>
+    <string name="toast_content_can_not_be_empty" translatable="false">Content can not be empty</string>
+
+    <string name="hint_add_role_playing_content" translatable="false">Type role playing data.\nFormat\nA:\\texpression\t(translation)\nB:\\texpression\t(translation)\nA:\\texpression\t(translation)\nB:\\texpression\t(translation)\n...</string>
+    <string name="toast_no_role_playing_content" translatable="false">No role playing content</string>
+    <string name="toast_fail_to_make_role_playing" translatable="false">Failed. Verify the data</string>
+    <string name="menu_web_chat_gpt_show_difficult_words" translatable="false">Show difficult words</string>
+    <string name="menu_web_chat_gpt_make_role_playing" translatable="false">Make role playing</string>
+    <string name="menu_web_chat_current_study" translatable="false">Current study</string>
+
+    <string name="msg_warning_watch_ads_get_points" translatable="false">Would you like to watch an ad to earn points?\n(Once you start watching, you cannot cancel)</string>
+    <string name="msg_warning_no_points_watch_ads_get_points" translatable="false">You are low on points. Would you like to watch an ad to earn points?\n(Once you start watching, you cannot cancel)</string>
+    <string name="msg_warning_not_enough_point_watch_ads_get_points" translatable="false">You don\'t have enough points to continue.\n\nDo you want to watch ads and get some points?</string>
+    <string name="msg_warning_need_point_for_gpt" translatable="false">You don\'t have enough points to continue. Do you want to watch ads and get some points?</string>
+    <string name="msg_warning_not_enough_point" translatable="false">You don\'t have enough points to continue. Please watch ads and get some points</string>
+    <string name="dialog_title_practice_dialog_with_gpt_choose_role" translatable="false">Let\'s practice this dialogue. This dialogue is copied, just paste it in the ChatGPT. Will you begin the dialogue?</string>
+    <string name="dialog_message_first_chat_gpt_web_user" translatable="false">Using the ChatGPT account is free of charge. If you don\'t have an account, please sign up instead of logging in.</string>
+    <string name="dialog_message_second_chat_gpt_web_user" translatable="false">To continue an existing conversation, click on the menu in the top left corner to view previous chat history.</string>
+    <string name="dialog_message_first_practice_conversation" translatable="false">Practice the content you practiced recently again.</string>
+    <string name="view_title_voca_filter" translatable="false">Filter</string>
+
+    <string name="toast_item_group_selected_all_displayed_items" translatable="false">Selected all items</string>
+    <string name="toast_item_group_unselected_all_displayed_items" translatable="false">Unselected all items</string>
+    <string name="toast_item_all_items_displayed" translatable="false">Display all items</string>
+
+    <string name="voca_filter_text_view_guide_to_delete" translatable="false">Filter items by the following buttons to delete</string>
+    <string name="voca_filter_text_view_guide_to_select" translatable="false">Filter items by the following buttons to select</string>
+    <string name="menu_base_voca_filter_show_all_phrases" translatable="false">Show all phrases</string>
+    <string name="menu_base_voca_filter_filter_by_voca_know" translatable="false">Filter</string>
+
+    <string name="voca_filter_message_total_item_count" translatable="false">Total items</string>
+    <string name="voca_filter_message_selected_item_count" translatable="false">Selected</string>
+
+    <string name="conversation_option_sheet_text_view_point" translatable="false">You have %1$d Points. %2$d points will be consumed when you open this view, so practice as much as possible when you open it once.</string>
+    <string name="conversation_guide_word_matching_mode" translatable="false">Making sentence by tapping on word boxes.</string>
+    <string name="conversation_guide_speaking_mode" translatable="false">If it doesn\'t start automatically, please press the microphone to start.</string>
+    <string name="conversation_guide_speaking_failed_stt" translatable="false">Voice recognition failed. Please press the microphone to try again.</string>
+    <string name="conversation_guide_switch_ab_person" translatable="false">Let\'s practice by switching between A and B. Start with A.</string>
+    <string name="conversation_guide_speaking_stop_by_click_button" translatable="false">If it doesn\'t stop automatically, you can also click the button to stop.</string>
+    <string name="conversation_guide_study_this" translatable="false">Let\'s study this.</string>
+    <string name="conversation_option_sheet_menu_speaking_mode" translatable="false">Speaking Mode</string>
+    <string name="conversation_option_sheet_menu_word_matching_mode" translatable="false">Word Matching Mode</string>
+    <string name="conversation_option_sheet_menu_show_translation" translatable="false">Show Translation</string>
+    <string name="conversation_option_sheet_menu_play_tts" translatable="false">Play Text To Speech</string>
+
+    <string name="dialog_menu_search_in_study_lang" translatable="false">Search in study lang</string>
+    <string name="dialog_menu_open_chat_gpt" translatable="false">Study with ChatGPT</string>
+    <string name="dialog_menu_make_role_playing" translatable="false">Make Role Playing</string>
+    <string name="view_title_study_with_chat_gpt" translatable="false">Study with ChatGPT</string>
+    <string name="view_title_practice_conversation" translatable="false">Practice</string>
+    <string name="view_title_common_phrases" translatable="false">Prompt</string>
+    <string name="view_title_user_role_playing" translatable="false">My Role playing</string>
+    <string name="view_title_make_role_playing" translatable="false">Make role playing</string>
+    <string name="common_phrases" translatable="false">Prompt</string>
+    <string name="this_is_list_of_common_phrases" translatable="false">Here are some prompts. You can eidt/copy/use them as needed. (()) will be replaced in the clipboard\'s text</string>
+    <string name="this_is_list_of_common_phrases_has_clipboard_text" translatable="false">(A sentence has been added in the first line for studying. It can be copied and used if needed.)</string>
+    <string name="type_common_phrases" translatable="false">Please type Prompt</string>
+    <string name="swtich_prompt_for_popup_menu_1" translatable="false">For popup menu</string>
+
+    <string name="dialog_select_range_start_number" translatable="false">Start number</string>
+    <string name="dialog_select_range_count" translatable="false">Count</string>
+
+    <string name="toast_wait_please" translatable="false">Wait please...</string>
+    <string name="ocr_hanja_processing_started" translatable="false">Started to convert to Hanja</string>
+    <string name="ocr_hanja_explanation" translatable="false">Press the conversion button at the top.\nMeanings are shown only for unknown words. Click on a Chinese character to see detailed information.\n\nDouble-clicking on a Chinese character converts between a known and unknown character.</string>
+    <string name="toast_error_fetching_in_app_items" translatable="false">An error occurred while fetching in-app items.\nPlease check your network connection and try again.</string>
+    <string name="toast_in_app_purchase_cancelled" translatable="false">In-app purchase cancelled.</string>
+
+    <string name="snackbar_points_added" translatable="false">%1$d points is added</string>
+    <string name="snackbar_rewarded_ad_not_ready" translatable="false">The ad is currently being prepared. Please check your network connection and try again in 30 seconds.</string>
+    <string name="snackbar_rewarded_ad_frequency_cap_reached" translatable="false">You have reached the maximum ad frequency. Please try again in 10 minutes.</string>
+
+    <string name="msg_warning_buy_inapp_point" translatable="false">Since purchased points are not stored on the server, they will be lost and cannot be restored if you delete the app.\n\nPlease do not delete the app after purchasing points.\n\nAre you sure you want to proceed with the purchase?</string>
+    <string name="msg_warning_buy_inapp_book" translatable="false">By purchasing, you will be able to read all content. (If you do not purchase, you will only be able to read partial content.)\n\nWould you like to purchase?</string>
+    <string name="msg_warning_blur_text_buy_inapp_book" translatable="false">Purchasing the book will make the text fully visible.</string>
+
+    <string name="guide_watch_ad_to_get_point" translatable="false">Interstitial ads will now only appear when you press this button to earn points.</string>
+    <string name="guide_change_voca_know" translatable="false">You can change difficulty of the phrase.</string>
+    <string name="toast_double_press_back_button_to_move_previous_screen" translatable="false">Press back again to move to the previous view</string>
+    <string name="toast_double_press_back_button_to_exit_app" translatable="false">Press back again to exit</string>
+
+    <string name="toast_get_free_point_fail_wrong_name" translatable="false">The string is not correct. Check case sensitivity.</string>
+    <string name="toast_get_free_point_fail_restart_app" translatable="false">To earn free point again,Please restart the app.</string>
+    <string name="toast_get_free_point_success" translatable="false">%1$d point is added.</string>
+    <string name="dialog_get_free_point_title" translatable="false">Get free point</string>
+    <string name="dialog_get_free_point_subtitle" translatable="false">Type : %1$s </string>
+
+    <string name="transparency_hidden_buttons_full_screen">transparency of the hidden buttons</string>
+</resources>

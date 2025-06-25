@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_refresh"
+    style="@style/ViewBase">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_voca"
+        style="@style/Match" />
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

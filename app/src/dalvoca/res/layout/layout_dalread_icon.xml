@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.hdodenhof.circleimageview.CircleImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ivDalRead"
+    android:layout_height="150dp"
+    android:layout_width="150dp"
+    android:layout_marginTop="@dimen/activity_vertical_margin_two"
+    app:civ_border_width="2dp"
+    app:civ_border_color="@color/colorBackgroundTransparentApp"
+    android:src="@mipmap/ic_app"/>

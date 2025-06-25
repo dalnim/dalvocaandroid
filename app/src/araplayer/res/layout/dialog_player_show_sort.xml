@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/DividerDialogThick" />
+
+        <LinearLayout
+            android:id="@+id/llSort"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvSort"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/sort"
+                android:textColor="@drawable/btn_ok_color"
+
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSettings"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvSettings"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/settings"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <View
+                style="@style/DividerDialog"
+                android:visibility="gone"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llEdit"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvEdit"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/edit"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/divider_tv_edit"
+                style="@style/DividerDialog"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRefreshMediaList"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvRefreshMediaList"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/refresh_video_list"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llShowSubtitleFiles"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvShowSubtitleFiles"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/show_subtitle_files"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <View
+                style="@style/DividerDialog"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llShowNormalVideoFiles"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_show_normal_video_files"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/show_hidden_video_files"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialogThick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMultiplePlayer"
+            style="@style/WidthMatch"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_multiple_player"
+                style="@style/Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multiple_player"
+                android:textColor="@drawable/btn_ok_color"
+                android:textSize="16sp" />
+
+            <View
+                style="@style/DividerDialogThick" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

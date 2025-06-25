@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/color_text"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <androidx.core.widget.NestedScrollView style="@style/Match"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                style="@style/Wrap"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/v_with_the_primary_target_words"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_voca_know_circle_1st" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVoca1st"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/with_the_primary_target_words"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_with_the_secondary_target_words"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_voca_know_circle_2nd" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVoca2nd"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/with_the_secondary_target_words"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_with_the_unknown_words"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_voca_know_circle_unknown" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVocaUnknown"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/with_the_difficult_words"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_with_not_determined"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_voca_know_circle_notrated" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVocaNotRated"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/not_determined"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/dv_add"
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_with_the_known_words"
+                    style="@style/WidthMatch"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_voca_know_circle_known" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVocaKnown"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/with_the_known_words"
+                        android:textColor="@color/colorButtonOkEnable" />
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/v_with_the_bookmarked"
+                    style="@style/WidthMatch"
+                    android:visibility="visible"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_favorite_on"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/scVocaBookmarked"
+                        style="@style/SwitchSetting"
+                        android:layout_weight="1"
+                        android:text="@string/with_the_bookmarkded_words"
+                        android:textColor="@color/colorButtonOkEnable"
+                        android:checked="true"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+            android:id="@+id/tvOpenSelectedItemsOnly"
+            style="@style/Button_Base"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_gravity="center"
+            android:text="@string/btn_open_selected_items_only"
+            android:background="@color/backgroundColorOutOfTable"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+        <TextView
+            android:id="@+id/tvOpenBookmarkedItemsOnly"
+            style="@style/Button_Base"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_gravity="center"
+            android:text="@string/btn_open_bookmarked_items_only"
+            android:background="@color/backgroundColorOutOfTable"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginStart="0dp" />
+        <TextView
+            android:id="@+id/tvOpenAllItems"
+            style="@style/Button_Base"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:text="@string/btn_open_all_items"
+            android:background="@color/backgroundColorOutOfTable"
+            android:textColor="@drawable/btn_ok_color" />
+
+    </LinearLayout>
+</RelativeLayout>

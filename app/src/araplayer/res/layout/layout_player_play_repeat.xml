@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llPlayRepeatControl"
+        style="@style/WidthMatch"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvRepeatMin"
+                style="@style/Wrap"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                tools:text="00:00:00" />
+
+            <LinearLayout
+                android:id="@+id/llRepeatRange"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/sbRepeatRange"
+                    style="@style/WidthMatch"
+                    android:visibility="gone"
+                    app:rsb_gravity="center"
+                    app:rsb_mode="range" />
+
+                <RelativeLayout
+                    android:id="@+id/rlLayoutPrevNextSubtitleOverlap"
+                    style="@style/WidthMatch"
+                    android:background="@color/transparent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/vCcRepeatTuningPreviousDialogue"
+                        android:layout_width="50dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/color_cc_repeat_tuning_screen_no_overlap"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        tools:background="@color/color_cc_repeat_tuning_screen_overlap"
+                        tools:visibility="visible" />
+
+                    <View
+                        android:id="@+id/vCcRepeatTuningCurrentDialogue"
+                        android:layout_width="50dp"
+                        android:layout_height="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/color_cc_repeat_tuning_screen_default"
+                        android:orientation="horizontal" />
+
+                    <View
+                        android:id="@+id/vCcRepeatTuningNextDialogue"
+                        android:layout_width="50dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/color_cc_repeat_tuning_screen_no_overlap"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        tools:background="@color/color_cc_repeat_tuning_screen_overlap"
+                        tools:visibility="visible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRepeatMax"
+                style="@style/Wrap"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                tools:text="00:00:00" />
+
+            <ImageView
+                android:id="@+id/ivRepeatClose"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/ic_circle_close" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_repeat_start_end"
+        style="@style/Wrap"
+        android:layout_width="150dp"
+        android:layout_below="@+id/llPlayRepeatControl"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="80dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCCRepeatReset"
+            style="@style/ButtonRubyWhite"
+            android:layout_below="@id/llPlayRepeatControl"
+            android:layout_margin="10dp"
+            android:text="@string/reset"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            style="@style/Wrap"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAddSubtitle"
+                style="@style/ButtonRubyWhite"
+                android:layout_below="@id/llPlayRepeatControl"
+                android:layout_margin="10dp"
+                android:text="@string/add"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivRepeatBookmark"
+                style="@style/ImageView_Player"
+                android:layout_below="@id/llPlayRepeatControl"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_star_white"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_repeat_start"
+            style="@style/Wrap"
+            android:text="@string/start_time"
+            android:textColor="@color/white"
+            tools:textColor="@color/black" />
+
+        <com.jaygoo.widget.RangeSeekBar
+            android:id="@+id/sbRepeatStart"
+            style="@style/WidthMatch"
+            app:rsb_gravity="center"
+            app:rsb_mode="single"
+            app:rsb_progress_color="@color/white"
+            app:rsb_progress_default_color="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_repeat_end"
+            style="@style/Wrap"
+            android:text="@string/end_time"
+            android:textColor="@color/white"
+            tools:textColor="@color/black" />
+
+        <com.jaygoo.widget.RangeSeekBar
+            android:id="@+id/sbRepeatEnd"
+            style="@style/WidthMatch"
+            app:rsb_gravity="center"
+            app:rsb_mode="single"
+            app:rsb_progress_color="@color/white"
+            app:rsb_progress_default_color="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

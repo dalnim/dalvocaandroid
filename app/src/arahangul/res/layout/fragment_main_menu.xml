@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    style="@style/Match"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        style="@style/ViewBase"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/svMenu"
+            style="@style/Match">
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/item_voca_size"
+                    android:layout_margin="10dp"
+                    android:text="Hangul Writing"
+                    android:visibility="gone"
+                    />
+
+                <GridLayout
+                    android:id="@+id/gl_option"
+                    style="@style/WidthMatch"
+                    android:layout_gravity="center_horizontal"
+                    android:columnCount="1">
+
+                    <LinearLayout
+                        android:id="@+id/vConsonants"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_home_consonants" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_consonants" />
+
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vDoubleConsonants"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_home_double_consonants" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_double_consonants" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vVowels"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_home_vowels" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_vowels" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vCombinationVowels"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_home_combination_vowels" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_combination_vowels" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vCombineConsonantsandVowels"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_home_combine_consonants_and_vowels" />
+
+                    <com.dalread.component.CustomFontSizeTextView
+                        style="@style/HomeAraConvMenuText"
+                        android:text="@string/conv_home_menu_combine_consonants_and_vowels" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/vFinalConsonants"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_hangul_4" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_final_consonants" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vPracticeHangulWriting"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_hangul_writing" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_practice_hangul_writing" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vPracticeHangulTyping"
+                        style="@style/HomeHanjaMenu">
+
+                        <ImageView
+                            style="@style/HomeHanjaMenuImageView"
+                            android:src="@drawable/ic_hangul_typing" />
+
+                        <com.dalread.component.CustomFontSizeTextView
+                            style="@style/HomeAraConvMenuText"
+                            android:text="@string/conv_home_menu_practice_hangul_typing" />
+                        <View
+                            style="@style/HomeHanjaMenuBottomLine"/>
+                    </LinearLayout>
+
+                </GridLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

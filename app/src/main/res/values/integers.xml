@@ -1,0 +1,3 @@
+<resources>
+    <integer name="count_of_video_thumbnails_in_row">1</integer>
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <dimen name="home_hanja_menu_margin_top">16dp</dimen>
+
+    <dimen name="home_araconv_menu_text_lineSpacingMultiplier">0.8</dimen>
+    <dimen name="home_araconv_menu_text_size">20sp</dimen>
+    <dimen name="home_hanja_menu_text_margin_top">-4dp</dimen>
+
+
+    <dimen name="hanja_meaning_text_size_in_information_view">20sp</dimen>
+    <dimen name="hanja_pronounce_text_size_in_information_view">24sp</dimen>
+    <dimen name="hanja_text_size_in_word_information_view">64sp</dimen>
+    <dimen name="hanja_text_size_in_sentence_information_view">48sp</dimen>
+    <dimen name="table_header_text_size_in_information_view">18sp</dimen>
+
+    <dimen name="sentence_diff_words_view_sentence_text_size">24sp</dimen>
+    <dimen name="sentence_diff_words_view_words_text_size">20sp</dimen>
+
+    <dimen name="item_main_menu_width">140dp</dimen>
+    <dimen name="item_main_menu_height">140dp</dimen>
+    <dimen name="item_main_menu_icon_width">80dp</dimen>
+    <dimen name="item_main_menu_icon_height">80dp</dimen>
+    <dimen name="item_main_menu_margin">20dp</dimen>
+
+</resources>

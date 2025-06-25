@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+<!--    <com.dalread.component.Toolbar-->
+<!--        android:id="@id/header"-->
+<!--        style="@style/WidthMatch"-->
+<!--        app:leftIcon="@drawable/ic_back"-->
+<!--        app:rightText="@string/menu"-->
+<!--        app:title="@string/tb_word_list" />-->
+
+    <RelativeLayout style="@style/Match"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/Match"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_item_content_book_title"
+            layout="@layout/item_content_book_title" />
+
+        <me.zhanghai.android.fastscroll.FastScrollScrollView
+            android:id="@+id/fssv_preview"
+            android:background="@color/backgroundColor"
+            style="@style/Match">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_info"
+                style="@style/WidthMatch"
+                tools:itemCount="1"
+                />
+        </me.zhanghai.android.fastscroll.FastScrollScrollView>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        style="@style/Match"
+        />
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

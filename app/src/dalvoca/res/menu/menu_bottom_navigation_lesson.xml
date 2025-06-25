@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_lessons"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/lessons" />
+
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_circle_outline_black_24dp"
+        android:title="@string/history" />
+
+    <item
+        android:id="@+id/nav_people"
+        android:icon="@drawable/ic_view_list_black_24dp"
+        android:title="@string/tutors" />
+
+    <item
+        android:id="@+id/nav_etc"
+        android:icon="@drawable/ic_check_box_outline_blank_black_24dp"
+        android:title="@string/etc" />
+
+</menu>

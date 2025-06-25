@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/setting_header_padding_top"
+    android:paddingBottom="@dimen/setting_header_padding_top">
+
+    <TextView
+        android:id="@+id/tv_lang"
+        style="@style/TextViewItem"
+        android:layout_marginLeft="@dimen/setting_header_padding_left"
+        android:layout_marginRight="@dimen/setting_header_padding_left" />
+
+    <LinearLayout
+        style="@style/FillRemainHorizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextViewItem"
+            android:ellipsize="middle"
+            android:maxLines="3" />
+
+        <TextView
+            android:id="@+id/tv_add_date"
+            style="@style/TextViewItem" />
+
+
+        <TextView
+            android:id="@+id/tv_language_name"
+            style="@style/TextViewItem" />
+
+        <TextView
+            android:id="@+id/tv_download_count"
+            style="@style/TextViewItem" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ic_check"
+        style="@style/Wrap"
+        android:layout_marginLeft="@dimen/setting_header_padding_left"
+        android:layout_marginRight="@dimen/setting_header_padding_left"
+        android:src="@drawable/ic_checkbox_1_checked"
+        tools:ignore="ContentDescription" />
+</LinearLayout>

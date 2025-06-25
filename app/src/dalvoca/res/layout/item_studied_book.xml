@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_book_name"
+        style="@style/FillRemainHorizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/ic_check"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:padding="12dp"
+        android:src="@drawable/ic_check_box_black_24dp" />
+</LinearLayout>

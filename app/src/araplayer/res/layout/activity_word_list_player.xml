@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ViewBase">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightIcon2="@drawable/ic_more_vert_white_24dp"
+        app:title="@string/words_list"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nvBottom"
+        style="@style/WidthMatch"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/backgroundColor"
+        app:itemIconTint="@drawable/selector_voca"
+        app:itemTextColor="@drawable/selector_voca"
+        app:menu="@menu/menu_bottom_word_list" />
+
+    <me.zhanghai.android.fastscroll.FastScrollScrollView
+        android:id="@+id/fssv_preview"
+        android:layout_above="@id/nvBottom"
+        android:layout_below="@id/header"
+        style="@style/Match">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvList"
+            style="@style/Match"
+            tools:listitem="@layout/item_word_list_player_item"/>
+    </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+<!--    <com.github.chrisbanes.photoview.PhotoView-->
+<!--        android:id="@+id/iv_zoomed_photo"-->
+<!--        style="@style/zoomed_photo"-->
+<!--        android:visibility="gone" />-->
+
+</RelativeLayout>

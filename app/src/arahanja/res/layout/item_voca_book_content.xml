@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_item"
+    style="@style/ItemBase"
+    android:background="@color/backgroundColor"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+
+        android:padding="0dp">
+        <LinearLayout
+            android:id="@+id/ll_book_meaning"
+            style="@style/WidthMatch"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <TextView
+                android:id="@+id/tv_index"
+                style="@style/TextViewSubItem"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textSize="@dimen/item_hanja_book_meaning_size"
+                android:text="1"/>
+            <ImageView
+                android:id="@+id/iv_bookmark"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_subtitle_off"
+                android:layout_gravity="center" />
+            <TextView
+                style="@style/TextViewSubItem"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/ivWebSearch"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_globe_empty"
+                />
+
+            <ImageView
+                android:id="@+id/ivCopy"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_copy2"
+                android:layout_gravity="center"
+                />
+            <ImageView
+                android:id="@+id/iv_unknown_word_list"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_word_list"
+                android:layout_gravity="center" />
+            <ImageView
+                android:id="@+id/ivEditView"
+                style="@style/ImageView_Player"
+                android:src="@drawable/ic_edit2"
+                android:layout_gravity="center" />
+<!--            android:src="@drawable/ic_keyboard_arrow_right_36dp"-->
+        </LinearLayout>
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvBookHanjaFurigana"
+            style="@style/TextViewHanjaBookVoca"
+            android:layout_marginTop="5dp" />
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvBookUnknownWordInfoFurigana"
+            style="@style/TextViewHanjaBookUnknownVoca"
+            android:layout_marginTop="5dp" />
+
+<!--        <com.dalread.component.CustomFontSizeTextView-->
+<!--            android:id="@+id/tvUnknownWordInfo"-->
+<!--            style="@style/TextViewHanjaBookMeaning"-->
+<!--            android:textIsSelectable="true"-->
+<!--            app:defaultTextSize="@dimen/item_hanja_book_unknown_voca_size"-->
+<!--            android:textColor="@color/textPrimaryColor"-->
+<!--            tools:text="Unknown Words"/>-->
+
+        <com.dalread.component.CustomFontSizeTextView
+            android:id="@+id/tvBookMeaning"
+            style="@style/TextViewHanjaBookMeaning"
+            android:textIsSelectable="true"
+            android:layout_marginTop="5dp"
+            app:defaultTextSize="@dimen/item_hanja_book_meaning_size"
+            android:textColor="@color/textPrimaryColor"
+            tools:text="Meaning"/>
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvBookMeaningFurigana"
+            style="@style/TextViewHanjaBookMeaning"
+            android:layout_marginTop="5dp" />
+
+        <com.dalread.component.CustomFontSizeTextView
+            android:id="@+id/tvBookMeaningDetailed"
+            style="@style/TextViewHanjaBookMeaningDetailed"
+            android:layout_marginTop="5dp"
+            android:textIsSelectable="true"
+            android:ellipsize="end"
+            android:maxLines="7"
+            app:defaultTextSize="@dimen/item_hanja_book_meaning_detailed_size"
+            android:textColor="@color/textPrimaryColor"
+            tools:text="Meaning"/>
+
+        <com.dalread.component.FuriganaView
+            android:id="@+id/tvBookMeaningDetailedFurigana"
+            style="@style/TextViewHanjaBookMeaningDetailed"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+</LinearLayout>

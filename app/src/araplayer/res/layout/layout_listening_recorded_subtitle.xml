@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:padding="10dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/iv_exit_listening_recorded"
+        style="@style/ImageView_Player_Circle"
+        android:rotation="180"
+        android:src="@drawable/ic_circle_close"
+        android:visibility="visible"
+        tools:visibility="visible" />
+</FrameLayout>

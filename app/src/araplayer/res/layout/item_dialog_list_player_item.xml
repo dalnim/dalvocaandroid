@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WidthMatch">
+
+    <LinearLayout
+        android:id="@+id/llItem"
+        style="@style/ItemBase"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/izbVideoThumbnail"
+            style="@style/WidthMatch"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_no_border_black_background"
+            android:padding="1dp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            style="@style/ItemBase"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/item_padding_top_bottom"
+                android:paddingBottom="@dimen/item_padding_top_bottom">
+                    <TextView
+                        android:id="@+id/tvIndex"
+                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        tools:text="1) "/>
+
+                    <TextView
+                        android:id="@+id/tvVideoStartTime"
+                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:padding="0dp"
+                        tools:text="0:00:00"/>
+
+                    <TextView
+                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:text=" ~ "
+                        android:padding="0dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvVideoEndTime"
+                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:padding="0dp"
+                        tools:text="0:00:00"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_padding_top_bottom">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSubtitle"
+                        style="@style/TextViewSubtitle"
+                        android:layout_marginTop="6dp"
+                        android:visibility="visible"
+                        android:textIsSelectable="true"
+                        tools:text="subtitle"/>
+
+                    <TextView
+                        android:id="@+id/tvSubtitleMeaning"
+                        style="@style/TextViewSubtitleMeaning"
+                        android:layout_marginTop="6dp"
+                        android:visibility="visible"
+                        android:textIsSelectable="true"
+                        tools:text="meaning"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout style="@style/WidthMatch"/>
+    </LinearLayout>
+</RelativeLayout>

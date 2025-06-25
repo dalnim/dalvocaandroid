@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="home_hanja_menu_margin_top">16dp</dimen>
+
+    <dimen name="home_hanja_menu_text_size">24sp</dimen>
+    <dimen name="home_hanja_menu_text_margin_top">-4dp</dimen>
+    <dimen name="today_voca_text_size">36sp</dimen>
+    <dimen name="today_voca_meaning_text_size">20sp</dimen>
+
+    <dimen name="hanja_meaning_text_size_in_information_view">20sp</dimen>
+    <dimen name="hanja_pronounce_text_size_in_information_view">24sp</dimen>
+    <dimen name="hanja_text_size_in_word_information_view">64sp</dimen>
+    <dimen name="hanja_text_size_in_sentence_information_view">48sp</dimen>
+    <dimen name="table_header_text_size_in_information_view">18sp</dimen>
+</resources>

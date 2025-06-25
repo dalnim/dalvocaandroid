@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Wrap"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/choose"
+                android:textColor="@color/textPrimaryColor"
+                android:textSize="12sp" />
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="0dp"
+                android:background="@color/colorBorderBackgroundDialog" />
+
+            <LinearLayout
+                android:id="@+id/llGptWithThisSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/gpt_with_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llListenComprehension1"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/listen_comprehension_1"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llListenComprehension2"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/listen_comprehension_2"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llListenComprehensionExit"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/exit_listen_comprehension"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llListenComprehension1StartOver"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/listen_comprehension_1_start_over"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTranslateThisSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/translate_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llChangeWordKnownStatus"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/change_word_known_status"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llChangeSubtitleKnownStatus"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/change_subtitle_know_status"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCopyTheSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/copy_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEditThisSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/edit_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWebDicationary"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/web_dictionary"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llShowNormalPlayingMenuUi"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/show_normal_playing_menu_ui"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDictationMode"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/dictation_mode"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOpenPhraseInformation"
+                style="@style/WidthMatch"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/open_phrase_information"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOpenAraHanjaWithHanja"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/open_arahanja_with_hanja"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDeleteRecordingFile"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/delete_recording_file"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayThisSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/play_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMergeWithPreviousSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/merge_previous_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMergeWithNextSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/merge_next_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDeleteTheSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/delete_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDivideThisSubtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Button_Base"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="@string/divide_this_subtitle"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_marginStart="0dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/cancel"
+                android:textColor="@drawable/btn_ok_color"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

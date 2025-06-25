@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:title="@string/title_add_desc"
+        app:leftIcon="@drawable/ic_back"
+        app:rightText="@string/save"/>
+
+    <EditText
+        android:id="@+id/et_desc"
+        style="@style/Match"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_edittext"
+        android:gravity="start|top"
+        android:hint="@string/hint_add_desc"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/edit_text_padding"
+        android:textSize="@dimen/item_text_size" />
+</LinearLayout>

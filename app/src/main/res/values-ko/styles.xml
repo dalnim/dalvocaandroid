@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Table_Header" parent="@style/WidthMatch">
+        <item name="android:textColor">@color/textCellHeaderColor</item>
+        <item name="android:textSize">@dimen/font_table_header</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@color/backgroundCellHeaderColor</item>
+    </style>
+
+    <style name="TextView_Cast_Name_Profile" parent="TextView_Cast_Name">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="TextViewFontMedium" parent="Wrap">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+</resources>

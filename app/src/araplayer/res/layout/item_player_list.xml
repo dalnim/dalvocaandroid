@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_player_height"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="3dp"
+    android:background="@color/backgroundCellItemColor"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/backgroundCellItemColor"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:contentPadding="2dp">
+    <RelativeLayout style="@style/Match">
+
+        <LinearLayout
+            android:id="@+id/llItem"
+            style="@style/Match"
+            android:background="@color/backgroundColor"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:textColor="?android:attr/textColorPrimary"
+            android:visibility="visible">
+
+            <CheckBox
+                android:id="@+id/cb_select_item"
+                style="@style/Wrap"
+                android:layout_gravity="center_vertical"
+                android:minWidth="0dp"
+                android:clickable="false"
+                android:visibility="gone" />
+
+            <LinearLayout
+                style="@style/WidthMatch"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+
+                <LinearLayout
+                    style="@style/Wrap"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivVideoThumbnail"
+                        style="@style/ImageView_MovieList"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:padding="1dp"
+                        android:src="@drawable/ic_app_cn"
+                        android:visibility="gone" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/izbVideoThumbnail"
+                            style="@style/ImageView_MovieList_Square"
+                            android:background="@drawable/btn_no_border_black_background"
+                            android:scaleType="centerCrop"
+                            android:visibility="visible"
+                            app:shapeAppearanceOverlay="@style/VideoThumbnailRoundedCorner" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            style="@style/ImageView_MovieList_Square">
+
+                            <ImageView
+                                android:id="@+id/ivVideoThumbnailNormal"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:padding="1dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_etc"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="1:1.25"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/tvNewFile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|top"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/backgroundVideoNew"
+                            android:paddingHorizontal="3dp"
+                            android:text="NEW"
+                            android:textColor="@color/dayNightWhiteColor"
+                            android:textSize="10sp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvSubtitleExt"
+                            style="@style/TextView_Description"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/btn_no_border_subtitle_ext_round_top_right_bottom_right"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:text="SRT"
+                            android:textColor="@color/dayNightWhiteColor"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvSubtitleExt2"
+                            style="@style/TextView_Description"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/btn_no_border_subtitle_ext_round_top_left_bottom_left"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:text="SMI"
+                            android:textColor="@color/dayNightWhiteColor"
+                            android:visibility="visible" />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Match"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.dalread.component.EllipsizingTextView
+                        android:id="@+id/tvTitle"
+                        style="@style/TextView_Video_Title_In_Video_List"
+                        android:layout_weight="1"
+                        android:ellipsize="middle"
+                        android:lineSpacingMultiplier="0.9"
+                        android:maxLines="3"
+                        tools:text="title_abced_title_abced_title_abced_ifghijklmnopqrstudbvbdbfhdbfbvhbdfbbf.mp4" />
+
+                    <TextView
+                        android:id="@+id/tv_memo"
+                        style="@style/TextView_Title"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="@dimen/font_memo"
+                        tools:text="memo_abcedifghijklmnopqrstudbvbdbfhdbfbvhbdfbbfabcedifghijklmnopqrstudbvbdbfhdbfbvhbdfbbf" />
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tvDifficult"
+                            style="@style/TextView_Description"
+                            android:layout_marginEnd="10dp"
+                            android:textStyle="bold"
+                            tools:text="Very Hard" />
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            style="@style/TextView_Description"
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone"
+                            tools:text="DATE" />
+
+                        <TextView
+                            android:id="@+id/tvSize"
+                            style="@style/TextView_Description"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text=""
+                            tools:text="87.3 MB" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Wrap"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_memo"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:src="@drawable/ic_memo"
+                        android:visibility="gone" />
+
+                    <ProgressBar
+                        android:id="@+id/pbWatchDuration"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:gravity="center"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progressDrawable="@drawable/pie_progress"
+                        android:rotation="-90"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv_bookmark"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:src="@drawable/ic_favorite_new_on"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="0dp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/ivArrow"
+                    style="@style/ImageView_Item_Movie"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

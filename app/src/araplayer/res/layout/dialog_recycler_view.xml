@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogNoPadding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:background="@color/backgroundGrayColorPopupHeader"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/textPrimaryColor"
+            android:textSize="16sp" />
+        <include layout="@layout/layout_line_horizontal" />
+<!--        <View-->
+<!--            style="@style/Divider"-->
+<!--            android:layout_marginStart="0dp"-->
+<!--            android:background="@color/color_background_light_white_divider" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/backgroundGrayColorPopupBody"
+            />
+
+
+        <include layout="@layout/layout_line_horizontal" />
+        <TextView
+            android:id="@+id/tv_close"
+            style="@style/Button_Base"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/close"
+            android:textColor="@drawable/btn_ok_color" />
+    </LinearLayout>
+</RelativeLayout>

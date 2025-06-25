@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightIcon="@drawable/ic_more_vert_white_24dp" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bottom"
+        style="@style/WidthMatch"
+        app:itemBackground="@color/backgroundColor"
+        app:itemIconTint="@drawable/selector_voca"
+        app:itemTextColor="@drawable/selector_voca"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_navigation_word_info" />
+</LinearLayout>

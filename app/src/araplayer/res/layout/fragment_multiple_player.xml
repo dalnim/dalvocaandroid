@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        style="@style/Match"
+        android:background="@color/backgroundLightBlackColor">
+        <ImageView
+            android:id="@+id/ivAddVideo"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_white_24dp" />
+    </FrameLayout>
+
+    <com.google.android.exoplayer2.ui.StyledPlayerView
+        android:id="@+id/playerView"
+        style="@style/Match"
+        android:visibility="gone"
+        app:auto_show="true"
+        app:repeat_toggle_modes="none"
+        app:resize_mode="fixed_width"
+        app:show_timeout="0"
+        app:surface_type="texture_view"
+        app:use_controller="false" />
+
+
+
+    <ImageView
+        android:id="@+id/ivPinScreen"
+        style="@style/ImageView_4_buttons_In_Multi_Player"
+        android:src="@drawable/twotone_push_pin_24"
+        android:layout_gravity="top|start"
+        tools:visibility="visible"
+        tools:alpha="1"
+        />
+
+    <ImageView
+        android:id="@+id/ivABRepeatOverlay"
+        style="@style/ImageView_4_buttons_In_Multi_Player"
+        android:src="@drawable/ic_repeat_ab"
+        android:layout_gravity="top|center_horizontal"
+        tools:visibility="visible"
+        tools:alpha="1"/>
+
+    <ImageView
+        android:id="@+id/ivLoadRandomVideo"
+        style="@style/ImageView_4_buttons_In_Multi_Player"
+        android:src="@drawable/ic_refresh_circle"
+        android:layout_gravity="top|end"
+        tools:visibility="visible"
+        tools:alpha="1"
+        />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivCloseVideo1"-->
+<!--        style="@style/ImageView_4_buttons_In_Multi_Player"-->
+<!--        android:src="@drawable/ic_close_video"-->
+<!--        android:layout_gravity="bottom|start"-->
+<!--        android:visibility="gone"-->
+<!--        tools:visibility="visible"-->
+<!--        tools:alpha="1"-->
+<!--        />-->
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivSpeaker999"-->
+<!--        style="@style/ImageView_4_buttons_In_Multi_Player"-->
+<!--        android:src="@drawable/ic_speaker"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:visibility="gone"-->
+<!--        tools:visibility="visible"-->
+<!--        tools:alpha="1"-->
+<!--        />-->
+
+
+    <LinearLayout
+        android:id="@+id/llPlayRepeatControl"
+        style="@style/WidthMatch"
+        android:visibility="gone"
+        android:orientation="vertical"
+        tools:visibility="gone"
+        >
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:background="@color/backgroundRectangleOverPlayingScreenForPlayIconsColor"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llRepeatRange"
+                style="@style/WidthMatch"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/sbRepeatRange"
+                    style="@style/WidthMatch"
+                    android:visibility="visible"
+                    app:rsb_gravity="center"
+                    app:rsb_mode="range" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivRepeatClose"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/ic_close_video_transparent" />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnSaveABRepeatTime"
+            style="@style/ButtonRubyWhite"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:text="@string/save"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPlayTopMenu"
+        style="@style/WidthMatch"
+        android:layout_gravity="top"
+        android:background="@color/transparent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <RelativeLayout style="@style/WidthMatch"
+            android:padding="4dp"
+            android:background="@color/color_multi_player_menu_background_half_transparent">
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/sbPlayer"
+                style="@style/WidthMatch"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/tvVideoEndTime"
+                android:layout_toEndOf="@id/tvVideoStartTime"
+                android:thumbTint="@color/white"
+                android:progressTint="@color/white"/>
+
+            <TextView
+                android:id="@+id/tvVideoStartTime"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center|start"
+                android:textColor="@color/textPrimaryWhiteColor"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeMinTextSize="2sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:text="00:00:00" />
+
+            <TextView
+                android:id="@+id/tvVideoEndTime"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center|end"
+                android:textColor="@color/textPrimaryWhiteColor"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeMinTextSize="2sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:text="00:00:00" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPlayPrevNextVideo"
+        style="@style/Wrap"
+        android:layout_gravity="center_vertical|left"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvVideoIndexInList"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:gravity="center"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/Wrap"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/ivPlayPrevVideo"
+                style="@style/ImageView_Player_Circle_No_Margin"
+                android:src="@drawable/exo_icon_previous" />
+
+            <ImageView
+                android:id="@+id/ivPlayNextVideo"
+                style="@style/ImageView_Player_Circle_No_Margin"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/exo_icon_next" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llAudioSpeed"
+        style="@style/Wrap"
+        android:layout_gravity="center_vertical|right"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+        <ImageView
+            android:id="@+id/ivAudioSpeedMinus"
+            style="@style/ImageView_Player_Circle"
+            android:src="@drawable/ic_speed_minus" />
+
+        <TextView
+            android:id="@+id/tvAudioSpeedValue"
+            style="@style/ImageView_Player_Circle"
+            android:background="@drawable/ic_speed_value"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:gravity="center"
+            android:text="1.0x" />
+        <ImageView
+            android:id="@+id/ivAudioSpeedPlus"
+            style="@style/ImageView_Player_Circle"
+            android:src="@drawable/ic_speed_plus" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llPlayBottomMenu"
+        style="@style/WidthMatch"
+        android:layout_gravity="bottom"
+        android:background="@color/color_multi_player_menu_background_half_transparent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivCloseVideo"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/ic_close_video_transparent" />
+
+        <ImageView
+            android:id="@+id/ivResizeMode"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/ic_screen_zoom_out" />
+
+        <ImageView
+            android:id="@+id/ivRotateVideo"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/baseline_screen_rotation_24" />
+
+        <ImageView
+            android:id="@+id/ivPlayMenu"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/baseline_menu_36" />
+
+        <ImageView
+            android:id="@+id/ivABRepeat"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/ic_repeat_ab" />
+
+        <ImageView
+            android:id="@+id/ivMute"
+            style="@style/ImageView_Player_Small_In_Multi_Player"
+            android:src="@drawable/ic_volume_up_white_36dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCenter"
+        style="@style/Wrap"
+        android:layout_gravity="center"
+        android:background="@color/transparentBlack"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+        <ImageView
+            android:id="@+id/ivCenterPlay"
+            style="@style/ImageView_Player_Play_In_Multi_Player"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_new_play"
+            android:visibility="visible"
+             />
+        <TextView
+            android:id="@+id/tvCenterText"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:textSize="@dimen/font_multiplayer_screen_center_text"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

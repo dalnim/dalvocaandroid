@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/gesture" />
+
+    <TextView
+        style="@style/TextView_Player_Option_Sub_Header"
+        android:text="@string/one_finger_gestures"
+        android:textAllCaps="true" />
+
+    <LinearLayout
+        android:id="@+id/llEtc"
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:id="@+id/llDragLeft"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/dragLeft" />
+
+            <TextView
+                android:id="@+id/tvDragLeft"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/seek" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llDragUpLeft"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/dragUpLeft" />
+
+            <TextView
+                android:id="@+id/tvDragUpLeft"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/brightness" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llDragUpRight"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/dragUpRight" />
+
+            <TextView
+                android:id="@+id/tvDragUpRight"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/volume" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llDragLeftSub"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/dragLeftSub" />
+
+            <TextView
+                android:id="@+id/tvDragLeftSub"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/next_pre" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llDragUpSub"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/dragUpSub" />
+
+            <TextView
+                android:id="@+id/tvDragUpSub"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/subtitle_position" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llSingleTap"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/singleTap" />
+
+            <TextView
+                android:id="@+id/tvSingleTap"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/play_pause" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+
+        <LinearLayout
+            android:id="@+id/llDoubleTrap"
+            style="@style/TextView_Player_Option_Layout_Item"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/doubleTrap" />
+
+            <TextView
+                android:id="@+id/tvDoubleTrap"
+                style="@style/TextView_Title"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:gravity="right"
+                android:text="@string/show_hide_menu" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_line_horizontal_small" />
+    </LinearLayout>
+</LinearLayout>

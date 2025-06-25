@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/activity_horizontal_margin_item"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_DalRead_Speak_Title"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/word_list_speck_title" />
+
+        <TextView
+            android:id="@+id/btnSpeak1"
+            style="@style/Button_Base"
+            android:text="@string/word_list_speck_1"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnSpeak3"
+            style="@style/Button_Base"
+            android:text="@string/word_list_speck_3"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnSpeak5"
+            style="@style/Button_Base"
+            android:text="@string/word_list_speck_5"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnSpeak10"
+            style="@style/TextView_Title_Width_Match"
+            android:text="@string/word_list_speck_10"
+            android:textColor="@drawable/btn_ok_color" />
+
+        <include layout="@layout/layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/Button_Base"
+            android:text="@string/login_btn_cancel"
+            android:textColor="@color/colorRed" />
+    </LinearLayout>
+
+</RelativeLayout>

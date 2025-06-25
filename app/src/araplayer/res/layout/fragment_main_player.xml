@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llMainMultiplePlayerFragment"
+        style="@style/Match"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingBottom="0dp"
+        tools:visibility="gone">
+
+        <Button
+            android:id="@+id/btnWatchRewardedAd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_watch_ad"
+            android:layout_gravity="center"
+            android:layout_marginBottom="48dp"
+            android:text="@string/btn_watch_ads"
+            android:textSize="@dimen/font_multiplayer_screen_button"
+            app:layout_constraintBottom_toTopOf="@+id/tvRemainPoint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRemainPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:visibility="visible"
+            android:text="100 Points"
+            app:layout_constraintBottom_toTopOf="@+id/llCenterButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"  />
+
+
+        <LinearLayout
+            android:id="@+id/llCenterButtons"
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <Button
+                android:id="@+id/btnScreenCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorBlue"
+                android:layout_gravity="center"
+                android:layout_marginBottom="32dp"
+                android:text="@string/multi_player_watch_video"
+                android:textSize="@dimen/font_multiplayer_screen_count"
+                app:layout_constraintBottom_toTopOf="@+id/btnWatchVideo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <Button
+                android:id="@+id/btnWatchVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/multi_player_watch_video"
+                android:textSize="@dimen/font_multiplayer_screen_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/ivClearMultiScreenHistory"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/llCenterButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_delete_black_24dp" />
+
+        <ImageView
+            android:id="@+id/ivSetPoint0"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/llCenterButtons"
+            app:layout_constraintStart_toEndOf="@+id/ivClearMultiScreenHistory"
+            app:layout_constraintTop_toBottomOf="@+id/llCenterButtons"
+            app:srcCompat="@drawable/ic_download_circle"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/adViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+        </FrameLayout>
+
+<!--        <Space-->
+<!--            android:id="@+id/space"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/llMainPlayerFragment"
+        style="@style/Match"
+        android:orientation="vertical"
+        tools:visibility="visible"
+        android:paddingBottom="0dp">
+<!--            <androidx.core.widget.NestedScrollView style="@style/WidthMatch">-->
+
+
+                    <include
+                        android:id="@+id/llSeasonInfo"
+                        layout="@layout/layout_season_info"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <include
+                        android:id="@+id/llvideo_folder_for_study_language_info"
+                        layout="@layout/layout_video_folder_for_study_language_info"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/llVideoSeasonList"-->
+<!--                        style="@style/WidthMatch"-->
+<!--                        android:background="@color/backgroundColor"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:textColor="?android:attr/textColorPrimary"-->
+<!--                        android:visibility="gone"-->
+<!--                        tools:visibility="visible"-->
+<!--                        >-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_video_folder_for_study_language"-->
+<!--                            style="@style/Match"-->
+<!--                            android:layout_width="110dp"-->
+<!--                            android:background="@color/backgroundLanguageVideoFolderColor"-->
+<!--                            android:gravity="center"-->
+<!--                            android:minHeight="114dp"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/iv_video_folder_for_study_language"-->
+<!--                                android:layout_width="80dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:padding="1dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tv_video_folder_for_study_language"-->
+<!--                                style="@style/Match"-->
+<!--                                android:layout_marginStart="5dp"-->
+<!--                                android:layout_marginEnd="5dp"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:ellipsize="end"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="English video folder"-->
+<!--                                android:textColor="@color/textPrimaryColor"-->
+<!--                                android:textSize="@dimen/font_value" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            style="@style/Match"-->
+<!--                            android:background="@color/backgroundColor"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:textColor="@color/textPrimaryColor">-->
+
+<!--                            <TextView-->
+<!--                                style="@style/TextViewFontMedium"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:background="@color/backgroundSeasonListColor"-->
+<!--                                android:gravity="center"-->
+<!--                                android:paddingLeft="6dp"-->
+<!--                                android:paddingRight="6dp"-->
+<!--                                android:text="@string/tv_seasons"-->
+<!--                                android:textColor="@color/textPrimaryColor"-->
+<!--                                android:textSize="@dimen/font_value" />-->
+
+<!--                            <androidx.recyclerview.widget.RecyclerView-->
+<!--                                android:id="@+id/rvVideoSeasonList"-->
+<!--                                style="@style/WidthMatch"-->
+<!--                                android:background="@color/backgroundSeasonListColor"-->
+<!--                                android:clipToPadding="false"-->
+<!--                                android:nestedScrollingEnabled="false"-->
+<!--                                android:paddingHorizontal="3dp"-->
+<!--                                android:visibility="gone"-->
+<!--                                tools:itemCount="1"-->
+<!--                                tools:listitem="@layout/item_player_series_landscape"-->
+<!--                                tools:visibility="visible" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tvNoDataTvSeason"-->
+<!--                                style="@style/Match"-->
+<!--                                android:background="@color/backgroundSeasonListColor"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="@string/no_data_tv_season"-->
+<!--                                android:textColor="@color/textPrimaryColor"-->
+<!--                                android:textSize="@dimen/font_title"-->
+<!--                                android:visibility="gone" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:id="@+id/pull_to_refresh"
+                        style="@style/Match"
+                        android:layout_weight="1"
+                        android:background="@color/backgroundColorOutOfTable">
+
+                        <me.zhanghai.android.fastscroll.FastScrollScrollView
+                            android:id="@+id/fssv_preview"
+                            style="@style/WidthMatch"
+
+                            android:fillViewport="true"
+                            android:background="@drawable/background_table_view">
+
+                            <FrameLayout
+                                style="@style/Match"
+                                android:orientation="vertical"
+                                android:background="@drawable/background_table_view">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvContent"
+                                    style="@style/Match"
+                                    android:background="@drawable/background_table_view"
+                                    android:visibility="visible"
+                                    tools:visibility="visible"
+                                    tools:itemCount="1"
+                                    tools:listitem="@layout/item_player_list"
+                                    />
+                                <TextView
+                                    android:id="@+id/tvNoDataVideoFiles"
+                                    style="@style/HeightMatch"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:gravity="center"
+                                    android:text="@string/no_data_video_files"
+                                    android:textColor="@color/textPrimaryColor"
+                                    android:textSize="@dimen/font_title"
+                                    android:visibility="gone"
+                                    tools:visibility="visible"/>
+                            </FrameLayout>
+                        </me.zhanghai.android.fastscroll.FastScrollScrollView>
+
+
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_play_last_video"
+                        style="@style/WidthMatch"
+                        android:background="@color/backgroundLastPlayedVideoColor"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tv_play_last_video"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight = "48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:ellipsize="middle"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:maxLines="2"
+                            android:textColor="@color/textPrimaryWhiteColor"
+                            android:textSize="@dimen/last_watched_video_title_text_size"
+                            tools:text="last video last video last video last video last video last video last video last video last video  video last video last video last video last video " />
+
+                        <ImageView
+                            android:id="@+id/iv_play_last_video_play_button"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_play_circle_white_center_transparent" />
+                    </LinearLayout>
+
+
+<!--            </androidx.core.widget.NestedScrollView>-->
+
+
+
+    </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

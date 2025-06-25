@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/Match">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="32dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="32dp">
+
+        <RelativeLayout style="@style/WidthMatch">
+
+            <ImageView
+                android:id="@+id/ic_play"
+                style="@style/Wrap"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/icon_play_padding"
+                android:src="@drawable/ic_volume_up_48dp" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                style="@style/WidthMatch"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="64dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="@color/colorBlack"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn1"
+                style="@style/ButtonTestAnswer" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn2"
+                style="@style/ButtonTestAnswer"
+                android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn3"
+                style="@style/ButtonTestAnswer" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn4"
+                style="@style/ButtonTestAnswer"
+                android:layout_marginLeft="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

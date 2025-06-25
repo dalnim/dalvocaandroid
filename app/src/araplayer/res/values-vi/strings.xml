@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Screen How To Use-->
+    <string name="app_introduction">Giới thiệu ứng dụng</string>
+    <string name="app_introduction_1_araplayer" translatable="false">Trình phát video tốt nhất cho người học ngoại ngữ.</string>
+    <string name="app_introduction_2_araplayer" translatable="false">Xem các từ khó khi xem video.</string>
+    <string name="app_introduction_3_araplayer" translatable="false">Nghe liên tục các phụ đề khó bằng cách ẩn các từ dễ.</string>
+    <string name="app_introduction_4_araplayer" translatable="false">Tự động tắt/mở phụ đề trong khi xem video.</string>
+    <string name="app_introduction_5_araplayer" translatable="false">Đồng bộ phụ đề và giọng nói dễ dàng.</string>
+
+    <!--    <string name="app_introduction">App introduction</string>-->
+    <!--    <string name="app_introduction_1">The best video player for multiple screen shots.</string>-->
+    <!--    <string name="app_introduction_2">You can choose 2 screens or 4 screens.</string>-->
+    <!--    <string name="app_introduction_3">You can open same video in 4 screens too.</string>-->
+    <!--    <string name="app_introduction_4">Each screen has a mute feature.</string>-->
+    <!--    <string name="app_introduction_5">You can move forward/backward by swiping on the screen.</string>-->
+
+    <string name="msg_confirm_rename_file_by_backup_and_delete_and_restore_method">Android không cho phép ứng dụng này đổi tên tệp. Vì vậy, ứng dụng này sẽ sao lưu tệp và xóa tệp trước rồi khôi phục tệp bằng tệp đã đổi tên.\nBạn có muốn tiếp tục không?</string>
+    <string name="msg_confirm_refresh_pull_to_refresh">Bạn có muốn làm mới danh sách video không?</string>
+    <string name="msg_confirm_refresh_pull_to_refresh_music">Bạn có muốn làm mới danh sách nhạc không?</string>
+    <string name="msg_confirm_cancel_sleeping">Bạn có muốn hủy chế độ ngủ không?</string>
+    <string name="msg_cancel_sleeping">Đã hủy chế độ ngủ.</string>
+    <string name="msg_will_sleep_in_future">Sẽ ngủ trong %1$s phút.</string>
+    <string name="msg_will_sleep_on_time">Sẽ ngủ đúng giờ.</string>
+    <string name="msg_will_sleep_in_future_title">Sẽ ngủ trong ~ phút.</string>
+    <string name="msg_cancel_now">Bây giờ sẽ đi ngủ.</string>
+
+    <string name="subtitle_files">Tệp phụ đề</string>
+    <string name="select_subtitle">Chọn 1 tệp phụ đề</string>
+    <string name="download_subtitle">Tải 1 tệp phụ đề</string>
+    <string name="detach_subtitle">Tách tệp phụ đề hiện tại</string>
+
+    <string name="show_subtitle_files">Hiện tệp phụ đề</string>
+    <string name="hide_subtitle_files">Ẩn tệp phụ đề</string>
+    <string name="format_video">%1$d Video(s)</string>
+    <string name="msg_no_subtitle">Không tìm thấy tệp phụ đề!</string>
+    <string name="tv_no_subtitle" translatable="false">Can\'t find a subtitle! Click the search button to find subtitles.</string>
+    <string name="tv_select_subtitle_to_display" translatable="false">Click the subtitle you want to display here.\n\nTo download it click the top right button after displaying it.</string>
+    <string name="search_other_subtitles">Tìm phụ đề khác</string>
+    <string name="search_subtitles">Tìm phụ đề</string>
+    <string name="msg_write_video_title">Hãy viết tiêu đề của video để tìm phụ đề</string>
+    <string name="format_subtitle">%1$d Phụ đề</string>
+
+    <string name="show_subtitle_file_list">Hiển thị danh sách tệp phụ đề</string>
+
+    <string name="video_file_name">Tên video</string>
+    <string name="video_file_name_description">Tên tệp có dấu cắt ở giữa với đường dẫn đầy đủ</string>
+    <string name="subtitle_file_name">Tên tệp phụ đề</string>
+    <string name="subtitle_file_name_description">Nhấp vào đây để chọn/tải xuống phụ đề</string>
+    <string name="edit_subtitles">Sửa phụ đề</string>
+    <string name="subtitle_study_language">Phụ đề (Ngôn ngữ học)</string>
+    <string name="subtitle_mother_tongue">Phụ đề (Tiếng mẹ đẻ)</string>
+    <string name="first_subtitle_file">Tệp phụ đề đầu tiên</string>
+    <string name="second_subtitle_file">Tệp phụ đề phụ</string>
+    <string name="use_second_subtitle_file">Dùng tệp phụ đề phụ</string>
+    <string name="second_subtitle_file_desc">Phụ đề đầu tiên phải có phụ đề của Ngôn ngữ học\nPhụ đề phụ phải có phụ đề dịch (Tiếng mẹ đẻ)</string>
+    <string name="format_edit_subtitles">%1$d / %2$d phụ đề</string>
+    <string name="edit_this_subtitle">Sửa phụ đề này</string>
+    <string name="translate_this_subtitle">Dịch phụ đề này</string>
+    <string name="translate_subtitle">Dịch phụ đề</string>
+
+    <string name="translate_warning_msg">Đây là bản dịch máy nên chất lượng không tốt. Và nó chỉ dịch các hộp thoại không có bản dịch.</string>
+    <string name="recommend_codec">[Các codec được đề xuất là H.264 (Video), AAC (Âm thanh) với tệp mp4.]</string>
+    <string name="video_information_msg_you_know_words">Bạn biết %1$s từ trong số %2$s từ trong video (%3$s)</string>
+    <string name="release_date">Ngày phát hành</string>
+    <string name="director">Đạo diễn</string>
+    <string name="writer">Biên kịch</string>
+    <string name="cast">Diễn viên</string>
+    <string name="guest_stars">Ngôi sao khách mời</string>
+    <string name="genre">Thể loại</string>
+    <string name="resolution">Độ phân giải</string>
+    <string name="codec">Codec</string>
+    <string name="video_description">Nội dung</string>
+    <string name="choose_metadata">Chọn metadata</string>
+    <string name="clear_metadata">Xóa metadata</string>
+    <string name="credits">Danh đề</string>
+    <string name="format_episodes">%1$s Tập</string>
+    <string name="season">Phần</string>
+    <string name="seasons">Phần</string>
+    <string name="episodes">Tập</string>
+    <string name="format_episode_name">Tập %1$d\n%2$s</string>
+    <string name="video_overview">[Nội dung]</string>
+    <string name="msg_indexing_video_files">Lập chỉ mục tệp video&#8230;</string>
+    <string name="msg_indexing_music_files">Lập chỉ mục tệp nhạc&#8230;</string>
+
+    <string name="error_msg_parser_sub_title">Lỗi phân tích cú pháp phụ đề\n(Kiểm tra định dạng phụ đề hoặc kết nối internet)</string>
+    <string name="error_msg_parser_sub_database_title">Lỗi phân tích cú pháp phụ đề (từ cơ sở dữ liệu)\n(Kiểm tra định dạng phụ đề)</string>
+    <string name="video_information">Thông tin Video</string>
+    <string name="trailer">Trailer</string>
+
+    <string name="playback_swipe_forward_backward">Vuốt trên màn hình để tới/lùi</string>
+    <string name="playback_tap_on_forward_backward">Nhấn vào nút tới/lùi</string>
+
+    <string name="open_video_information">Mở Thông tin Video</string>
+
+    <string name="msg_change_tongue_language_analyze_again_video_information">Vui lòng nhấn vào nút "Phân tích lại" ở Thông tin Video để xem ý nghĩa một cách chính xác</string>
+    <string name="this_word_is_not_in_the_dictionary">(Từ này không có trong từ điển. Bạn cần thêm nó để hiển thị nghĩa.)</string>
+
+    <string name="sleep">Ngủ</string>
+    <string name="cancel_sleep">Hủy ngủ</string>
+    <string name="change_full_screen_subtitle_view_background_color">Thay đổi màu nền của phụ đề</string>
+    <string name="desc_listen_comprehension_1">Lặp lại số lượng hộp thoại đã chọn sau đó chuyển sang nhóm tiếp theo. Bạn có thể chọn thứ tự bằng menu "Thứ tự phát trong nhóm"</string>
+    <string name="desc_listen_comprehension_2">Mỗi hộp thoại được lặp lại theo tùy chọn đã chọn. Thứ tự là\n"Ẩn hộp thoại - Hiển thị hộp thoại - Chỉ hiển thị các từ khó (Lặp lại)"</string>
+
+    <string name="message_subtitle_font_size">kích thước phông chữ phụ đề : %1$d\nkích thước phông chữ toàn màn hình của phụ đề : %2$d</string>
+    <string name="message_change_resize_mode">Chế độ màn hình : %1$s</string>
+    <string name="resize_mode_fit">Phù hợp</string>
+    <string name="resize_mode_fixed_width">Chiều rộng cố định</string>
+    <string name="resize_mode_fixed_height">Chiều dài cố định</string>
+    <string name="resize_mode_fill">Lấp đầy</string>
+    <string name="resize_mode_zoom">Thu phóng</string>
+
+    <string name="choose_subtitle1_first">Hãy chọn một phụ đề đầu tiên trước</string>
+    <string name="download_subtitle_file">Tải xuống tệp phụ đề</string>
+    <string name="download_subtitle_file_message">Loại tệp phụ đề : %1$s\nKhông thêm phần mở rộng tệp vào tên tệp phụ đề</string>
+    <string name="download_file_started">Quá trình tải xuống đã bắt đầu.</string>
+
+    <!-- Footer Main Screen Movie -->
+    <string name="nav_video">Videos</string>
+    <string name="nav_home_multiplayer_free">Ara Multi Player</string>
+    <string name="nav_home_multiplayer">Ara Multi Player</string>
+<!--    <string name="nav_video_jp">Videos (Japanese)</string>-->
+<!--    <string name="nav_video_cn">Videos (Chinese)</string>-->
+    <string name="nav_music">Nhạc</string>
+    <string name="nav_network">Mạng</string>
+    <string name="track_selection_title">Chọn phần</string>
+    <string name="video_folder_en">Thư mục Video tiếng Anh</string>
+    <string name="video_folder_jp">Thư mục Video tiếng Nhật</string>
+    <string name="video_folder_cn">Thư mục Video tiếng Trung</string>
+    <string name="video_folder_multi_player">MultiPlayer Folder</string>
+    <string name="music_folder_en">Thư mục nhạc tiếng Anh</string>
+    <string name="music_folder_jp">Thư mục nhạc tiếng Nhật</string>
+    <string name="music_folder_cn">Thư mục nhạc tiếng Trung</string>
+    <string name="video_folder">Thư mục Video</string>
+    <string name="msg_downloaded_file_path">Các tệp được tải xuống thư mục\n%1$s</string>
+    <string name="msg_video_folder">Chỉ hiển thị video trong thư mục\n%1$s</string>
+    <string name="msg_music_folder">Chỉ hiển thị nhạc trong thư mục\n%1$s</string>
+    <string name="refresh_video_list">Làm mới danh sách video</string>
+    <string name="refresh_music_list">Làm mới danh sách nhạc</string>
+
+
+    <string name="msg_pause_video_first_to_zoom">Để phóng to/thu nhỏ, trước tiên hãy tạm dừng video</string>
+    <string name="scrollable_menu_rotate_screen">Xoay màn hình</string>
+    <string name="scrollable_menu_subtitle_group">Nhóm phụ đề</string>
+    <string name="scrollable_menu_left_hand_mode">Chế độ tay trái</string>
+    <string name="scrollable_menu_shadowing">Đổ bóng</string>
+    <string name="scrollable_menu_delay_subtitle">Độ trễ phụ đề</string>
+    <string name="scrollable_menu_sleep">Hẹn giờ ngủ</string>
+    <string name="scrollable_menu_embedded_tracks">Phần được nhúng</string>
+    <string name="scrollable_menu_night_mode">Chế độ ban đêm</string>
+    <string name="scrollable_menu_web_dictionary">Từ điển Web</string>
+    <string name="scrollable_menu_open_option">Mở tùy chọn</string>
+    <string name="scrollable_menu_open_option_desc">Tùy chọn (Chỉ áp dụng video này)</string>
+    <string name="scrollable_menu_open_setting">Mở cài đặt</string>
+    <string name="scrollable_menu_open_setting_desc">Cài đặt (Áp dụng cho tất cả video)</string>
+    <string name="scrollable_menu_open_listen_comprehension_option_desc">Tùy chọn nghe hiểu</string>
+    <string name="scrollable_menu_screen_resize">Thay đổi kích thước màn hình</string>
+    <string name="scrollable_menu_mirror_mode">Chế độ gương</string>
+    <string name="scrollable_menu_flip_vertically">Lật dọc</string>
+    <string name="tv_seasons">Phần truyền hình</string>
+
+    <string name="enable_change_table_width">Thay đổi chiều rộng của bảng</string>
+    <string name="choose_playing_screen_theme">Chủ đề trình phát</string>
+    <string name="player_theme_1">Chủ đề trình phát 1</string>
+    <string name="player_theme_2">Chủ đề trình phát 2</string>
+
+    <string name="play_subtitle_time">Thời gian phát phụ đề</string>
+    <string name="before_a_subtitle">Điều chỉnh thời gian bắt đầu của phụ đề trong quá trình lặp lại</string>
+    <string name="after_a_subtitle">Điều chỉnh thời gian kết thúc của phụ đề trong quá trình lặp lại</string>
+    <string name="keep_playing_between_subtitles">Tiếp tục phát giữa các phụ đề</string>
+    <string name="msg_refresh_subtitle_keep_the_changes">Bạn đã thay đổi dấu trang hoặc thông tin khác trong video này.\nBạn có muốn giữ các thay đổi không?</string>
+    <string name="play_videos">Phát videos</string>
+    <string name="listen_comprehension">Nghe hiểu</string>
+    <string name="listen_comprehension_hide_the_subtitle">Ẩn phụ đề</string>
+    <string name="listen_comprehension_show_the_subtitle">Hiện phụ đề</string>
+    <string name="listen_comprehension_show_difficult_words_only">Chỉ hiện các từ khó</string>
+    <string name="listen_comprehension_format_time">%1$d lần</string>
+    <string name="listen_comprehension_format_times">%1$d lần</string>
+    <string name="full_screen_hidden_buttons_transparency">Điều chỉnh độ trong suốt của các nút ẩn trên toàn màn hình</string>
+    <string name="full_screen_subtitle_view_transparency">Điều chỉnh độ trong suốt của phụ đề trên toàn màn hình</string>
+
+    <string name="transparency_subtitle_view">độ trong suốt của phụ đề</string>
+    <string name="no_data_tv_season">Các tệp Phần phim truyền hình sẽ được hiển thị tại đây.</string>
+    <string name="no_data_video_files">Không có tệp video nào trong điện thoại của bạn.\n(Bạn cần có video và tệp phụ đề của riêng mình.)\n\nSau khi sao chép tệp video vào điện thoại, hãy kéo xuống để làm mới danh sách video.</string>
+    <string name="no_data_hidden_video_files">Không có tệp video ẩn.\n\nHãy vuốt tệp video bạn muốn ẩn, sau đó bạn có thể xem tệp video tại đây.</string>
+    <string name="no_down_loading_data">Không có tệp nào để tải xuống.\n\n(Vui lòng tải tệp xuống trước)</string>
+
+    <string name="export_as_a_png_file">Xuất dưới dạng tệp PNG</string>
+    <string name="export_as_a_png_file_description">Không thêm hậu tố PNG\n(Tệp PNG sẽ được xuất trong thư mục của video)</string>
+    <string name="export_as_a_png_file_description_to_picture_folder">Không thêm hậu tố PNG\n(Tệp PNG sẽ được xuất trong thư mục %1$s)</string>
+
+    <string name="title_not_rated_words_only_in_subtitle">Bạn có biết những từ này không?\nChọn một nút(!,1,2,X)\n!:Tự tin là biết\n1:Thêm vào danh sách ghi nhớ\n2:Không biết rõ\nX:Hoàn toàn không biết</string>
+    <string name="count_not_rated_words_only_to_display_in_subtitle">Đếm các từ không được xếp hạng để hiển thị trước khi phát</string>
+
+    <string name="title_shadowing_listening_video_voice">Nghe trước khi ghi âm</string>
+    <string name="title_shadowing_listening_my_voice">Nghe bản ghi âm của tôi</string>
+    <string name="title_shadowing_recording">Đang ghi âm…</string>
+    <string name="message_subtitle_end_time_greater_than_start_time">Thời gian kết thúc của phụ đề phải lớn hơn thời gian bắt đầu.</string>
+    <string name="message_subtitle_start_time_less_than_end_time">Thời gian bắt đầu của phụ đề phải nhỏ hơn thời gian kết thúc.</string>
+    <string name="messsage_listen_comprehension_mode_starts">Chế độ nghe hiểu bắt đầu</string>
+    <string name="messsage_listen_comprehension_mode_ends">Chế độ nghe hiểu kết thúc</string>
+    <string name="messsage_enter_hidden_video_files">Bạn đang ở chế độ xem Tệp video ẩn</string>
+    <string name="messsage_insert_subtitle_no">Không có chỗ để chèn phụ đề mới. Vui lòng điều chỉnh thời gian bắt đầu hoặc kết thúc</string>
+    <string name="messsage_insert_subtitle_overlap_start_time">Thời gian bắt đầu của phụ đề mới bị trùng lặp một phần với phụ đề trước đó</string>
+    <string name="messsage_insert_subtitle_overlap_end_time">Thời gian kết thúc của phụ đề mới bị trùng một phần với phụ đề tiếp theo</string>
+
+    <string name="add_media_to_playlist">Thêm vào danh sách phát</string>
+    <string name="remove_media_from_playlist">Xóa khỏi danh sách phát</string>
+    <string name="create_new_playlist">Tạo danh sách phát mới</string>
+    <string name="enter_playlist_name">Nhập tên danh sách phát</string>
+    <string name="more_than_1_songs">%d bài</string>
+    <string name="less_or_equal_than_1_songs">%d bài</string>
+    <string name="msg_confirm_delete_playlist">Bạn có muốn xóa danh sách phát này không?</string>
+    <string name="message_no_lyric">Không có lời cho bài hát này</string>
+
+    <string name="multiple_player">Đa trình phát</string>
+    <string name="choose_number_of_screens">Số màn hình</string>
+
+    <string name="msg_reason_request_manage_external_storage">Do sự thay đổi về chính sách bảo mật trong Android 11 và các phiên bản mới hơn, cần có quyền "Truy cập tất cả tệp"\n\nTại sao lại cần quyền này? Để lấy danh sách video và phụ đề, để đổi tên/xóa tệp video bởi người dùng, để lưu bất kỳ thay đổi nào trong tệp phụ đề trên thiết bị của bạn</string>
+    <string name="multiplayer_screen_clear_history">Clear history</string>
+    <string name="msg_ask_multiplayer_screen_clear_history">Do you want to clear watched history?</string>
+    <string name="msg_ok_multiplayer_screen_clear_history">Cleared history successfully</string>
+    <string name="msg_ask_multiplayer_open_last_watched_videos">Do you want to open last watched videos?</string>
+
+    <string name="multi_player_play_view_menu_play_all_videos">Play all videos</string>
+    <string name="multi_player_pause_view_menu_play_all_videos">Pause all videos</string>
+    <string name="multi_player_hide_all_videos_ui">Hide all videos UI</string>
+    <string name="multi_player_play_all_videos_ab_repeat">Play this videos AB Repeat</string>
+    <string name="multi_player_mute_all_videos">Mute all videos</string>
+    <string name="multi_player_unmute_all_videos">Unmute all videos</string>
+
+    <string name="subtitle_selector_subtitle_connected">Has subtitle file</string>
+    <string name="subtitle_selector_subtitle_not_connected">Click here to select or download subtitle file</string>
+    <string name="login_message_to_log_in_open_subtitle_1">You need an OpenSubtitle\'s account.</string>
+    <string name="login_message_to_log_in_open_subtitle_2">Tap here to sign up</string>
+    <string name="toast_subtitle_group_deleted_subtitles">Deleted : </string>
+    <string name="subtitle_group_show_all_subtitles">Show all subtitles</string>
+    <string name="subtitle_group_selected_all_displayed_subtitles">Selected all displayed subtitles</string>
+    <string name="subtitle_group_unselected_all_displayed_subtitles">Unelected all subtitles</string>
+
+    <string name="msg_info_remain_open_subtitle_request">You can request up to %1$d subtitles per day on the OpenSubtitle site.\nYou have currently requested %2$d subtitles.\nYour quota will be renewed tomorrow.</string>
+</resources>

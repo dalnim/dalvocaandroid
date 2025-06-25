@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    style="@style/Match">
+
+    <LinearLayout
+        style="@style/Match"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/quiz_options" />
+
+        <LinearLayout
+            android:id="@+id/v_max_quiz_count"
+            style="@style/TextView_Player_Option_Layout_Item">
+
+            <TextView
+                style="@style/TextViewSettingLabel"
+                android:text="@string/max_quiz_count" />
+
+            <TextView
+                android:id="@+id/tv_max_quiz_count"
+                style="@style/TextViewSettingValue"
+                android:gravity="right" />
+
+            <ImageView style="@style/ImageView_Player_Option_Icon_Arrow" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            android:id="@+id/v_quiz_type"
+            style="@style/TextView_Player_Option_Layout_Item">
+
+            <TextView
+                style="@style/TextViewSettingLabelBase"
+                android:text="@string/quiz_type" />
+
+            <TextView
+                android:id="@+id/tv_quiz_type"
+                style="@style/TextViewSettingLabelBase"
+                android:layout_weight="1"
+                android:gravity="right" />
+
+            <ImageView style="@style/ImageView_Player_Option_Icon_Arrow" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/quiz_sources" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContent"
+            style="@style/Match"
+            android:layout_weight="1"
+            android:background="@color/backgroundColor"
+            tools:listitem="@layout/item_player_list"/>
+    </LinearLayout>
+</FrameLayout>

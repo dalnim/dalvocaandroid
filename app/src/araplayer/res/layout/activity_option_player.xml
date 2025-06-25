@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Match"
+    android:orientation="vertical">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:title="@string/option"
+        app:rightText="@string/menu"
+        app:rightColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView style="@style/Match">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_Player_Option_Subtitle_Languages"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/TextView_Player_Option_Sub_Header"
+                    style="@style/TextView_Player_Option_Sub_Header"
+                    android:text="@string/subtitle" />
+
+                <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                    android:id="@+id/rvList"
+                    style="@style/WidthMatch"
+                    tools:spanCount="2"
+                    tools:listitem="@layout/item_player_option"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextView_Player_Option_Sub_Header"
+                android:text="@string/first_subtitle_file" />
+
+            <LinearLayout
+                android:id="@+id/ll_subtitle"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_subtitle_file_name"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView_Title"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="@dimen/font_value"
+                            android:text="@string/subtitle_file_name" />
+
+                        <TextView
+                            android:id="@+id/tv_subtitle_file_name"
+                            style="@style/TextView_Title"
+                            android:alpha="0.4"
+                            android:textSize="@dimen/font_inf_value"
+                            android:maxLines="4"
+                            android:text="@string/subtitle_file_name_description" />
+                    </LinearLayout>
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+                <LinearLayout
+                    android:id="@+id/llSubTitleEncoding"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/subtitle_encoding" />
+
+                    <TextView
+                        android:id="@+id/tvSubTitleValue"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        android:text="AUTO" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+                <LinearLayout
+                    android:id="@+id/llCopySubTitle1"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/copy_subtitle_1_all_content" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+<!--                <androidx.appcompat.widget.SwitchCompat-->
+<!--                    android:id="@+id/sc_use_subtitle2"-->
+<!--                    style="@style/SwitchSetting"-->
+<!--                    android:checked="false"-->
+<!--                    android:text="@string/use_second_subtitle_file" />-->
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_subtitle2"
+                style="@style/WidthMatch"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    style="@style/TextView_Player_Option_Sub_Header"
+                    android:text="@string/second_subtitle_file" />
+
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView_Title"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="@dimen/font_value"
+                            android:text="@string/second_subtitle_file_desc" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_subtitle_file_name2"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/WidthMatch"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView_Title"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="@dimen/font_value"
+                            android:text="@string/subtitle_file_name" />
+
+                        <TextView
+                            android:id="@+id/tv_subtitle_file_name2"
+                            style="@style/TextView_Title"
+                            android:alpha="0.4"
+                            android:textSize="@dimen/font_inf_value"
+                            android:maxLines="4"
+                            android:text="@string/subtitle_file_name_description" />
+                    </LinearLayout>
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+                <LinearLayout
+                    android:id="@+id/llSubTitleEncoding2"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/subtitle_encoding" />
+
+                    <TextView
+                        android:id="@+id/tvSubTitleValue2"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        android:text="AUTO" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+                <LinearLayout
+                    android:id="@+id/llCopySubTitle2"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/copy_subtitle_2_all_content" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/TextView_Player_Option_Sub_Header"
+                android:text="@string/etc" />
+
+            <LinearLayout
+                android:id="@+id/llEtc"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_video_file_name"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/font_value"
+                        android:text="@string/video_file_name" />
+
+                    <TextView
+                        android:id="@+id/tv_video_file_name"
+                        style="@style/TextView_Title"
+                        android:alpha="0.4"
+                        android:textSize="@dimen/font_inf_value"
+                        android:maxLines="4"
+                        android:ellipsize="middle"
+                        android:text="@string/video_file_name_description" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_subtitle_file_name"-->
+<!--                    style="@style/TextView_Player_Option_Layout_Item"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <LinearLayout-->
+<!--                        style="@style/WidthMatch"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <TextView-->
+<!--                            style="@style/TextView_Title"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:textSize="@dimen/font_value"-->
+<!--                            android:text="@string/subtitle_file_name" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_subtitle_file_name"-->
+<!--                            style="@style/TextView_Title"-->
+<!--                            android:alpha="0.4"-->
+<!--                            android:textSize="@dimen/font_inf_value"-->
+<!--                            android:maxLines="4"-->
+<!--                            android:text="@string/subtitle_file_name_description" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <ImageView-->
+<!--                        style="@style/ImageView_Item_Movie"-->
+<!--                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <include layout="@layout/layout_line_horizontal_small" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/llSubTitleEncoding"-->
+<!--                    style="@style/TextView_Player_Option_Layout_Item"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="4">-->
+
+<!--                    <TextView-->
+<!--                        style="@style/TextView_Title"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_weight="3"-->
+<!--                        android:text="@string/subtitle_encoding" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvSubTitleValue"-->
+<!--                        style="@style/TextView_Title"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:alpha="0.4"-->
+<!--                        android:gravity="right"-->
+<!--                        android:text="AUTO" />-->
+
+<!--                    <ImageView-->
+<!--                        style="@style/ImageView_Item_Movie"-->
+<!--                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />-->
+<!--                </LinearLayout>-->
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+                <LinearLayout
+                    android:id="@+id/llSaveSubtitle"
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/save_subtitle" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+
+
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

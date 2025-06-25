@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dialog_list_all"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/dialogs_list_all" />
+
+    <item
+        android:id="@+id/nav_dialog_list_hided"
+        android:icon="@drawable/ic_circle_outline_black_24dp"
+        android:title="@string/dialogs_list_hided" />
+
+
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAppTint">#323D50</color>
+    <color name="primaryColor">#FF6A62</color>
+    <color name="primaryDarkColor">#FF6A62</color>
+    <color name="primaryLightColor">@color/black</color>
+    <color name="primaryLightestColor">@color/color_blue</color>
+<!--    <color name="primaryDarkColor">#222A39</color>-->
+    <color name="secondaryColor">@color/color_yellow</color>
+    <color name="secondaryLightColor">@color/color_gray</color>
+    <color name="secondaryDarkColor">#222A39</color>
+    <color name="backgroundWordInfo">#F5F6F8</color>
+
+    <color name="icon_dic_hanja_text">#5E7193</color>
+    <color name="icon_dic_hanja_circle_outline">@color/icon_day_only_color3</color>
+    <color name="icon_dic_hanja_background">#00000000</color>
+    <color name="BackgroundHanjaVocaInfoMain">#FAFAFA</color>
+
+    <color name="araconv_home_main_background">#F9FAFA</color>
+    <color name="araconv_home_grid_icon_background">#FFFFFF</color>
+
+</resources>

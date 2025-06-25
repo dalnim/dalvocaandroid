@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_wordbooks"
+        android:icon="@drawable/ic_view_list_black_24dp"
+        android:title="@string/tb_wordbooks" />
+
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/nav_title_favorites" />
+
+    <item
+        android:id="@+id/nav_homework"
+        android:icon="@drawable/ic_check_box_outline_blank_black_24dp"
+        android:title="@string/nav_title_homework" />
+
+    <item
+        android:id="@+id/nav_targets"
+        android:icon="@drawable/ic_circle_outline_black_24dp"
+        android:title="@string/nav_title_targets" />
+
+</menu>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/WidthMatch"
+    android:background="@color/BackgroundHanjaVocaInfoMain"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:background="@color/BackgroundHanjaVocaInfoMain"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/Wrap"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            >
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_favorite_new_on"
+                />
+
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tvVoca"
+                style="@style/Wrap"
+                android:textColor="@color/color_ruby_text_unknown_meaning"
+                android:textSize="@dimen/hanja_text_size_in_word_information_view"
+                app:defaultTextSize="@dimen/hanja_text_size_in_word_information_view"
+                tools:text="車"/>
+
+            <ImageView
+                android:id="@+id/ivKnow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:src="@drawable/ic_voca_know_circle_notrated" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WidthMatch"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingStart="0dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <com.dalread.component.CustomFontSizeTextView
+                android:id="@+id/tv_meaning_pronounce_hanja"
+                style="@style/TextViewItemSelectable"
+                android:textSize="@dimen/hanja_pronounce_text_size_in_information_view"
+                app:defaultTextSize="@dimen/hanja_pronounce_text_size_in_information_view"
+                tools:text="meaning"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_radical"-->
+<!--                style="@style/TextViewItemSelectable"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:visibility="gone"-->
+<!--                tools:text="radical"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_strokes"-->
+<!--                style="@style/TextViewItemSelectable"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:visibility="gone"-->
+<!--                android:textColor="@color/colorBlack" />-->
+
+<!--            <LinearLayout-->
+<!--                style="@style/WidthMatch"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:visibility="gone"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    style="@style/Wrap"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_level"-->
+<!--                        style="@style/TextViewItemSelectable"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        tools:text="level"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_type_2"-->
+<!--                        style="@style/TextViewItemSelectable"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        tools:text="type2 진흥"/>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    style="@style/Wrap"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_type_1"-->
+<!--                        style="@style/TextViewItemSelectable"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        tools:text="type1 어문회"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_type_3"-->
+<!--                        style="@style/TextViewItemSelectable"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        tools:text="type3 검정회"/>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_common_use_korea"-->
+<!--                style="@style/TextViewItemSelectable"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                android:visibility="gone"-->
+<!--                tools:text="common_use_korea"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_common_use_japan"-->
+<!--                style="@style/TextViewItemSelectable"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:visibility="gone"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                tools:text="common_use_Japan"/>-->
+
+            <TextView
+                android:id="@+id/tv_pinyin"
+                style="@style/TextViewItemSelectable"
+                android:layout_marginTop="4dp"
+                tools:text="pinyin"/>
+
+            <TextView
+                android:id="@+id/tv_kunyomi"
+                style="@style/TextViewItemSelectable"
+                android:layout_marginTop="4dp"
+                tools:text="kunyomi"/>
+
+            <TextView
+                android:id="@+id/tv_onyomi"
+                style="@style/TextViewItemSelectable"
+                android:layout_marginTop="4dp"
+                tools:text="onyomi"/>
+
+            <TextView
+                android:id="@+id/tvUnicodeHex"
+                style="@style/TextViewItemSelectable"
+                android:layout_marginTop="4dp"
+                tools:text="unicode"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.dalread.component.FuriganaView
+        android:id="@+id/tvMeaningDetailedFurigana"
+        style="@style/TextViewHanjaBookMeaningDetailed"
+        android:layout_marginTop="4dp" />
+<!--    <com.dalread.component.ReadMoreTextView-->
+<!--        android:id="@+id/tv_meaning_detailed"-->
+<!--        style="@style/ReadMoreTextViewHanjaMeaningInInformationView"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:textColor="@color/textPrimaryColor"-->
+<!--        android:visibility="gone"-->
+<!--        tools:visibility="visible"-->
+<!--        tools:text="meaning ko detailed"-->
+<!--        app:trimMode="trimModeLine"-->
+<!--        app:trimLines="10"-->
+<!--        app:colorClickableText="@color/textReadMoreColor"-->
+<!--        app:showTrimExpandedText="true"-->
+<!--        app:textIsSelectable="true"-->
+<!--        app:enableTrimMode="true"-->
+<!--        />-->
+
+    <com.dalread.component.ReadMoreTextView
+        android:id="@+id/tv_meaning_eng"
+        style="@style/ReadMoreTextViewHanjaMeaningInInformationView"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/textPrimaryColor"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="meaning eng"
+        app:trimMode="trimModeLine"
+        app:trimLines="5"
+        app:colorClickableText="@color/textReadMoreColor"
+        app:showTrimExpandedText="true"
+        app:textIsSelectable="true"
+        app:enableTrimMode="true"
+        />
+
+    <com.dalread.component.ReadMoreTextView
+        android:id="@+id/tv_meaning_eng_detailed"
+        style="@style/ReadMoreTextViewHanjaMeaningInInformationView"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/textPrimaryColor"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="meaning eng detailed"
+        app:trimMode="trimModeLine"
+        app:trimLines="5"
+        app:colorClickableText="@color/textReadMoreColor"
+        app:showTrimExpandedText="true"
+        app:textIsSelectable="true"
+        app:enableTrimMode="true"
+        />
+
+    <TextView
+        android:id="@+id/tvRemainPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/textPrimaryColor"
+        android:layout_gravity="end"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:text="100 Points" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:background="@color/BackgroundHanjaVocaInfoMain"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/ivCopy"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_copy2"
+            />
+
+        <ImageView
+            android:id="@+id/ivWordList"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_word_list"
+            />
+
+        <ImageView
+            android:id="@+id/iv_web_dictionary_en"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_dic_hanja_english"
+            />
+
+        <ImageView
+            android:id="@+id/iv_web_dictionary_jp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_dic_hanja_japanese"
+            />
+
+        <ImageView
+            android:id="@+id/iv_web_dictionary_ch_s"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_dic_hanja_chinese"
+            />
+
+        <ImageView
+            android:id="@+id/iv_web_dictionary"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_dic_hanja_korean"
+            />
+
+        <ImageView
+            android:id="@+id/ivEditView"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_edit2"/>
+
+        <ImageView
+            android:id="@+id/ivWebSearch"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_globe_empty"/>
+    </LinearLayout>
+</LinearLayout>

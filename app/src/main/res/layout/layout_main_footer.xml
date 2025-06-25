@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutFooter"
+    style="@style/Layout_Footer"
+    android:gravity="center">
+
+    <LinearLayout
+        style="@style/Wrap"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_icon_header">
+
+        <ImageView
+            android:id="@+id/footerPrev"
+            style="@style/Wrap"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/ic_left_cc" />
+
+        <ImageView
+            android:id="@+id/footerNext"
+            style="@style/Wrap"
+            android:src="@drawable/ic_right_cc" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/Wrap"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_icon_header">
+
+        <ImageView
+            android:id="@+id/footerReadingList"
+            style="@style/Wrap"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/ic_edit" />
+
+        <ImageView
+            android:id="@+id/footerBookmark"
+            style="@style/Wrap"
+            android:src="@drawable/ic_bookmark" />
+    </LinearLayout>
+</RelativeLayout>

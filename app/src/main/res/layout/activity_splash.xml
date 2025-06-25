@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Match"
+    android:id="@+id/root"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/Wrap"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/nav_header_height">
+
+        <TextView
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/textPrimaryWhiteColor"
+            android:textSize="@dimen/font_splash" />
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ivVideoFolderForStudyLanguage"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="1dp" />
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/splashMotherTongue"-->
+        <!--        style="@style/Wrap"-->
+        <!--        android:layout_centerInParent="true"-->
+        <!--        android:textColor="@color/textPrimaryWhiteColor"-->
+        <!--        android:textSize="@dimen/font_splash_language"-->
+        <!--        tools:text="English"/>-->
+
+    </LinearLayout>
+    <TextView
+        style="@style/TextView_Title"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin_item"
+        android:text="@string/splash_copyright"
+        android:textColor="@color/textPrimaryWhiteColor" />
+</RelativeLayout>

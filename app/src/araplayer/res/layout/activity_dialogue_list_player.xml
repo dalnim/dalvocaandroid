@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ViewBase">
+
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+        app:rightIcon2="@drawable/ic_more_vert_white_24dp"
+        app:title="@string/words_list"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nvBottom"
+        style="@style/WidthMatch"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/color_nav_background"
+        app:itemIconTint="@drawable/selector_voca"
+        app:itemTextColor="@drawable/selector_voca"
+        app:menu="@menu/menu_bottom_word_list" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_above="@id/nvBottom"
+        android:layout_below="@id/header" />
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_item"
+    style="@style/WidthMatch"
+    android:minHeight="48dp"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingTop="@dimen/item_padding_top_bottom"
+    android:paddingRight="12dp"
+    android:paddingBottom="@dimen/item_padding_top_bottom">
+
+    <RelativeLayout
+        style="@style/WidthMatch"
+        android:minHeight="48dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="@dimen/item_padding_top_bottom"
+        android:paddingRight="12dp"
+        android:paddingBottom="@dimen/item_padding_top_bottom">
+
+        <ImageView
+            android:id="@+id/ic_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tv_index"
+            style="@style/TextViewSubItem"
+            android:layout_marginTop="4dp"
+            android:paddingTop="1dp" />
+
+        <ImageView
+            android:id="@+id/ic_play"
+            style="@style/Wrap"
+            android:layout_below="@id/tv_index" />
+
+        <LinearLayout
+            android:id="@+id/v_text"
+            style="@style/Wrap"
+            android:layout_alignTop="@id/tv_index"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@id/ic_arrow"
+            android:layout_toRightOf="@id/ic_play"
+            android:orientation="vertical">
+
+            <com.dalread.component.FuriganaView
+                android:id="@+id/fv_title"
+                style="@style/TextViewItem"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextViewItem" />
+
+            <com.dalread.component.FuriganaView
+                android:id="@+id/fv_default_phrase_for_student"
+                style="@style/TextViewItem"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_default_phrase_for_student"
+                style="@style/TextViewItem" />
+
+            <com.dalread.component.FuriganaView
+                android:id="@+id/fv_value"
+                style="@style/TextViewItem"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_value"
+                style="@style/TextViewItem"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

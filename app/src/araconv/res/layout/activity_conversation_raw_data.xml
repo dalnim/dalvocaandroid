@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.dalread.component.Toolbar
+        android:id="@id/header"
+        style="@style/WidthMatch"
+        app:leftIcon="@drawable/ic_back"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+    <TextView
+        android:text="@string/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+    <EditText
+        android:id="@+id/etTitle"
+        style="@style/TextView_Hanja_Edit"
+        android:layout_weight="0"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:drawableEnd="@drawable/ic_circle_close"
+        android:hint="@string/type_title"/>
+
+    <EditText
+        android:id="@+id/etConversationRawData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:background="@drawable/background_edittext_no_border"
+        android:hint="@string/hint_add_role_playing_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/btnPaste"
+                style="@style/Button_Base"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border_4dp_gray"
+                android:text="@string/paste"
+                android:layout_marginEnd="30dp"
+                android:textColor="@color/textWhiteColor" />
+
+            <TextView
+                android:id="@+id/btnClear"
+                style="@style/Button_Base"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border_4dp_gray"
+                android:text="@string/clear"
+                android:layout_marginEnd="30dp"
+                android:textColor="@color/textWhiteColor" />
+            <TextView
+                android:id="@+id/btnOk"
+                style="@style/Button_Base"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border_4dp_gray"
+                android:text="@string/save"
+
+                android:textColor="@drawable/btn_ok_color" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

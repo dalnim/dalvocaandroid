@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Padding"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/Layout_Dialog"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/TextView_Player_Option_Sub_Header"
+            android:text="@string/scrollable_menu_open_setting_desc" />
+        <androidx.core.widget.NestedScrollView
+            style="@style/Match">
+        <LinearLayout
+            android:id="@+id/llPlayRepetition"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llSwipeForwardBackward"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/playback_swipe_forward_backward" />
+
+                    <TextView
+                        android:id="@+id/tvSwipeForwardBackward"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="180sec" />
+
+                    <ImageView
+                        style="@style/ImageView_Player_Option_Icon_Arrow"/>
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTapOnForwardBackward"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/playback_tap_on_forward_backward" />
+
+                    <TextView
+                        android:id="@+id/tvTapOnForwardBackward"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="3sec" />
+
+                    <ImageView
+                        style="@style/ImageView_Player_Option_Icon_Arrow"/>
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHiddenButtonsTransparencyOnFullScreen"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/full_screen_hidden_buttons_transparency" />
+
+                    <TextView
+                        android:id="@+id/tvHiddenButtonsTransparencyOnFullScreen"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="100%" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSubtitleViewTransparencyOnFullScreen"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <LinearLayout
+
+                    style="@style/TextView_Player_Option_Layout_Item"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:text="@string/full_screen_subtitle_view_transparency" />
+
+                    <TextView
+                        android:id="@+id/tvSubtitleViewTransparencyOnFullScreen"
+                        style="@style/TextView_Title"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:alpha="0.4"
+                        android:gravity="right"
+                        tools:text="100%" />
+
+                    <ImageView
+                        style="@style/ImageView_Item_Movie"
+                        android:src="@drawable/ic_keyboard_arrow_right_36dp" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDisplayStartEndTime"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scDisplayStartEndTime"
+                    style="@style/SwitchSetting"
+                    android:text="@string/display_start_end_time" />
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayMusicBetweenLyricsOnly"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scPlayMusicBetweenLyricsOnly"
+                    style="@style/SwitchSetting"
+                    android:text="@string/play_music_between_lyrics_only" />
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayTitleByTtsBeforePlaying"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scPlayTitleByTtsBeforePlaying"
+                    style="@style/SwitchSetting"
+                    android:text="@string/play_title_by_tts_before_playing" />
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llPlayAllDifficultWordBeforePlayingMusic"
+                style="@style/WidthMatch"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scPlayAllDifficultWordBeforePlayingMusic"
+                    style="@style/SwitchSetting"
+                    android:text="@string/play_all_difficult_words_before_playing_music" />
+
+                <include layout="@layout/layout_line_horizontal_small" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvOK"
+                style="@style/Button_Base"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/close"
+                android:textColor="@drawable/btn_ok_color" />
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
