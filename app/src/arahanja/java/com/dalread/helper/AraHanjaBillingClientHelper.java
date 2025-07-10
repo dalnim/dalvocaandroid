@@ -7,6 +7,7 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.QueryProductDetailsParams;
+import com.android.billingclient.api.QueryProductDetailsResult;
 import com.dalread.AraHanjaApplication;
 import com.dalread.BaseApplication;
 import com.dalread.network.events.BaseEvent;
@@ -77,10 +78,10 @@ public class AraHanjaBillingClientHelper extends BillingClientHelper {
     protected void queryAvailableSpecificProducts() {
         QueryProductDetailsParams queryProductDetailsParams = getQueryClassicProductDetailsParams();
 
-        billingClient.queryProductDetailsAsync(queryProductDetailsParams, (billingResult, list) -> {
-            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && list != null && !list.isEmpty()) {
+        billingClient.queryProductDetailsAsync(queryProductDetailsParams, (billingResult, queryProductDetailsResult) -> {
+            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && queryProductDetailsResult != null && !queryProductDetailsResult.getProductDetailsList().isEmpty()) {
                 ImmutableList.Builder<BillingFlowParams.ProductDetailsParams> builder = ImmutableList.builder();
-                for (ProductDetails productDetails : list) {
+                for (ProductDetails productDetails : queryProductDetailsResult.getProductDetailsList()) {
                     DLog.i(TAG, "productDetails: " + productDetails);
                     BillingFlowParams.ProductDetailsParams productDetailsParams =
                             BillingFlowParams.ProductDetailsParams.newBuilder()

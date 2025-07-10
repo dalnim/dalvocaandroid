@@ -15,12 +15,14 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.ConsumeResponseListener;
+import com.android.billingclient.api.PendingPurchasesParams;
 import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.ProductDetailsResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.QueryProductDetailsParams;
 import com.android.billingclient.api.QueryPurchasesParams;
+import com.android.billingclient.api.QueryProductDetailsResult;
 import com.dalread.BaseApplication;
 import com.dalread.R;
 import com.dalread.database.SharedPreferencesDB;
@@ -74,7 +76,7 @@ public class BillingClientHelper implements Serializable, LifecycleObserver, Pur
     private void initBillingClient() {
         billingClient = BillingClient.newBuilder(activity)
                 .setListener(this)
-                .enablePendingPurchases()
+                .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
                 .build();
         if (!billingClient.isReady()) {
             startBillingConnection();
@@ -137,10 +139,10 @@ public class BillingClientHelper implements Serializable, LifecycleObserver, Pur
         DLog.i(TAG, "queryAvailableProducts");
         QueryProductDetailsParams queryProductDetailsParams = getQueryProductDetailsParams();
 
-        billingClient.queryProductDetailsAsync(queryProductDetailsParams, (billingResult, list) -> {
-            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && list != null && !list.isEmpty()) {
+        billingClient.queryProductDetailsAsync(queryProductDetailsParams, (billingResult, queryProductDetailsResult) -> {
+            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && queryProductDetailsResult != null && !queryProductDetailsResult.getProductDetailsList().isEmpty()) {
                 ImmutableList.Builder<BillingFlowParams.ProductDetailsParams> builder = ImmutableList.builder();
-                for (ProductDetails productDetails : list) {
+                for (ProductDetails productDetails : queryProductDetailsResult.getProductDetailsList()) {
                     DLog.i(TAG, "productDetails: " + productDetails);
                     BillingFlowParams.ProductDetailsParams productDetailsParams =
                         BillingFlowParams.ProductDetailsParams.newBuilder()
@@ -228,9 +230,9 @@ public class BillingClientHelper implements Serializable, LifecycleObserver, Pur
         billingClient.queryProductDetailsAsync(
                 params,
                 new ProductDetailsResponseListener() {
-                    public void onProductDetailsResponse(BillingResult billingResult, List<ProductDetails> productDetailsList) {
+                    public void onProductDetailsResponse(BillingResult billingResult, QueryProductDetailsResult queryProductDetailsResult) {
                         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                            for (ProductDetails purchase : productDetailsList) {
+                            for (ProductDetails purchase : queryProductDetailsResult.getProductDetailsList()) {
                                 DLog.v(TAG,"onQueryPurchasesResponse - purchase: " + purchase);
                             }
                         }
