@@ -938,21 +938,21 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
 //    }
 
     private void checkPermission() {
-        if (sharedPreferences.isFirstShowManageExternalStorage() && !PermissionUtils.checkManageExternalStoragePermission()) {
-            sharedPreferences.setFirstShowManageExternalStorage();
-            showConfirmationManageStoragePermissionDialog();
-        } else if (sharedPreferences.isFirstShowManageExternalStorage() && !PermissionUtils.checkExternalStoragePermission(this)) {
-            sharedPreferences.setFirstShowManageExternalStorage();
-            PermissionUtils.checkExternalStoragePermission(this, true);
-        } else {
-            swapCurrentFragment();
-        }
-        //MANAGE_EXTERNAL_STORAGE을 안쓰면 아래를 사용하면 된다.
-//        if (!PermissionUtils.checkExternalStoragePermission(this)) {
+//        if (sharedPreferences.isFirstShowManageExternalStorage() && !PermissionUtils.checkManageExternalStoragePermission()) {
+//            sharedPreferences.setFirstShowManageExternalStorage();
+//            showConfirmationManageStoragePermissionDialog();
+//        } else if (sharedPreferences.isFirstShowManageExternalStorage() && !PermissionUtils.checkExternalStoragePermission(this)) {
+//            sharedPreferences.setFirstShowManageExternalStorage();
 //            PermissionUtils.checkExternalStoragePermission(this, true);
 //        } else {
 //            swapCurrentFragment();
 //        }
+        //MANAGE_EXTERNAL_STORAGE을 안쓰면 아래를 사용하면 된다.
+        if (!PermissionUtils.checkExternalStoragePermission(this)) {
+            PermissionUtils.checkExternalStoragePermission(this, true);
+        } else {
+            swapCurrentFragment();
+        }
     }
 
     public String getCurrentPath() {

@@ -1,7 +1,6 @@
 package com.dalread.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -257,22 +256,22 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
     }
 
     private void checkPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (!PermissionUtils.checkManageExternalStoragePermission()) {
-                //새로 설치하는 유저와 기존유저들 둘다 불어본다.
-                if (sharedPreferences.isFirstShowManageExternalStorage() || sharedPreferences.isFirstShowManageExternalStorageInstalledUser()) {
-                    showExternalManageStoragePermissionDialog();
-                }
-            }
-        } else {
-            if (sharedPreferences.isFirstShowExternalStorage() && !PermissionUtils.checkExternalStoragePermission(this)) {
-                PermissionUtils.checkExternalStoragePermission(this, true);
-            }
-        }
-        //MANAGE_EXTERNAL_STORAGE을 안쓰면 아래를 사용하면 된다.
-//        if (!PermissionUtils.checkExternalStoragePermission(this)) {
-//            PermissionUtils.checkExternalStoragePermission(this, true);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//            if (!PermissionUtils.checkManageExternalStoragePermission()) {
+//                //새로 설치하는 유저와 기존유저들 둘다 불어본다.
+//                if (sharedPreferences.isFirstShowManageExternalStorage() || sharedPreferences.isFirstShowManageExternalStorageInstalledUser()) {
+//                    showExternalManageStoragePermissionDialog();
+//                }
+//            }
+//        } else {
+//            if (sharedPreferences.isFirstShowExternalStorage() && !PermissionUtils.checkExternalStoragePermission(this)) {
+//                PermissionUtils.checkExternalStoragePermission(this, true);
+//            }
 //        }
+        //MANAGE_EXTERNAL_STORAGE을 안쓰면 아래를 사용하면 된다.
+        if (!PermissionUtils.checkExternalStoragePermission(this)) {
+            PermissionUtils.checkExternalStoragePermission(this, true);
+        }
     }
 
     private void openDrawer() {

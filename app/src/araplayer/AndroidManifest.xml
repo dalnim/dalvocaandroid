@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
 <!--    Android 11(API 30)이상 부터는 전체 외부 저장소 파일 시스템에 접근 또는 숨김 파일을 읽을려면 아래 권한이 필요하다. //MANAGE_EXTERNAL_STORAGE -->
-     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+<!--     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <!--    사진기능은 뺀다.-->
