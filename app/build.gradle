@@ -174,8 +174,8 @@ android {
             minSdkVersion 26
             targetSdkVersion 35
             //MANAGE_EXTERNAL_STORAGE 도 없애고 앱 출시할것
-            versionCode 10
-            versionName '0.0.10'
+            versionCode 67
+            versionName '0.0.67'
             proguardFile 'proguard-rules.pro'
             buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
             buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
