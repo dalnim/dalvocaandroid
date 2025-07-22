@@ -94,6 +94,12 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
             return doubleClickHelper.onTouch(v, event, null);
         });
         initOnClickListener();
+
+        // 프로 버전이면 광고/포인트 UI 숨김
+        if (AppFlavorUtil.isAraMultiPlayerAppPro()) {
+            binding.btnWatchRewardedAd.setVisibility(View.GONE);
+            binding.tvRemainPoint.setVisibility(View.GONE);
+        }
     }
 
     private void showClearMultiScreenHistoryButton() {
@@ -113,7 +119,7 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     }
 
     private void showRewardButton() {
-        if (needToShowWatchRewardedAd || pointUtil.needToShowRewardButton()) {
+        if (AppFlavorUtil.isAraMultiPlayerAppLite() && (needToShowWatchRewardedAd || pointUtil.needToShowRewardButton())) {
             binding.btnWatchRewardedAd.setVisibility(View.VISIBLE);
             needToShowWatchRewardedAd = false;
         }
@@ -169,7 +175,11 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
             sharedPreferences.setFirstShowGuideScreenCount();
             String title = getString(R.string.guide_multi_player_screen_count);
             activity.runOnUiThread(() -> {
-                GuideUtil.showGuideView(activity, title, binding.btnScreenCount, view -> showGuidePointDeduction());
+                GuideUtil.showGuideView(activity, title, binding.btnScreenCount, view -> {
+                    if (AppFlavorUtil.isAraMultiPlayerAppLite()) {
+                        showGuidePointDeduction();
+                    }
+                });
             });
         } else {
             //일단 무료 포인트 얻는 가이드는 디버깅 모드에서만 보여주자.
@@ -194,13 +204,19 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     }
 
     private void showGuideWatchAd() {
-        if (sharedPreferences.isFirstShowGuideWatchAd()) {
+        if (AppFlavorUtil.isAraMultiPlayerAppPro()) {
             sharedPreferences.setFirstShowGuideWatchAd();
-            String title = getString(R.string.guide_watch_ad_to_get_point);
-            GuideUtil.showGuideView(activity, title, binding.btnWatchRewardedAd, view -> {
-                binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
-                showGuideScreenCount();
-            });
+            binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
+            showGuideScreenCount();
+        } else {
+            if (sharedPreferences.isFirstShowGuideWatchAd()) {
+                sharedPreferences.setFirstShowGuideWatchAd();
+                String title = getString(R.string.guide_watch_ad_to_get_point);
+                GuideUtil.showGuideView(activity, title, binding.btnWatchRewardedAd, view -> {
+                    binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
+                    showGuideScreenCount();
+                });
+            }
         }
     }
 
@@ -239,7 +255,7 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     }
 
     private void openMultiplePlayerView(int numberOfScreens) {
-        if (pointUtil.needToShowFullAd()) {
+        if (AppFlavorUtil.isAraMultiPlayerAppLite() && pointUtil.needToShowFullAd()) {
             final YesNoDialog dialog = new YesNoDialog(activity,
                     R.string.info,
                     R.string.msg_warning_no_points_watch_ads_get_points, null,
@@ -395,6 +411,7 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     }
 
     protected void loadBanner() {
+        if (AppFlavorUtil.isAraMultiPlayerAppPro()) return;
 //        if (!canShowAds) return;
         AdRequest adRequest = new AdRequest.Builder().build();
         AdSize adSize = BaseMobileAd.getAdSize(activity);

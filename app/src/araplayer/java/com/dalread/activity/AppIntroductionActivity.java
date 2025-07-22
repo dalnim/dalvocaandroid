@@ -74,7 +74,7 @@ public class AppIntroductionActivity extends BaseActivity {
             binding.vPager.setCurrentItem(++pos);
         } else if (text.equalsIgnoreCase(getString(R.string.done))){
             if (!fromMenu) {
-                if (AppFlavorUtil.isAraMultiPlayerApp()) {
+                if (AppFlavorUtil.isAraMultiPlayerAppLite()) {
                     Loading.showDelay(this);
                     BaseInterstitialAdManager.showInterstitialAd(this,
                             BaseMobileAd.Admob.AraMultiPlayer.Lite.INTERSTITIAL_UNIT_ID,
@@ -84,6 +84,8 @@ public class AppIntroductionActivity extends BaseActivity {
                             }
                     );
 ////                    openNewScreen(MainHomeActivity.class, true);
+                } else if (AppFlavorUtil.isAraMultiPlayerAppPro()) {
+                    openMultiPlayerHomeActivity();
                 } else {
                     openNewScreen(ChooseMotherLanguageActivity.class, true);
                     finish();
