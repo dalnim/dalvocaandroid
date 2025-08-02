@@ -5,7 +5,8 @@
     style="@style/ViewBase"
     android:id="@+id/root"
     android:background="@color/backgroundCellColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <com.dalread.component.Toolbar
         android:id="@id/header"

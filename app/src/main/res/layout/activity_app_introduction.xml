@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/ViewBase"
     android:background="@color/backgroundWhiteColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <com.dalread.component.Toolbar
         android:id="@id/header"
