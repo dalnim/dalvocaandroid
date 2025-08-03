@@ -1402,9 +1402,26 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         return timeBaseRepeatStatus == Constant.PLAYER.REPEAT.TIMEBASE.B;
     }
 
+    private long lastTimeUpdate = 0;
+    private static final long TIME_UPDATE_INTERVAL = 500; // 0.5초마다 업데이트
+
     private void updateVideoTime(long position) {
+        long currentTime = System.currentTimeMillis();
+        
+        // 0.5초마다만 업데이트
+        if (currentTime - lastTimeUpdate < TIME_UPDATE_INTERVAL) {
+            return;
+        }
+        
+        // TextView가 보이지 않으면 업데이트하지 않음
+        if (binding.tvVideoStartTime.getVisibility() != View.VISIBLE || 
+            binding.tvVideoEndTime.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        
         binding.tvVideoStartTime.setText(getDisplayTimes(position));
         binding.tvVideoEndTime.setText(getDisplayTimes((exoPlayer.getDuration() - position)));
+        lastTimeUpdate = currentTime;
     }
 
     private void updatePlayerStateAndReadyChanged() {
