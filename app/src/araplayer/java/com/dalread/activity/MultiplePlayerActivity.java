@@ -733,23 +733,28 @@ public class MultiplePlayerActivity extends BaseActivity {
                     checkedItems[indexSelected] = isChecked;
                 })
                 .setPositiveButton(R.string.select, (dialog, id) -> {
-                    int minSize = Math.min(fragmentList.size(), checkedItems.length);
-                    clearDuplicatedFragments();
-                    for (int i = 0; i < minSize; i++) {
-                        // checkedItems[i]가 true인 것만 함.
-                        //원래는 선택한 화면의 비디오는 그냥 쓸려고 했는데, 가끔 화면에 로드한 비디오와 화면동기화가 안될때가 있어서 전부 다함.
-                        if (checkedItems[i]) {
-                            MultiplePlayerFragment fragment = fragmentList.get(i);
-                            duplicatedFragments.add(fragment);
-                            MultiPlayerVideoModel modelTemp = model.clone();
-                            modelTemp.setSCREEN_ID(fragment.getModel().getSCREEN_ID());
-                            multiPlayerDatabase.updateOrInsertInTable(modelTemp);
-                            fragment.setDuplicatedFragment(true);
-                            fragment.setModel(modelTemp);
-                            fragment.setCurrentVideoFilePathList(currentVideoFilePathList);
-                            fragment.initExoPlayer();
-                        }
-                    }
+                    Loading.show(this);
+
+                                            new Handler().postDelayed(() -> {
+                            int minSize = Math.min(fragmentList.size(), checkedItems.length);
+                            clearDuplicatedFragments();
+                            for (int i = 0; i < minSize; i++) {
+                                // checkedItems[i]가 true인 것만 함.
+                                //원래는 선택한 화면의 비디오는 그냥 쓸려고 했는데, 가끔 화면에 로드한 비디오와 화면동기화가 안될때가 있어서 전부 다함.
+                                if (checkedItems[i]) {
+                                    MultiplePlayerFragment fragment = fragmentList.get(i);
+                                    duplicatedFragments.add(fragment);
+                                    MultiPlayerVideoModel modelTemp = model.clone();
+                                    modelTemp.setSCREEN_ID(fragment.getModel().getSCREEN_ID());
+                                    multiPlayerDatabase.updateOrInsertInTable(modelTemp);
+                                    fragment.setDuplicatedFragment(true);
+                                    fragment.setModel(modelTemp);
+                                    fragment.setCurrentVideoFilePathList(currentVideoFilePathList);
+                                    fragment.initExoPlayer();
+                                }
+                            }
+                            Loading.hide();
+                        }, 100);
                 })
                 .setNegativeButton(R.string.cancel, (dialog, which) -> {
                     int i = 0;

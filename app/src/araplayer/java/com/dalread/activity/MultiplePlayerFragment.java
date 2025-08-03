@@ -672,9 +672,10 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
         isVideoLoaded = true;
         updatePinScreenImageMain();
-        if (duplicatedFragment) {
-            activity.playDuplicatedFragments();
-        }
+        // 아래가 있으면 화면을 복사할때 자동으로 플레이를 한다. 그런데 화면이 많으면 동기화가 잘 안되어서 일단 플레이는 안하고 정지상태로 한다.
+//        if (duplicatedFragment) {
+//            activity.playDuplicatedFragments();
+//        }
     }
 
     private void releasePlayer() {
@@ -694,7 +695,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
 //        MediaItem mediaItem = MediaItem.fromUri(filePath);
         exoPlayer.setMediaItem(mediaItem);
         exoPlayer.prepare();
-        exoPlayer.setPlayWhenReady(playWhenReady);
+        setPlayWhenReady(playWhenReady);
         if (hasSavedAbRepeatTime()) {
             seekToInPlayer(model.getLAST_TIME());
 //            seekToInPlayer(model.getAB_A()); //AB반복이 있으면 비디오를 열었을때 AB반복으로 보내는게 맞나?
@@ -909,7 +910,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     private void pausePlayerMain(boolean fromAllPlay) {
         requireActivity().runOnUiThread(() -> {
             if (exoPlayer != null && exoPlayer.getPlayWhenReady()) {
-                exoPlayer.setPlayWhenReady(false);
+                setPlayWhenReady(false);
                 if (!fromAllPlay) {
                     activity.refreshAllPlayPauseIcon();
                 }
@@ -1492,7 +1493,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     private void playCommon(boolean shouldPlay, boolean fromAllPlay) {
         if (exoPlayer != null) {
             consumePoint();
-            exoPlayer.setPlayWhenReady(shouldPlay);
+            setPlayWhenReady(shouldPlay);
             if (!fromAllPlay) {
                 activity.refreshAllPlayPauseIcon();
             }
@@ -2178,5 +2179,12 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
     private void updateAudioSpeedValueOnButton() {
         binding.tvAudioSpeedValue.setText(getAudioSpeedToDisplay());
+    }
+
+    public void setPlayWhenReady(boolean playWhenReady) {
+        this.playWhenReady = playWhenReady;
+        if (exoPlayer != null) {
+            exoPlayer.setPlayWhenReady(playWhenReady);
+        }
     }
 }
