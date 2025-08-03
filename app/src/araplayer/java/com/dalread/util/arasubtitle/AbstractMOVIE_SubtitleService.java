@@ -558,11 +558,13 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
             getListFromWordMorpheme(mapUniqueWordsWithPOSAndWOrdMorpheme, listWordAndPos, listWordOrBaseForm, listFromText);
 
             long dbQueryStartTime = System.currentTimeMillis();
-            //단어 테이블에서 해당되는 단어를 가져온다.
-            String wordsCommaSeparated = mapUniqueWordsWithPOSAndWOrdMorpheme.values().stream()
-                    .map(WordMorpheme::getWord)  // Extract the word from WordMorpheme
-                    .collect(Collectors.joining(", "));
-            final List<IVocaFullPlayTTSItem>  result = VocaListUtil.getAllWordListOfFromDB(wordsCommaSeparated, dicDatabase);
+            //단어 테이블에서 해당되는 단어를 가져온다. - 배치 쿼리로 최적화
+            List<String> words = mapUniqueWordsWithPOSAndWOrdMorpheme.values().stream()
+                    .map(WordMorpheme::getWord)
+                    .collect(Collectors.toList());
+            
+            int wordBatchSizeForDBQuery = 500; // DB 쿼리용 단어 배치 크기
+            final List<IVocaFullPlayTTSItem> result = getWordsInBatches(words, wordBatchSizeForDBQuery);
             long dbQueryEndTime = System.currentTimeMillis();
             DLog.i("SUBTITLE_ANALYSIS", "   - DB 쿼리 완료: " + (dbQueryEndTime - dbQueryStartTime) + "ms");
             DLog.i("SUBTITLE_ANALYSIS", "   - DB에서 찾은 단어 수: " + result.size() + "개");
@@ -610,42 +612,20 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
 //                }
 //            }
             long processStartTime = System.currentTimeMillis();
-            for (IVocaFullPlayTTSItem vo : result) {
-//				DTO_MEANING dtoMeaning = dalVocaService.getValueFromMethod(dto.getLANG_MEANING_CODE(), vo); //뜻은 모국어에 따라서 다르므로 따로 처리한다.
-                String Word = vo.getVIVoca(); // (String) resultMap.get(Constants.FLD_WORD);
-                Integer id = vo.getVIId();//(Integer) resultMap.get(Constants.FLD_ID);
-
-                //단어 테이블에서 가져왔기 때문에 VOCA_TYPE이 NULL로 나와서 여기서 하드코딩으로 넣어준다.
+            // 스트림과 그룹핑으로 데이터 처리 최적화
+            mapWordBaseFormInDic = result.stream()
+                    .collect(Collectors.groupingBy(IVocaFullPlayTTSItem::getVIVoca));
+            
+            // listVocaTypeID와 listVocaID 생성도 스트림으로 최적화
+            result.forEach(vo -> {
                 listVocaTypeID.add(new DTO_VOCA_TYPE_ID.Builder()
                         .VOCA_TYPE(Constants.VOCA_TYPE_WORD)
-                        .VOCA_ID(id)
+                        .VOCA_ID(vo.getVIId())
                         .build());
-
-                listVocaID.add(id);
-                if (!mapWordBaseFormInDic.containsKey(Word)) {
-                    List<IVocaFullPlayTTSItem> listResultMap = new ArrayList<>();
-                    listResultMap.add(vo);
-                    mapWordBaseFormInDic.put(Word, listResultMap);
-                } else {
-                    // 기본형이 동음이의어라서 word는 같지만 POS, 발음등이 다를수 있다.
-                    // Map<String, List<Object>> resultMapSave = (Map<String, List<Object>>)
-                    // mapWordBaseFormInDic.get(Word);
-                    // if (resultMapSave == resultMap) {
-                    // continue;
-                    // }
-                    List<IVocaFullPlayTTSItem> listResultMap = (List<IVocaFullPlayTTSItem>) mapWordBaseFormInDic.get(Word);
-                    listResultMap.add(vo);
-                    mapWordBaseFormInDic.put(Word, listResultMap);
-
-//					String WordOri = vo.getVOCAORI();// (String) resultMap.get(Constants.FLD_WORDORI);
-//					String Meaning =  (String) resultMap.get(fld_Meaning);
-//					String strAllPOS = (String) resultMap.get(Constants.FLD_POSALL);
-//					logger.info("Word : " + Word);
-//					logger.info("WordOri : " + WordOri);
-//					logger.info("Meaning : " + Meaning);
-//					logger.info("strAllPOS : " + strAllPOS);
-                }
-            }
+                listVocaID.add(vo.getVIId());
+            });
+            long processEndTime = System.currentTimeMillis();
+            DLog.i("SUBTITLE_ANALYSIS", "   - 데이터 처리 완료: " + (processEndTime - processStartTime) + "ms");
 //			Map<Integer, Integer> mapAmkiGradeList = getAmkiGradeListForUser(uid, studylangCodeInClass, listVocaID);
 
             // DB에는 북마크와 안다 모른다는 기본형이 아니라 본문에 나온그대로 저장한다.(활용형)
@@ -852,6 +832,19 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         long totalTime = System.currentTimeMillis() - startTime;
         DLog.i("SUBTITLE_ANALYSIS", "--- 사전 검색 완료: 총 " + totalTime + "ms ---");
         return mapJsonWord;
+    }
+
+    // 배치 쿼리로 단어 검색을 최적화하는 헬퍼 메서드
+    private List<IVocaFullPlayTTSItem> getWordsInBatches(List<String> words, int batchSize) {
+        List<IVocaFullPlayTTSItem> allResults = new ArrayList<>();
+        for (int i = 0; i < words.size(); i += batchSize) {
+            int end = Math.min(i + batchSize, words.size());
+            List<String> batch = words.subList(i, end);
+            String batchQuery = batch.stream().collect(Collectors.joining(", "));
+            List<IVocaFullPlayTTSItem> batchResult = VocaListUtil.getAllWordListOfFromDB(batchQuery, dicDatabase);
+            allResults.addAll(batchResult);
+        }
+        return allResults;
     }
     public static List<VO_DIC_COMMON> convertToVODicCommon(List<IVocaFullPlayTTSItem> items) {
         return items.stream().map(item -> {
