@@ -102,7 +102,7 @@ public final class TrackSelectionDialog extends DialogFragment {
                 /* onClickListener= */ (dialog, which) -> {
                     String data = Constant.BASE_BLANK;
                     List<TrackSelection> trackSelectionList = new ArrayList<>();
-                    DefaultTrackSelector.ParametersBuilder builder = parameters.buildUpon();
+                    DefaultTrackSelector.Parameters.Builder builder = parameters.buildUpon();
                     for (int rendererIndex = 0; rendererIndex < mappedTrackInfo.getRendererCount(); rendererIndex++) {
                         int trackType = mappedTrackInfo.getRendererType(rendererIndex);
                         boolean isDisable = trackSelectionDialog.getIsDisabled(rendererIndex);

@@ -9401,7 +9401,7 @@ public class PlayerFragment extends BasePlayerVideoFragment<FragmentPlayerBindin
             List<TrackSelection> trackSelectionList = new Gson().fromJson(selectionTrack, listType);
             if (trackSelectionList.isEmpty()) return;
             DefaultTrackSelector.Parameters parameters = trackSelector.getParameters();
-            DefaultTrackSelector.ParametersBuilder builder = parameters.buildUpon();
+            DefaultTrackSelector.Parameters.Builder builder = parameters.buildUpon();
             for (int i = 0; i < trackSelectionList.size(); i++) {
                 TrackSelection trackSelection = trackSelectionList.get(i);
                 for (int rendererIndex = 0; rendererIndex < mappedTrackInfo.getRendererCount(); rendererIndex++) {

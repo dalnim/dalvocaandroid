@@ -414,7 +414,9 @@ def tesseract4AndroidVersion= '4.4.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs/jaudiotagger-2.2.4-SNAPSHOT.jar') //Try to use this for Android 7. (2.2.6 has No Such method error issue) //https://bitbucket.org/ijabz/jaudiotagger/downloads/
+    implementation files('libs/jaudiotagger-2.2.4-SNAPSHOT.jar')
+    implementation 'androidx.media3:media3-common:1.8.0'  // ExoPlayer 2.19.1의 exoplayer-ui가 androidx.media에 의존하므로 필요
+//Try to use this for Android 7. (2.2.6 has No Such method error issue) //https://bitbucket.org/ijabz/jaudiotagger/downloads/
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
@@ -476,7 +478,7 @@ dependencies {
     implementation 'com.github.yuyakaido:CardStackView:v2.3.4'
     implementation "androidx.constraintlayout:constraintlayout:2.1.0"
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.14.2'
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
     implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'
     implementation 'com.yanzhenjie.recyclerview:support:1.3.2'
     implementation('org.simpleframework:simple-xml:2.7.+'){

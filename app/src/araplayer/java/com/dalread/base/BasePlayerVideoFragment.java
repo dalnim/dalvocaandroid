@@ -60,12 +60,10 @@ import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.Voca;
 import com.dalread.util.VocaKnow;
-import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.StyledPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
@@ -124,7 +122,7 @@ public abstract class BasePlayerVideoFragment<VB extends ViewBinding> extends Ba
     public List<DicModel> subtitleListTotal; //SQLite에 있는 전체 자막 (숨김 자막도 포함)
     public List<DicModel> subtitleList; //재생할 자막 리스트, subtitleListTotal와 같거나 작음
     public List<RubyTextModel> rubyTextModels;
-    public SimpleExoPlayer exoPlayer;
+    public ExoPlayer exoPlayer;
     public ProgressiveMediaSource mediaSource;
     public ProgressTracker progressTracker;
     public int subtitleIndex;
@@ -596,7 +594,7 @@ public abstract class BasePlayerVideoFragment<VB extends ViewBinding> extends Ba
             if (playerService != null) {
                 exoPlayer = playerService.getPlayerInstance();
             } else {
-                exoPlayer = new SimpleExoPlayer.Builder(requireContext()).build();
+                exoPlayer = new ExoPlayer.Builder(requireContext()).build();
             }
             exoPlayer.addListener(new PlayerEventListener());
             progressTracker = new ProgressTracker(exoPlayer, positionListener);
@@ -646,14 +644,17 @@ public abstract class BasePlayerVideoFragment<VB extends ViewBinding> extends Ba
             DLog.d(getLogTag(), "PlayerEventListener - onPlaybackStateChanged - playbackState=" + playbackState);
             BasePlayerVideoFragment.this.playbackState = playbackState;
             updatePlayerStateAndReadyChanged();
+            
+            // 에러 처리: STATE_IDLE 상태일 때 (기존 onPlayerError 로직)
+            if (playbackState == Player.STATE_IDLE && exoPlayer.getPlayerError() != null) {
+                DLog.d(getLogTag(), "PlayerEventListener - Error detected in STATE_IDLE - error=" + exoPlayer.getPlayerError().toString());
+                Loading.hide();
+                showErrorOpenVideo();
+            }
         }
 
-        @Override
-        public void onPlayerError(ExoPlaybackException error) {
-            DLog.d(getLogTag(), "PlayerEventListener - onPlayerError - error=" + error.toString());
-            Loading.hide();
-            showErrorOpenVideo();
-        }
+        // onPlayerError was removed in ExoPlayer 2.19.1
+        // Error handling is now done through onPlaybackStateChanged when state is STATE_IDLE
 
         @Override
         public void onPositionDiscontinuity(Player.PositionInfo oldPosition, Player.PositionInfo newPosition, int reason) {

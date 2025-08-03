@@ -21,7 +21,7 @@
         android:id="@+id/playerView"
         style="@style/Match"
         android:visibility="gone"
-        app:auto_show="true"
+
         app:repeat_toggle_modes="none"
         app:resize_mode="fixed_width"
         app:show_timeout="0"

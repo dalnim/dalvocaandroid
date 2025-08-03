@@ -14,10 +14,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
-import android.widget.EditText;
-import android.widget.Button;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
@@ -63,12 +63,10 @@ import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.ViewAnimatorUtil;
 import com.dalread.util.Voca;
-import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.jaygoo.widget.OnRangeChangedListener;
 import com.jaygoo.widget.RangeSeekBar;
@@ -88,7 +86,7 @@ import java.util.stream.Collectors;
 public class MultiplePlayerFragment extends BasePlayerFragment implements View.OnTouchListener, View.OnClickListener {
     public static final int SELECT_VIDEO_REQUEST_CODE = 9270;
     private MultiplePlayerActivity activity;
-    public SimpleExoPlayer exoPlayer;
+    public ExoPlayer exoPlayer;
     private ProgressTracker progressTracker;
     public int tapForwardBackwardValue, swipeForwardBackwardValue;
     private int playbackState;
@@ -652,7 +650,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         initRepeatRangeSeekBar();
         initRepeatRangeSeekBarChangedListener();
         killPlayer(); //이걸 안하면, 비디오를 여러번 로드하다보면 로드가 안되는 버그가 생긴다.
-        exoPlayer = new SimpleExoPlayer.Builder(requireContext()).build();
+        exoPlayer = new ExoPlayer.Builder(requireContext()).build();
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
         setMediaItemForPlayer(model.getFILE_PATH());
         fileName = FilenameUtils.getName(model.getFILE_PATH());
@@ -1137,33 +1135,35 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
             MultiplePlayerFragment.this.playbackState = playbackState;
             updatePlayerStateAndReadyChanged();
 //            saveLastTimeInTable();
-        }
-
-        @Override
-        public void onPlayerError(ExoPlaybackException error) {
-            DLog.d(getLogTag(), "PlayerEventListener - onPlayerError - error=" + error.toString());
-            setVisiblellPlayPrevNextVideo(View.GONE);
-            String filePath = model.getFILE_PATH();
-            if (!Utils.isEmpty(filePath)) {
-                if (FileUtil.isFileExist(filePath)) {
-                    if (!currentVideoFilePathList.isEmpty() && isAutoRandomPlay) {
-                        mHandler.postDelayed(() -> {
-                            playRandomVideo(false, false);
-                        }, 10);
+            
+            // 에러 처리: STATE_IDLE 상태일 때 (기존 onPlayerError 로직)
+            if (playbackState == Player.STATE_IDLE && exoPlayer.getPlayerError() != null) {
+                DLog.d(getLogTag(), "PlayerEventListener - Error detected in STATE_IDLE - error=" + exoPlayer.getPlayerError().toString());
+                setVisiblellPlayPrevNextVideo(View.GONE);
+                String filePath = model.getFILE_PATH();
+                if (!Utils.isEmpty(filePath)) {
+                    if (FileUtil.isFileExist(filePath)) {
+                        if (!currentVideoFilePathList.isEmpty() && isAutoRandomPlay) {
+                            mHandler.postDelayed(() -> {
+                                playRandomVideo(false, false);
+                            }, 10);
+                        } else {
+                            ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video);
+                        }
                     } else {
-                        ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video);
+                        // 파일이 존재하지 않는 경우
+                        ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video_not_exist_file);
+                        VideoModelQuery.deleteByPath(Voca.getRealm(), filePath);
+                        activity.dbHelper.handleFileDelete(filePath);
+                        activity.playlistHelper.deleteSelectedItemFromAllPlaylists(filePath);
                     }
-                } else {
-                    // 파일이 존재하지 않는 경우
-                    ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video_not_exist_file);
-                    VideoModelQuery.deleteByPath(Voca.getRealm(), filePath);
-                    activity.dbHelper.handleFileDelete(filePath);
-                    activity.playlistHelper.deleteSelectedItemFromAllPlaylists(filePath);
-
                 }
+                closeVideo(true);
             }
-            closeVideo(true);
         }
+
+        // onPlayerError was removed in ExoPlayer 2.19.1
+        // Error handling is now done through onPlaybackStateChanged when state is STATE_IDLE
 
         @Override
         public void onPositionDiscontinuity(Player.PositionInfo oldPosition, Player.PositionInfo newPosition, int reason) {

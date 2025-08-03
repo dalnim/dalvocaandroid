@@ -51,16 +51,14 @@ import com.dalread.util.TimeUtil;
 import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.Voca;
-import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.Tracks;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.jaygoo.widget.OnRangeChangedListener;
@@ -180,7 +178,7 @@ public class BookmarkPlayerFragment extends BasePlayerFragment implements View.O
         binding.tvRubyBottom.setOnTouchListener(this);
         binding.tvSubTitle.setOnTouchListener(this);
         binding.llRepeat.sbRepeatRange.setOnRangeChangedListener(onRepeatRangeRangeChangedListener);
-        exoPlayer = new SimpleExoPlayer.Builder(binding.playerView.getContext()).build();
+        exoPlayer = new ExoPlayer.Builder(binding.playerView.getContext()).build();
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
         exoPlayer.addListener(exoPlayerEventListener);
         progressTracker = new ProgressTracker(exoPlayer, positionListener);
@@ -229,7 +227,7 @@ public class BookmarkPlayerFragment extends BasePlayerFragment implements View.O
         mediaSource = new ProgressiveMediaSource.Factory(
                 new DefaultDataSourceFactory(binding.playerView.getContext(), userAgent),
                 new DefaultExtractorsFactory()
-        ).createMediaSource(videoUri);
+        ).createMediaSource(MediaItem.fromUri(videoUri));
 
         exoPlayer.prepare(mediaSource);
         exoPlayer.setPlayWhenReady(true);
@@ -840,20 +838,15 @@ public class BookmarkPlayerFragment extends BasePlayerFragment implements View.O
     /**
      * exoPlayerEventListener
      */
-    private Player.EventListener exoPlayerEventListener = new Player.EventListener() {
+    private final Player.Listener exoPlayerEventListener = new Player.Listener() {
         @Override
         public void onTimelineChanged(Timeline timeline, int reason) {
             DLog.d(getLogTag(), "onTimelineChanged - timeline=" + timeline.toString() + " - reason=" + reason);
         }
 
         @Override
-        public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-            DLog.d(getLogTag(), "onTracksChanged - trackGroups=" + trackGroups.toString() + " - trackSelections=" + trackSelections.toString());
-        }
-
-        @Override
-        public void onLoadingChanged(boolean isLoading) {
-            DLog.d(getLogTag(), "onLoadingChanged  isLoading=" + isLoading);
+        public void onTracksChanged(Tracks tracks) {
+            DLog.d(getLogTag(), "onTracksChanged - tracks=" + tracks.toString());
         }
 
         @Override
@@ -887,13 +880,11 @@ public class BookmarkPlayerFragment extends BasePlayerFragment implements View.O
             DLog.d(getLogTag(), "onShuffleModeEnabledChanged - shuffleModeEnabled=" + shuffleModeEnabled);
         }
 
-        @Override
-        public void onPlayerError(ExoPlaybackException error) {
-            DLog.d(getLogTag(), "onPlayerError - error=" + error.toString());
-        }
+        // onPlayerError was removed in ExoPlayer 2.19.1
+        // Error handling is now done through onPlaybackStateChanged when state is STATE_IDLE
 
         @Override
-        public void onPositionDiscontinuity(int reason) {
+        public void onPositionDiscontinuity(Player.PositionInfo oldPosition, Player.PositionInfo newPosition, int reason) {
             DLog.d(getLogTag(), "onPositionDiscontinuity - reason=" + reason);
         }
 
@@ -902,10 +893,7 @@ public class BookmarkPlayerFragment extends BasePlayerFragment implements View.O
             DLog.d(getLogTag(), "onPlaybackParametersChanged - playbackParameters=" + playbackParameters.toString());
         }
 
-        @Override
-        public void onSeekProcessed() {
-            DLog.d(getLogTag(), "onSeekProcessed");
-        }
+
     };
 
     /**
