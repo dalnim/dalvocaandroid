@@ -16,6 +16,8 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
+import android.widget.EditText;
+import android.widget.Button;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
@@ -584,6 +586,9 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                     case R.id.llShowVideoTitle:
                         showVideoTitleInPopUp();
                         break;
+                    case R.id.llNetworkTest:
+                        showNetworkTestDialog();
+                        break;
                 }
             }
 
@@ -689,10 +694,16 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     //Dalnim Add (use MediaItem instead of MediaSource)
     private void setMediaItemForPlayer(String filePath) {
         //파일명에 #이 들어가면 그냥 String인 filePath를 바로사용하면 안된고, Uri를 만들어서 사용해야 한다.
-        File file = new File(filePath);
-        Uri uri = Uri.fromFile(file);
+        Uri uri;
+        if (filePath.startsWith("http://") || filePath.startsWith("https://")) {
+            // 네트워크 URL인 경우
+            uri = Uri.parse(filePath);
+        } else {
+            // 로컬 파일인 경우
+            File file = new File(filePath);
+            uri = Uri.fromFile(file);
+        }
         MediaItem mediaItem = MediaItem.fromUri(uri);
-//        MediaItem mediaItem = MediaItem.fromUri(filePath);
         exoPlayer.setMediaItem(mediaItem);
         exoPlayer.prepare();
         setPlayWhenReady(playWhenReady);
@@ -1780,6 +1791,50 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     private void showVideoTitleInPopUp() {
 //        DialogUtil.showCopyTextDialog(activity, FilenameUtils.getName(model.getFILE_PATH()));
         DialogUtil.showCopyTextDialog(activity, model.getFILE_PATH());
+    }
+
+    private void showNetworkTestDialog() {
+        // 커스텀 다이얼로그 레이아웃 생성
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        View dialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_network_test, null);
+        builder.setView(dialogView);
+
+        EditText urlEditText = dialogView.findViewById(R.id.etUrl);
+        Button playButton = dialogView.findViewById(R.id.btnPlay);
+        Button cancelButton = dialogView.findViewById(R.id.btnCancel);
+
+        // 기본 URL 설정
+        urlEditText.setText("https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4");
+
+        AlertDialog dialog = builder.create();
+
+        playButton.setOnClickListener(v -> {
+            String url = urlEditText.getText().toString().trim();
+            if (!url.isEmpty()) {
+                playNetworkVideo(url);
+                dialog.dismiss();
+            } else {
+                ToastUtil.getInstance(activity).show("URL을 입력해주세요.");
+            }
+        });
+
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+    private void playNetworkVideo(String url) {
+        // 네트워크 비디오를 위한 임시 모델 생성
+        MultiPlayerVideoModel networkModel = new MultiPlayerVideoModel();
+        networkModel.setFILE_PATH(url);
+        networkModel.setSCREEN_ID(screenId);
+        networkModel.setLAST_TIME(0);
+        
+        // 현재 모델을 네트워크 모델로 교체
+        setModel(networkModel);
+        
+        // ExoPlayer 초기화 및 재생
+        initExoPlayer();
     }
 
     public void showPlayFromPlayList() {

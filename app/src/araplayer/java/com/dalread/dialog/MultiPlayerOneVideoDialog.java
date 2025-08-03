@@ -11,6 +11,7 @@ import com.dalread.databinding.DialogMultiplayerOneVideoBinding;
 import com.dalread.listener.OnClickDialogListener;
 import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.AraThemeUtil;
+import com.dalread.BuildConfig;
 
 public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.OnClickListener{
     private OnClickDialogListener listener;
@@ -35,6 +36,7 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
         this.isHasPlaylist = isHasPlaylist;
         showOrHideAbRepeatMenu();
         showOrHidePlayFromPlaylistMenu();
+        showOrHideNetworkTestMenu();
         initColor();
     }
     private void initColor() {
@@ -45,6 +47,7 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
             AraThemeUtil.setTextColor(context, binding.tvDeleteSavedAbRepeat, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvPlayFromPlayList, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvShowVideoTitle, R.color.textPrimaryWhiteColor);
+            AraThemeUtil.setTextColor(context, binding.tvNetworkTest, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvDuplicateAllScreens, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvDeleteFile, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvCancel, R.color.textPrimaryWhiteColor);
@@ -61,6 +64,12 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
         binding.llPlayFromPlayList.setVisibility(visibility);
     }
 
+    private void showOrHideNetworkTestMenu() {
+        // 디버그 모드에서만 네트워크 테스트 메뉴 표시
+        int visibility = BuildConfig.DEBUG ? View.VISIBLE : View.GONE;
+        binding.llNetworkTest.setVisibility(visibility);
+    }
+
     @Override
     protected void initOnClickListener() {
         binding.llPlaySaveAbRepeat.setOnClickListener(this);
@@ -69,6 +78,7 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
         binding.llDuplicateAllScreens.setOnClickListener(this);
         binding.llDeleteFile.setOnClickListener(this);
         binding.llShowVideoTitle.setOnClickListener(this);
+        binding.llNetworkTest.setOnClickListener(this);
         binding.tvCancel.setOnClickListener(this);
     }
 

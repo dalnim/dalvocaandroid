@@ -121,6 +121,23 @@
                 android:visibility="visible"/>
 
             <View
+                style="@style/DividerDialog"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNetworkTest"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvNetworkTest"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="네트워크 테스트"
+                android:textSize="16sp"
+                android:visibility="visible"/>
+
+            <View
                 style="@style/DividerDialogThick" />
         </LinearLayout>
         <TextView
