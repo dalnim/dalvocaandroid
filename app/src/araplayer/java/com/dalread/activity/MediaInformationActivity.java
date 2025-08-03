@@ -72,6 +72,7 @@ import com.dalread.util.arasubtitle.MOVIE_BracketSubtitleService;
 import com.dalread.util.arasubtitle.MOVIE_SMIService;
 import com.dalread.util.arasubtitle.MOVIE_SQLITEService;
 import com.dalread.util.arasubtitle.MOVIE_SRTService;
+import com.dalread.util.SubtitleAnalyzer;
 
 import org.apache.commons.io.FileUtils;
 import org.greenrobot.eventbus.Subscribe;
@@ -780,41 +781,17 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     }
 
     private void makeRubyTextFromSubtitleOnLocal(Object resultData) {
-        Runnable task = () -> {
-            Loading.show(this, R.string.msg_analyzing_title, R.string.msg_analyzing_message);
-            File subtitleFile = null;
-            AbstractTranslateFileService fileService = null;
-            if (resultData instanceof File) {
-                subtitleFile = (File) resultData;
-                if (SupportSubtitleFormat.isSubtitleFormat(FileUtil.getSubtitleExtension(subtitleFile.getName()))) {
-                    String subtitleContent = FileUtil.getFileContentsFromFile(subtitleFile);
-                    int subtitleFormat = new SubtitleFormatDetector().detectSubtitleFormatFromContent(subtitleContent);
-                    switch (subtitleFormat) {
-                        case SubtitleFormatDetector.FORMAT_SMI:
-                            fileService = new MOVIE_SMIService();
-                            break;
-                        case SubtitleFormatDetector.FORMAT_SRT:
-                            fileService = new MOVIE_SRTService();
-                            break;
-                        case SubtitleFormatDetector.FORMAT_ASS:
-                            fileService = new MOVIE_ASSService();
-                            break;
-                        case SubtitleFormatDetector.FORMAT_BRACKET:
-                            fileService = new MOVIE_BracketSubtitleService();
-                            break;
-                        default:
-                            break;
-                    }
-                } else {
-                    fileService = new MOVIE_SQLITEService();
-                }
+        SubtitleAnalyzer subtitleAnalyzer = new SubtitleAnalyzer(
+            this, dicDatabase, subDatabase, playerFileModel);
+        
+        subtitleAnalyzer.analyzeSubtitle(resultData, new SubtitleAnalyzer.OnAnalysisCompleteListener() {
+            @Override
+            public void onAnalysisStarted() {
+                Loading.show(MediaInformationActivity.this, R.string.msg_analyzing_title, R.string.msg_analyzing_message);
             }
 
-
-            if (fileService != null) {
-                fileService.setDicDatabase(dicDatabase);
-                fileService.setSubDatabase(subDatabase);
-                fileService.translateFileWithFixedNameDTO(subtitleFile, null, fileService);
+            @Override
+            public void onAnalysisSuccess(AbstractTranslateFileService fileService) {
                 playerFileModel.getVideoModel().setAnalyzeAgain(Constant.INT_BOOLEAN.FASLE); //Not to display analyze again warning text message
                 updateVideoModel(playerFileModel);
                 if (fileService instanceof MOVIE_SQLITEService) {
@@ -822,11 +799,16 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                 } else {
                     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitle());
                 }
-//                refreshRemainPoint();
+
+                // openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
+                subtitleAnalyzer.shutdown();
             }
-            openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
-        };
-        executorHelper.executeTask(task);
+
+            @Override
+            public void onAnalysisError(String errorMessage) {
+                subtitleAnalyzer.shutdown();
+            }
+        });
     }
     //이건 서버로 부터 자막 분석하는것임. 로컬에서 테스트용으로 사용하니 지우지 말것.
     private void makeRubyTextFromSubtitle(Object content) {

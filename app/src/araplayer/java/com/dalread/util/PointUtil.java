@@ -25,9 +25,9 @@ public class PointUtil extends AbstractPointUtil {
 
     @Override
     public void consumePoint(int point) {
-        SharedPreferencesDB sharedPreferences = SharedPreferencesDB.getInstance(activity);
-        int updatedPoint = Math.max(0, sharedPreferences.getPointMultiPlayer(isMultiPlayer) - point);
-        sharedPreferences.setPointMultiPlayer(updatedPoint);
+//        SharedPreferencesDB sharedPreferences = SharedPreferencesDB.getInstance(activity);
+//        int updatedPoint = Math.max(0, sharedPreferences.getPointMultiPlayer(isMultiPlayer) - point);
+//        sharedPreferences.setPointMultiPlayer(updatedPoint);
     }
     public int getPointToAnalyzeSubtitle() {
         return BasePlayerPointHelper.consumePoint5;

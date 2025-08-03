@@ -47,12 +47,14 @@ public abstract class AbstractPointUtil {
         dialog.show();
     }
     public boolean needToShowFullAd() {
-        return getPoint() <= 0 ? true : false;
+        return false;
+//        return getPoint() <= 0 ? true : false;
         //return true;
     }
 
     public boolean needToShowRewardButton() {
-        return getPoint() <= minPointToShowRewardButton ? true : false;
+        return false;
+//        return getPoint() <= minPointToShowRewardButton ? true : false;
         //return true;
     }
 
