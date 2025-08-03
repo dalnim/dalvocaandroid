@@ -2,6 +2,7 @@ package com.dalread.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Environment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -1390,7 +1391,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         }
 
         String videoPath = playerFileModel.getPath();
-        String outputDir = StorageUtil.getFilesStoragePath(this, playerFileModel);
+        String outputDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath();
         
         DLog.i("AUDIO_GENERATION", "비디오 파일: " + videoPath);
         DLog.i("AUDIO_GENERATION", "출력 디렉토리: " + outputDir);
