@@ -321,7 +321,7 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     }
     @Override
     public void initData() {
-        runOnUiThread(() -> baseMainHomeActivity.signInFirebaseAccount());
+//        runOnUiThread(() -> baseMainHomeActivity.signInFirebaseAccount());
         isShowSubtitle = false;
         final List<ServerModel> temp = ServerModelQuery.getAll(Voca.getRealm());
         addServers(temp);
