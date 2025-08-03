@@ -114,30 +114,26 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         DTO_RUBY_ALL_WORDS dtoRubyAllWords = new DTO_RUBY_ALL_WORDS();
         Map<String, WordMorpheme> mapWordMorphemeWithFrequency = new HashMap<String, WordMorpheme>();
         Map<String, List<DTO_NLP_INPUT_TEXT_AND_WORD_LIST>> mapWordListAndInputText = new HashMap<String, List<DTO_NLP_INPUT_TEXT_AND_WORD_LIST>>();
-        //이건 영어만을 위한것이다.
-        Map<String, Map<String, List<String>>> dicSpecialWords = new HashMap<String, Map<String, List<String>>>();
-        getAllRecordsOrderByFullwordAndDispOrderForSpecialWordsDTO(dicSpecialWords);
 
         for (String strFilePath : mapAllTextWithoutHTMLTag.keySet()) {
             List<String> listDtoSubtitleCorrectFormat = mapAllTextWithoutHTMLTag.get(strFilePath);
             List<DTO_NLP_INPUT_TEXT_AND_WORD_LIST> listNLPInputTextAndWordList = new ArrayList<>();
             for (String strInputTextLine : listDtoSubtitleCorrectFormat) {
                 DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList = new DTO_NLP_INPUT_TEXT_AND_WORD_LIST.Builder().setInputText(strInputTextLine).build();
-                extractWordsFromTextDTO2Main(mapWordMorphemeWithFrequency, dtoNLPInputTextAndWordList, dicSpecialWords);
+                extractWordsFromTextDTO2Main(mapWordMorphemeWithFrequency, dtoNLPInputTextAndWordList);
                 listNLPInputTextAndWordList.add(dtoNLPInputTextAndWordList);
             }
             mapWordListAndInputText.put(strFilePath, listNLPInputTextAndWordList);
         }
 
-
         dtoRubyAllWords.setMAP_WORD_LIST_AND_INPUT_TEXT(mapWordListAndInputText);
         dtoRubyAllWords.setMAP_WORD_MORPHEME_WITH_FREQUENCY(mapWordMorphemeWithFrequency);
         return dtoRubyAllWords;
     }
-    protected void extractWordsFromTextDTO2Main(Map<String, WordMorpheme> mapMorphemeWithFrequency, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList, Map<String, Map<String, List<String>>> dicSpecialWords) {
+    protected void extractWordsFromTextDTO2Main(Map<String, WordMorpheme> mapMorphemeWithFrequency, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList) {
         try {
             String inputText = dtoNLPInputTextAndWordList.getINPUT_TEXT();
-            String simpleTokens[] = combineSpecialWordsInTokenizedList(inputText, dicSpecialWords);
+            String simpleTokens[] = tokenizeText(inputText);
             DLog.i("","count of tokens : " + simpleTokens.length);
             
             // 인덱스 기반 처리로 변경
@@ -243,6 +239,10 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
             index += replacement.length();
         }
     }
+    
+    private String[] tokenizeText(String text) {
+        return SimpleTokenizer.INSTANCE.tokenize(text);
+    }
     public static boolean isSpecialString(String strOne) {
         String match = "[・,、`~!@#$%^&*+=';:：/?。「」【】<>{}・.\"()，]";
 //		String match = "[・,、`~!@#$%^&*+=';:/?。「」【】<>{}・.\"]";
@@ -267,115 +267,8 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         return blnRightChar;
     }
 
-    //I'll , they're 등을 한 단어처럼 처리해준다.
-    private String[] combineSpecialWordsInTokenizedList(String strOri, Map<String, Map<String, List<String>>> dicSpecialWords) {
-        List<String> list = new ArrayList<String>();
-        String simpleTokens[] = SimpleTokenizer.INSTANCE.tokenize(strOri);
-        StringBuilder  sentenceToFindIndex = new StringBuilder(strOri);
 
-        try {
 
-            for (int i = 0; i < simpleTokens.length; i++) {
-                String strWord = simpleTokens[i];
-                if (!(dicSpecialWords.containsKey(strWord.toLowerCase()))) {
-                    list.add(strWord);
-                    continue;
-                }
-
-                StringBuilder combinedWord = new StringBuilder();
-                Map<String, List<String>> map1 = dicSpecialWords.get(strWord.toLowerCase());
-                boolean findSpecialWord = false;
-                for (String key : map1.keySet()) {
-                    combinedWord = new StringBuilder();
-                    combinedWord.append(strWord);
-                    List<String> listSpecialWords2 = map1.get(key);
-                    Integer lenOfSpecialWord = listSpecialWords2.size() - 1;
-                    if (simpleTokens.length > (i + lenOfSpecialWord)) {
-                        boolean isSpecialWord = true;
-                        for (int j = 0; j < lenOfSpecialWord; j++) {
-                            String strWordForCombinedWord = simpleTokens[i+j+1];
-                            String strWordInSpecialWordsType = listSpecialWords2.get(j+1);
-                            if (strWordForCombinedWord.toLowerCase().equals(strWordInSpecialWordsType.toLowerCase())) {
-                                combinedWord.append(strWordForCombinedWord);
-                            } else {
-                                isSpecialWord = false;
-                                break;
-                            }
-                        }
-                        if (isSpecialWord) {
-                            if (sentenceToFindIndex.indexOf(combinedWord.toString()) < 0) {
-                                findSpecialWord = false;
-                            } else {
-                                i = i + lenOfSpecialWord;
-                                findSpecialWord = true;
-                            }
-                            break;
-                        }
-                    }
-
-                }
-
-                String stringToDeleteInSentenceToFindIndex = strWord;
-                if (findSpecialWord) {
-                    list.add(combinedWord.toString());
-                    stringToDeleteInSentenceToFindIndex = combinedWord.toString();
-                } else {
-                    list.add(strWord);
-                }
-
-                if (sentenceToFindIndex.indexOf(stringToDeleteInSentenceToFindIndex) >= 0) {
-                    String strBeforeWord = sentenceToFindIndex.substring(0, sentenceToFindIndex.indexOf(stringToDeleteInSentenceToFindIndex));
-//                    DLog.d("","strBeforeWord[" + strBeforeWord + "]");
-                    //현재 단어 앞의 공백 및 현재 단어를 포함한 index
-                    Integer strIndexOfWordInSentenceToFindIndex = strBeforeWord.length() + stringToDeleteInSentenceToFindIndex.length();
-                    sentenceToFindIndex.replace(0, strIndexOfWordInSentenceToFindIndex, "");
-
-                }
-            }
-        } catch (Exception e) {
-//            logger.error("fail to open mysql");
-            e.printStackTrace();
-            return simpleTokens;
-        }
-
-        String[] resultTokens = list.stream().toArray(String[]::new);
-        return resultTokens;
-    }
-    protected void getAllRecordsOrderByFullwordAndDispOrderForSpecialWordsDTO(Map<String, Map<String, List<String>>> dicSpecialWords) {
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put(Constants.KEY_TBL_NAME, Constants.TBL_DIC_ENG_SPECIAL_WORDS);
-        map.put("fldName", Constants.FLD_FULL_WORD);
-        List<VO_DIC_ENG_SPECIAL_WORDS> resultList = new ArrayList<>();
-//        List<VO_DIC_ENG_SPECIAL_WORDS> resultList = sqlSession.selectList("voMapper.getAllRecordsOrderByFieldAndDispOrder", map);
-        boolean isNewFullWord = false;
-        Integer countOfEachWord = 0;
-        String previousFullWord = "";
-        String previousStartWord = "";
-        Map<Integer,String> oneSpecialWord1 = new HashMap<Integer,String>();
-        List<String> listSpecialWords = new ArrayList<String>();
-        Map<String, List<String>> map1 = new HashMap<String, List<String>>();
-        for (VO_DIC_ENG_SPECIAL_WORDS vo : resultList) {
-            String fullWord = vo.getFULL_WORD();// (String)resultMap.get(Constants.FLD_FULL_WORD);
-            String startWord = vo.getSTART_WORD();// (String)resultMap.get(Constants.FLD_START_WORD);
-            String eachWord = vo.getEACH_WORD();// (String)resultMap.get(Constants.FLD_EACH_WORD);
-            if (previousFullWord.equals(fullWord)) {
-                countOfEachWord++;
-            } else {
-                listSpecialWords = new ArrayList<String>();
-                countOfEachWord = 0;
-                previousFullWord = fullWord;
-            }
-            listSpecialWords.add(eachWord);
-
-            if (!(previousStartWord.equals(startWord))) {
-                map1 = new HashMap<String, List<String>>();
-                previousStartWord = startWord;
-            }
-            map1.put(fullWord, listSpecialWords);
-
-            dicSpecialWords.put(startWord, map1);
-        }
-    }
     public DTO_OUTPUT_RUBY_TEXT makeRubyTextDTO(List<String> LIST_INPUT_TEXT) {
         long startTime = System.currentTimeMillis();
         DLog.i("SUBTITLE_ANALYSIS", "--- 루비 텍스트 생성 시작 ---");
