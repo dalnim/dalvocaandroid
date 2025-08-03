@@ -29,6 +29,7 @@ Thumbs.db
 /app/araplayer/release/
 /app/arahanja/release/
 /app/src/arahanja/assets/araonesoft.realm*
+app/src/araplayer/assets/ggml-base.bin
 /app/aramusic/release/
 /app/arakoica/release/
 /app/dalvoca/release/
@@ -41,3 +42,6 @@ Thumbs.db
 .env
 .env.local
 .env.production
+
+**/.cxx/
+
