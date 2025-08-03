@@ -364,70 +364,17 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
 
                     }
 
-                    List<DTO_VOCA_TYPE_ID_VOCA> listDtoVocaTypeIDVoca = new ArrayList<DTO_VOCA_TYPE_ID_VOCA>();
-                    StringBuilder htmlWithMeaning = new StringBuilder();
-                    List<DTO_VOCA_DETAIL_RUBY_TEXT> listDTOVocaDetailRubyText = new ArrayList<DTO_VOCA_DETAIL_RUBY_TEXT>();
-                    Integer noOfWord = listFromStrOri.size();
-                    //각 라인에서 순서대로 단어를 돈다.
-                    for (String wordFromTextWithPOS : listFromStrOri) {
-                        String[] arrWordWithPOS = wordFromTextWithPOS.split(Constants.POS_SEPERATOR_UNDERSCORE);
-                        StringJoiner sjPOSALL = new StringJoiner("_");
-                        String strWordWithOutLowercase = wordFromTextWithPOS;
-                        String wordFromTextWithoutPOS = wordFromTextWithPOS;
-                        String wordFromTextWithPOSLowercase = wordFromTextWithPOS;
-                        if (arrWordWithPOS.length > 0) {
-                            strWordWithOutLowercase = arrWordWithPOS[0].toLowerCase();
-                            wordFromTextWithoutPOS = arrWordWithPOS[0];
-                            wordFromTextWithPOSLowercase = arrWordWithPOS[0].toLowerCase();
-                            if (arrWordWithPOS.length == 1) {
-                                wordFromTextWithPOSLowercase = wordFromTextWithPOSLowercase + Constants.POS_SEPERATOR_UNDERSCORE;
-                            } else if (arrWordWithPOS.length > 1) {
-                                // The_DT등을 the_DT로 처음 글자만 소문자로 바꾸어준다. mapWordUnique의 키가 소문자로 되어 있기 때문이다.
-                                for (int i = 1; i < arrWordWithPOS.length; i++) {
-                                    wordFromTextWithPOSLowercase = wordFromTextWithPOSLowercase + Constants.POS_SEPERATOR_UNDERSCORE + arrWordWithPOS[i];
-                                    sjPOSALL.add(arrWordWithPOS[i]);
-                                }
-                            }
-                        }
-                        DLog.d("","wordFromTextWithPOS : " + wordFromTextWithPOS);
-                        DLog.d("","wordFromTextWithPOSLowercase : " + wordFromTextWithPOSLowercase);
-                        DLog.d("","wordFromTextWithPOSLowercase : " + wordFromTextWithPOSLowercase);
-                        if (mapWordUnique.containsKey(wordFromTextWithPOSLowercase)) {
-                            // 사전에 있는 단어이면 뜻과 발음을 달아준다.
-                            DLog.d("","string[" + wordFromTextWithoutPOS + "]");
-                            DLog.d("",mapWordUnique.get(wordFromTextWithPOSLowercase));
-                            String htmlOfWordFromText = mapWordUnique.get(wordFromTextWithPOSLowercase);
-                            DLog.d("","htmlOfWordFromText Before : " + htmlOfWordFromText);
-                            htmlOfWordFromText = replacestrWordLowercaseWithWordFromText(htmlOfWordFromText, strWordWithOutLowercase, wordFromTextWithoutPOS);
-                            htmlWithMeaning.append(htmlOfWordFromText);
-
-                            if (mapUniqueWordInfoList.containsKey(wordFromTextWithPOSLowercase)) {
-                                DTO_VOCA_DETAIL_RUBY_TEXT dtoVocaDetailRubyText = mapUniqueWordInfoList.get(wordFromTextWithPOSLowercase);
-                                listDTOVocaDetailRubyText.add(dtoVocaDetailRubyText);
-                                DTO_VOCA_TYPE_ID_VOCA dtoVocaPOS = new DTO_VOCA_TYPE_ID_VOCA.Builder()
-                                        .VOCA_TYPE(dtoVocaDetailRubyText.getVOCA_TYPE())
-                                        .VOCA_ID(dtoVocaDetailRubyText.getVOCA_ID())
-                                        .VOCA(wordFromTextWithoutPOS)
-                                        .build();
-                                listDtoVocaTypeIDVoca.add(dtoVocaPOS);
-                            } else {
-                                listDtoVocaTypeIDVoca.add(new DTO_VOCA_TYPE_ID_VOCA.Builder().VOCA(wordFromTextWithoutPOS).build());
-                            }
-                        } else {
-//							wordFromTextWithoutPOS = "<span>" + wordFromTextWithoutPOS + "</span>";
-                            htmlWithMeaning.append(wordFromTextWithoutPOS);
-                            listDtoVocaTypeIDVoca.add(new DTO_VOCA_TYPE_ID_VOCA.Builder().VOCA(wordFromTextWithoutPOS).build());
-                        }
-                    }
-
-                    String jsonString = gson.toJson(listDtoVocaTypeIDVoca);
+                    // HTML 루비 태그 생성 최적화
+                    ProcessedLineResult result = processLineForHTMLGeneration(listFromStrOri, mapWordUnique, mapUniqueWordInfoList);
+                    
+                    String jsonString = gson.toJson(result.getListDtoVocaTypeIDVoca());
                     DTO_INPUT_LINE_NLP_PARSED dtoNLPParsed = new DTO_INPUT_LINE_NLP_PARSED.Builder()
                             .VOCA(dtoNLPInputTextAndWordList.getINPUT_TEXT())
                             .VOCA_NLP_PARSED(jsonString)
                             .build();
                     listDtoNLPParsed.add(dtoNLPParsed);
-                    arrHtmlWithMeaningInFile.add(htmlWithMeaning.toString());
-                    arrWordInfoInFile.add(listDTOVocaDetailRubyText);
+                    arrHtmlWithMeaningInFile.add(result.getHtmlWithMeaning());
+                    arrWordInfoInFile.add(result.getListDTOVocaDetailRubyText());
                 }
                 HTMLWithMeaningOfWordMAP.put(strFilePath, arrHtmlWithMeaningInFile);
                 mapTextWithMeaning.put(strFilePath, arrHtmlWithMeaningInFile);
@@ -442,6 +389,120 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
             e.printStackTrace();
         }
         return mapTextWithMeaning;
+    }
+
+    // HTML 루비 태그 생성을 위한 최적화된 라인 처리 메서드
+    private ProcessedLineResult processLineForHTMLGeneration(List<String> listFromStrOri, 
+                                                           Map<String, String> mapWordUnique,
+                                                           Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> mapUniqueWordInfoList) {
+        List<DTO_VOCA_TYPE_ID_VOCA> listDtoVocaTypeIDVoca = new ArrayList<>();
+        StringBuilder htmlWithMeaning = new StringBuilder();
+        List<DTO_VOCA_DETAIL_RUBY_TEXT> listDTOVocaDetailRubyText = new ArrayList<>();
+        
+        for (String wordFromTextWithPOS : listFromStrOri) {
+            WordProcessingResult wordResult = processWordForHTML(wordFromTextWithPOS, mapWordUnique, mapUniqueWordInfoList);
+            
+            htmlWithMeaning.append(wordResult.getHtmlContent());
+            listDtoVocaTypeIDVoca.add(wordResult.getDtoVocaTypeIDVoca());
+            if (wordResult.getDtoVocaDetailRubyText() != null) {
+                listDTOVocaDetailRubyText.add(wordResult.getDtoVocaDetailRubyText());
+            }
+        }
+        
+        return new ProcessedLineResult(htmlWithMeaning.toString(), listDtoVocaTypeIDVoca, listDTOVocaDetailRubyText);
+    }
+
+    // 단어별 HTML 처리 최적화
+    private WordProcessingResult processWordForHTML(String wordFromTextWithPOS, 
+                                                  Map<String, String> mapWordUnique,
+                                                  Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> mapUniqueWordInfoList) {
+        // 문자열 분할 최적화
+        String[] arrWordWithPOS = wordFromTextWithPOS.split(Constants.POS_SEPERATOR_UNDERSCORE);
+        String wordFromTextWithoutPOS = arrWordWithPOS[0];
+        String strWordWithOutLowercase = wordFromTextWithoutPOS.toLowerCase();
+        
+        // POS 처리 최적화
+        String wordFromTextWithPOSLowercase = buildWordWithPOSLowercase(arrWordWithPOS);
+        
+        // Map 검색 최적화 - getOrDefault 사용
+        String htmlOfWordFromText = mapWordUnique.get(wordFromTextWithPOSLowercase);
+        if (htmlOfWordFromText != null) {
+            // 사전에 있는 단어이면 뜻과 발음을 달아준다.
+            htmlOfWordFromText = replacestrWordLowercaseWithWordFromText(htmlOfWordFromText, strWordWithOutLowercase, wordFromTextWithoutPOS);
+            
+            DTO_VOCA_DETAIL_RUBY_TEXT dtoVocaDetailRubyText = mapUniqueWordInfoList.get(wordFromTextWithPOSLowercase);
+            DTO_VOCA_TYPE_ID_VOCA dtoVocaPOS;
+            
+            if (dtoVocaDetailRubyText != null) {
+                dtoVocaPOS = new DTO_VOCA_TYPE_ID_VOCA.Builder()
+                        .VOCA_TYPE(dtoVocaDetailRubyText.getVOCA_TYPE())
+                        .VOCA_ID(dtoVocaDetailRubyText.getVOCA_ID())
+                        .VOCA(wordFromTextWithoutPOS)
+                        .build();
+            } else {
+                dtoVocaPOS = new DTO_VOCA_TYPE_ID_VOCA.Builder().VOCA(wordFromTextWithoutPOS).build();
+            }
+            
+            return new WordProcessingResult(htmlOfWordFromText, dtoVocaPOS, dtoVocaDetailRubyText);
+        } else {
+            // 사전에 없는 단어
+            DTO_VOCA_TYPE_ID_VOCA dtoVocaPOS = new DTO_VOCA_TYPE_ID_VOCA.Builder().VOCA(wordFromTextWithoutPOS).build();
+            return new WordProcessingResult(wordFromTextWithoutPOS, dtoVocaPOS, null);
+        }
+    }
+
+    // POS와 함께 소문자 단어 생성 최적화
+    private String buildWordWithPOSLowercase(String[] arrWordWithPOS) {
+        if (arrWordWithPOS.length == 0) {
+            return "";
+        }
+        
+        StringBuilder result = new StringBuilder(arrWordWithPOS[0].toLowerCase());
+        
+        if (arrWordWithPOS.length == 1) {
+            result.append(Constants.POS_SEPERATOR_UNDERSCORE);
+        } else {
+            for (int i = 1; i < arrWordWithPOS.length; i++) {
+                result.append(Constants.POS_SEPERATOR_UNDERSCORE).append(arrWordWithPOS[i]);
+            }
+        }
+        
+        return result.toString();
+    }
+
+    // 결과를 담는 내부 클래스들
+    private static class ProcessedLineResult {
+        private final String htmlWithMeaning;
+        private final List<DTO_VOCA_TYPE_ID_VOCA> listDtoVocaTypeIDVoca;
+        private final List<DTO_VOCA_DETAIL_RUBY_TEXT> listDTOVocaDetailRubyText;
+
+        public ProcessedLineResult(String htmlWithMeaning, List<DTO_VOCA_TYPE_ID_VOCA> listDtoVocaTypeIDVoca, 
+                                 List<DTO_VOCA_DETAIL_RUBY_TEXT> listDTOVocaDetailRubyText) {
+            this.htmlWithMeaning = htmlWithMeaning;
+            this.listDtoVocaTypeIDVoca = listDtoVocaTypeIDVoca;
+            this.listDTOVocaDetailRubyText = listDTOVocaDetailRubyText;
+        }
+
+        public String getHtmlWithMeaning() { return htmlWithMeaning; }
+        public List<DTO_VOCA_TYPE_ID_VOCA> getListDtoVocaTypeIDVoca() { return listDtoVocaTypeIDVoca; }
+        public List<DTO_VOCA_DETAIL_RUBY_TEXT> getListDTOVocaDetailRubyText() { return listDTOVocaDetailRubyText; }
+    }
+
+    private static class WordProcessingResult {
+        private final String htmlContent;
+        private final DTO_VOCA_TYPE_ID_VOCA dtoVocaTypeIDVoca;
+        private final DTO_VOCA_DETAIL_RUBY_TEXT dtoVocaDetailRubyText;
+
+        public WordProcessingResult(String htmlContent, DTO_VOCA_TYPE_ID_VOCA dtoVocaTypeIDVoca, 
+                                  DTO_VOCA_DETAIL_RUBY_TEXT dtoVocaDetailRubyText) {
+            this.htmlContent = htmlContent;
+            this.dtoVocaTypeIDVoca = dtoVocaTypeIDVoca;
+            this.dtoVocaDetailRubyText = dtoVocaDetailRubyText;
+        }
+
+        public String getHtmlContent() { return htmlContent; }
+        public DTO_VOCA_TYPE_ID_VOCA getDtoVocaTypeIDVoca() { return dtoVocaTypeIDVoca; }
+        public DTO_VOCA_DETAIL_RUBY_TEXT getDtoVocaDetailRubyText() { return dtoVocaDetailRubyText; }
     }
     protected String replacestrWordLowercaseWithWordFromText(String htmlOfWordFromText, String strWordLowercase, String wordFromText) {
         // 속성(data-wordfromtext)을 원래 단어(대소문자구분)으로 바꾸어준다.
