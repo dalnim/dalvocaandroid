@@ -136,62 +136,111 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
     }
     protected void extractWordsFromTextDTO2Main(Map<String, WordMorpheme> mapMorphemeWithFrequency, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList, Map<String, Map<String, List<String>>> dicSpecialWords) {
         try {
-            StringBuilder sentenceToFindIndex = new StringBuilder(dtoNLPInputTextAndWordList.getINPUT_TEXT());
-
-            String simpleTokens[] = combineSpecialWordsInTokenizedList(dtoNLPInputTextAndWordList.getINPUT_TEXT(),  dicSpecialWords);
-            //			String simpleTokens[] = SimpleTokenizer.INSTANCE.tokenize(strOri);
+            String inputText = dtoNLPInputTextAndWordList.getINPUT_TEXT();
+            String simpleTokens[] = combineSpecialWordsInTokenizedList(inputText, dicSpecialWords);
             DLog.i("","count of tokens : " + simpleTokens.length);
+            
+            // 인덱스 기반 처리로 변경
+            int currentIndex = 0;
             for (int i = 0; i < simpleTokens.length; i++) {
                 String strWord = simpleTokens[i];
-
-                //현재 단어 앞에 공백등이 있을때 그걸 가져오기 위한 변수
-                String strBeforeWord = sentenceToFindIndex.substring(0, sentenceToFindIndex.indexOf(strWord));
-                DLog.i("","strBeforeWord[" + strBeforeWord + "]");
-                //현재 단어 앞의 공백 및 현재 단어를 포함한 index
-                Integer strIndexOfWordInSentenceToFindIndex = strBeforeWord.length() + strWord.length();
-                sentenceToFindIndex.replace(0, strIndexOfWordInSentenceToFindIndex, "");
-                DLog.i("","sentenceToFindIndex After remove word[" + sentenceToFindIndex + "]");
-                if (strBeforeWord.contains(Constants.HTMLTAG_SPACE_nbsp)) {
-                    strBeforeWord = strBeforeWord.replaceAll(Constants.HTMLTAG_SPACE_nbsp, Constants.HTMLTAG_SPACE);
-                }
-
-                if (!(strBeforeWord.equals(""))) {
-                    strBeforeWord = strBeforeWord.replaceAll("\r\n", Constants.SPACE + "<br />");
-                    strBeforeWord = strBeforeWord.replaceAll("\n", Constants.SPACE + "<br />");
-                    strBeforeWord = strBeforeWord.replaceAll("\t", "&#9;");
-                    strBeforeWord = strBeforeWord.replaceAll("&", "&#38;");
-                    strBeforeWord = strBeforeWord.replaceAll(Constants.HTMLTAG_SPACE_nbsp, Constants.HTMLTAG_SPACE);
-                    dtoNLPInputTextAndWordList.getWORD_LIST_IN_INPUT_TEXT().add(strBeforeWord); //이게 없으면 공백이나 줄바꿈등이 없어진다.
-                }
-
-                strWord = strWord.replaceAll("&", "&#38;");
-
-
-                dtoNLPInputTextAndWordList.getWORD_LIST_IN_INPUT_TEXT().add(strWord + Constants.POS_SEPERATOR_UNDERSCORE);
-//				listFromStrOri.add(strWithPOS_For_List);
-                //올바른 단어가 아니라도 mapWordListSameAsInputWordOrder에는 넣고, mapMorphemeWithFrequency에는 안 넣기 위해서 여기서 continue한다.
-                if (!(isRightChar(strWord))) {
+                
+                // 현재 위치에서 토큰 찾기
+                int tokenIndex = inputText.indexOf(strWord, currentIndex);
+                if (tokenIndex == -1) {
+                    // 토큰을 찾을 수 없는 경우, 단어만 처리
+                    processWordOnly(strWord, dtoNLPInputTextAndWordList, mapMorphemeWithFrequency);
                     continue;
                 }
-                if (isSpecialString(strWord)) {
-                    //특수문자등은 mapWordsFromText에 넣으면 에러가 날수 있다...
-                    continue;
-                }
-
-                String strWordLowercase = strWord.toLowerCase();
-                String strLowcasewordWithPOS_For_Map = strWordLowercase + Constants.POS_SEPERATOR_UNDERSCORE;
-                //단어의 WordMorpheme에 빈도수를 넣어준다.
-                if (!mapMorphemeWithFrequency.containsKey(strLowcasewordWithPOS_For_Map)) {
-                    mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, new WordMorpheme(strWordLowercase, "", "", "", ""));
-                } else {
-                    WordMorpheme wordMorpheme = (WordMorpheme) mapMorphemeWithFrequency.get(strLowcasewordWithPOS_For_Map);
-                    wordMorpheme.increaseFrequency();
-                    mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, wordMorpheme);
-                }
+                
+                // 토큰 앞의 공백/문자 처리
+                String strBeforeWord = inputText.substring(currentIndex, tokenIndex);
+                processBeforeWord(strBeforeWord, dtoNLPInputTextAndWordList);
+                
+                // 토큰 처리
+                processWord(strWord, dtoNLPInputTextAndWordList, mapMorphemeWithFrequency);
+                
+                // 다음 위치로 이동
+                currentIndex = tokenIndex + strWord.length();
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+    
+    private void processBeforeWord(String strBeforeWord, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList) {
+        if (strBeforeWord.isEmpty()) {
+            return;
+        }
+        
+        // StringBuilder를 사용하여 한 번에 처리
+        StringBuilder processedBeforeWord = new StringBuilder(strBeforeWord);
+        
+        // HTML 태그 및 특수문자 처리 (한 번에 처리)
+        if (processedBeforeWord.indexOf(Constants.HTMLTAG_SPACE_nbsp) != -1) {
+            replaceAll(processedBeforeWord, Constants.HTMLTAG_SPACE_nbsp, Constants.HTMLTAG_SPACE);
+        }
+        replaceAll(processedBeforeWord, "\r\n", Constants.SPACE + "<br />");
+        replaceAll(processedBeforeWord, "\n", Constants.SPACE + "<br />");
+        replaceAll(processedBeforeWord, "\t", "&#9;");
+        replaceAll(processedBeforeWord, "&", "&#38;");
+        
+        dtoNLPInputTextAndWordList.getWORD_LIST_IN_INPUT_TEXT().add(processedBeforeWord.toString());
+    }
+    
+    private void processWord(String strWord, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList, Map<String, WordMorpheme> mapMorphemeWithFrequency) {
+        // 단어 처리
+        String processedWord = strWord.replace("&", "&#38;");
+        dtoNLPInputTextAndWordList.getWORD_LIST_IN_INPUT_TEXT().add(processedWord + Constants.POS_SEPERATOR_UNDERSCORE);
+        
+        // 올바른 단어가 아니라도 mapWordListSameAsInputWordOrder에는 넣고, mapMorphemeWithFrequency에는 안 넣기 위해서 여기서 continue한다.
+        if (!(isRightChar(strWord))) {
+            return;
+        }
+        if (isSpecialString(strWord)) {
+            //특수문자등은 mapWordsFromText에 넣으면 에러가 날수 있다...
+            return;
+        }
+
+        String strWordLowercase = strWord.toLowerCase();
+        String strLowcasewordWithPOS_For_Map = strWordLowercase + Constants.POS_SEPERATOR_UNDERSCORE;
+        //단어의 WordMorpheme에 빈도수를 넣어준다.
+        if (!mapMorphemeWithFrequency.containsKey(strLowcasewordWithPOS_For_Map)) {
+            mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, new WordMorpheme(strWordLowercase, "", "", "", ""));
+        } else {
+            WordMorpheme wordMorpheme = (WordMorpheme) mapMorphemeWithFrequency.get(strLowcasewordWithPOS_For_Map);
+            wordMorpheme.increaseFrequency();
+            mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, wordMorpheme);
+        }
+    }
+    
+    private void processWordOnly(String strWord, DTO_NLP_INPUT_TEXT_AND_WORD_LIST dtoNLPInputTextAndWordList, Map<String, WordMorpheme> mapMorphemeWithFrequency) {
+        // 토큰을 찾을 수 없는 경우의 처리
+        dtoNLPInputTextAndWordList.getWORD_LIST_IN_INPUT_TEXT().add(strWord + Constants.POS_SEPERATOR_UNDERSCORE);
+        
+        if (!(isRightChar(strWord))) {
+            return;
+        }
+        if (isSpecialString(strWord)) {
+            return;
+        }
+
+        String strWordLowercase = strWord.toLowerCase();
+        String strLowcasewordWithPOS_For_Map = strWordLowercase + Constants.POS_SEPERATOR_UNDERSCORE;
+        if (!mapMorphemeWithFrequency.containsKey(strLowcasewordWithPOS_For_Map)) {
+            mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, new WordMorpheme(strWordLowercase, "", "", "", ""));
+        } else {
+            WordMorpheme wordMorpheme = (WordMorpheme) mapMorphemeWithFrequency.get(strLowcasewordWithPOS_For_Map);
+            wordMorpheme.increaseFrequency();
+            mapMorphemeWithFrequency.put(strLowcasewordWithPOS_For_Map, wordMorpheme);
+        }
+    }
+    
+    private void replaceAll(StringBuilder sb, String target, String replacement) {
+        int index = 0;
+        while ((index = sb.indexOf(target, index)) != -1) {
+            sb.replace(index, index + target.length(), replacement);
+            index += replacement.length();
         }
     }
     public static boolean isSpecialString(String strOne) {
