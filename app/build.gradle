@@ -126,26 +126,26 @@ android {
         }
 
         //<!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
-//        araplayer {
-//            dimension "dalnim"
-//            applicationId 'com.dalnimsoft.araplayer'
-//            minSdkVersion 26
-//            targetSdkVersion 33
-//            //araonesoft_eng.sqlite.zip는 포함하고 앱 올릴것
-//            //MANAGE_EXTERNAL_STORAGE도 없애고 앱 출시할것
-//            versionCode 92
-//            versionName '0.0.92'
-//            proguardFile 'proguard-rules.pro'
-//            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
-//            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
-//            buildConfigField 'String', 'VOICELANG', '"en-US"'
-//            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
-//            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
-//            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
-//            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
-//            buildConfigField 'int', 'DB_VERSION', '1'
-//            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
-//        }
+        araplayer {
+            dimension "dalnim"
+            applicationId 'com.dalnimsoft.araplayer'
+            minSdkVersion 26
+            targetSdkVersion 33
+            //araonesoft_eng.sqlite.zip는 포함하고 앱 올릴것
+            //MANAGE_EXTERNAL_STORAGE도 없애고 앱 출시할것
+            versionCode 92
+            versionName '0.0.92'
+            proguardFile 'proguard-rules.pro'
+            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
+            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
+            buildConfigField 'String', 'VOICELANG', '"en-US"'
+            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
+            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
+            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
+            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
+            buildConfigField 'int', 'DB_VERSION', '1'
+            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
+        }
 
 //        araplayer {
 //            dimension "dalnim"
@@ -168,25 +168,25 @@ android {
 //            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
 //        }
 
-        araplayer {
-            dimension "dalnim"
-            applicationId 'com.araonesoft.aramultiplayerpro'
-            minSdkVersion 26
-            targetSdkVersion 35
-            //MANAGE_EXTERNAL_STORAGE 도 없애고 앱 출시할것
-            versionCode 67
-            versionName '0.0.67'
-            proguardFile 'proguard-rules.pro'
-            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
-            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
-            buildConfigField 'String', 'VOICELANG', '"en-US"'
-            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
-            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
-            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
-            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
-            buildConfigField 'int', 'DB_VERSION', '1'
-            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
-        }
+//        araplayer {
+//            dimension "dalnim"
+//            applicationId 'com.araonesoft.aramultiplayerpro'
+//            minSdkVersion 26
+//            targetSdkVersion 35
+//            //MANAGE_EXTERNAL_STORAGE 도 없애고 앱 출시할것
+//            versionCode 67
+//            versionName '0.0.67'
+//            proguardFile 'proguard-rules.pro'
+//            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
+//            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
+//            buildConfigField 'String', 'VOICELANG', '"en-US"'
+//            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
+//            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
+//            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
+//            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
+//            buildConfigField 'int', 'DB_VERSION', '1'
+//            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
+//        }
 
 //        araplayer {
 //            dimension "dalnim"
