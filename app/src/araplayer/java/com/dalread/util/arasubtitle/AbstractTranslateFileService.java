@@ -1133,7 +1133,6 @@ public abstract class AbstractTranslateFileService {
             Map<String, DTO_DIALOGUE> mapSubtitleInfo = dtoSubtitleParsed.getMAP_DIALOGUE_INFO_BY_VOCA_TYPE_ID_KEY();
             List<DTO_DIALOGUE> listDialogue = dtoSubtitleParsed.getLIST_DIALOGUE_INFO();
             
-            DLog.i("SUBTITLE_ANALYSIS", "4. DB 저장 시작");
             long startTime = System.currentTimeMillis();
             
 //            if (this instanceof MOVIE_SQLITEService) {
@@ -1143,20 +1142,19 @@ public abstract class AbstractTranslateFileService {
             long step1Start = System.currentTimeMillis();
             insertSubtitleTableInSubtitleDb(listRubyText, listDialogue);
             long step1Time = System.currentTimeMillis() - step1Start;
-            DLog.i("SUBTITLE_ANALYSIS", "4-1. SUBTITLE 테이블 저장 완료: " + step1Time + "ms");
+            DLog.i("SUBTITLE_ANALYSIS", "   - SUBTITLE 테이블 저장 완료: " + step1Time + "ms");
             
             long step2Start = System.currentTimeMillis();
             insertWordInDicTableInSubtitleDb(mapUniqueWords);
             long step2Time = System.currentTimeMillis() - step2Start;
-            DLog.i("SUBTITLE_ANALYSIS", "4-2. DIC 테이블 저장 완료: " + step2Time + "ms");
+            DLog.i("SUBTITLE_ANALYSIS", "   - DIC 테이블 저장 완료: " + step2Time + "ms");
             
             long step3Start = System.currentTimeMillis();
             insertSubtitleWordListTableInSubtitleDb(listRubyText);
             long step3Time = System.currentTimeMillis() - step3Start;
-            DLog.i("SUBTITLE_ANALYSIS", "4-3. SUBTITLE_WORDLIST 테이블 저장 완료: " + step3Time + "ms");
+            DLog.i("SUBTITLE_ANALYSIS", "   - SUBTITLE_WORDLIST 테이블 저장 완료: " + step3Time + "ms");
             
             long totalTime = System.currentTimeMillis() - startTime;
-            DLog.i("SUBTITLE_ANALYSIS", "4. DB 저장 완료: " + totalTime + "ms");
             
 //            //각 대사별 존재하는 단어리스트를 넣어준다.
 //            JDBC4PreparedStatement preparedStatementSubtitleWordlist = insertToSubtitleWordlistTblDTO(conn, listRubyText);
