@@ -66,6 +66,7 @@ import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.VideoUtil;
 import com.dalread.util.Voca;
+import com.dalread.util.AudioExtractor;
 import com.dalread.util.arasubtitle.AbstractTranslateFileService;
 import com.dalread.util.arasubtitle.MOVIE_ASSService;
 import com.dalread.util.arasubtitle.MOVIE_BracketSubtitleService;
@@ -327,8 +328,10 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                 showZoomImageOfLastDurationInVideo(v);
                 break;
             case R.id.btnWatchRewardedAd:
-                watchRewardedAd();
+                // watchRewardedAd();
+                generateAudioFromVideo();
                 break;
+
         }
     }
 //@OnClick({R.id.iv_bookmark, R.id.btn_play, R.id.llAnalyzeAgain, R.id.tvKnowDescription,
@@ -1373,4 +1376,60 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
 //            mInterstitialAd.loadAd(new AdRequest.Builder().build());
 //        }
 //    }
+
+    /**
+     * 비디오에서 오디오 추출
+     */
+    private void generateAudioFromVideo() {
+        DLog.i("AUDIO_GENERATION", "=== 비디오에서 오디오 추출 시작 ===");
+        
+        if (playerFileModel == null || playerFileModel.getPath() == null) {
+            DLog.e("AUDIO_GENERATION", "비디오 파일 정보가 없음");
+            ToastUtil.getInstance(this).show("비디오 파일을 찾을 수 없습니다.");
+            return;
+        }
+
+        String videoPath = playerFileModel.getPath();
+        String outputDir = StorageUtil.getFilesStoragePath(this, playerFileModel);
+        
+        DLog.i("AUDIO_GENERATION", "비디오 파일: " + videoPath);
+        DLog.i("AUDIO_GENERATION", "출력 디렉토리: " + outputDir);
+
+        // 로딩 표시
+        Loading.show(this, "오디오 추출 중...");
+        
+        // AudioExtractor 생성 및 리스너 설정
+        AudioExtractor audioExtractor = new AudioExtractor(this);
+        audioExtractor.setListener(new AudioExtractor.AudioExtractionListener() {
+            @Override
+            public void onExtractionStarted() {
+                DLog.i("AUDIO_GENERATION", "오디오 추출 시작됨");
+            }
+
+            @Override
+            public void onExtractionSuccess(String audioPath) {
+                DLog.i("AUDIO_GENERATION", "=== 오디오 추출 성공 ===");
+                DLog.i("AUDIO_GENERATION", "생성된 오디오 파일: " + audioPath);
+                
+                runOnUiThread(() -> {
+                    Loading.hide();
+                    ToastUtil.getInstance(MediaInformationActivity.this).show("오디오 추출 완료!");
+                });
+            }
+
+            @Override
+            public void onExtractionError(String error) {
+                DLog.e("AUDIO_GENERATION", "=== 오디오 추출 실패 ===");
+                DLog.e("AUDIO_GENERATION", "에러: " + error);
+                
+                runOnUiThread(() -> {
+                    Loading.hide();
+                    ToastUtil.getInstance(MediaInformationActivity.this).show("오디오 추출 실패: " + error);
+                });
+            }
+        });
+
+        // 오디오 추출 시작
+        audioExtractor.extractAudioFromVideo(videoPath, outputDir);
+    }
 }
