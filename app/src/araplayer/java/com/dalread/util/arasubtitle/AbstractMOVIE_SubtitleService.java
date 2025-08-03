@@ -31,9 +31,17 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
     protected static final String subtitleSmi = "subtitle.smi";
     @Override
     protected void translateInputFileDTO(File FILE_input, File FILE_input2, AbstractTranslateFileService translateFile2) {
+        long startTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "=== 자막 분석 시작 ===");
+        DLog.i("SUBTITLE_ANALYSIS", "파일: " + FILE_input.getName());
+        
         //뜻을 달 파일명과 내용들(HTML태그들 없음. 텍스트들의 배열)
         Map<String, List<String>> mapAllTextWithoutHTMLTag =  new HashMap<String, List<String>>();
+        
+        long cleanStartTime = System.currentTimeMillis();
         cleanInputFileDTO(FILE_input);
+        long cleanEndTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "1. 파일 정리 완료: " + (cleanEndTime - cleanStartTime) + "ms");
 
         int subtitleLang = Constants.SUBTITLE_LANG_AUTO;
         int subtitleLang2 = Constants.SUBTITLE_LANG_AUTO;
@@ -54,7 +62,11 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         }
 
 
+        long parseStartTime = System.currentTimeMillis();
         DTO_SUBTITLE_PARSED dtoSubtitleParsed = getDialogueInSubtitleDTO(FILE_input, subtitleLang);
+        long parseEndTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "2. 자막 파싱 완료: " + (parseEndTime - parseStartTime) + "ms");
+        DLog.i("SUBTITLE_ANALYSIS", "   - 대화 수: " + dtoSubtitleParsed.getLIST_DIALOGUE_INFO().size() + "개");
 
 
         //자막을 루비형태로 리턴해야 할때...
@@ -84,9 +96,20 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
 
 //            dto.setLIST_INPUT_TEXT(dtoSubtitleParsed.getLIST_DIALOGUE_STUDY_LANG());
         List<String> LIST_INPUT_TEXT = dtoSubtitleParsed.getLIST_DIALOGUE_STUDY_LANG();
-            DTO_OUTPUT_RUBY_TEXT dtoOutputRubyText = makeRubyTextDTO(LIST_INPUT_TEXT);
+        DLog.i("SUBTITLE_ANALYSIS", "   - 분석할 텍스트 수: " + LIST_INPUT_TEXT.size() + "개");
+        
+        long rubyStartTime = System.currentTimeMillis();
+        DTO_OUTPUT_RUBY_TEXT dtoOutputRubyText = makeRubyTextDTO(LIST_INPUT_TEXT);
+        long rubyEndTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "3. 루비 텍스트 생성 완료: " + (rubyEndTime - rubyStartTime) + "ms");
 
-            insertRubyTextInSqliteDTO(dtoOutputRubyText, dtoSubtitleParsed, LIST_INPUT_TEXT);
+        long dbStartTime = System.currentTimeMillis();
+        insertRubyTextInSqliteDTO(dtoOutputRubyText, dtoSubtitleParsed, LIST_INPUT_TEXT);
+        long dbEndTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "4. DB 저장 완료: " + (dbEndTime - dbStartTime) + "ms");
+        
+        long totalTime = System.currentTimeMillis() - startTime;
+        DLog.i("SUBTITLE_ANALYSIS", "=== 자막 분석 완료: 총 " + totalTime + "ms ===");
 
     }
     // 문장으로 부터 단어를 추출한다.
@@ -308,25 +331,41 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         }
     }
     public DTO_OUTPUT_RUBY_TEXT makeRubyTextDTO(List<String> LIST_INPUT_TEXT) {
+        long startTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "--- 루비 텍스트 생성 시작 ---");
+        DLog.i("SUBTITLE_ANALYSIS", "입력 텍스트 수: " + LIST_INPUT_TEXT.size() + "개");
+        
         DTO_OUTPUT_RUBY_TEXT dtoResult = new DTO_OUTPUT_RUBY_TEXT.Builder().build();
         try {
 
             Map<String, List<String>> mapAllInputTextWithoutHTMLTag = new HashMap<String, List<String>>();
             String strTempFileName = "dalnim";
             mapAllInputTextWithoutHTMLTag.put(strTempFileName, LIST_INPUT_TEXT);
+            
+            long extractStartTime = System.currentTimeMillis();
             //listComment에서 유일한 단어에 대해서 NLP 파싱을 한다.
             DTO_RUBY_ALL_WORDS mapExtractedWords = extractWordsFromTextDTO(mapAllInputTextWithoutHTMLTag);
+            long extractEndTime = System.currentTimeMillis();
+            DLog.i("SUBTITLE_ANALYSIS", "3-1. 단어 추출 완료: " + (extractEndTime - extractStartTime) + "ms");
+            DLog.i("SUBTITLE_ANALYSIS", "   - 추출된 고유 단어 수: " + mapExtractedWords.getMAP_WORD_MORPHEME_WITH_FREQUENCY().size() + "개");
             //이미 분석해놓은것이 있으면 가져온다.
 //            addAlreadyParsedVocaToExractedWords(mapExtractedWords, LIST_INPUT_TEXT);
+            long dictStartTime = System.currentTimeMillis();
             // 유일한 단어중 사전에 있는 단어만 별도로 추출한다.
             Map<String, Object> mapWithWorduniqueAndData = getUniqueWordsInDicWithHTMLTagRubyTextDTOCOMMON2(mapExtractedWords.getMAP_WORD_MORPHEME_WITH_FREQUENCY());
+            long dictEndTime = System.currentTimeMillis();
+            DLog.i("SUBTITLE_ANALYSIS", "3-2. 사전 검색 완료: " + (dictEndTime - dictStartTime) + "ms");
             Map<String, String> mapWordUnique = (Map<String, String>) mapWithWorduniqueAndData.get("getUniqueWordsInDicWithHTMLTag_mapWordUniqueInDic");
             Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> mapUniqueWordList = (Map<String, DTO_VOCA_DETAIL_RUBY_TEXT>) mapWithWorduniqueAndData.get("getUniqueWordsInDicWithHTMLTag_mapUniqueWordsForJSP");
             Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> mapUniqueWordInfoList = (Map<String, DTO_VOCA_DETAIL_RUBY_TEXT>) mapWithWorduniqueAndData.get("getUniqueWordsInDicWithHTMLTag_mapUniqueWordsInfo");
 
             Integer wordCount = mapUniqueWordList.size();
+            DLog.i("SUBTITLE_ANALYSIS", "   - 사전에서 찾은 단어 수: " + wordCount + "개");
 
+            long htmlStartTime = System.currentTimeMillis();
             Map<String, Object> mapTextWithMeaning = makeHTMLWithMeaningRubyTextDTOCOMMON(mapExtractedWords, mapWordUnique, mapUniqueWordInfoList);
+            long htmlEndTime = System.currentTimeMillis();
+            DLog.i("SUBTITLE_ANALYSIS", "3-3. HTML 루비 태그 생성 완료: " + (htmlEndTime - htmlStartTime) + "ms");
 
 //            if (mapUniqueWordList.size() > 0) {
 //                mapUniqueWordList = getJMDictInfoDTO(mapUniqueWordList, dto.getLANG_MEANING());
@@ -349,6 +388,9 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        long totalTime = System.currentTimeMillis() - startTime;
+        DLog.i("SUBTITLE_ANALYSIS", "--- 루비 텍스트 생성 완료: 총 " + totalTime + "ms ---");
         return dtoResult;
     }
     //원래문장(영어, 한글등이 섞여 있는)에서 분리한 영어단어(영어 학습시)를 돌면서 HTML문장을 만든다. (각 단어별 Ruby Tag는 이미 만들어져 있다.)
@@ -554,6 +596,10 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
 
     //baseform을 가지고 단어를 찾는다.(뜻도, 단 POS는 word와 wordBaseForm은 다를수 있다.)
     public Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> searchWordListInDicDTO2(Map<String, WordMorpheme> mapUniqueWordsWithPOSAndWOrdMorpheme) {
+        long startTime = System.currentTimeMillis();
+        DLog.i("SUBTITLE_ANALYSIS", "--- 사전 검색 시작 ---");
+        DLog.i("SUBTITLE_ANALYSIS", "검색할 단어 수: " + mapUniqueWordsWithPOSAndWOrdMorpheme.size() + "개");
+        
         Map<String, DTO_VOCA_DETAIL_RUBY_TEXT> mapJsonWord = new HashMap<String, DTO_VOCA_DETAIL_RUBY_TEXT>();
         if (mapUniqueWordsWithPOSAndWOrdMorpheme.size() == 0) {
             return mapJsonWord;
@@ -572,11 +618,15 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
             //WorhMorpheme에서 각 리스트를을 뽑아온다.
             getListFromWordMorpheme(mapUniqueWordsWithPOSAndWOrdMorpheme, listWordAndPos, listWordOrBaseForm, listFromText);
 
+            long dbQueryStartTime = System.currentTimeMillis();
             //단어 테이블에서 해당되는 단어를 가져온다.
             String wordsCommaSeparated = mapUniqueWordsWithPOSAndWOrdMorpheme.values().stream()
                     .map(WordMorpheme::getWord)  // Extract the word from WordMorpheme
                     .collect(Collectors.joining(", "));
             final List<IVocaFullPlayTTSItem>  result = VocaListUtil.getAllWordListOfFromDB(wordsCommaSeparated, dicDatabase);
+            long dbQueryEndTime = System.currentTimeMillis();
+            DLog.i("SUBTITLE_ANALYSIS", "   - DB 쿼리 완료: " + (dbQueryEndTime - dbQueryStartTime) + "ms");
+            DLog.i("SUBTITLE_ANALYSIS", "   - DB에서 찾은 단어 수: " + result.size() + "개");
 //            List<VO_DIC_COMMON> resultList = convertToVODicCommon(result);//new ArrayList<>();//getVocaFromPOSAndAlreadyParsedVocaID(listWordAndPos, dto.getLANG_MEANING_CODE());
 
 
@@ -620,6 +670,7 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
 ////					logger.info("strAllPOS : " + strAllPOS);
 //                }
 //            }
+            long processStartTime = System.currentTimeMillis();
             for (IVocaFullPlayTTSItem vo : result) {
 //				DTO_MEANING dtoMeaning = dalVocaService.getValueFromMethod(dto.getLANG_MEANING_CODE(), vo); //뜻은 모국어에 따라서 다르므로 따로 처리한다.
                 String Word = vo.getVIVoca(); // (String) resultMap.get(Constants.FLD_WORD);
@@ -858,6 +909,9 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
             e.printStackTrace();
             return null;
         }
+        
+        long totalTime = System.currentTimeMillis() - startTime;
+        DLog.i("SUBTITLE_ANALYSIS", "--- 사전 검색 완료: 총 " + totalTime + "ms ---");
         return mapJsonWord;
     }
     public static List<VO_DIC_COMMON> convertToVODicCommon(List<IVocaFullPlayTTSItem> items) {
