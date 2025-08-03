@@ -103,10 +103,7 @@ public abstract class AbstractMOVIE_SubtitleService extends AbstractTranslateFil
         long rubyEndTime = System.currentTimeMillis();
         DLog.i("SUBTITLE_ANALYSIS", "3. 루비 텍스트 생성 완료: " + (rubyEndTime - rubyStartTime) + "ms");
 
-        long dbStartTime = System.currentTimeMillis();
         insertRubyTextInSqliteDTO(dtoOutputRubyText, dtoSubtitleParsed, LIST_INPUT_TEXT);
-        long dbEndTime = System.currentTimeMillis();
-        DLog.i("SUBTITLE_ANALYSIS", "4. DB 저장 완료: " + (dbEndTime - dbStartTime) + "ms");
         
         long totalTime = System.currentTimeMillis() - startTime;
         DLog.i("SUBTITLE_ANALYSIS", "=== 자막 분석 완료: 총 " + totalTime + "ms ===");

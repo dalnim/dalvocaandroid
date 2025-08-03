@@ -1307,6 +1307,62 @@ public class SubDatabase extends DicSentenceSubDatabase {
 //                    new String[]{String.valueOf(item.getId())});
         }
     }
+    
+    public void addSubtitles(List<DicModel> items) {
+        DLog.d(TAG, "addSubtitles - count=" + items.size());
+        int studyLang = EnumLanguage.findByFormatApi(BuildConfig.STUDY_LANG).getIdApi();
+        int chunkSize = 200; // 청크 단위 크기
+        
+        openWrite();
+        database.beginTransaction();
+        try {
+            // SQLiteStatement 준비
+            String sql = "INSERT INTO " + TABLE.SUBTITLE + " (" +
+                    COLUMN.ID + ", " + COLUMN.LANG_STUDY + ", " + COLUMN.VOCA_TYPE + ", " + 
+                    COLUMN.VOCA_ID + ", " + COLUMN.VOCA + ", " + COLUMN.VOCA_RUBY + ", " + 
+                    COLUMN.MEANING + ", " + COLUMN.VOCA_KNOW + ", " + COLUMN.START_TIME + ", " + 
+                    COLUMN.END_TIME + ", " + COLUMN.BOOKMARK + ", " + COLUMN.REPEAT + ", " + 
+                    COLUMN.START_TIME_ORIGINAL + ", " + COLUMN.END_TIME_ORIGINAL + ", " + 
+                    COLUMN.VOCA_ORIGINAL + ", " + COLUMN.VOCA_KNOWPRONOUNCE + ", " + 
+                    COLUMN.MEMO + ", " + COLUMN.USED + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            android.database.sqlite.SQLiteStatement stmt = database.compileStatement(sql);
+            
+            for (int i = 0; i < items.size(); i += chunkSize) {
+                int endIndex = Math.min(i + chunkSize, items.size());
+                List<DicModel> chunk = items.subList(i, endIndex);
+                
+                // 청크 단위로 SQLiteStatement를 사용한 배치 삽입
+                for (DicModel item : chunk) {
+                    stmt.clearBindings();
+                    stmt.bindLong(1, item.getId());
+                    stmt.bindLong(2, studyLang);
+                    stmt.bindLong(3, item.getVocaType());
+                    stmt.bindLong(4, item.getVocaId());
+                    stmt.bindString(5, item.getVocaDisplay());
+                    stmt.bindString(6, StringUtils.replaceNewLineToBRTag(item.getVocaDisplayRuby()));
+                    stmt.bindString(7, item.getMeaning());
+                    stmt.bindLong(8, item.getVocaKnow());
+                    stmt.bindLong(9, item.getStartTime());
+                    stmt.bindLong(10, item.getEndTime());
+                    stmt.bindLong(11, item.getBookmark());
+                    stmt.bindLong(12, item.getVIRepeatCount());
+                    stmt.bindLong(13, item.getStartTimeOriginal());
+                    stmt.bindLong(14, item.getEndTimeOriginal());
+                    stmt.bindString(15, item.getSubtitleOriginal());
+                    stmt.bindLong(16, item.getKnowPronounceBase());
+                    stmt.bindString(17, item.getMemo());
+                    stmt.bindLong(18, Constant.PLAYER.SUB_TITLE.USED.SHOW);
+                    stmt.executeInsert();
+                }
+            }
+            
+            stmt.close();
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
+    }
 
     public void addWordInDicTableInSubtitleDb(DicModel item) {
         DLog.d(TAG, "addSubtitle - item=" + item.toString());
@@ -1336,6 +1392,65 @@ public class SubDatabase extends DicSentenceSubDatabase {
         insertIntoTable(TABLE.DIC, cv);
     }
 
+    public void addWordsInDicTableInSubtitleDb(List<DicModel> items) {
+        DLog.d(TAG, "addWordsInDicTableInSubtitleDb - count=" + items.size());
+        int chunkSize = 200; // 청크 단위 크기
+        
+        openWrite();
+        database.beginTransaction();
+        try {
+            // SQLiteStatement 준비
+            String sql = "INSERT INTO " + TABLE.DIC + " (" +
+                    COLUMN.ID + ", " + COLUMN.VOCA + ", " + COLUMN.VOCA_TTS + ", " + 
+                    COLUMN.VOCA_TYPE + ", " + COLUMN.VOCA_ID + ", " + COLUMN.VOCA_ID_TO_SEND_SERVER + ", " + 
+                    COLUMN.PRONOUNCE + ", " + COLUMN.MEANING + ", " + COLUMN.VOCA_KNOW + ", " + 
+                    COLUMN.VOCA_KNOWPRONOUNCE + ", " + COLUMN.MEANING_ENG + ", " + COLUMN.MEANING_TTS + ", " + 
+                    COLUMN.BOOKMARK + ", " + COLUMN.VOCA_LEVEL + ", " + COLUMN.FREQUENCY + ", " + 
+                    COLUMN.HANJA + ", " + COLUMN.JMDICT_MEANING + ", " + COLUMN.JMDICT_MEANING_ENG + ", " + 
+                    COLUMN.POSALL + ", " + COLUMN.VOCA_APPEARANCE_ORDER + ", " + COLUMN.MEANING_DETAILED + 
+                    ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            android.database.sqlite.SQLiteStatement stmt = database.compileStatement(sql);
+            
+            for (int i = 0; i < items.size(); i += chunkSize) {
+                int endIndex = Math.min(i + chunkSize, items.size());
+                List<DicModel> chunk = items.subList(i, endIndex);
+                
+                // 청크 단위로 SQLiteStatement를 사용한 배치 삽입
+                for (DicModel item : chunk) {
+                    stmt.clearBindings();
+                    stmt.bindLong(1, item.getId());
+                    stmt.bindString(2, item.getVIVoca());
+                    stmt.bindString(3, item.getVIVocaTTS());
+                    stmt.bindLong(4, item.getVocaType());
+                    stmt.bindLong(5, item.getVocaId());
+                    stmt.bindLong(6, item.getVocaId());
+                    stmt.bindString(7, item.getPronounce());
+                    stmt.bindString(8, item.getMeaning());
+                    stmt.bindLong(9, item.getVocaKnow());
+                    stmt.bindLong(10, item.getVocaKnowPronounce());
+                    stmt.bindString(11, item.getMeaningEng());
+                    stmt.bindString(12, "");
+                    stmt.bindLong(13, item.getBookmark());
+                    stmt.bindLong(14, item.getWordLevel());
+                    stmt.bindLong(15, item.getFrequency());
+                    stmt.bindString(16, "");
+                    stmt.bindString(17, "");
+                    stmt.bindString(18, "");
+                    stmt.bindString(19, "");
+                    stmt.bindLong(20, 0);
+                    stmt.bindString(21, item.getMeaningDetailed());
+                    stmt.executeInsert();
+                }
+            }
+            
+            stmt.close();
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
+    }
+
     public void addItemInSubtitleWordListInSubtitleDb(SubtitleWordListModel item) {
         DLog.d(TAG, "addSubtitle - item=" + item.toString());
         ContentValues cv = new ContentValues();
@@ -1344,6 +1459,42 @@ public class SubDatabase extends DicSentenceSubDatabase {
         cv.put(COLUMN.VOCA_TYPE, item.getVocaType());
         cv.put(COLUMN.VOCA_ID, item.getVocaId());
         insertIntoTable(TABLE.SUBTITLE_WORDLIST, cv);
+    }
+
+    public void addItemsInSubtitleWordListInSubtitleDb(List<SubtitleWordListModel> items) {
+        DLog.d(TAG, "addItemsInSubtitleWordListInSubtitleDb - count=" + items.size());
+        int chunkSize = 200; // 청크 단위 크기
+        
+        openWrite();
+        database.beginTransaction();
+        try {
+            // SQLiteStatement 준비
+            String sql = "INSERT INTO " + TABLE.SUBTITLE_WORDLIST + " (" +
+                    COLUMN.ID + ", " + COLUMN.SUBTITLE_ID + ", " + COLUMN.VOCA_TYPE + ", " + 
+                    COLUMN.VOCA_ID + ") VALUES (?, ?, ?, ?)";
+            
+            android.database.sqlite.SQLiteStatement stmt = database.compileStatement(sql);
+            
+            for (int i = 0; i < items.size(); i += chunkSize) {
+                int endIndex = Math.min(i + chunkSize, items.size());
+                List<SubtitleWordListModel> chunk = items.subList(i, endIndex);
+                
+                // 청크 단위로 SQLiteStatement를 사용한 배치 삽입
+                for (SubtitleWordListModel item : chunk) {
+                    stmt.clearBindings();
+                    stmt.bindLong(1, item.getId());
+                    stmt.bindLong(2, item.getSubtitleId());
+                    stmt.bindLong(3, item.getVocaType());
+                    stmt.bindLong(4, item.getVocaId());
+                    stmt.executeInsert();
+                }
+            }
+            
+            stmt.close();
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
     }
 
     public void updateTranslate(DicModel item) {

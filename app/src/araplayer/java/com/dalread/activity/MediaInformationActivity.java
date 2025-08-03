@@ -800,7 +800,8 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitle());
                 }
 
-                // openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
+                Loading.hide();
+                openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
                 subtitleAnalyzer.shutdown();
             }
 
