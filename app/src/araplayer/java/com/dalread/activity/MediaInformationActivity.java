@@ -68,6 +68,7 @@ import com.dalread.util.Utils;
 import com.dalread.util.VideoUtil;
 import com.dalread.util.Voca;
 import com.dalread.util.AudioExtractor;
+import com.dalread.util.VoskTranscriber;
 import com.dalread.util.arasubtitle.AbstractTranslateFileService;
 import com.dalread.util.arasubtitle.MOVIE_ASSService;
 import com.dalread.util.arasubtitle.MOVIE_BracketSubtitleService;
@@ -1416,6 +1417,9 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                     Loading.hide();
                     ToastUtil.getInstance(MediaInformationActivity.this).show("오디오 추출 완료!");
                 });
+                
+                // 오디오 추출 완료 후 Vosk STT 시작
+                startVoskTranscription(audioPath);
             }
 
             @Override
@@ -1432,5 +1436,100 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
 
         // 오디오 추출 시작
         audioExtractor.extractAudioFromVideo(videoPath, outputDir);
+    }
+    
+    /**
+     * Vosk를 사용한 STT 시작
+     */
+    private void startVoskTranscription(String audioPath) {
+        DLog.i("AUDIO_GENERATION", "=== Vosk STT 시작 ===");
+        
+        // 로딩 표시
+        Loading.show(this, "음성 인식 중...");
+        
+        // 백그라운드에서 STT 실행
+        new Thread(() -> {
+            try {
+                VoskTranscriber voskTranscriber = new VoskTranscriber(this);
+                
+                String modelPath = "vosk/vosk-model-en-us-0.22-lgraph";
+                DLog.i("AUDIO_GENERATION", "모델 경로: " + modelPath);
+                // 영어 모델 초기화 (lgraph 모델 사용)
+                boolean initialized = voskTranscriber.initializeModel(modelPath);
+                DLog.i("AUDIO_GENERATION", "=== Vosk 모델 초기화 결과: " + initialized + " ===");
+                
+                if (!initialized) {
+                    DLog.e("AUDIO_GENERATION", "Vosk 모델 초기화 실패");
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("음성 인식 모델 로드 실패");
+                    });
+                    return;
+                }            
+                
+                DLog.i("AUDIO_GENERATION", "오디오 파일 경로: " + audioPath);
+                // 음성 인식 실행
+                String transcribedText = voskTranscriber.transcribeAudio(audioPath);
+                DLog.i("AUDIO_GENERATION", "=== 음성 인식 완료, 결과: " + (transcribedText != null ? transcribedText.length() : 0) + " 글자 ===");
+                DLog.i("AUDIO_GENERATION", "=== 음성 인식 결과 상세: ===");
+                DLog.i("AUDIO_GENERATION", "transcribedText: '" + transcribedText + "'");
+                DLog.i("AUDIO_GENERATION", "transcribedText == null: " + (transcribedText == null));
+                DLog.i("AUDIO_GENERATION", "transcribedText.trim().isEmpty(): " + (transcribedText != null ? transcribedText.trim().isEmpty() : "N/A"));
+                DLog.i("AUDIO_GENERATION", "transcribedText.trim(): '" + (transcribedText != null ? transcribedText.trim() : "null") + "'");
+                
+                // 리소스 해제
+                voskTranscriber.release();
+                
+                if (transcribedText != null && !transcribedText.trim().isEmpty()) {
+                    // 텍스트 파일로 저장
+                    String textFilePath = audioPath.replaceFirst("\\.[^.]+$", ".txt");
+                    saveTextToFile(transcribedText, textFilePath);
+                    
+                    DLog.i("AUDIO_GENERATION", "=== STT 완료 ===");
+                    DLog.i("AUDIO_GENERATION", "인식된 텍스트: " + transcribedText);
+                    DLog.i("AUDIO_GENERATION", "저장된 파일: " + textFilePath);
+                    
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("음성 인식 완료!");
+                    });
+                } else {
+                    DLog.e("AUDIO_GENERATION", "음성 인식 결과가 비어있음");
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("인식된 음성이 없습니다.");
+                    });
+                }
+                
+            } catch (Exception e) {
+                DLog.e("AUDIO_GENERATION", "Vosk STT 실패", e);
+                runOnUiThread(() -> {
+                    Loading.hide();
+                    ToastUtil.getInstance(MediaInformationActivity.this).show("음성 인식 실패: " + e.getMessage());
+                });
+            }
+        }).start();
+    }
+    
+    /**
+     * 텍스트를 파일로 저장
+     */
+    private void saveTextToFile(String text, String filePath) {
+        try {
+            File file = new File(filePath);
+            File parentDir = file.getParentFile();
+            if (!parentDir.exists()) {
+                parentDir.mkdirs();
+            }
+            
+            try (java.io.FileWriter writer = new java.io.FileWriter(file)) {
+                writer.write(text);
+            }
+            
+            DLog.i("AUDIO_GENERATION", "텍스트 파일 저장 완료: " + filePath);
+            
+        } catch (IOException e) {
+            DLog.e("AUDIO_GENERATION", "텍스트 파일 저장 실패", e);
+        }
     }
 }

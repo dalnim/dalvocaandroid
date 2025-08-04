@@ -444,6 +444,8 @@ dependencies {
     // recycler view
     implementation 'com.github.nikhilpanju:RecyclerViewEnhanced:1.1'
 //    compile project(':ijkplayer-armv7a')
+    // Vosk STT
+    implementation 'com.alphacephei:vosk-android:0.3.47'
 //    compile project(':ijkplayer-java')
 //    compile project(':ijkplayer-arm64')
 //    compile project(':ijkplayer-armv5')

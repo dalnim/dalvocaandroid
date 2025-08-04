@@ -1,17 +1,12 @@
 package com.dalread.util;
 
 import android.content.Context;
+import android.media.MediaCodec;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
-import android.media.MediaCodec;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.AudioManager;
-import android.util.Log;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -143,8 +138,6 @@ public class AudioExtractor {
             // 오디오 파일명 생성
             String audioFileName = generateAudioFileName(videoPath);
             String audioPath = outputDir + File.separator + audioFileName;
-            
-            DLog.i(TAG, "오디오 파일 경로: " + audioPath);
             
             // MediaMuxer 초기화
             muxer = new MediaMuxer(audioPath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);

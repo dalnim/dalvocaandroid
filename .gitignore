@@ -45,3 +45,19 @@ app/src/araplayer/assets/ggml-base.bin
 
 **/.cxx/
 
+# Vosk STT 모델 파일들 (너무 크므로 Git에서 제외)
+**/vosk-model*/
+**/vosk-model-*/
+**/vosk-model-*.zip
+**/vosk-*.model
+**/*.model
+**/models/
+**/vosk/
+app/src/*/assets/vosk-model-*/
+app/src/*/assets/vosk-model-*.zip
+app/src/*/assets/vosk-*.model
+app/src/*/assets/*.model
+app/src/*/assets/models/
+app/src/araplayer/assets/vosk/
+app/src/araplayer/assets/vosk/*
+vosk/
