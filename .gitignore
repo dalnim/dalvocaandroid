@@ -61,3 +61,5 @@ app/src/*/assets/models/
 app/src/araplayer/assets/vosk/
 app/src/araplayer/assets/vosk/*
 vosk/
+
+**/ggml*.bin
