@@ -296,18 +296,22 @@ Java_com_dalread_whisper_WhisperLib_getSystemInfo(
 JNIEXPORT jstring JNICALL
 Java_com_dalread_whisper_WhisperLib_benchMemcpy(JNIEnv *env, jobject thiz,
                                                                      jint n_threads) {
-    UNUSED(env);
     UNUSED(thiz);
 
-    return (*env)->NewStringUTF(env, whisper_bench_memcpy(n_threads));
+    int result = whisper_bench_memcpy(n_threads);
+    char buffer[256];
+    snprintf(buffer, sizeof(buffer), "Benchmark result: %d", result);
+    return (*env)->NewStringUTF(env, buffer);
 }
 
 JNIEXPORT jstring JNICALL
 Java_com_dalread_whisper_WhisperLib_benchGgmlMulMat(JNIEnv *env, jobject thiz,
                                                                              jint n_threads) {
-    UNUSED(env);
     UNUSED(thiz);
 
-    return (*env)->NewStringUTF(env, whisper_bench_ggml_mul_mat(n_threads));
+    int result = whisper_bench_ggml_mul_mat(n_threads);
+    char buffer[256];
+    snprintf(buffer, sizeof(buffer), "Benchmark result: %d", result);
+    return (*env)->NewStringUTF(env, buffer);
 }
 
