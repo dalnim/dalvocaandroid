@@ -22,50 +22,6 @@ static inline int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-// 실시간 콜백을 위한 구조체
-struct whisper_callback_context {
-    JNIEnv *env;
-    jobject callback;
-    jmethodID onSegmentMethod;
-    jmethodID onProgressMethod;
-};
-
-// 실시간 세그먼트 콜백 함수
-static void our_new_segment_callback(struct whisper_context *ctx, struct whisper_state *state, int n_new, void *user_data) {
-    struct whisper_callback_context *callback_ctx = (struct whisper_callback_context *)user_data;
-    JNIEnv *env = callback_ctx->env;
-    jobject callback = callback_ctx->callback;
-    jmethodID onSegmentMethod = callback_ctx->onSegmentMethod;
-    
-    if (callback != NULL && onSegmentMethod != NULL) {
-        // 새로운 세그먼트가 추가될 때마다 Java 콜백 호출
-        for (int i = 0; i < n_new; i++) {
-            int segment_index = whisper_full_n_segments(ctx) - n_new + i;
-            const char *text = whisper_full_get_segment_text(ctx, segment_index);
-            long t0 = whisper_full_get_segment_t0(ctx, segment_index);
-            long t1 = whisper_full_get_segment_t1(ctx, segment_index);
-            
-            // Java 콜백 메서드 호출
-            (*env)->CallVoidMethod(env, callback, onSegmentMethod, 
-                                  (*env)->NewStringUTF(env, text), 
-                                  (jlong)t0, (jlong)t1);
-        }
-    }
-}
-
-// 진행률 콜백 함수
-static void our_progress_callback(struct whisper_context *ctx, struct whisper_state *state, int progress, void *user_data) {
-    struct whisper_callback_context *callback_ctx = (struct whisper_callback_context *)user_data;
-    JNIEnv *env = callback_ctx->env;
-    jobject callback = callback_ctx->callback;
-    jmethodID onProgressMethod = callback_ctx->onProgressMethod;
-    
-    if (callback != NULL && onProgressMethod != NULL) {
-        // 진행률을 Java로 전달
-        (*env)->CallVoidMethod(env, callback, onProgressMethod, progress);
-    }
-}
-
 struct input_stream_context {
     size_t offset;
     JNIEnv * env;
@@ -111,7 +67,7 @@ void inputStreamClose(void * ctx) {
 }
 
 JNIEXPORT jlong JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_initContextFromInputStream(
+Java_com_dalread_whisper_WhisperLib_initContextFromInputStream(
         JNIEnv *env, jobject thiz, jobject input_stream) {
     UNUSED(thiz);
 
@@ -173,7 +129,7 @@ static struct whisper_context *whisper_init_from_asset(
 }
 
 JNIEXPORT jlong JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_initContextFromAsset(
+Java_com_dalread_whisper_WhisperLib_initContextFromAsset(
         JNIEnv *env, jobject thiz, jobject assetManager, jstring asset_path_str) {
     UNUSED(thiz);
 
@@ -188,7 +144,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_initContextFromAsset(
 }
 
 JNIEXPORT jlong JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_initContext(
+Java_com_dalread_whisper_WhisperLib_initContext(
         JNIEnv *env, jobject thiz, jstring model_path_str) {
     UNUSED(thiz);
 
@@ -204,7 +160,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_initContext(
 }
 
 JNIEXPORT void JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_freeContext(
+Java_com_dalread_whisper_WhisperLib_freeContext(
         JNIEnv *env, jobject thiz, jlong context_ptr) {
     UNUSED(env);
     UNUSED(thiz);
@@ -216,7 +172,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_freeContext(
 }
 
 JNIEXPORT void JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_fullTranscribe(
+Java_com_dalread_whisper_WhisperLib_fullTranscribe(
         JNIEnv *env, jobject thiz, jlong context_ptr, jint num_threads, jfloatArray audio_data) {
     UNUSED(thiz);
 
@@ -255,23 +211,14 @@ Java_com_araonesoft_dalstttest_WhisperLib_fullTranscribe(
 
 // 실시간 콜백을 사용하는 새로운 전사 함수
 JNIEXPORT void JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_fullTranscribeWithCallback(
+Java_com_dalread_whisper_WhisperLib_fullTranscribeWithCallback(
         JNIEnv *env, jobject thiz, jlong context_ptr, jint num_threads, jfloatArray audio_data, jobject callback) {
     UNUSED(thiz);
+    UNUSED(callback); // 콜백을 사용하지 않음
 
     struct whisper_context *context = (struct whisper_context *) context_ptr;
     jsize audio_length = (*env)->GetArrayLength(env, audio_data);
     jfloat* audio_elements = (*env)->GetFloatArrayElements(env, audio_data, NULL);
-
-    // 콜백 컨텍스트 설정
-    struct whisper_callback_context callback_ctx = {};
-    callback_ctx.env = env;
-    callback_ctx.callback = (*env)->NewGlobalRef(env, callback);
-    
-    // Java 콜백 클래스에서 메서드 찾기
-    jclass callback_class = (*env)->GetObjectClass(env, callback);
-    callback_ctx.onSegmentMethod = (*env)->GetMethodID(env, callback_class, "onSegment", "(Ljava/lang/String;JJ)V");
-    callback_ctx.onProgressMethod = (*env)->GetMethodID(env, callback_class, "onProgress", "(I)V");
 
     struct whisper_full_params params = whisper_full_default_params(WHISPER_SAMPLING_GREEDY);
     params.n_threads = num_threads;
@@ -284,21 +231,12 @@ Java_com_araonesoft_dalstttest_WhisperLib_fullTranscribeWithCallback(
     params.offset_ms = 0;
     params.no_context = true;
     params.single_segment = false;
-    
-    // 콜백 함수 설정
-    params.new_segment_callback = our_new_segment_callback;
-    params.new_segment_callback_user_data = &callback_ctx;
-    params.progress_callback = our_progress_callback;
-    params.progress_callback_user_data = &callback_ctx;
 
     LOGI("Starting whisper_full with callback, %d threads, audio length: %d", num_threads, audio_length);
     
     int result = whisper_full(context, params, audio_elements, audio_length);
     
     LOGI("whisper_full with callback completed with result: %d", result);
-
-    // 전역 참조 해제
-    (*env)->DeleteGlobalRef(env, callback_ctx.callback);
 
     (*env)->ReleaseFloatArrayElements(env, audio_data, audio_elements, JNI_ABORT);
 
@@ -308,7 +246,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_fullTranscribeWithCallback(
 }
 
 JNIEXPORT jint JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentCount(
+Java_com_dalread_whisper_WhisperLib_getTextSegmentCount(
         JNIEnv *env, jobject thiz, jlong context_ptr) {
     UNUSED(env);
     UNUSED(thiz);
@@ -318,7 +256,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentCount(
 }
 
 JNIEXPORT jstring JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_getTextSegment(
+Java_com_dalread_whisper_WhisperLib_getTextSegment(
         JNIEnv *env, jobject thiz, jlong context_ptr, jint index) {
     UNUSED(thiz);
 
@@ -328,7 +266,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_getTextSegment(
 }
 
 JNIEXPORT jlong JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentT0(JNIEnv *env, jobject thiz,jlong context_ptr, jint index) {
+Java_com_dalread_whisper_WhisperLib_getTextSegmentT0(JNIEnv *env, jobject thiz,jlong context_ptr, jint index) {
     UNUSED(env);
     UNUSED(thiz);
 
@@ -337,7 +275,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentT0(JNIEnv *env, jobject 
 }
 
 JNIEXPORT jlong JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentT1(JNIEnv *env, jobject thiz,jlong context_ptr, jint index) {
+Java_com_dalread_whisper_WhisperLib_getTextSegmentT1(JNIEnv *env, jobject thiz,jlong context_ptr, jint index) {
     UNUSED(env);
     UNUSED(thiz);
 
@@ -346,7 +284,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_getTextSegmentT1(JNIEnv *env, jobject 
 }
 
 JNIEXPORT jstring JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_getSystemInfo(
+Java_com_dalread_whisper_WhisperLib_getSystemInfo(
         JNIEnv *env, jobject thiz
 ) {
     UNUSED(env);
@@ -356,7 +294,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_getSystemInfo(
 }
 
 JNIEXPORT jstring JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_benchMemcpy(JNIEnv *env, jobject thiz,
+Java_com_dalread_whisper_WhisperLib_benchMemcpy(JNIEnv *env, jobject thiz,
                                                                      jint n_threads) {
     UNUSED(env);
     UNUSED(thiz);
@@ -365,7 +303,7 @@ Java_com_araonesoft_dalstttest_WhisperLib_benchMemcpy(JNIEnv *env, jobject thiz,
 }
 
 JNIEXPORT jstring JNICALL
-Java_com_araonesoft_dalstttest_WhisperLib_benchGgmlMulMat(JNIEnv *env, jobject thiz,
+Java_com_dalread_whisper_WhisperLib_benchGgmlMulMat(JNIEnv *env, jobject thiz,
                                                                              jint n_threads) {
     UNUSED(env);
     UNUSED(thiz);

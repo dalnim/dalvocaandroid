@@ -1,4 +1,4 @@
-package com.araonesoft.dalstttest;
+package com.dalread.whisper;
 
 import android.content.res.AssetManager;
 import android.os.Build;

@@ -1,4 +1,4 @@
-package com.araonesoft.dalstttest;
+package com.dalread.whisper;
 
 import android.content.res.AssetManager;
 import android.os.Build;
@@ -7,8 +7,6 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import java.io.InputStream;
-
-import com.araonesoft.dalstttest.WhisperCallback;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class WhisperLib {
@@ -60,9 +58,6 @@ public class WhisperLib {
   public static native void freeContext(long contextPtr);
 
   public static native void fullTranscribe(long contextPtr, int numThreads, float[] audioData);
-
-  // 실시간 콜백을 사용하는 새로운 전사 메서드
-  public static native void fullTranscribeWithCallback(long contextPtr, int numThreads, float[] audioData, WhisperCallback callback);
 
   public static native int getTextSegmentCount(long contextPtr);
 
