@@ -68,6 +68,9 @@ import com.dalread.util.Utils;
 import com.dalread.util.VideoUtil;
 import com.dalread.util.Voca;
 import com.dalread.util.AudioExtractor;
+import com.dalread.whisper.WhisperLib;
+import com.dalread.whisper.WhisperContext;
+import com.dalread.whisper.WhisperFileUtil;
 import com.dalread.util.VoskTranscriber;
 import com.dalread.util.arasubtitle.AbstractTranslateFileService;
 import com.dalread.util.arasubtitle.MOVIE_ASSService;
@@ -1418,8 +1421,8 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                     ToastUtil.getInstance(MediaInformationActivity.this).show("오디오 추출 완료!");
                 });
                 
-                // 오디오 추출 완료 후 Vosk STT 시작
-                startVoskTranscription(audioPath);
+                // 오디오 추출 완료 후 Whisper STT 시작
+                startWhisperTranscription(audioPath);
             }
 
             @Override
@@ -1530,6 +1533,182 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             
         } catch (IOException e) {
             DLog.e("AUDIO_GENERATION", "텍스트 파일 저장 실패", e);
+        }
+    }
+    
+    /**
+     * Whisper를 사용한 STT 시작
+     */
+    private void startWhisperTranscription(String audioPath) {
+        DLog.i("AUDIO_GENERATION", "=== Whisper STT 시작 ===");
+
+        runOnUiThread(() -> {
+            Loading.show(this, "음성 인식 중...");
+        });
+
+        // 백그라운드에서 STT 실행
+        new Thread(() -> {
+            try {
+                // Whisper 모델 파일을 내부 저장소로 복사
+                String modelPath;
+                try {
+                    // assets에서 모델 파일 복사
+                    modelPath = WhisperFileUtil.copyAssetToInternalStorage(this, "models/ggml-base.en-q8_0.bin", "ggml-base.en-q8_0.bin");
+                    DLog.i("AUDIO_GENERATION", "Whisper 모델 복사 완료: " + modelPath);
+                } catch (IOException e) {
+                    DLog.e("AUDIO_GENERATION", "Whisper 모델 복사 실패", e);
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("Whisper 모델 복사 실패");
+                    });
+                    return;
+                }
+                
+                DLog.i("AUDIO_GENERATION", "Whisper 모델 경로: " + modelPath);
+                
+                // Whisper 컨텍스트 초기화
+                long whisperContext = WhisperLib.initContext(modelPath);
+                if (whisperContext == 0) {
+                    DLog.e("AUDIO_GENERATION", "Whisper 모델 초기화 실패");
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("Whisper 모델 로드 실패");
+                    });
+                    return;
+                }
+                
+                DLog.i("AUDIO_GENERATION", "Whisper 모델 초기화 성공");
+                
+                // 하드코딩: jfk.wav 파일 사용 (assets에서 복사)
+                String jfkWavPath;
+                try {
+                    jfkWavPath = WhisperFileUtil.copyAssetToInternalStorage(this, "jfk.wav", "jfk.wav");
+                    DLog.i("AUDIO_GENERATION", "JFK WAV 파일 복사 완료: " + jfkWavPath);
+                } catch (IOException e) {
+                    DLog.e("AUDIO_GENERATION", "JFK WAV 파일 복사 실패", e);
+                    WhisperLib.freeContext(whisperContext);
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("JFK WAV 파일 복사 실패");
+                    });
+                    return;
+                }
+                
+                DLog.i("AUDIO_GENERATION", "JFK WAV 파일 경로: " + jfkWavPath);
+                
+                // JFK WAV 파일을 float 배열로 변환
+                float[] audioData = convertWavToFloatArray(jfkWavPath);
+                if (audioData == null || audioData.length == 0) {
+                    DLog.e("AUDIO_GENERATION", "JFK WAV 파일 변환 실패");
+                    WhisperLib.freeContext(whisperContext);
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("JFK WAV 파일 변환 실패");
+                    });
+                    return;
+                }
+                
+                // Whisper STT 실행
+                WhisperLib.fullTranscribe(whisperContext, 4, audioData);
+                
+                // 결과 가져오기
+                int segmentCount = WhisperLib.getTextSegmentCount(whisperContext);
+                DLog.i("AUDIO_GENERATION", "=== Whisper STT 완료, 세그먼트 수: " + segmentCount + " ===");
+                
+                StringBuilder transcribedText = new StringBuilder();
+                for (int i = 0; i < segmentCount; i++) {
+                    String segment = WhisperLib.getTextSegment(whisperContext, i);
+                    if (segment != null && !segment.trim().isEmpty()) {
+                        transcribedText.append(segment).append(" ");
+                    }
+                }
+                
+                // 리소스 해제
+                WhisperLib.freeContext(whisperContext);
+                
+                String finalText = transcribedText.toString().trim();
+                if (!finalText.isEmpty()) {
+                    // 텍스트 파일을 외부 저장소 Documents 폴더에 저장
+                    String documentsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath();
+                    String textFileName = "jfk_whisper_result.txt";
+                    String textFilePath = documentsDir + "/" + textFileName;
+                    
+                    // Documents 폴더가 없으면 생성
+                    File documentsFolder = new File(documentsDir);
+                    if (!documentsFolder.exists()) {
+                        documentsFolder.mkdirs();
+                    }
+                    
+                    saveTextToFile(finalText, textFilePath);
+                    
+                    DLog.i("AUDIO_GENERATION", "=== Whisper STT 완료 ===");
+                    DLog.i("AUDIO_GENERATION", "인식된 텍스트: " + finalText);
+                    DLog.i("AUDIO_GENERATION", "저장된 파일: " + textFilePath);
+                    
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("Whisper 음성 인식 완료!");
+                    });
+                } else {
+                    DLog.e("AUDIO_GENERATION", "Whisper 음성 인식 결과가 비어있음");
+                    runOnUiThread(() -> {
+                        Loading.hide();
+                        ToastUtil.getInstance(MediaInformationActivity.this).show("인식된 음성이 없습니다.");
+                    });
+                }
+                
+            } catch (Exception e) {
+                DLog.e("AUDIO_GENERATION", "Whisper STT 실패", e);
+                runOnUiThread(() -> {
+                    Loading.hide();
+                    ToastUtil.getInstance(MediaInformationActivity.this).show("Whisper 음성 인식 실패: " + e.getMessage());
+                });
+            }
+        }).start();
+    }
+    
+    /**
+     * WAV 파일을 float 배열로 변환
+     */
+    private float[] convertWavToFloatArray(String wavFilePath) {
+        try {
+            File wavFile = new File(wavFilePath);
+            if (!wavFile.exists()) {
+                DLog.e("AUDIO_GENERATION", "WAV 파일이 존재하지 않음: " + wavFilePath);
+                return null;
+            }
+            
+            // WAV 파일을 바이트 배열로 읽기
+            byte[] wavData = FileUtils.readFileToByteArray(wavFile);
+            DLog.i("AUDIO_GENERATION", "WAV 파일 크기: " + wavData.length + " bytes");
+            
+            // WAV 헤더 건너뛰기 (44 bytes)
+            int headerSize = 44;
+            if (wavData.length <= headerSize) {
+                DLog.e("AUDIO_GENERATION", "WAV 파일이 너무 작음");
+                return null;
+            }
+            
+            // 16-bit PCM 데이터를 float 배열로 변환
+            int dataSize = wavData.length - headerSize;
+            int sampleCount = dataSize / 2; // 16-bit = 2 bytes per sample
+            float[] audioData = new float[sampleCount];
+            
+            for (int i = 0; i < sampleCount; i++) {
+                int byteIndex = headerSize + i * 2;
+                if (byteIndex + 1 < wavData.length) {
+                    // Little-endian 16-bit signed integer를 float로 변환
+                    short sample = (short) ((wavData[byteIndex + 1] & 0xFF) << 8 | (wavData[byteIndex] & 0xFF));
+                    audioData[i] = sample / 32768.0f; // -1.0 ~ 1.0 범위로 정규화
+                }
+            }
+            
+            DLog.i("AUDIO_GENERATION", "오디오 데이터 변환 완료: " + sampleCount + " 샘플");
+            return audioData;
+            
+        } catch (Exception e) {
+            DLog.e("AUDIO_GENERATION", "WAV 파일 변환 실패", e);
+            return null;
         }
     }
 }

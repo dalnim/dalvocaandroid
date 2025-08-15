@@ -49,6 +49,13 @@ android {
 //            aradicengImplementation.exclude module:'protobuf-javalite'
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path("src/main/cpp/CMakeLists.txt")
+        }
+    }
+
     ndkVersion '25.1.8937393'
     dexOptions {
         javaMaxHeapSize "4g"
