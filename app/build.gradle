@@ -413,6 +413,26 @@ android {
         enabled = true
     }
     namespace 'com.dalread'
+    
+    //디버그, 릴리즈 모드 둘다 적용.
+    sourceSets {
+        //<!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
+        //아라플레이어일때 assets에서 추가할거랑 제거할것들 
+        // araplayer {
+        //     assets {
+        //         includes = ['Sample.mp4', 'araonesoft_eng.sqlite.zip']
+        //         excludes = ['vosk/**', 'ggml-base.bin', 'MultiPlayer_Sample.zip', 'araonesoft.multiplayer.sqlite']
+        //     }
+        // }
+
+        //아라멀티플레이어일때 assets에서 추가할거랑 제거할것들 
+        araplayer {
+            assets {
+                includes = ['MultiPlayer_Sample.zip', 'araonesoft.multiplayer.sqlite']
+                excludes = ['vosk/**', 'ggml-base.bin', 'Sample.mp4', 'araonesoft_eng.sqlite.zip']
+            }
+        }
+    }
 
 }
 
