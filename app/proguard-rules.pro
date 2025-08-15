@@ -75,6 +75,9 @@
 -dontwarn com.yalantis.ucrop**
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
+# From missing_rules.txt
+-dontwarn java.awt.Component
+
 
 # EventBus
 -keepattributes *Annotation*
