@@ -76,13 +76,16 @@ public class AppIntroductionActivity extends BaseActivity {
             if (!fromMenu) {
                 if (AppFlavorUtil.isAraMultiPlayerAppLite()) {
                     Loading.showDelay(this);
-                    BaseInterstitialAdManager.showInterstitialAd(this,
-                            BaseMobileAd.Admob.AraMultiPlayer.Lite.INTERSTITIAL_UNIT_ID,
-                            () -> {
-                                BaseInterstitialAdManager.setNullToInterstitialAd();
-                                openMultiPlayerHomeActivity();
-                            }
-                    );
+                    // 전면광고 표시 부분 주석처리 - 앱 설치시 광고 제거
+                    // BaseInterstitialAdManager.showInterstitialAd(this,
+                    //         BaseMobileAd.Admob.AraMultiPlayer.Lite.INTERSTITIAL_UNIT_ID,
+                    //         () -> {
+                    //             BaseInterstitialAdManager.setNullToInterstitialAd();
+                    //             openMultiPlayerHomeActivity();
+                    //         }
+                    // );
+                    // 광고 없이 바로 홈 화면으로 이동
+                    openMultiPlayerHomeActivity();
 ////                    openNewScreen(MainHomeActivity.class, true);
                 } else if (AppFlavorUtil.isAraMultiPlayerAppPro()) {
                     openMultiPlayerHomeActivity();
