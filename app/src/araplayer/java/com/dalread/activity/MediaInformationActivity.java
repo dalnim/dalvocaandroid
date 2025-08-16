@@ -32,8 +32,7 @@ import com.dalread.dialog.RecyclerViewDialog;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.dialog.ZoomedPhotoDialog;
-// import com.dalread.helper.point.AraPlayerPointHelper;
-// import com.dalread.helper.point.BasePlayerPointHelper;
+
 import com.dalread.listener.OnAsyncTaskListenerWithType;
 import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnDoubleClickListener;
@@ -47,7 +46,7 @@ import com.dalread.model.VocaStudyChatExam;
 import com.dalread.network.DalApiListener;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.SuccessEvent;
-// import com.dalread.util.AbstractPointUtil;
+
 import com.dalread.util.DialogUtil;
 import com.dalread.util.GlobalActivityRequestCodeUtil;
 import com.dalread.util.Constant;
@@ -57,7 +56,7 @@ import com.dalread.util.FileUtil;
 import com.dalread.util.GuideUtil;
 import com.dalread.util.Loading;
 import com.dalread.util.NumberUtil;
-// import com.dalread.util.PointUtil;
+
 import com.dalread.util.StorageUtil;
 import com.dalread.util.StringUtils;
 import com.dalread.util.SubtitleFormatDetector;
@@ -108,22 +107,18 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     protected double heightRatioByWidth = (double)9/16;
     protected String[] arraySearchName;
     protected boolean isReload = false;
-//    protected boolean isSearchVideo = false;
     protected boolean isUseTMDBImage = false;
-//    private CastProfileAdapter castProfileAdapter;
     protected TypeInputDialog typeInputDialog;
     protected enum EditDialogType{
         MEMO, TTS_TITLE, DISPLAY_TITLE, TTS_ARTIST, ARTIST, ALBUM;
     }
     protected EditDialogType editDialogType;
-    // private boolean isRefreshPoint = true; //배터리 최적화를 하고 돌아오면 포인트를 리프레쉬 하면 안된다. 앱 설치시 가이드 안내후 광고 보기 버튼을 그냥 두고 싶은데 포인트를 리프레쉬 하면 광고보기가 날라간다.
+
     protected RecyclerViewDialog recyclerWordListViewDialog;
     protected List<VocaStudyChat> vocaStudyChatListNotRatedOnly;
     protected StudyChatAdapter studyChatAdapter;
-    // private PointUtil pointUtil;
-    // public AraPlayerPointHelper helper;
+
     protected ActivityVideoInformationBinding binding;
-//    protected InterstitialAd mInterstitialAd;
     protected boolean isAdShowing = false;
     protected boolean isAnalyzing = false;
     protected boolean isFirstUpdateUI = true;
@@ -187,11 +182,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         playerFileModel = getIntent().getParcelableExtra(Constant.PLAYER.INTENT.KEY_VIDEO_FILE);
         isVideoFromNetwork = getIntent().getBooleanExtra(Constant.PLAYER.INTENT.KEY_IS_VIDEO_FROM_NETWORK, false);
         createSubDatabase(playerFileModel);
-//        initInterstitialAd();
         vocaKnowActivity = new VocaKnowActivity(this, this.getSubDatabase());
-        // binding.tvRemainPoint.setOnClickListener(v -> {
-        //     this.startActivity(new Intent(this, InAppPointListActivity.class));
-        // });
     }
 
     @Override
@@ -225,7 +216,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // pointUtil = new PointUtil(this);
         Utils.checkAndAskIgnoreBatteryOptimization(this, new Utils.BatteryOptimizationCallback() {
             @Override
             public void onYes() {
@@ -237,8 +227,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                 startShowGuide();
             }
         });
-        // helper = new AraPlayerPointHelper(this);
-//        sharedPreferences.setPointMultiPlayer(3);
     }
 
     @Override
@@ -250,11 +238,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             VideoSeasonModelQuery.addOrUpdate(Voca.getRealm(), playerFileModel);
             createSubDatabase(playerFileModel);
         }
-        // if (isRefreshPoint)
-        //     refreshRemainPoint(); //보상형 광고를 보고 돌아오면 추가된 점수를 보여주기 위해서.
-//        new Handler().postDelayed(() -> {
-//            showGuidePointDeduction();
-//        }, 1000);
     }
 
     protected void updatePlayButtonIcon() {
@@ -282,16 +265,11 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                     break;
             }
         } else if (requestCode == GlobalActivityRequestCodeUtil.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
-            // isRefreshPoint = false;
             startShowGuide();
         }
     }
 
-//    @OnClick({R.id.iv_bookmark, R.id.iv_tmdb_logo, R.id.btn_play, R.id.ll_watch, R.id.llAnalyzeAgain, R.id.iv_trailer, R.id.tvKnowDescription,
-//            R.id.iv_poster, R.id.iv_season_poster, R.id.iv_video_backdrop_image, R.id.iv_video_backdrop_image_small,
-//            R.id.tl_information, R.id.tvTitleFull, R.id.tvCast, R.id.tv_memo,
-//            R.id.tvTtsTitle, R.id.tvDisplayTitle, R.id.tvTtsArtist, R.id.tvArtist, R.id.tvAlbum
-//    })
+
     private void initOnClickListener() {
         binding.ivBookmark.setOnClickListener(this);
         binding.tvKnowDescription.setOnClickListener(this);
@@ -300,7 +278,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         binding.tvTitleFull.setOnClickListener(this);
         binding.tvMemo.setOnClickListener(this);
         binding.ivVideoBackdropImage.setOnClickListener(this);
-//        binding.btnWatchRewardedAd.setOnClickListener(this);
     }
 
     @Override
@@ -329,45 +306,10 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             case R.id.ivVideoBackdropImage:
                 showZoomImageOfLastDurationInVideo(v);
                 break;
-//            case R.id.btnWatchRewardedAd:
-////                watchRewardedAd();
-//                break;
 
         }
     }
-//@OnClick({R.id.iv_bookmark, R.id.btn_play, R.id.llAnalyzeAgain, R.id.tvKnowDescription,
-//        R.id.ivVideoBackdropImage, R.id.tvTitleFull, R.id.tv_memo, R.id.btnWatchRewardedAd
-//})
-//    void onClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.iv_bookmark:
-//                onBookmark();
-//                break;
-//            case R.id.tvKnowDescription:
-//                openWordsList();
-//                break;
-//            case R.id.btn_play:
-////            case R.id.ll_watch:
-//                onHasSQLite(TYPE_PARSE_SUBTITLE);
-//                break;
-//            case R.id.llAnalyzeAgain:
-//                onHasSubtitleFile(TYPE_REFRESH_SUBTITLE);
-//                break;
-//            case R.id.tvTitleFull:
-//                Utils.copyToClipboard(this, binding.tvTitleFull.getText().toString(), R.string.copied);
-//                break;
-//            case R.id.tv_memo:
-//                editDialogType = EditDialogType.MEMO;
-//                showTypeInputDialog();
-//                break;
-//            case R.id.ivVideoBackdropImage:
-//                showZoomImageOfLastDurationInVideo(view);
-//                break;
-//            case R.id.btnWatchRewardedAd:
-//                watchRewardedAd();
-//                break;
-//        }
-//    }
+
 
     protected void showThumbnailFromPath(String path, Drawable thumbnailDrawable) {
         ZoomedPhotoDialog zoomedPhotoDialog = new ZoomedPhotoDialog(this, playerFileModel);
@@ -494,10 +436,8 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             binding.scrollView.setVisibility(View.VISIBLE);
             if (isHasSubRuby()) {
                 binding.llAnalyzeAgain.setVisibility(View.VISIBLE);
-//                binding.tvWatch.setText(R.string.watch_now);
             } else {
                 binding.llAnalyzeAgain.setVisibility(View.GONE);
-//                binding.tvWatch.setText(playerFileModel.getVideoModel().hasSubPath1() ? R.string.analyze_and_watch_now : R.string.watch_now);
             }
 
             final int knowAll = playerFileModel.getVideoModel() != null ? playerFileModel.getVideoModel().getVocaKnowAll() : 0;
@@ -576,52 +516,21 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     }
 
     private void onHasSQLite(int type) {
-//        if (!isHasSubRuby() && pointUtil.needToShowFullAd()) {
-//            final YesNoDialog dialog = new YesNoDialog(this,
-//                    R.string.info,
-//                    R.string.msg_warning_no_points_watch_ads_get_points, null,
-//                    new OnYesNoClickListener() {
-//                        @Override
-//                        public void onYesClick(View view, Object object) {
-//                            watchRewardedAd();
-//                        }
-//
-//                        @Override
-//                        public void onNoClick(View view, Object object) {
-//
-//                        }
-//                    });
-//            dialog.show();
-////            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point);
-//        } else {
-//            if (askToLogInByPlayMediaCount()) {
-//                alertDialog.showLogInRequired();
-//                return;
-//            }
-
             if (isHasSubRuby()) {
                 openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
 //            openDalPlayer();
             } else {
                 onHasSubtitleFile(type);
             }
-//        }
     }
 
     private void onHasSubtitleFile(int type) {
-//        if (pointUtil.needToShowFullAd()) {
-//            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point_watch_ads_get_points);
-//            return;
-//        }
         checkAndCreateVideoModel();
 
         if (openMediaWithoutAnalzing()) {
             openDalPlayer();
         } else {
-//            if (NetworkUtil.isNetworkConnetedIfNotShowWarningAsToast(this)) {
                 callAsyncTaskPlay(type, true);
-//                showInterstitialAd();
-//            }
         }
     }
 
@@ -674,10 +583,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     }
 
     private void startPlayer() {
-//        if (!isHasSubRuby()) {
-//            helper.consumePoint(BasePlayerPointHelper.consumePoint1);
-//        }
-//        isRefreshPoint = true;
         Intent intent = new Intent(this, PlayerActivity.class);
         intent.putExtra(Constant.PLAYER.INTENT.KEY_VIDEO_FILE, playerFileModel);
         Loading.hide();
@@ -798,11 +703,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             public void onAnalysisSuccess(AbstractTranslateFileService fileService) {
                 playerFileModel.getVideoModel().setAnalyzeAgain(Constant.INT_BOOLEAN.FASLE); //Not to display analyze again warning text message
                 updateVideoModel(playerFileModel);
-                // if (fileService instanceof MOVIE_SQLITEService) {
-                //     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitleAgain());
-                // } else {
-                //     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitle());
-                // }
+
 
                 Loading.hide();
                 openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
@@ -814,78 +715,6 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                 subtitleAnalyzer.shutdown();
             }
         });
-    }
-    //이건 서버로 부터 자막 분석하는것임. 로컬에서 테스트용으로 사용하니 지우지 말것.
-    private void makeRubyTextFromSubtitle(Object content) {
-        ((AraPlayerApplication) application).getAraPlayerApiImpl().makeRubyTextFromSubtitle(this,
-                playerFileModel,
-                content,
-                new DalApiListener<ResponseBody>() {
-            @Override
-            public void onSuccess(ResponseBody response) {
-                downloadAndUnzipFile(response);
-            }
-
-            @Override
-            public void onFailure(String error) {
-                parserSubtitleError();
-            }
-        });
-    }
-
-    private void downloadAndUnzipFile(ResponseBody response) {
-        if (response == null) {
-            parserSubtitleError();
-            return;
-        }
-        File file = StorageUtil.writeResponseBodyToDisk(this, response);
-        String subtitleDatabasePath = StorageUtil.generateSubtitleSQLitePathUnderAndroidFolder(this, playerFileModel.getPath(), playerFileModel);
-        String path = StorageUtil.getFilesStoragePath(this, playerFileModel);
-        StorageUtil.unzip(this, file, new File(path), subtitleDatabasePath);
-        // check sub database
-        createSubDatabase(playerFileModel);
-        checkAndCreateVideoModel();
-        if (playerFileModel.getVideoModel().getTongueLang() != motherTongueLanguage.getIdApi()) {
-            playerFileModel.getVideoModel().setTongueLang(motherTongueLanguage.getIdApi());
-            updateVideoModel(playerFileModel);
-        }
-        if (isHasSubRuby()) {
-            playerFileModel.getVideoModel().setAnalyzeAgain(Constant.INT_BOOLEAN.FASLE); //Not to display analyze again warning text message
-            updateVideoModel(playerFileModel);
-            // check translator subtitle when no translation automatically & study language is EN & translator subtitle is ON
-            if (sharedPreferences.getTranslateSubtitleFromServer()) {
-                ArrayList<DicModel> list = new ArrayList<>();
-                list.addAll(getSubDatabase().getNoTranslationSubtitleDialogListByLanguage());
-                if (Utils.isEmptyCollection(list)) {
-                    openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
-                } else {
-                    CustomTranslate customTranslate = new CustomTranslate(this);
-                    for (DicModel item : list) {
-                        customTranslate.translateText(item.getVocaDisplay(), (view, object) -> {
-                            DLog.d(getLogTag(), item.getId() + " - " + item.getVocaDisplay() + " translate to =" + object);
-                            item.setMeaning((String) object);
-                            getSubDatabase().updateTranslate(item);
-                            if (item == list.get(list.size() - 1)) {
-                                openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
-                            }
-                        });
-                    }
-                }
-            } else {
-                openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
-            }
-        } else {
-            ToastUtil.getInstance(this).show(R.string.error_msg_parser_sub_database_title);
-            Loading.hide();
-        }
-    }
-
-    private void parserSubtitleError() {
-//        ToastUtil.getInstance(this).show(R.string.error_msg_parser_sub_title);
-        Loading.hide();
-        //아래는 자막 분석이 실패해도 플레이어를 열수 있게 해준다.
-        isAnalyzing = false;
-        openDalPlayer();
     }
 
     private void openVideoInformationMenuDialog() {
@@ -1238,92 +1067,9 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         }
     }
 
-    private void showInterstitialAd() {
-        //TODO : Don't delete this code. Will use later
-//        Integer maxCountOfAnalyzeVideoToDisplayAds = 10;
-//        Integer countOfAnalyzeVideo = sharedPreferences.getCountOfAnalyzeVideo();
-//        if (countOfAnalyzeVideo > maxCountOfAnalyzeVideoToDisplayAds) {
-//            isAdShowing = true;
-//            if (mInterstitialAd.isLoaded()) {
-//                mInterstitialAd.show();
-//                adHandler.sendEmptyMessageDelayed(INTERSTITIAL_AD_AUTO_CLOSE_MESSAGE, INTERSTITIAL_AD_AUTO_CLOSE_TIME);
-//            } else if (!mInterstitialAd.isLoaded() && !mInterstitialAd.isLoading()) {
-//                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//            }
-//        } else {
-//            sharedPreferences.setCountOfAnalyzeVideo(countOfAnalyzeVideo + 1);
-//        }
-    }
-//    private void watchRewardedAd() {
-//        binding.btnWatchRewardedAd.setVisibility(View.GONE);
-//        pointUtil.showRewardedAd(createRewardPointListener());
-//    }
-//    private PointUtil.OnRewardPointListener createRewardPointListener() {
-//        return new PointUtil.OnRewardPointListener() {
-//            @Override
-//            public void onSuccess() {
-////                refreshRemainPoint();
-//            }
-//
-//            @Override
-//            public void onContinue() {
-//
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onFail() {
-//
-//            }
-//        };
-//    }
-//
-//    private void refreshRemainPoint() {
-//        int point = pointUtil.getPoint();
-//        new Handler().postDelayed(() -> {
-////            showRewardButton();
-//            if (sharedPreferences.isPointAdded()) {
-//                Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
-//                binding.tvRemainPoint.startAnimation(animation);
-//                sharedPreferences.setPointAdded(false);
-//            }
-//            binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
-//        }, 1000);
-//    }
-
-//    private void showRewardButton() {
-//        if (sharedPreferences.isFirstShowGuidePointDeduction() || pointUtil.needToShowRewardButton()) {
-//            binding.btnWatchRewardedAd.setVisibility(View.VISIBLE);
-//        } else {
-//            binding.btnWatchRewardedAd.setVisibility(View.GONE);
-//        }
-//    }
-
     private void startShowGuide() {
         showGuidePlayAndAnalyzeButton();
-//        showGuidePointDeduction();
     }
-//    private void showGuidePointDeduction() {
-//        if (sharedPreferences.isFirstShowGuidePointDeduction()) {
-//            sharedPreferences.setFirstShowGuidePointDeduction();
-//            String title = getString(R.string.guide_ara_player_point_deduction);
-//            this.runOnUiThread(() -> {
-//                GuideUtil.showGuideView(this, title, binding.tvRemainPoint, view -> showGuidePlayAndAnalyzeButton());
-//            });
-//        }
-//    }
-
-    // private void showGuideWatchAd() {
-    //     if (sharedPreferences.isFirstShowGuideWatchAd()) {
-    //         sharedPreferences.setFirstShowGuideWatchAd();
-    //         String title = getString(R.string.guide_watch_ad_to_get_point);
-    //         GuideUtil.showGuideView(this, title, binding.btnWatchRewardedAd, view -> showGuidePlayAndAnalyzeButton());
-    //     }
-    // }
 
     private void showGuidePlayAndAnalyzeButton() {
         if (sharedPreferences.isFirstShowGuidePlayButton()) {
@@ -1334,48 +1080,5 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         }
     }
 
-//    private void initInterstitialAd() {
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId(MobileAd.getInterstateId(this));
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//        mInterstitialAd.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdLoaded() {
-//                super.onAdLoaded();
-//                if (isAnalyzing) {
-//                    showInterstitialAd();
-//                }
-//            }
-//
-//            @Override
-//            public void onAdClosed() {
-//                super.onAdClosed();
-//                isAdShowing = false;
-//                adHandler.removeMessages(INTERSTITIAL_AD_AUTO_CLOSE_MESSAGE);
-//            }
-//        });
-//
-//        adHandler = new Handler(getMainLooper()) {
-//            @Override
-//            public void handleMessage(@NonNull Message msg) {
-//                super.handleMessage(msg);
-//                if (msg.what == INTERSTITIAL_AD_AUTO_CLOSE_MESSAGE) {
-//                    isAdShowing = false;
-//                    if (!isAnalyzing) {
-//                        closeInterstitialAd();
-//                        openDalPlayer();
-//                    }
-//                }
-//            }
-//        };
-//    }
-//
-//    private void closeInterstitialAd() {
-//        Activity currentActivity = BaseApplication.getInstance().getCurrentActivity();
-//        if (currentActivity instanceof AdActivity) {
-//            isAdShowing = false;
-//            currentActivity.finish();
-//            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//        }
-//    }
+
 }
