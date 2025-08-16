@@ -2,7 +2,6 @@ package com.dalread.util;
 
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -777,7 +776,7 @@ public class StorageUtil extends BaseStorageUtil {
             
             stepEndTime = System.currentTimeMillis();
             folderTime = stepEndTime - stepStartTime;
-            Log.d("DalnimTag", "1단계 - 폴더 처리: " + folderTime + "ms");
+            DLog.d("DalnimTag", "1단계 - 폴더 처리: " + folderTime + "ms");
         }
         
 //        String cameraDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
@@ -867,7 +866,7 @@ public class StorageUtil extends BaseStorageUtil {
             
             stepEndTime = System.currentTimeMillis();
             mediaTime = stepEndTime - stepStartTime;
-            Log.d("DalnimTag", "2단계 - 미디어 파일 처리: " + mediaTime + "ms, 파일 수: " + listMedia.size());
+            DLog.d("DalnimTag", "2단계 - 미디어 파일 처리: " + mediaTime + "ms, 파일 수: " + listMedia.size());
         }
 
         // 3. 자막 파일 처리
@@ -931,7 +930,7 @@ public class StorageUtil extends BaseStorageUtil {
             
             stepEndTime = System.currentTimeMillis();
             subtitleTime = stepEndTime - stepStartTime;
-            Log.d("DalnimTag", "3단계 - 자막 파일 처리: " + subtitleTime + "ms, 파일 수: " + listSubtitle.size());
+            DLog.d("DalnimTag", "3단계 - 자막 파일 처리: " + subtitleTime + "ms, 파일 수: " + listSubtitle.size());
         }
 
         // 4. 결과 병합
@@ -946,22 +945,22 @@ public class StorageUtil extends BaseStorageUtil {
         
         stepEndTime = System.currentTimeMillis();
         mergeTime = stepEndTime - stepStartTime;
-        Log.d("DalnimTag", "4단계 - 결과 병합: " + mergeTime + "ms");
+        DLog.d("DalnimTag", "4단계 - 결과 병합: " + mergeTime + "ms");
 
         long totalEndTime = System.currentTimeMillis();
         long totalTime = totalEndTime - totalStartTime;
         long calculatedTotal = folderTime + mediaTime + subtitleTime + mergeTime;
         
-        Log.d("DalnimTag", "=== 파일 스캔 성능 분석 ===");
-        Log.d("DalnimTag", "폴더 처리: " + folderTime + "ms");
-        Log.d("DalnimTag", "미디어 파일: " + mediaTime + "ms");
-        Log.d("DalnimTag", "자막 파일: " + subtitleTime + "ms");
-        Log.d("DalnimTag", "결과 병합: " + mergeTime + "ms");
-        Log.d("DalnimTag", "단계별 합계: " + calculatedTotal + "ms");
-        Log.d("DalnimTag", "전체 소요시간: " + totalTime + "ms");
-        Log.d("DalnimTag", "오버헤드: " + (totalTime - calculatedTotal) + "ms");
-        Log.d("DalnimTag", "총 파일 수: " + list.size());
-        Log.d("DalnimTag", "========================");
+        DLog.d("DalnimTag", "=== 파일 스캔 성능 분석 ===");
+        DLog.d("DalnimTag", "폴더 처리: " + folderTime + "ms");
+        DLog.d("DalnimTag", "미디어 파일: " + mediaTime + "ms");
+        DLog.d("DalnimTag", "자막 파일: " + subtitleTime + "ms");
+        DLog.d("DalnimTag", "결과 병합: " + mergeTime + "ms");
+        DLog.d("DalnimTag", "단계별 합계: " + calculatedTotal + "ms");
+        DLog.d("DalnimTag", "전체 소요시간: " + totalTime + "ms");
+        DLog.d("DalnimTag", "오버헤드: " + (totalTime - calculatedTotal) + "ms");
+        DLog.d("DalnimTag", "총 파일 수: " + list.size());
+        DLog.d("DalnimTag", "========================");
         
         return list;
     }
