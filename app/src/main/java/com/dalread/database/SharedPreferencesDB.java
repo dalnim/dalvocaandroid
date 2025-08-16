@@ -1667,7 +1667,7 @@ public class SharedPreferencesDB {
     }
 
     public boolean isShowAdvancedMode() {
-        return getPreferenceBooleanValue(Constant.SHARE_PREF.KEY_SHOW_ADVANCED_MODE, false);
+        return getPreferenceBooleanValue(Constant.SHARE_PREF.KEY_SHOW_ADVANCED_MODE, true);
     }
 
     public void setShowAdvancedMode(boolean value) {
