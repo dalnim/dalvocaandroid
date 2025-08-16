@@ -73,6 +73,20 @@
          android:value="ca-app-pub-9625690961966219~4779523462"/>
 
         <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize|stateAlwaysHidden"
+            android:exported="true"
+            tools:replace="android:windowSoftInputMode">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".activity.MainHomeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
             android:screenOrientation="portrait"
