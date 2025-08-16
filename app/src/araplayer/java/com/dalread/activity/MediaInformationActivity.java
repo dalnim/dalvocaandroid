@@ -32,8 +32,8 @@ import com.dalread.dialog.RecyclerViewDialog;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.dialog.ZoomedPhotoDialog;
-import com.dalread.helper.point.AraPlayerPointHelper;
-import com.dalread.helper.point.BasePlayerPointHelper;
+// import com.dalread.helper.point.AraPlayerPointHelper;
+// import com.dalread.helper.point.BasePlayerPointHelper;
 import com.dalread.listener.OnAsyncTaskListenerWithType;
 import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnDoubleClickListener;
@@ -47,7 +47,7 @@ import com.dalread.model.VocaStudyChatExam;
 import com.dalread.network.DalApiListener;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.SuccessEvent;
-import com.dalread.util.AbstractPointUtil;
+// import com.dalread.util.AbstractPointUtil;
 import com.dalread.util.DialogUtil;
 import com.dalread.util.GlobalActivityRequestCodeUtil;
 import com.dalread.util.Constant;
@@ -57,7 +57,7 @@ import com.dalread.util.FileUtil;
 import com.dalread.util.GuideUtil;
 import com.dalread.util.Loading;
 import com.dalread.util.NumberUtil;
-import com.dalread.util.PointUtil;
+// import com.dalread.util.PointUtil;
 import com.dalread.util.StorageUtil;
 import com.dalread.util.StringUtils;
 import com.dalread.util.SubtitleFormatDetector;
@@ -116,12 +116,12 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         MEMO, TTS_TITLE, DISPLAY_TITLE, TTS_ARTIST, ARTIST, ALBUM;
     }
     protected EditDialogType editDialogType;
-    private boolean isRefreshPoint = true; //배터리 최적화를 하고 돌아오면 포인트를 리프레쉬 하면 안된다. 앱 설치시 가이드 안내후 광고 보기 버튼을 그냥 두고 싶은데 포인트를 리프레쉬 하면 광고보기가 날라간다.
+    // private boolean isRefreshPoint = true; //배터리 최적화를 하고 돌아오면 포인트를 리프레쉬 하면 안된다. 앱 설치시 가이드 안내후 광고 보기 버튼을 그냥 두고 싶은데 포인트를 리프레쉬 하면 광고보기가 날라간다.
     protected RecyclerViewDialog recyclerWordListViewDialog;
     protected List<VocaStudyChat> vocaStudyChatListNotRatedOnly;
     protected StudyChatAdapter studyChatAdapter;
-    private PointUtil pointUtil;
-    public AraPlayerPointHelper helper;
+    // private PointUtil pointUtil;
+    // public AraPlayerPointHelper helper;
     protected ActivityVideoInformationBinding binding;
 //    protected InterstitialAd mInterstitialAd;
     protected boolean isAdShowing = false;
@@ -189,9 +189,9 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         createSubDatabase(playerFileModel);
 //        initInterstitialAd();
         vocaKnowActivity = new VocaKnowActivity(this, this.getSubDatabase());
-        binding.tvRemainPoint.setOnClickListener(v -> {
-            this.startActivity(new Intent(this, InAppPointListActivity.class));
-        });
+        // binding.tvRemainPoint.setOnClickListener(v -> {
+        //     this.startActivity(new Intent(this, InAppPointListActivity.class));
+        // });
     }
 
     @Override
@@ -225,7 +225,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pointUtil = new PointUtil(this);
+        // pointUtil = new PointUtil(this);
         Utils.checkAndAskIgnoreBatteryOptimization(this, new Utils.BatteryOptimizationCallback() {
             @Override
             public void onYes() {
@@ -237,7 +237,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                 startShowGuide();
             }
         });
-        helper = new AraPlayerPointHelper(this);
+        // helper = new AraPlayerPointHelper(this);
 //        sharedPreferences.setPointMultiPlayer(3);
     }
 
@@ -250,8 +250,8 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             VideoSeasonModelQuery.addOrUpdate(Voca.getRealm(), playerFileModel);
             createSubDatabase(playerFileModel);
         }
-        if (isRefreshPoint)
-            refreshRemainPoint(); //보상형 광고를 보고 돌아오면 추가된 점수를 보여주기 위해서.
+        // if (isRefreshPoint)
+        //     refreshRemainPoint(); //보상형 광고를 보고 돌아오면 추가된 점수를 보여주기 위해서.
 //        new Handler().postDelayed(() -> {
 //            showGuidePointDeduction();
 //        }, 1000);
@@ -282,7 +282,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
                     break;
             }
         } else if (requestCode == GlobalActivityRequestCodeUtil.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
-            isRefreshPoint = false;
+            // isRefreshPoint = false;
             startShowGuide();
         }
     }
@@ -300,7 +300,7 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
         binding.tvTitleFull.setOnClickListener(this);
         binding.tvMemo.setOnClickListener(this);
         binding.ivVideoBackdropImage.setOnClickListener(this);
-        binding.btnWatchRewardedAd.setOnClickListener(this);
+//        binding.btnWatchRewardedAd.setOnClickListener(this);
     }
 
     @Override
@@ -329,9 +329,9 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             case R.id.ivVideoBackdropImage:
                 showZoomImageOfLastDurationInVideo(v);
                 break;
-            case R.id.btnWatchRewardedAd:
-                watchRewardedAd();
-                break;
+//            case R.id.btnWatchRewardedAd:
+////                watchRewardedAd();
+//                break;
 
         }
     }
@@ -576,28 +576,28 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     }
 
     private void onHasSQLite(int type) {
-        if (!isHasSubRuby() && pointUtil.needToShowFullAd()) {
-            final YesNoDialog dialog = new YesNoDialog(this,
-                    R.string.info,
-                    R.string.msg_warning_no_points_watch_ads_get_points, null,
-                    new OnYesNoClickListener() {
-                        @Override
-                        public void onYesClick(View view, Object object) {
-                            watchRewardedAd();
-                        }
-
-                        @Override
-                        public void onNoClick(View view, Object object) {
-
-                        }
-                    });
-            dialog.show();
-//            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point);
-        } else {
-            if (askToLogInByPlayMediaCount()) {
-                alertDialog.showLogInRequired();
-                return;
-            }
+//        if (!isHasSubRuby() && pointUtil.needToShowFullAd()) {
+//            final YesNoDialog dialog = new YesNoDialog(this,
+//                    R.string.info,
+//                    R.string.msg_warning_no_points_watch_ads_get_points, null,
+//                    new OnYesNoClickListener() {
+//                        @Override
+//                        public void onYesClick(View view, Object object) {
+//                            watchRewardedAd();
+//                        }
+//
+//                        @Override
+//                        public void onNoClick(View view, Object object) {
+//
+//                        }
+//                    });
+//            dialog.show();
+////            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point);
+//        } else {
+//            if (askToLogInByPlayMediaCount()) {
+//                alertDialog.showLogInRequired();
+//                return;
+//            }
 
             if (isHasSubRuby()) {
                 openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
@@ -605,14 +605,14 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             } else {
                 onHasSubtitleFile(type);
             }
-        }
+//        }
     }
 
     private void onHasSubtitleFile(int type) {
-        if (pointUtil.needToShowFullAd()) {
-            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point_watch_ads_get_points);
-            return;
-        }
+//        if (pointUtil.needToShowFullAd()) {
+//            ToastUtil.getInstance(this).show(R.string.msg_warning_not_enough_point_watch_ads_get_points);
+//            return;
+//        }
         checkAndCreateVideoModel();
 
         if (openMediaWithoutAnalzing()) {
@@ -674,10 +674,10 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     }
 
     private void startPlayer() {
-        if (!isHasSubRuby()) {
-            helper.consumePoint(BasePlayerPointHelper.consumePoint1);
-        }
-        isRefreshPoint = true;
+//        if (!isHasSubRuby()) {
+//            helper.consumePoint(BasePlayerPointHelper.consumePoint1);
+//        }
+//        isRefreshPoint = true;
         Intent intent = new Intent(this, PlayerActivity.class);
         intent.putExtra(Constant.PLAYER.INTENT.KEY_VIDEO_FILE, playerFileModel);
         Loading.hide();
@@ -798,11 +798,11 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
             public void onAnalysisSuccess(AbstractTranslateFileService fileService) {
                 playerFileModel.getVideoModel().setAnalyzeAgain(Constant.INT_BOOLEAN.FASLE); //Not to display analyze again warning text message
                 updateVideoModel(playerFileModel);
-                if (fileService instanceof MOVIE_SQLITEService) {
-                    helper.consumePoint(pointUtil.getPointToAnalyzeSubtitleAgain());
-                } else {
-                    helper.consumePoint(pointUtil.getPointToAnalyzeSubtitle());
-                }
+                // if (fileService instanceof MOVIE_SQLITEService) {
+                //     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitleAgain());
+                // } else {
+                //     helper.consumePoint(pointUtil.getPointToAnalyzeSubtitle());
+                // }
 
                 Loading.hide();
                 openNotRatedOnlyWordsListPopupViewBeforePlayVideo();
@@ -1254,46 +1254,46 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
 //            sharedPreferences.setCountOfAnalyzeVideo(countOfAnalyzeVideo + 1);
 //        }
     }
-    private void watchRewardedAd() {
-        binding.btnWatchRewardedAd.setVisibility(View.GONE);
-        pointUtil.showRewardedAd(createRewardPointListener());
-    }
-    private PointUtil.OnRewardPointListener createRewardPointListener() {
-        return new PointUtil.OnRewardPointListener() {
-            @Override
-            public void onSuccess() {
-//                refreshRemainPoint();
-            }
-
-            @Override
-            public void onContinue() {
-
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onFail() {
-
-            }
-        };
-    }
-
-    private void refreshRemainPoint() {
-        int point = pointUtil.getPoint();
-        new Handler().postDelayed(() -> {
-//            showRewardButton();
-            if (sharedPreferences.isPointAdded()) {
-                Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
-                binding.tvRemainPoint.startAnimation(animation);
-                sharedPreferences.setPointAdded(false);
-            }
-            binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
-        }, 1000);
-    }
+//    private void watchRewardedAd() {
+//        binding.btnWatchRewardedAd.setVisibility(View.GONE);
+//        pointUtil.showRewardedAd(createRewardPointListener());
+//    }
+//    private PointUtil.OnRewardPointListener createRewardPointListener() {
+//        return new PointUtil.OnRewardPointListener() {
+//            @Override
+//            public void onSuccess() {
+////                refreshRemainPoint();
+//            }
+//
+//            @Override
+//            public void onContinue() {
+//
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onFail() {
+//
+//            }
+//        };
+//    }
+//
+//    private void refreshRemainPoint() {
+//        int point = pointUtil.getPoint();
+//        new Handler().postDelayed(() -> {
+////            showRewardButton();
+//            if (sharedPreferences.isPointAdded()) {
+//                Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
+//                binding.tvRemainPoint.startAnimation(animation);
+//                sharedPreferences.setPointAdded(false);
+//            }
+//            binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
+//        }, 1000);
+//    }
 
 //    private void showRewardButton() {
 //        if (sharedPreferences.isFirstShowGuidePointDeduction() || pointUtil.needToShowRewardButton()) {
@@ -1304,25 +1304,26 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
 //    }
 
     private void startShowGuide() {
-        showGuidePointDeduction();
+        showGuidePlayAndAnalyzeButton();
+//        showGuidePointDeduction();
     }
-    private void showGuidePointDeduction() {
-        if (sharedPreferences.isFirstShowGuidePointDeduction()) {
-            sharedPreferences.setFirstShowGuidePointDeduction();
-            String title = getString(R.string.guide_ara_player_point_deduction);
-            this.runOnUiThread(() -> {
-                GuideUtil.showGuideView(this, title, binding.tvRemainPoint, view -> showGuideWatchAd());
-            });
-        }
-    }
+//    private void showGuidePointDeduction() {
+//        if (sharedPreferences.isFirstShowGuidePointDeduction()) {
+//            sharedPreferences.setFirstShowGuidePointDeduction();
+//            String title = getString(R.string.guide_ara_player_point_deduction);
+//            this.runOnUiThread(() -> {
+//                GuideUtil.showGuideView(this, title, binding.tvRemainPoint, view -> showGuidePlayAndAnalyzeButton());
+//            });
+//        }
+//    }
 
-    private void showGuideWatchAd() {
-        if (sharedPreferences.isFirstShowGuideWatchAd()) {
-            sharedPreferences.setFirstShowGuideWatchAd();
-            String title = getString(R.string.guide_watch_ad_to_get_point);
-            GuideUtil.showGuideView(this, title, binding.btnWatchRewardedAd, view -> showGuidePlayAndAnalyzeButton());
-        }
-    }
+    // private void showGuideWatchAd() {
+    //     if (sharedPreferences.isFirstShowGuideWatchAd()) {
+    //         sharedPreferences.setFirstShowGuideWatchAd();
+    //         String title = getString(R.string.guide_watch_ad_to_get_point);
+    //         GuideUtil.showGuideView(this, title, binding.btnWatchRewardedAd, view -> showGuidePlayAndAnalyzeButton());
+    //     }
+    // }
 
     private void showGuidePlayAndAnalyzeButton() {
         if (sharedPreferences.isFirstShowGuidePlayButton()) {
