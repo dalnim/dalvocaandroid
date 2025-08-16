@@ -47,8 +47,7 @@ public abstract class AbstractPointUtil {
         dialog.show();
     }
     public boolean needToShowFullAd() {
-        return false;
-//        return getPoint() <= 0 ? true : false;
+       return getPoint() <= 0 ? true : false;
         //return true;
     }
 
