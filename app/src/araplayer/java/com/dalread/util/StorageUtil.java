@@ -2,6 +2,7 @@ package com.dalread.util;
 
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -750,8 +751,16 @@ public class StorageUtil extends BaseStorageUtil {
                                                     boolean isAddFolder, boolean isAddMedia, boolean isAddSubtitleLyric,
                                                     boolean isRecursive, int appMediaType) {
 
+        long totalStartTime = System.currentTimeMillis();
+        long stepStartTime, stepEndTime;
+        long folderTime = 0, mediaTime = 0, subtitleTime = 0, mergeTime = 0;
+        
         final List<PlayerFileModel> list = new ArrayList<>();
+        
+        // 1. 폴더 정보 추가
         if (path != null) {
+            stepStartTime = System.currentTimeMillis();
+            
             final File currentFile = new File(path);
             // add folder
             if (isAddFolder) {
@@ -765,7 +774,12 @@ public class StorageUtil extends BaseStorageUtil {
                     }
                 }
             }
+            
+            stepEndTime = System.currentTimeMillis();
+            folderTime = stepEndTime - stepStartTime;
+            Log.d("DalnimTag", "1단계 - 폴더 처리: " + folderTime + "ms");
         }
+        
 //        String cameraDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
         SharedPreferencesDB sharedPreferencesDB = SharedPreferencesDB.getInstance(context);
 //        boolean isShowVideoInDCIM = sharedPreferencesDB.getShowVideoInDCIM();
@@ -774,6 +788,8 @@ public class StorageUtil extends BaseStorageUtil {
         final List<PlayerFileModel> listMedia = new ArrayList<>();
         final Map<String, PlayerFileModel> mapMedia = new HashMap<>();
         if (isAddMedia) {
+            stepStartTime = System.currentTimeMillis();
+            
             List<String> videoExtensions = new ArrayList<>();
             if (appMediaType == Constant.AppMediaType.VIDEO)
                 videoExtensions.addAll(SupportVideoFormat.getVideos());
@@ -848,11 +864,17 @@ public class StorageUtil extends BaseStorageUtil {
                 }
 //                mmr.release();
             }
+            
+            stepEndTime = System.currentTimeMillis();
+            mediaTime = stepEndTime - stepStartTime;
+            Log.d("DalnimTag", "2단계 - 미디어 파일 처리: " + mediaTime + "ms, 파일 수: " + listMedia.size());
         }
 
-        // get all subtitle files
+        // 3. 자막 파일 처리
         final List<PlayerFileModel> listSubtitle = new ArrayList<>();
         if (isAddSubtitleLyric || isAddMedia) {
+            stepStartTime = System.currentTimeMillis();
+            
             final Map<String, PlayerFileModel> mapSubtitle = new HashMap<>();
             List<String> subtitleExtensions = new ArrayList<>();
             if (appMediaType == Constant.AppMediaType.VIDEO || appMediaType == Constant.AppMediaType.SUBTITLE)
@@ -906,15 +928,41 @@ public class StorageUtil extends BaseStorageUtil {
                     model.setSubPath1(subtitle.getPath());
                 }
             }
+            
+            stepEndTime = System.currentTimeMillis();
+            subtitleTime = stepEndTime - stepStartTime;
+            Log.d("DalnimTag", "3단계 - 자막 파일 처리: " + subtitleTime + "ms, 파일 수: " + listSubtitle.size());
         }
 
+        // 4. 결과 병합
+        stepStartTime = System.currentTimeMillis();
+        
         if (isAddMedia) {
             list.addAll(listMedia);
         }
         if (isAddSubtitleLyric) {
             list.addAll(listSubtitle);
         }
+        
+        stepEndTime = System.currentTimeMillis();
+        mergeTime = stepEndTime - stepStartTime;
+        Log.d("DalnimTag", "4단계 - 결과 병합: " + mergeTime + "ms");
 
+        long totalEndTime = System.currentTimeMillis();
+        long totalTime = totalEndTime - totalStartTime;
+        long calculatedTotal = folderTime + mediaTime + subtitleTime + mergeTime;
+        
+        Log.d("DalnimTag", "=== 파일 스캔 성능 분석 ===");
+        Log.d("DalnimTag", "폴더 처리: " + folderTime + "ms");
+        Log.d("DalnimTag", "미디어 파일: " + mediaTime + "ms");
+        Log.d("DalnimTag", "자막 파일: " + subtitleTime + "ms");
+        Log.d("DalnimTag", "결과 병합: " + mergeTime + "ms");
+        Log.d("DalnimTag", "단계별 합계: " + calculatedTotal + "ms");
+        Log.d("DalnimTag", "전체 소요시간: " + totalTime + "ms");
+        Log.d("DalnimTag", "오버헤드: " + (totalTime - calculatedTotal) + "ms");
+        Log.d("DalnimTag", "총 파일 수: " + list.size());
+        Log.d("DalnimTag", "========================");
+        
         return list;
     }
 
