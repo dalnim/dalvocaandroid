@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 
@@ -46,6 +47,7 @@ public class PlayerService extends Service {
     private PlayerNotificationManager playerNotificationManager;
     private BroadcastReceiver mReceiver;
 
+    @SuppressLint({"WrongConstant", "UnspecifiedRegisterReceiverFlag"})
     @Override
     public void onCreate() {
         super.onCreate();
@@ -54,7 +56,16 @@ public class PlayerService extends Service {
         filter.addAction(PlayerNotificationManager.ACTION_PLAY);
         filter.addAction(PlayerNotificationManager.ACTION_PAUSE);
         mReceiver = new PlayerReceiver();
-        registerReceiver(mReceiver, filter);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(
+                    mReceiver,
+                    filter,
+                    Context.RECEIVER_NOT_EXPORTED
+            );
+        } else {
+            registerReceiver(mReceiver, filter);
+        }
     }
 
     @Override

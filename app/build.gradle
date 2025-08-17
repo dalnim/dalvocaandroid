@@ -131,7 +131,7 @@ android {
             dimension "dalnim"
             applicationId 'com.dalnimsoft.araplayer'
             minSdkVersion 29 //나중에 MediaStore를 통해서 파일리스트 가져오게 할려고.
-            targetSdkVersion 35
+            targetSdkVersion 33
             //araonesoft_eng.sqlite.zip는 포함하고 앱 올릴것
             //MANAGE_EXTERNAL_STORAGE도 없애고 앱 출시할것
             versionCode 93
@@ -434,6 +434,7 @@ android {
 def tesseract4AndroidVersion= '4.4.0'
 
 dependencies {
+    implementation "androidx.core:core:1.9.0" //PlayerService에서 Context.RECEIVER_NOT_EXPORTED를 사용하기 위해 추가. 이버전을 올리면 gradle등 버전도 따로 올려야해서 이버전으로 함.
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation files('libs/jaudiotagger-2.2.4-SNAPSHOT.jar')
     implementation 'androidx.media3:media3-common:1.8.0'  // ExoPlayer 2.19.1의 exoplayer-ui가 androidx.media에 의존하므로 필요

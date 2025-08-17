@@ -85,6 +85,19 @@
    @org.greenrobot.eventbus.Subscribe <methods>;
 }
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+# 자막 분석 관련 클래스 보호
+-keep class com.dalread.util.SubtitleAnalyzer { *; }
+-keep class com.dalread.util.SubtitleAnalyzer$OnAnalysisCompleteListener { *; }
+-keep class com.dalread.util.arasubtitle.** { *; }
+-keep class com.dalread.util.arasubtitle.AbstractTranslateFileService { *; }
+-keep class com.dalread.util.arasubtitle.MOVIE_SRTService { *; }
+-keep class com.dalread.util.arasubtitle.MOVIE_SMIService { *; }
+-keep class com.dalread.util.arasubtitle.MOVIE_ASSService { *; }
+-keep class com.dalread.util.arasubtitle.MOVIE_BracketSubtitleService { *; }
+-keep class com.dalread.util.arasubtitle.MOVIE_SQLITEService { *; }
+-keep class com.dalread.util.SubtitleFormatDetector { *; }
+-keep class com.dalread.util.SupportSubtitleFormat { *; }
 # Retrofit 2.0
 -dontwarn retrofit2.**
 -keep class retrofit2.** { *; }
