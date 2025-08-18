@@ -321,21 +321,9 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
                 selectScreenCount();
                 break;
             case R.id.btnWatchRewardedAd:
-                final YesNoDialog dialog = new YesNoDialog(activity,
-                        R.string.info,
-                        R.string.msg_warning_watch_ads_get_points, null,
-                        new OnYesNoClickListener() {
-                            @Override
-                            public void onYesClick(View view, Object object) {
-                                watchRewardedAd();
-                            }
-
-                            @Override
-                            public void onNoClick(View view, Object object) {
-
-                            }
-                        });
-                dialog.show();
+                // 새로 만든 액티비티로 이동
+                Intent adIntent = new Intent(activity, MultiPlayerWatchAdActivity.class);
+                activity.startActivity(adIntent);
                 break;
             case R.id.ivClearMultiScreenHistory:
                 clearMultiScreenHistory();
