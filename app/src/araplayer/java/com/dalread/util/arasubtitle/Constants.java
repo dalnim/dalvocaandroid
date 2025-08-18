@@ -6,18 +6,18 @@ public class Constants {
     public static class VOCA_KNOW {
         public static final Integer NULL = -1;
         public static final Integer NOTRATED = 0;
-        public static final Integer AMKI_GRADE_1 = 10;
-        public static final Integer AMKI_GRADE_2 = 20;
-        public static final Integer UNKNOWN = 90;
+        public static final Integer UNKNOWN = 10;
+        public static final Integer AMKI_GRADE_1 = 20;
+        public static final Integer AMKI_GRADE_2 = 30;
         public static final Integer KNOWN = 100;
         public static final Integer EXCLUDE = 110;
         public static final Integer NOTINDIC = 120;
     }
     public static final Integer VOCA_KNOW_NULL = -1;
     public static final Integer VOCA_KNOW_NOTRATED = 0;
-    public static final Integer VOCA_KNOW_AMKI_GRADE_1 = 10;
-    public static final Integer VOCA_KNOW_AMKI_GRADE_2 = 20;
-    public static final Integer VOCA_KNOW_UNKNOWN = 90;
+    public static final Integer VOCA_KNOW_UNKNOWN = 10;
+    public static final Integer VOCA_KNOW_AMKI_GRADE_1 = 20;
+    public static final Integer VOCA_KNOW_AMKI_GRADE_2 = 30;
     public static final Integer VOCA_KNOW_KNOWN = 100;
     public static final Integer VOCA_KNOW_EXCLUDE = 110;
     public static final Integer VOCA_KNOW_NOTINDIC = 120;
