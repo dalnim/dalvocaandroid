@@ -36,6 +36,8 @@ import com.dalread.listener.OnTrackSelectedListener;
 import com.dalread.model.TrackSelection;
 import com.dalread.util.Constant;
 import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.Tracks;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector.SelectionOverride;
@@ -87,14 +89,17 @@ public final class TrackSelectionDialog extends DialogFragment {
      * @param onDismissListener A {@link DialogInterface.OnDismissListener} to call when the dialog is
      *     dismissed.
      */
-    public static TrackSelectionDialog createForTrackSelector(DefaultTrackSelector trackSelector,
-                                                              OnTrackSelectedListener onTrackSelectedListener,
-                                                              DialogInterface.OnDismissListener onDismissListener) {
+    public static TrackSelectionDialog createForTrackSelector(
+            ExoPlayer exoPlayer,
+            DefaultTrackSelector trackSelector,
+            OnTrackSelectedListener onTrackSelectedListener,
+            DialogInterface.OnDismissListener onDismissListener) {
         MappedTrackInfo mappedTrackInfo = trackSelector.getCurrentMappedTrackInfo();
         TrackSelectionDialog trackSelectionDialog = new TrackSelectionDialog();
         DefaultTrackSelector.Parameters parameters = trackSelector.getParameters();
         trackSelectionDialog.init(
                 /* titleId= */ R.string.track_selection_title,
+                exoPlayer.getCurrentTracks(),
                 mappedTrackInfo,
                 /* initialParameters = */ parameters,
                 /* allowAdaptiveSelections =*/ true,
@@ -144,6 +149,7 @@ public final class TrackSelectionDialog extends DialogFragment {
      */
     public static TrackSelectionDialog createForMappedTrackInfoAndParameters(
             int titleId,
+            Tracks tracks, // TODO: This needs to be provided
             MappedTrackInfo mappedTrackInfo,
             DefaultTrackSelector.Parameters initialParameters,
             boolean allowAdaptiveSelections,
@@ -153,6 +159,7 @@ public final class TrackSelectionDialog extends DialogFragment {
         TrackSelectionDialog trackSelectionDialog = new TrackSelectionDialog();
         trackSelectionDialog.init(
                 titleId,
+                tracks,
                 mappedTrackInfo,
                 initialParameters,
                 allowAdaptiveSelections,
@@ -171,6 +178,7 @@ public final class TrackSelectionDialog extends DialogFragment {
 
     private void init(
             int titleId,
+            Tracks tracks,
             MappedTrackInfo mappedTrackInfo,
             DefaultTrackSelector.Parameters initialParameters,
             boolean allowAdaptiveSelections,
@@ -186,6 +194,7 @@ public final class TrackSelectionDialog extends DialogFragment {
                 TrackGroupArray trackGroupArray = mappedTrackInfo.getTrackGroups(rendererIndex);
                 TrackSelectionViewFragment tabFragment = new TrackSelectionViewFragment();
                 tabFragment.init(
+                        tracks,
                         mappedTrackInfo,
                         rendererIndex,
                         initialParameters.getRendererDisabled(rendererIndex),

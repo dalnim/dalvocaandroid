@@ -6978,7 +6978,7 @@ public class PlayerFragment extends BasePlayerVideoFragment<FragmentPlayerBindin
     private void openSelectEmbedTracksDialog() {
         //https://www.codexpedia.com/android/android-exoplayer-2-track-selection-example/
         DefaultTrackSelector trackSelector = (DefaultTrackSelector) exoPlayer.getTrackSelector();
-        TrackSelectionDialog trackSelectionDialog = TrackSelectionDialog.createForTrackSelector(trackSelector, onTrackSelected -> {
+        TrackSelectionDialog trackSelectionDialog = TrackSelectionDialog.createForTrackSelector(exoPlayer, trackSelector, onTrackSelected -> {
             activity.playerFileModel.getVideoModel().setTrackSelectionJsonStr(onTrackSelected);
         }, dismissedDialog ->
         {
