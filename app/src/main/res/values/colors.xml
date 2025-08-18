@@ -12,7 +12,7 @@
     <color name="ternaryColor">#A5A5B9</color>
     <color name="ternaryLightColor">#D6D6DC</color>
     <color name="actionMenuTextColor">#000000</color>
-    <color name="colorNavigationBar">#A5A5B9</color>
+    <color name="colorNavigationBar">@color/primaryColor</color>
 
     <color name="multiPrimaryColor">@color/backgroundLightBlackColor</color>
     <color name="multiPrimaryDarkColor">@color/backgroundBlackColor</color>
