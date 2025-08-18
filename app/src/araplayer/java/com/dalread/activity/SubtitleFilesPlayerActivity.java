@@ -24,6 +24,7 @@ import com.dalread.util.Constant;
 import com.dalread.util.DLog;
 import com.dalread.util.Loading;
 import com.dalread.util.StorageUtil;
+import com.dalread.util.SubtitleFileNameUtils;
 import com.dalread.util.Utils;
 
 import org.apache.commons.io.FilenameUtils;
@@ -249,39 +250,17 @@ public class SubtitleFilesPlayerActivity extends BasePlayerActivity implements O
         playerFileModels = (ArrayList<PlayerFileModel>) StorageUtil.sortFiles(list, Constant.PLAYER.SORT.FILE_NAME_ASC);
         displayItems.clear();
         displayItems.addAll(playerFileModels);
-        getSubtitleIndex();
-        if (subtitleIndex == -1) {
-            getSubtitleIndexByVideoName();
-        }
+        findAndSetSubtitleIndex();
         showSelectMenu();
     }
 
-    private void getSubtitleIndex() {
-        if (!Utils.isEmpty(fileName)) {
-            int index = 0;
-            for (PlayerFileModel item : displayItems) {
-                if (item.getPath().equals(fileName)) {
-                    item.setCheck(true);
-                    subtitleIndex = index;
-                    break;
-                }
-                index++;
-            }
-        }
+    private void findAndSetSubtitleIndex() {
+        subtitleIndex = SubtitleFileNameUtils.findLinkedSubtitleIndex(fileName, displayItems);
 
-    }
-
-    private void getSubtitleIndexByVideoName() {
-        String videoFilenameWithoutExt = FilenameUtils.removeExtension(playerFileModel.getName()).toLowerCase();
-        int index = 0;
-        for (PlayerFileModel item : displayItems) {
-            String subtitleFilenameWithoutExt = FilenameUtils.removeExtension(item.getName()).toLowerCase();
-            if (subtitleFilenameWithoutExt.equals(videoFilenameWithoutExt)) {
-//                item.setCheck(true);
-                subtitleIndex = index;
-                break;
-            }
-            index++;
+        if (subtitleIndex != -1) {
+            displayItems.get(subtitleIndex).setCheck(true);
+        } else {
+            subtitleIndex = SubtitleFileNameUtils.findBestSubtitleMatch(playerFileModel.getName(), displayItems);
         }
     }
 
