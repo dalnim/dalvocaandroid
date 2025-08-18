@@ -1,7 +1,7 @@
 <resources>
     <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
-    <string name="app_name" translatable="false">AraPlayer</string>
-<!--        <string name="app_name" translatable="false">Ara Multi Video Player</string>-->
+<!--    <string name="app_name" translatable="false">AraPlayer</string>-->
+        <string name="app_name" translatable="false">Ara Multi Video Player</string>
 <!--        <string name="app_name" translatable="false">AraMusic</string>-->
 
 
