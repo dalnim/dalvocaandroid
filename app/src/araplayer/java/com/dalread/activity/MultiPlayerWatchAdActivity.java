@@ -1,28 +1,40 @@
 package com.dalread.activity;
 
+import static com.dalread.util.CopyTextUtil.copyToClipboard;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.dalread.R;
+import com.dalread.base.BaseDialog;
+import com.dalread.base.BaseDialogListener;
+import com.dalread.base.EnumType;
 import com.dalread.database.SharedPreferencesDB;
+import com.dalread.dialog.TypeInputDialog;
 import com.dalread.util.PointUtil;
+import com.dalread.util.rewardPoint.RewardCodeManager;
+
+import java.util.List;
 
 public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     
     private TextView tvRemainPoint;
     private Button btnWatchRewardedAd;
     private Button btnRewardCode;
+    private Button btnGenerateRewardCode; // 새로 추가된 버튼
     private PointUtil pointUtil;
     protected SharedPreferencesDB sharedPreferences;
     private Toolbar toolbar;
+    private RewardCodeManager rewardCodeManager;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +71,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         tvRemainPoint = findViewById(R.id.tvRemainPoint);
         btnWatchRewardedAd = findViewById(R.id.btnWatchRewardedAd);
         btnRewardCode = findViewById(R.id.btnRewardCode);
+        btnGenerateRewardCode = findViewById(R.id.btn_generate_reward_code); // 새로 추가된 버튼 초기화
         toolbar = findViewById(R.id.toolbar);
     }
     
@@ -97,24 +110,24 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     private void initData() {
         pointUtil = new PointUtil(this);
         sharedPreferences = SharedPreferencesDB.getInstance(getApplicationContext());
+        rewardCodeManager = new RewardCodeManager();
         refreshRemainPoint();
-        int i = 0;
     }
     
     private void setClickListeners() {
-        btnWatchRewardedAd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 기존 홈 화면과 동일한 광고 보기 로직
-                watchRewardedAd();
-            }
-        });
+        btnWatchRewardedAd.setOnClickListener(v -> watchRewardedAd());
         
-        btnRewardCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 리워드 코드 입력 로직 구현
-                showRewardCodeInput();
+        btnRewardCode.setOnClickListener(v -> showRewardCodeInput());
+
+        // 새로 추가된 버튼의 클릭 리스너
+        btnGenerateRewardCode.setOnClickListener(v -> {
+            List<String> validCodes = rewardCodeManager.getValidCodes();
+            if (validCodes != null && !validCodes.isEmpty()) {
+                String code = validCodes.get(0);
+                copyToClipboard(MultiPlayerWatchAdActivity.this, code);
+                Toast.makeText(MultiPlayerWatchAdActivity.this, "생성된 코드: " + code, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(MultiPlayerWatchAdActivity.this, "코드를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -138,26 +151,67 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onContinue() {
-                // 구현 필요
-            }
+            public void onContinue() {}
 
             @Override
-            public void onCancel() {
-                // 구현 필요
-            }
+            public void onCancel() {}
 
             @Override
-            public void onFail() {
-                // 구현 필요
-            }
+            public void onFail() {}
         };
     }
     
     private void showRewardCodeInput() {
-        // 리워드 코드 입력 다이얼로그 또는 액티비티 구현
-        // 임시로 토스트 메시지만 표시
-        android.widget.Toast.makeText(this, "Reward Code Input", android.widget.Toast.LENGTH_SHORT).show();
+        BaseDialogListener listener = new BaseDialogListener() {
+            @Override
+            public void onBaseDialogListenerShow(EnumType type, BaseDialog dialog, View v, int position, Object data) {
+
+            }
+
+            @Override
+            public void onBaseDialogListenerOk(EnumType type, BaseDialog dialog, View v, int position, Object data) {
+                if (data instanceof String) {
+                    String code = (String) data;
+                    RewardCodeManager.RewardCodeValidationResult result = rewardCodeManager.validateUserCode(MultiPlayerWatchAdActivity.this, code);
+
+                    switch (result) {
+                        case VALID:
+                            pointUtil.addPoint(3);
+                            rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
+                            refreshRemainPoint();
+                            Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
+                            break;
+                        case ALREADY_USED:
+                            Toast.makeText(MultiPlayerWatchAdActivity.this, "이미 사용된 코드입니다.", Toast.LENGTH_SHORT).show();
+                            break;
+                        case INVALID:
+                            Toast.makeText(MultiPlayerWatchAdActivity.this, "유효하지 않은 코드입니다.", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                    dialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onBaseDialogListenerCancel(EnumType type, BaseDialog dialog, View v, int position, Object data) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onBaseDialogListenerClick(EnumType type, BaseDialog dialog, View v, int position, Object data) {
+
+            }
+
+            @Override
+            public void onBaseDialogListenerClickMulti(EnumType type, BaseDialog dialog, View v, int position, Object[] data) {
+
+            }
+        };
+
+        TypeInputDialog inputDialog = new TypeInputDialog(this, listener);
+        inputDialog.setTitle("리워드 코드 입력");
+        inputDialog.setHint(R.string.hint_enter_a_message);
+        inputDialog.show();
     }
     
     @Override
