@@ -665,9 +665,8 @@ public class VocaListPlayerActivity extends BasePlayerActivity implements OnAsyn
     }
     
     protected void openExportWordListActivity() {
-        // 단어장 내보내기 액티비티 실행
-        Intent intent = new Intent(this, ExportWordListActivity.class);
-        intent.putExtra(Constant.PLAYER.INTENT.KEY_VIDEO_FILE, playerFileModel);
+        // 단어장 내보내기 액티비티 실행 - createIntent 메서드 사용
+        Intent intent = ExportWordListActivity.createIntent(this, playerFileModel);
         startActivity(intent);
     }
 
