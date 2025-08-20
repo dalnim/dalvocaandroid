@@ -213,7 +213,6 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
                 sharedPreferences.setFirstShowGuideWatchAd();
                 String title = getString(R.string.guide_watch_ad_to_get_point);
                 GuideUtil.showGuideView(activity, title, binding.btnWatchRewardedAd, view -> {
-                    binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
                     showGuideScreenCount();
                 });
             }
@@ -226,7 +225,6 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
         }
     }
     private void watchRewardedAd() {
-        binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
         pointUtil.showRewardedAd(createRewardPointListener());
     }
 
