@@ -127,36 +127,15 @@ android {
         }
 
         //<!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
-//        araplayer {
-//            dimension "dalnim"
-//            applicationId 'com.dalnimsoft.araplayer'
-//            minSdkVersion 29 //나중에 MediaStore를 통해서 파일리스트 가져오게 할려고.
-//            targetSdkVersion 33
-//            //araonesoft_eng.sqlite.zip는 포함하고 앱 올릴것
-//            //MANAGE_EXTERNAL_STORAGE도 없애고 앱 출시할것
-//            versionCode 93
-//            versionName '0.0.93'
-//            proguardFile 'proguard-rules.pro'
-//            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
-//            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
-//            buildConfigField 'String', 'VOICELANG', '"en-US"'
-//            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
-//            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
-//            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
-//            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
-//            buildConfigField 'int', 'DB_VERSION', '1'
-//            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
-//        }
-
         araplayer {
             dimension "dalnim"
-            applicationId 'com.araonesoft.aramultiplayer'
-            minSdkVersion 26
-            targetSdkVersion 35
-            //araonesoft_eng.sqlite.zip는 있어도 된다. multi player에서는 복사안하고, Git에도 올라가지 않는다.
-            //MANAGE_EXTERNAL_STORAGE 도 없애고 앱 출시할것
-            versionCode 71
-            versionName '0.0.71'
+            applicationId 'com.dalnimsoft.araplayer'
+            minSdkVersion 29 //나중에 MediaStore를 통해서 파일리스트 가져오게 할려고.
+            targetSdkVersion 33
+            //araonesoft_eng.sqlite.zip는 포함하고 앱 올릴것
+            //MANAGE_EXTERNAL_STORAGE도 없애고 앱 출시할것
+            versionCode 93
+            versionName '0.0.93'
             proguardFile 'proguard-rules.pro'
             buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
             buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
@@ -165,9 +144,30 @@ android {
             buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
             buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
             buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
-            buildConfigField 'int', 'DB_VERSION', '2' //Realm의 버전, VideoModel이나 PlaylistModel등이 쓴다.
+            buildConfigField 'int', 'DB_VERSION', '1'
             buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
         }
+
+//        araplayer {
+//            dimension "dalnim"
+//            applicationId 'com.araonesoft.aramultiplayer'
+//            minSdkVersion 26
+//            targetSdkVersion 35
+//            //araonesoft_eng.sqlite.zip는 있어도 된다. multi player에서는 복사안하고, Git에도 올라가지 않는다.
+//            //MANAGE_EXTERNAL_STORAGE 도 없애고 앱 출시할것
+//            versionCode 71
+//            versionName '0.0.71'
+//            proguardFile 'proguard-rules.pro'
+//            buildConfigField 'String', 'APP_NAME', '"ARAPLAYER"'
+//            buildConfigField 'String', 'STUDY_LANG', '"ENGLISH"'
+//            buildConfigField 'String', 'VOICELANG', '"en-US"'
+//            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
+//            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
+//            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
+//            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
+//            buildConfigField 'int', 'DB_VERSION', '2' //Realm의 버전, VideoModel이나 PlaylistModel등이 쓴다.
+//            buildConfigField 'int', 'MEDIA_TYPE', '0' //0 : Video, 2 : Music
+//        }
 
 //        araplayer {
 //            dimension "dalnim"

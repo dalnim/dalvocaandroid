@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
-<!--    <string name="app_name" translatable="false">아라 플레이어</string>-->
-    <string name="app_name" translatable="false">아라 멀티 비디오 플레이어</string>
+    <string name="app_name" translatable="false">아라 플레이어</string>
+<!--    <string name="app_name" translatable="false">아라 멀티 비디오 플레이어</string>-->
 
     <string name="msg_confirm_rename_file_by_backup_and_delete_and_restore_method">안드로이드에서 보안이슈때문에 파일 이름변경을 허용하지 않습니다.\n\n이 팝업을 닫으면 안드로이드에서 파일을 삭제하겠냐고 물어봅니다.삭제를 선택하면 파일을 삭제하기 전에 백업을 받아두고 복원할때 이름을 변경하니 놀라지 마세요. \n계속 하시겠습니까?</string>
     <string name="msg_confirm_refresh_pull_to_refresh">비디오 리스트를 갱신하시겠습니까?</string>
