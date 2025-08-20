@@ -4,20 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.dalread.R;
 import com.dalread.base.BasePlayerActivity;
 import com.dalread.component.Toolbar;
-import com.dalread.databinding.ActivityExportWordListBinding;
 import com.dalread.database.sqlite.model.DicModel;
+import com.dalread.databinding.ActivityExportWordListBinding;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.util.Constant;
-import com.dalread.util.DLog;
 import com.dalread.util.CopyTextUtil;
+import com.dalread.util.DLog;
 import com.dalread.util.LanguageUtil;
+import com.dalread.util.ToastUtil;
 import com.dalread.util.VocaKnow;
 
 import java.util.ArrayList;
@@ -248,17 +248,13 @@ public class ExportWordListActivity extends BasePlayerActivity {
     }
 
     private void exportSelectedWords() {
-        // 텍스트뷰의 내용을 그대로 클립보드로 복사
         String wordListText = binding.tvWordList.getText().toString();
         
         if (wordListText.isEmpty()) {
-            Toast.makeText(this, "선택된 단어가 없습니다.", Toast.LENGTH_SHORT).show();
+            ToastUtil.getInstance(this).show("선택된 단어가 없습니다.");
             return;
         }
-        
-        // CopyTextUtil을 사용하여 클립보드로 복사
-        String toastText = CopyTextUtil.getMessageInToastToShow(this, wordListText);
-        Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show();
+        CopyTextUtil.copyToClipboardShowWhatCopied(this, wordListText);
     }
 
     @Override
