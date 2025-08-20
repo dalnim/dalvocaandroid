@@ -22,7 +22,7 @@
             android:backgroundTint="@color/multiPlayerBackgroundLightBlackColor"
             android:layout_gravity="center"
             android:layout_marginBottom="48dp"
-            android:text="@string/btn_watch_ads"
+            android:text="@string/btn_get_points"
             android:textSize="@dimen/font_multiplayer_screen_button"
             app:layout_constraintBottom_toTopOf="@+id/tvRemainPoint"
             app:layout_constraintEnd_toEndOf="parent"

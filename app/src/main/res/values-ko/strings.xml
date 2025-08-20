@@ -69,6 +69,7 @@
     <string name="error_msg_billing_unavailable">In-app billing service is unavailable, please upgrade Android Market/Play to version >= 3.9.16</string>
     <string name="error_msg_billing_not_init">Billing not initialized.</string>
     <string name="btn_watch_ads" translatable="false">광고 보기</string>
+    <string name="btn_get_points" translatable="false">포인트 받기</string>
     <string name="msg_ads_remove_success">광고 제거 성공!</string>
     <string name="msg_ads_restore_success">광고 복원 성공!</string>
     <string name="msg_ads_wait_to_load_ads" translatable="false">광고가 준비중입니다. 잠시만 기다리세요.</string>
