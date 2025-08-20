@@ -70,6 +70,33 @@ public class RewardCodeManager {
     }
 
     /**
+     * 현재 날짜 기준으로 유효한 코드와 유효 날짜 정보를 포함한 목록을 생성합니다.
+     * @return 코드와 유효 날짜 정보를 포함한 리스트
+     */
+    public List<RewardCodeInfo> getValidCodesWithInfo() {
+        final LocalDateTime now = nowProvider.get();
+        final List<RewardCodeInfo> codesWithInfo = new ArrayList<>();
+
+        if (MAKE_CODE_FOR_WEEK) {
+            final int year = now.getYear();
+            final int currentWeek = weekNumber(now);
+            for (int i = 0; i < validWeekRange; i++) {
+                final int week = currentWeek - i;
+                final String code = generateCodeFromIdentifier(year + "-" + week, SECRET_SALT);
+                // 주차의 마지막 날 계산 (현재 주 + i주 후의 일요일)
+                final LocalDateTime validUntil = now.plusWeeks(i).withHour(23).withMinute(59).withSecond(59);
+                codesWithInfo.add(new RewardCodeInfo(code, validUntil));
+            }
+        } else {
+            final long currentMinuteId = minuteIdentifier(now);
+            final String code = generateCodeFromIdentifier(String.valueOf(currentMinuteId), SECRET_SALT);
+            final LocalDateTime validUntil = now.plusMinutes(1).withSecond(59);
+            codesWithInfo.add(new RewardCodeInfo(code, validUntil));
+        }
+        return codesWithInfo;
+    }
+
+    /**
      * 식별자를 기반으로 코드를 생성합니다.
      * @param identifier 고유 식별자 (예: "2024-30")
      * @param salt 비밀 키
@@ -140,5 +167,41 @@ public class RewardCodeManager {
                date.getDayOfMonth() * 100000L +
                date.getHour() * 1000L +
                date.getMinute();
+    }
+
+    /**
+     * 코드와 유효 날짜 정보를 담는 클래스
+     */
+    public static class RewardCodeInfo {
+        private final String code;
+        private final LocalDateTime validUntil;
+
+        public RewardCodeInfo(String code, LocalDateTime validUntil) {
+            this.code = code;
+            this.validUntil = validUntil;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public LocalDateTime getValidUntil() {
+            return validUntil;
+        }
+
+        public String getFormattedValidDate() {
+            // 현재 주의 시작일과 종료일 계산
+            LocalDateTime now = LocalDateTime.now();
+            LocalDateTime startOfWeek = now.minusDays(now.getDayOfWeek().getValue() - 1); // 월요일 시작
+            LocalDateTime endOfWeek = startOfWeek.plusDays(6); // 일요일 종료
+            
+            return String.format("%d년 %d월 %d일 ~ %d년 %d월 %d일", 
+                startOfWeek.getYear(), 
+                startOfWeek.getMonthValue(), 
+                startOfWeek.getDayOfMonth(),
+                endOfWeek.getYear(),
+                endOfWeek.getMonthValue(),
+                endOfWeek.getDayOfMonth());
+        }
     }
 }

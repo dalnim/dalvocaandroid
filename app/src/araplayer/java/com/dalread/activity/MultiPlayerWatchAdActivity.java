@@ -2,11 +2,13 @@ package com.dalread.activity;
 
 import static com.dalread.util.CopyTextUtil.copyToClipboard;
 
+import android.content.Intent;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +21,11 @@ import com.dalread.base.BaseDialog;
 import com.dalread.base.BaseDialogListener;
 import com.dalread.base.EnumType;
 import com.dalread.database.SharedPreferencesDB;
+import com.dalread.databinding.ActivityMultiplayerWatchAdBinding;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.util.PointUtil;
+import com.dalread.util.Utils;
 import com.dalread.util.rewardPoint.RewardCodeManager;
-import com.dalread.databinding.ActivityMultiplayerWatchAdBinding;
 
 import java.util.List;
 
@@ -101,20 +104,45 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         sharedPreferences = SharedPreferencesDB.getInstance(getApplicationContext());
         rewardCodeManager = new RewardCodeManager();
         refreshRemainPoint();
+        
+        // URL 텍스트에 밑줄 효과 추가
+        binding.tvFreeRewardCode.setPaintFlags(binding.tvFreeRewardCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        
+        // 디버그 모드일 때만 개발자용 기능들 표시
+        if (Utils.isDebug()) {
+            binding.btnGenerateRewardCode.setVisibility(View.VISIBLE);
+            binding.tvGenerateRewardCode.setVisibility(View.VISIBLE);
+        } else {
+            binding.btnGenerateRewardCode.setVisibility(View.INVISIBLE);
+            binding.tvGenerateRewardCode.setVisibility(View.INVISIBLE);
+        }
     }
     
     private void setClickListeners() {
         binding.btnWatchRewardedAd.setOnClickListener(v -> watchRewardedAd());
         
-        binding.btnRewardCode.setOnClickListener(v -> showRewardCodeInput());
+        binding.btnRewardCodeInput.setOnClickListener(v -> showRewardCodeInput());
+
+        // 무료 리워드 코드 받기 텍스트 클릭 리스너
+        binding.tvFreeRewardCode.setOnClickListener(v -> openFreeRewardCodeUrl());
 
         // 새로 추가된 버튼의 클릭 리스너
         binding.btnGenerateRewardCode.setOnClickListener(v -> {
-            List<String> validCodes = rewardCodeManager.getValidCodes();
-            if (validCodes != null && !validCodes.isEmpty()) {
-                String code = validCodes.get(0);
+            List<RewardCodeManager.RewardCodeInfo> validCodesWithInfo = rewardCodeManager.getValidCodesWithInfo();
+            if (validCodesWithInfo != null && !validCodesWithInfo.isEmpty()) {
+                RewardCodeManager.RewardCodeInfo codeInfo = validCodesWithInfo.get(0);
+                String code = codeInfo.getCode();
+                String validDate = codeInfo.getFormattedValidDate();
+                
+                // 클립보드에 복사
                 copyToClipboard(MultiPlayerWatchAdActivity.this, code);
-                Toast.makeText(MultiPlayerWatchAdActivity.this, "생성된 코드: " + code, Toast.LENGTH_LONG).show();
+                
+                // TextView에 코드와 유효 날짜 표시
+                String displayText = String.format("생성된 코드: %s\n\n유효 기간: %s", code, validDate);
+                binding.tvGenerateRewardCode.setText(displayText);
+                
+                // 토스트 메시지 표시
+                Toast.makeText(MultiPlayerWatchAdActivity.this, "코드가 클립보드에 복사되었습니다: " + code, Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(MultiPlayerWatchAdActivity.this, "코드를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show();
             }
@@ -124,6 +152,18 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     private void refreshRemainPoint() {
         int point = pointUtil.getPoint();
         binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
+    }
+    
+    private void openFreeRewardCodeUrl() {
+        try {
+            // Google 웹사이트 URL (나중에 수정 가능)
+            String url = "https://www.google.com";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "웹브라우저를 열 수 없습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
     
     private void watchRewardedAd() {
