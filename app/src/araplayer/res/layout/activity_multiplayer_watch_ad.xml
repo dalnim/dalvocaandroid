@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btnWatchRewardedAd" />
 
         <TextView
-            android:id="@+id/tvFreeRewardCode"
+            android:id="@+id/tvFreeRewardCodeUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -101,7 +101,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFreeRewardCode" />
+            app:layout_constraintTop_toBottomOf="@+id/tvFreeRewardCodeUrl" />
 
         <TextView
             android:id="@+id/tvGenerateRewardCode"

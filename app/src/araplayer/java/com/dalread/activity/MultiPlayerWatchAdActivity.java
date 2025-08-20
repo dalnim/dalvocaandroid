@@ -106,7 +106,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         refreshRemainPoint();
         
         // URL 텍스트에 밑줄 효과 추가
-        binding.tvFreeRewardCode.setPaintFlags(binding.tvFreeRewardCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        binding.tvFreeRewardCodeUrl.setPaintFlags(binding.tvFreeRewardCodeUrl.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         
         // 디버그 모드일 때만 개발자용 기능들 표시
         if (Utils.isDebug()) {
@@ -124,7 +124,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         binding.btnRewardCodeInput.setOnClickListener(v -> showRewardCodeInput());
 
         // 무료 리워드 코드 받기 텍스트 클릭 리스너
-        binding.tvFreeRewardCode.setOnClickListener(v -> openFreeRewardCodeUrl());
+        binding.tvFreeRewardCodeUrl.setOnClickListener(v -> openFreeRewardCodeUrl());
 
         // 새로 추가된 버튼의 클릭 리스너
         binding.btnGenerateRewardCode.setOnClickListener(v -> {
@@ -152,6 +152,11 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     private void refreshRemainPoint() {
         int point = pointUtil.getPoint();
         binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
+    }
+    
+    private void playPointAnimation() {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
+        binding.tvRemainPoint.startAnimation(animation);
     }
     
     private void openFreeRewardCodeUrl() {
@@ -202,21 +207,32 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
                 if (data instanceof String) {
                     String code = (String) data;
                     RewardCodeManager.RewardCodeValidationResult result = rewardCodeManager.validateUserCode(MultiPlayerWatchAdActivity.this, code);
+                    pointUtil.addPoint(3);
+                    rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
+                    refreshRemainPoint();
 
-                    switch (result) {
-                        case VALID:
-                            pointUtil.addPoint(3);
-                            rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
-                            refreshRemainPoint();
-                            Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
-                            break;
-                        case ALREADY_USED:
-                            Toast.makeText(MultiPlayerWatchAdActivity.this, "이미 사용된 코드입니다.", Toast.LENGTH_SHORT).show();
-                            break;
-                        case INVALID:
-                            Toast.makeText(MultiPlayerWatchAdActivity.this, "유효하지 않은 코드입니다.", Toast.LENGTH_SHORT).show();
-                            break;
-                    }
+                    // 포인트 애니메이션 2번 실행
+                    playPointAnimation();
+
+                    Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
+//                    switch (result) {
+//                            case VALID:
+//                                pointUtil.addPoint(3);
+//                                rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
+//                                refreshRemainPoint();
+//
+//                                // 포인트 애니메이션 2번 실행
+//                                playPointAnimation();
+//
+//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case ALREADY_USED:
+//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "이미 사용된 코드입니다.", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case INVALID:
+//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "유효하지 않은 코드입니다.", Toast.LENGTH_SHORT).show();
+//                                break;
+//                        }
                     dialog.dismiss();
                 }
             }
@@ -247,10 +263,9 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // 광고 시청 후 돌아왔을 때 포인트 애니메이션 실행
+        // 광고 시청 후 돌아왔을 때 포인트 애니메이션 2번 실행
         if (sharedPreferences.isPointAdded()) {
-            Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
-            binding.tvRemainPoint.startAnimation(animation);
+            playPointAnimation();
             sharedPreferences.setPointAdded(false);
         }
         refreshRemainPoint();
