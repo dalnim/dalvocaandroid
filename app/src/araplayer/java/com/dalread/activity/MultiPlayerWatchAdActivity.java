@@ -25,6 +25,7 @@ import com.dalread.dialog.TypeInputDialog;
 import com.dalread.util.PointUtil;
 import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
+import com.dalread.util.KeyboardUtil;
 import com.dalread.util.rewardPoint.RewardCodeManager;
 
 import java.util.List;
@@ -226,13 +227,14 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
                             ToastUtil.getInstance(MultiPlayerWatchAdActivity.this).show(getString(R.string.toast_code_invalid));
                             break;
                     }
+                    KeyboardUtil.hideSoftKeyboard(MultiPlayerWatchAdActivity.this); // 키보드 숨기기
                     dialog.dismiss();
                 }
             }
 
             @Override
             public void onBaseDialogListenerCancel(EnumType type, BaseDialog dialog, View v, int position, Object data) {
-                dialog.dismiss();
+                KeyboardUtil.hideSoftKeyboard(MultiPlayerWatchAdActivity.this); // 키보드 숨기기
             }
 
             @Override

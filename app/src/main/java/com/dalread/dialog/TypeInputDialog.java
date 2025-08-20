@@ -67,6 +67,9 @@ public class TypeInputDialog extends BaseDialog {
     private void initListener() {
         binding.etInput.addTextChangedListener(EditTextUtils.createTextWatcher(binding.etInput));
         binding.btnCancel.setOnClickListener( v -> {
+            if (baseDialogListener != null) {
+                baseDialogListener.onBaseDialogListenerCancel(enumType, this, v, 0, null);
+            }
             dismiss();
         });
         binding.btnOk.setOnClickListener( v -> {
