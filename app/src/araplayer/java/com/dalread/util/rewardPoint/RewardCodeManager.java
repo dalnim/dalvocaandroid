@@ -25,13 +25,13 @@ public class RewardCodeManager {
     public static final String PREFS_NAME = "RewardCodePrefs";
     public static final String KEY_LAST_USED_CODE = "last_used_reward_code";
 
-    private final int validWeekRange;
+    private final int validMonthRange;
     private final Supplier<LocalDateTime> nowProvider;
 
-    public static final boolean MAKE_CODE_FOR_WEEK = true;
+    public static final boolean MAKE_CODE_FOR_MONTH = true;
 
     /**
-     * 기본 생성자. 유효 기간은 1주, 시간은 현재 시간을 사용합니다.
+     * 기본 생성자. 유효 기간은 1달, 시간은 현재 시간을 사용합니다.
      */
     public RewardCodeManager() {
         this(1, LocalDateTime::now);
@@ -39,11 +39,11 @@ public class RewardCodeManager {
 
     /**
      * 생성자
-     * @param validWeekRange 유효 주차 범위
+     * @param validMonthRange 유효 월 범위
      * @param nowProvider 현재 시간을 제공하는 Supplier (테스트용)
      */
-    public RewardCodeManager(int validWeekRange, Supplier<LocalDateTime> nowProvider) {
-        this.validWeekRange = validWeekRange;
+    public RewardCodeManager(int validMonthRange, Supplier<LocalDateTime> nowProvider) {
+        this.validMonthRange = validMonthRange;
         this.nowProvider = nowProvider;
     }
 
@@ -55,12 +55,17 @@ public class RewardCodeManager {
         final LocalDateTime now = nowProvider.get();
         final List<String> codes = new ArrayList<>();
 
-        if (MAKE_CODE_FOR_WEEK) {
+        if (MAKE_CODE_FOR_MONTH) {
             final int year = now.getYear();
-            final int currentWeek = weekNumber(now);
-            for (int i = 0; i < validWeekRange; i++) {
-                final int week = currentWeek - i;
-                codes.add(generateCodeFromIdentifier(year + "-" + week, SECRET_SALT));
+            final int currentMonth = now.getMonthValue();
+            for (int i = 0; i < validMonthRange; i++) {
+                final int month = currentMonth - i;
+                if (month > 0) {
+                    codes.add(generateCodeFromIdentifier(year + "-" + month, SECRET_SALT));
+                } else {
+                    // 작년 12월로 처리
+                    codes.add(generateCodeFromIdentifier((year - 1) + "-12", SECRET_SALT));
+                }
             }
         } else {
             final long currentMinuteId = minuteIdentifier(now);
@@ -77,14 +82,21 @@ public class RewardCodeManager {
         final LocalDateTime now = nowProvider.get();
         final List<RewardCodeInfo> codesWithInfo = new ArrayList<>();
 
-        if (MAKE_CODE_FOR_WEEK) {
+        if (MAKE_CODE_FOR_MONTH) {
             final int year = now.getYear();
-            final int currentWeek = weekNumber(now);
-            for (int i = 0; i < validWeekRange; i++) {
-                final int week = currentWeek - i;
-                final String code = generateCodeFromIdentifier(year + "-" + week, SECRET_SALT);
-                // 주차의 마지막 날 계산 (현재 주 + i주 후의 일요일)
-                final LocalDateTime validUntil = now.plusWeeks(i).withHour(23).withMinute(59).withSecond(59);
+            final int currentMonth = now.getMonthValue();
+            for (int i = 0; i < validMonthRange; i++) {
+                final int month = currentMonth - i;
+                String yearMonth;
+                if (month > 0) {
+                    yearMonth = year + "-" + month;
+                } else {
+                    // 작년 12월로 처리
+                    yearMonth = (year - 1) + "-12";
+                }
+                final String code = generateCodeFromIdentifier(yearMonth, SECRET_SALT);
+                // 월의 마지막 날 계산 (현재 월 + i개월 후의 마지막 날)
+                final LocalDateTime validUntil = now.plusMonths(i).withDayOfMonth(now.plusMonths(i).toLocalDate().lengthOfMonth()).withHour(23).withMinute(59).withSecond(59);
                 codesWithInfo.add(new RewardCodeInfo(code, validUntil));
             }
         } else {
@@ -190,18 +202,18 @@ public class RewardCodeManager {
         }
 
         public String getFormattedValidDate() {
-            // 현재 주의 시작일과 종료일 계산
+            // 현재 월의 시작일과 종료일 계산
             LocalDateTime now = LocalDateTime.now();
-            LocalDateTime startOfWeek = now.minusDays(now.getDayOfWeek().getValue() - 1); // 월요일 시작
-            LocalDateTime endOfWeek = startOfWeek.plusDays(6); // 일요일 종료
+            LocalDateTime startOfMonth = now.withDayOfMonth(1); // 월의 첫째 날
+            LocalDateTime endOfMonth = now.withDayOfMonth(now.toLocalDate().lengthOfMonth()); // 월의 마지막 날
             
             return String.format("%d년 %d월 %d일 ~ %d년 %d월 %d일", 
-                startOfWeek.getYear(), 
-                startOfWeek.getMonthValue(), 
-                startOfWeek.getDayOfMonth(),
-                endOfWeek.getYear(),
-                endOfWeek.getMonthValue(),
-                endOfWeek.getDayOfMonth());
+                startOfMonth.getYear(), 
+                startOfMonth.getMonthValue(), 
+                startOfMonth.getDayOfMonth(),
+                endOfMonth.getYear(),
+                endOfMonth.getMonthValue(),
+                endOfMonth.getDayOfMonth());
         }
     }
 }

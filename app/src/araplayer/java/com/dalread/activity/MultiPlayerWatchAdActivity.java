@@ -239,6 +239,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
 
         TypeInputDialog inputDialog = new TypeInputDialog(this, listener);
         inputDialog.setTitle("리워드 코드 입력");
+        inputDialog.setSubTitle("리워드 코드는 한달에 한번만 사용가능합니다.");
         inputDialog.setHint(R.string.hint_enter_a_message);
         inputDialog.show();
     }
