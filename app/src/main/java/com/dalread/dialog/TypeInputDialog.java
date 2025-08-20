@@ -69,8 +69,9 @@ public class TypeInputDialog extends BaseDialog {
         binding.btnCancel.setOnClickListener( v -> {
             if (baseDialogListener != null) {
                 baseDialogListener.onBaseDialogListenerCancel(enumType, this, v, 0, null);
+            } else {
+                dismiss(); // 리스너가 없을 때만 직접 dismiss
             }
-            dismiss();
         });
         binding.btnOk.setOnClickListener( v -> {
             if (baseDialogListener == null) {
