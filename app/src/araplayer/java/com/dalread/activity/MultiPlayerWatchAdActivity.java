@@ -162,8 +162,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     
     private void openFreeRewardCodeUrl() {
         try {
-            // Google 웹사이트 URL (나중에 수정 가능)
-            String url = "https://www.google.com";
+            String url = "https://www.reddit.com/r/AraMultiPlayer/comments/1mv8rdf/reward_point_for_this_month/";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

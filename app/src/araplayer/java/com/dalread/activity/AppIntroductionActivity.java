@@ -19,6 +19,7 @@ import com.dalread.util.BaseInterstitialAdManager;
 import com.dalread.util.BaseMobileAd;
 import com.dalread.util.Constant;
 import com.dalread.util.Loading;
+import com.dalread.util.Utils;
 
 public class AppIntroductionActivity extends BaseActivity {
 
@@ -76,16 +77,19 @@ public class AppIntroductionActivity extends BaseActivity {
             if (!fromMenu) {
                 if (AppFlavorUtil.isAraMultiPlayerAppLite()) {
                     Loading.showDelay(this);
-                    // 전면광고 표시 부분 주석처리 - 앱 설치시 광고 제거
-                    // BaseInterstitialAdManager.showInterstitialAd(this,
-                    //         BaseMobileAd.Admob.AraMultiPlayer.Lite.INTERSTITIAL_UNIT_ID,
-                    //         () -> {
-                    //             BaseInterstitialAdManager.setNullToInterstitialAd();
-                    //             openMultiPlayerHomeActivity();
-                    //         }
-                    // );
-                    // 광고 없이 바로 홈 화면으로 이동
-                    openMultiPlayerHomeActivity();
+                    if (Utils.isDebug()) {
+                        // 디버그는 앱설치시 광고 없이 바로 홈 화면으로 이동
+                        openMultiPlayerHomeActivity();
+                    } else {
+                        // 앱 설치시 광고 보여줌.
+                         BaseInterstitialAdManager.showInterstitialAd(this,
+                             BaseMobileAd.Admob.AraMultiPlayer.Lite.INTERSTITIAL_UNIT_ID,
+                             () -> {
+                                 BaseInterstitialAdManager.setNullToInterstitialAd();
+                                 openMultiPlayerHomeActivity();
+                             }
+                         );
+                    }
 ////                    openNewScreen(MainHomeActivity.class, true);
                 } else if (AppFlavorUtil.isAraMultiPlayerAppPro()) {
                     openMultiPlayerHomeActivity();
