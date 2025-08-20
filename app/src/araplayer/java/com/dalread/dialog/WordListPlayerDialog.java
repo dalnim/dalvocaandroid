@@ -53,6 +53,7 @@ public class WordListPlayerDialog extends BasePlayerDialog implements View.OnCli
     protected void initOnClickListener() {
         binding.llChangeWordsKnownStatus.setOnClickListener(this);
         binding.llPlayAllWords.setOnClickListener(this);
+        binding.llExportWordList.setOnClickListener(this);
         binding.llKnownPhrases.setOnClickListener(this);
         binding.llUnknownPhrases.setOnClickListener(this);
         binding.tvCancel.setOnClickListener(this);

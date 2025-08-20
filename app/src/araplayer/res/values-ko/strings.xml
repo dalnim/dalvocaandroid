@@ -376,4 +376,5 @@
     <string name="toast_code_invalid">유효하지 않은 코드입니다.</string>
     <string name="dialog_title_reward_code_input">리워드 코드 입력</string>
     <string name="dialog_subtitle_reward_code_input">리워드 코드는 한달에 한번만 사용가능합니다.</string>
+    <string name="export_word_list">단어장 내보내기</string>
 </resources>

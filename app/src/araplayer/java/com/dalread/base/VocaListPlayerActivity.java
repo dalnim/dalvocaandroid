@@ -13,6 +13,7 @@ import android.widget.PopupWindow;
 import androidx.appcompat.widget.SearchView;
 
 import com.dalread.R;
+import com.dalread.activity.ExportWordListActivity;
 import com.dalread.activity.PlayListByTtsActivity;
 import com.dalread.adapter.StudyChatAdapter;
 import com.dalread.adapter.VocaListPlayerAdapter;
@@ -662,6 +663,13 @@ public class VocaListPlayerActivity extends BasePlayerActivity implements OnAsyn
         }
         wordListPlayerDialog.show();
     }
+    
+    protected void openExportWordListActivity() {
+        // 단어장 내보내기 액티비티 실행
+        Intent intent = new Intent(this, ExportWordListActivity.class);
+        intent.putExtra(Constant.PLAYER.INTENT.KEY_VIDEO_FILE, playerFileModel);
+        startActivity(intent);
+    }
 
     protected OnClickListener onWordListPlayerDialogListener = (view, object) -> {
         switch (view.getId()) {
@@ -670,6 +678,9 @@ public class VocaListPlayerActivity extends BasePlayerActivity implements OnAsyn
                 break;
             case R.id.llPlayAllWords:
                 handlePlayAll(totalItems);
+                break;
+            case R.id.llExportWordList:
+                openExportWordListActivity();
                 break;
             case R.id.llKnownPhrases:
                 changeAllVocaKnow(Constant.VOCA_KNOW.VOCA_KNOW_KNOWN);

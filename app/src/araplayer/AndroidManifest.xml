@@ -169,6 +169,12 @@
             android:windowSoftInputMode="stateHidden|adjustPan|adjustResize|stateAlwaysHidden"
             tools:ignore="LockedOrientationActivity" />
         <activity
+            android:name=".activity.ExportWordListActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize|stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".activity.DialogueListPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"

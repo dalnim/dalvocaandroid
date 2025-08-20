@@ -388,4 +388,5 @@
     <string name="toast_code_invalid">Invalid code.</string>
     <string name="dialog_title_reward_code_input">Enter Reward Code</string>
     <string name="dialog_subtitle_reward_code_input">Reward codes can only be used once per month.</string>
+    <string name="export_word_list">Export word list</string>
 </resources>
