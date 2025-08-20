@@ -55,9 +55,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
         
         // 시스템 버튼 바 색상을 검은색으로 설정 (API 21 이상)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setNavigationBarColor(getResources().getColor(android.R.color.black));
-        }
+        getWindow().setNavigationBarColor(getResources().getColor(android.R.color.black));
         
         // 시스템 UI 플래그 설정
         getWindow().getDecorView().setSystemUiVisibility(
