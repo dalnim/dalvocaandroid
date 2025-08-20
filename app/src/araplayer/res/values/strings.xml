@@ -372,4 +372,20 @@
 
     <string name="toast_converted_to_hidden_files" translatable="false">Added . to filenames</string>
     <string name="toast_converted_to_normal_files" translatable="false">Removed . from filenames</string>
+
+    <!-- MultiPlayerWatchAdActivity -->
+    <string name="title_get_points">Get Points</string>
+    <string name="btn_reward_code_input">Reward Code Input</string>
+    <string name="btn_free_reward_code">Get Free Reward Code</string>
+    <string name="btn_generate_reward_code">Generate Reward Code</string>
+    <string name="text_generate_reward_code_placeholder">Tap to generate reward code</string>
+    <string name="format_generated_code">Generated Code: %1$s\n\nValid Period: %2$s</string>
+    <string name="toast_code_copied_to_clipboard">Code copied to clipboard: %1$s</string>
+    <string name="toast_code_generation_failed">Failed to generate code.</string>
+    <string name="toast_browser_open_failed">Cannot open web browser.</string>
+    <string name="toast_points_earned">+3 Points earned!</string>
+    <string name="toast_code_already_used">This code has already been used.</string>
+    <string name="toast_code_invalid">Invalid code.</string>
+    <string name="dialog_title_reward_code_input">Enter Reward Code</string>
+    <string name="dialog_subtitle_reward_code_input">Reward codes can only be used once per month.</string>
 </resources>

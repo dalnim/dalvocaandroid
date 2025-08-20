@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +23,7 @@ import com.dalread.database.SharedPreferencesDB;
 import com.dalread.databinding.ActivityMultiplayerWatchAdBinding;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.util.PointUtil;
+import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.rewardPoint.RewardCodeManager;
 
@@ -70,7 +70,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     private void setupToolbar() {
         setSupportActionBar(binding.toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("포인트 얻기");
+            getSupportActionBar().setTitle(getString(R.string.title_get_points));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -78,7 +78,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         
         // 제목을 중앙에 배치
         TextView titleTextView = new TextView(this);
-        titleTextView.setText("포인트 얻기");
+        titleTextView.setText(getString(R.string.title_get_points));
         titleTextView.setTextColor(getResources().getColor(android.R.color.white));
         titleTextView.setTextSize(20);
         titleTextView.setTypeface(null, android.graphics.Typeface.BOLD);
@@ -138,13 +138,13 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
                 copyToClipboard(MultiPlayerWatchAdActivity.this, code);
                 
                 // TextView에 코드와 유효 날짜 표시
-                String displayText = String.format("생성된 코드: %s\n\n유효 기간: %s", code, validDate);
+                String displayText = getString(R.string.format_generated_code, code, validDate);
                 binding.tvGenerateRewardCode.setText(displayText);
                 
                 // 토스트 메시지 표시
-                Toast.makeText(MultiPlayerWatchAdActivity.this, "코드가 클립보드에 복사되었습니다: " + code, Toast.LENGTH_LONG).show();
+                ToastUtil.getInstance(this).show(getString(R.string.toast_code_copied_to_clipboard, code));
             } else {
-                Toast.makeText(MultiPlayerWatchAdActivity.this, "코드를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                ToastUtil.getInstance(this).show(getString(R.string.toast_code_generation_failed));
             }
         });
     }
@@ -167,7 +167,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } catch (Exception e) {
-            Toast.makeText(this, "웹브라우저를 열 수 없습니다.", Toast.LENGTH_SHORT).show();
+            ToastUtil.getInstance(this).show(getString(R.string.toast_browser_open_failed));
         }
     }
     
@@ -207,32 +207,25 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
                 if (data instanceof String) {
                     String code = (String) data;
                     RewardCodeManager.RewardCodeValidationResult result = rewardCodeManager.validateUserCode(MultiPlayerWatchAdActivity.this, code);
-                    pointUtil.addPoint(3);
-                    rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
-                    refreshRemainPoint();
-
-                    // 포인트 애니메이션 2번 실행
-                    playPointAnimation();
-
-                    Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
-//                    switch (result) {
-//                            case VALID:
-//                                pointUtil.addPoint(3);
-//                                rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
-//                                refreshRemainPoint();
-//
-//                                // 포인트 애니메이션 2번 실행
-//                                playPointAnimation();
-//
-//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "+3 포인트 획득!", Toast.LENGTH_SHORT).show();
-//                                break;
-//                            case ALREADY_USED:
-//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "이미 사용된 코드입니다.", Toast.LENGTH_SHORT).show();
-//                                break;
-//                            case INVALID:
-//                                Toast.makeText(MultiPlayerWatchAdActivity.this, "유효하지 않은 코드입니다.", Toast.LENGTH_SHORT).show();
-//                                break;
-//                        }
+                    
+                    switch (result) {
+                        case VALID:
+                            pointUtil.addPoint(3);
+                            rewardCodeManager.saveUsedCode(MultiPlayerWatchAdActivity.this, code);
+                            refreshRemainPoint();
+        
+                            // 포인트 애니메이션 2번 실행
+                            playPointAnimation();
+        
+                            ToastUtil.getInstance(MultiPlayerWatchAdActivity.this).show(getString(R.string.toast_points_earned));
+                            break;
+                        case ALREADY_USED:
+                            ToastUtil.getInstance(MultiPlayerWatchAdActivity.this).show(getString(R.string.toast_code_already_used));
+                            break;
+                        case INVALID:
+                            ToastUtil.getInstance(MultiPlayerWatchAdActivity.this).show(getString(R.string.toast_code_invalid));
+                            break;
+                    }
                     dialog.dismiss();
                 }
             }
@@ -254,8 +247,8 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         };
 
         TypeInputDialog inputDialog = new TypeInputDialog(this, listener);
-        inputDialog.setTitle("리워드 코드 입력");
-        inputDialog.setSubTitle("리워드 코드는 한달에 한번만 사용가능합니다.");
+        inputDialog.setTitle(getString(R.string.dialog_title_reward_code_input));
+        inputDialog.setSubTitle(getString(R.string.dialog_subtitle_reward_code_input));
         inputDialog.setHint(R.string.hint_enter_a_message);
         inputDialog.show();
     }

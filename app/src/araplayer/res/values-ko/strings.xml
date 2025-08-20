@@ -360,4 +360,20 @@
 
     <string name="toast_converted_to_hidden_files" translatable="false">파일명앞에 . 이 추가됨</string>
     <string name="toast_converted_to_normal_files" translatable="false">파일명앞에 . 이 제거됨</string>
+
+    <!-- MultiPlayerWatchAdActivity -->
+    <string name="title_get_points">포인트 얻기</string>
+    <string name="btn_reward_code_input">리워드 코드 입력</string>
+    <string name="btn_free_reward_code">무료 리워드 코드 받기</string>
+    <string name="btn_generate_reward_code">리워드 코드 생성</string>
+    <string name="text_generate_reward_code_placeholder">코드를 생성하면 여기에 표시됩니다</string>
+    <string name="format_generated_code">생성된 코드: %1$s\n\n유효 기간: %2$s</string>
+    <string name="toast_code_copied_to_clipboard">코드가 클립보드에 복사되었습니다: %1$s</string>
+    <string name="toast_code_generation_failed">코드를 생성할 수 없습니다.</string>
+    <string name="toast_browser_open_failed">웹브라우저를 열 수 없습니다.</string>
+    <string name="toast_points_earned">+3 포인트 획득!</string>
+    <string name="toast_code_already_used">이미 사용된 코드입니다.</string>
+    <string name="toast_code_invalid">유효하지 않은 코드입니다.</string>
+    <string name="dialog_title_reward_code_input">리워드 코드 입력</string>
+    <string name="dialog_subtitle_reward_code_input">리워드 코드는 한달에 한번만 사용가능합니다.</string>
 </resources>
