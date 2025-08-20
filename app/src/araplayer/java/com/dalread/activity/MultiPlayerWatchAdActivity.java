@@ -22,29 +22,26 @@ import com.dalread.database.SharedPreferencesDB;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.util.PointUtil;
 import com.dalread.util.rewardPoint.RewardCodeManager;
+import com.dalread.databinding.ActivityMultiplayerWatchAdBinding;
 
 import java.util.List;
 
 public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     
-    private TextView tvRemainPoint;
-    private Button btnWatchRewardedAd;
-    private Button btnRewardCode;
-    private Button btnGenerateRewardCode; // 새로 추가된 버튼
+    private ActivityMultiplayerWatchAdBinding binding;
     private PointUtil pointUtil;
     protected SharedPreferencesDB sharedPreferences;
-    private Toolbar toolbar;
     private RewardCodeManager rewardCodeManager;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multiplayer_watch_ad);
+        binding = ActivityMultiplayerWatchAdBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         
         // Status bar와 시스템 버튼 바 색상을 홈 화면과 동일하게 설정
         setupSystemUI();
         
-        initViews();
         initData();
         setClickListeners();
         setupToolbar();
@@ -55,7 +52,9 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
         
         // 시스템 버튼 바 색상을 검은색으로 설정 (API 21 이상)
-        getWindow().setNavigationBarColor(getResources().getColor(android.R.color.black));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(android.R.color.black));
+        }
         
         // 시스템 UI 플래그 설정
         getWindow().getDecorView().setSystemUiVisibility(
@@ -65,16 +64,8 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         );
     }
     
-    private void initViews() {
-        tvRemainPoint = findViewById(R.id.tvRemainPoint);
-        btnWatchRewardedAd = findViewById(R.id.btnWatchRewardedAd);
-        btnRewardCode = findViewById(R.id.btnRewardCode);
-        btnGenerateRewardCode = findViewById(R.id.btn_generate_reward_code); // 새로 추가된 버튼 초기화
-        toolbar = findViewById(R.id.toolbar);
-    }
-    
     private void setupToolbar() {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("포인트 얻기");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,7 +87,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         layoutParams.gravity = android.view.Gravity.CENTER;
         titleTextView.setLayoutParams(layoutParams);
         
-        toolbar.addView(titleTextView);
+        binding.toolbar.addView(titleTextView);
     }
     
     @Override
@@ -113,12 +104,12 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     }
     
     private void setClickListeners() {
-        btnWatchRewardedAd.setOnClickListener(v -> watchRewardedAd());
+        binding.btnWatchRewardedAd.setOnClickListener(v -> watchRewardedAd());
         
-        btnRewardCode.setOnClickListener(v -> showRewardCodeInput());
+        binding.btnRewardCode.setOnClickListener(v -> showRewardCodeInput());
 
         // 새로 추가된 버튼의 클릭 리스너
-        btnGenerateRewardCode.setOnClickListener(v -> {
+        binding.btnGenerateRewardCode.setOnClickListener(v -> {
             List<String> validCodes = rewardCodeManager.getValidCodes();
             if (validCodes != null && !validCodes.isEmpty()) {
                 String code = validCodes.get(0);
@@ -132,12 +123,12 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
     
     private void refreshRemainPoint() {
         int point = pointUtil.getPoint();
-        tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
+        binding.tvRemainPoint.setText(getResources().getQuantityString(R.plurals.point, point, point));
     }
     
     private void watchRewardedAd() {
         // 기존 홈 화면과 동일한 광고 보기 로직
-        btnWatchRewardedAd.setVisibility(View.INVISIBLE);
+        binding.btnWatchRewardedAd.setVisibility(View.INVISIBLE);
         pointUtil.showRewardedAd(createRewardPointListener());
     }
     
@@ -218,7 +209,7 @@ public class MultiPlayerWatchAdActivity extends AppCompatActivity {
         // 광고 시청 후 돌아왔을 때 포인트 애니메이션 실행
         if (sharedPreferences.isPointAdded()) {
             Animation animation = AnimationUtils.loadAnimation(this, R.anim.text_scale_anim);
-            tvRemainPoint.startAnimation(animation);
+            binding.tvRemainPoint.startAnimation(animation);
             sharedPreferences.setPointAdded(false);
         }
         refreshRemainPoint();
