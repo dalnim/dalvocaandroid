@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingHorizontal="32dp"
-            android:paddingVertical="16dp"
+            android:paddingVertical="8dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/multiPlayerBackgroundLightBlackColor"
             android:text="@string/btn_watch_ads"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_generate_reward_code"
+            android:id="@+id/btnGenerateRewardCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="32dp"
@@ -82,6 +82,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnRewardCode" />
+
+        <TextView
+            android:id="@+id/tvGenerateRewardCord"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_generate_reward_code" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
