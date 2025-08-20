@@ -37,7 +37,8 @@
                 android:gravity="center"
                 android:background="@drawable/btn_no_border_voca_know_known"
                 android:padding="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,13 +47,6 @@
                     android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Known"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:id="@+id/tvKnownCount"
@@ -73,7 +67,8 @@
                 android:gravity="center"
                 android:background="@drawable/btn_no_border_voca_know_amki_grade_1"
                 android:padding="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,13 +77,6 @@
                     android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Grade1"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:id="@+id/tvGrade1Count"
@@ -109,7 +97,8 @@
                 android:gravity="center"
                 android:background="@drawable/btn_no_border_voca_know_amki_grade_2"
                 android:padding="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -118,13 +107,6 @@
                     android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Grade2"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:id="@+id/tvGrade2Count"
@@ -144,7 +126,8 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:background="@drawable/btn_no_border_voca_know_unknown"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:backgroundTint="@android:color/transparent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,13 +136,6 @@
                     android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Unknown"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:id="@+id/tvUnknownCount"
@@ -173,13 +149,28 @@
         </LinearLayout>
 
         <!-- 단어 목록 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="선택된 단어 목록:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선택된 단어 목록:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvWordCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" (0개)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -194,7 +185,7 @@
                 android:text="VocaKnow를 선택하면 해당하는 단어들이 여기에 표시됩니다."
                 android:textSize="14sp"
                 android:padding="12dp"
-                android:background="@android:color/white"
+                android:background="@android:color/darker_gray"
                 android:textColor="@android:color/black" />
         </ScrollView>
 
