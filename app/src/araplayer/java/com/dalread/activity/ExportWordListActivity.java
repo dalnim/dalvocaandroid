@@ -17,6 +17,7 @@ import com.dalread.model.PlayerFileModel;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
 import com.dalread.util.CopyTextUtil;
+import com.dalread.util.LanguageUtil;
 import com.dalread.util.VocaKnow;
 
 import java.util.ArrayList;
@@ -226,13 +227,19 @@ public class ExportWordListActivity extends BasePlayerActivity {
             o1.getVocaDisplay().toLowerCase().compareTo(o2.getVocaDisplay().toLowerCase())
         );
         
-        // 단어 목록 텍스트 생성
+        // 단어 목록 텍스트 생성 (탭으로 구분: 단어\t뜻\t발음)
         StringBuilder wordListText = new StringBuilder();
         for (DicModel word : selectedWords) {
             if (wordListText.length() > 0) {
                 wordListText.append("\n");
             }
-            wordListText.append(word.getVocaDisplay());
+            // 단어\t뜻\t발음 형식으로 구성
+            String voca = word.getVocaDisplay() != null ? word.getVocaDisplay() : "";
+            String meaning = word.getVIMeaning(LanguageUtil.getMotherTongueLanguage(this)) != null ? 
+                           word.getVIMeaning(LanguageUtil.getMotherTongueLanguage(this)) : "";
+            String pronunciation = word.getVIPronounce() != null ? word.getVIPronounce() : "";
+            
+            wordListText.append(voca).append("\t").append(meaning).append("\t").append(pronunciation);
         }
         
         // 단어 목록과 단어 수 표시
@@ -241,43 +248,16 @@ public class ExportWordListActivity extends BasePlayerActivity {
     }
 
     private void exportSelectedWords() {
-        // 선택된 VocaKnow에 따라 단어 필터링
-        List<DicModel> selectedWords = new ArrayList<>();
+        // 텍스트뷰의 내용을 그대로 클립보드로 복사
+        String wordListText = binding.tvWordList.getText().toString();
         
-        if (isKnownSelected) {
-            selectedWords.addAll(knownWords);
-        }
-        if (isGrade1Selected) {
-            selectedWords.addAll(grade1Words);
-        }
-        if (isGrade2Selected) {
-            selectedWords.addAll(grade2Words);
-        }
-        if (isUnknownSelected) {
-            selectedWords.addAll(unknownWords);
-        }
-        
-        if (selectedWords.isEmpty()) {
+        if (wordListText.isEmpty()) {
             Toast.makeText(this, "선택된 단어가 없습니다.", Toast.LENGTH_SHORT).show();
             return;
         }
         
-        // 알파벳 순으로 정렬
-        Collections.sort(selectedWords, (o1, o2) -> 
-            o1.getVocaDisplay().toLowerCase().compareTo(o2.getVocaDisplay().toLowerCase())
-        );
-        
-        // 단어 목록 텍스트 생성
-        StringBuilder wordListText = new StringBuilder();
-        for (DicModel word : selectedWords) {
-            if (wordListText.length() > 0) {
-                wordListText.append("\n");
-            }
-            wordListText.append(word.getVocaDisplay());
-        }
-        
         // CopyTextUtil을 사용하여 클립보드로 복사
-        String toastText = CopyTextUtil.getMessageInToastToShow(this, wordListText.toString());
+        String toastText = CopyTextUtil.getMessageInToastToShow(this, wordListText);
         Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show();
     }
 
