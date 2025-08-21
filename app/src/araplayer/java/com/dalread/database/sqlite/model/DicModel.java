@@ -16,7 +16,7 @@ import com.dalread.util.Utils;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.StringJoiner;
-//이건 자막의 DIC테이블의 스키마를 담는다.
+//이건 자막의 DIC테이블의 스키마를 담는다. (SUBTITLE테이블도 이걸 담을수 있어서 ExportWordListHelper에서는 자막테이블을 이걸로 담는다)
 public class DicModel implements AmkiItem, Parcelable, IVocaFullPlayTTSItem {
     private int id = -1; //id는 테이블의 id이기 때문에 바꾸면 안된다. 그럼 테이블에 업데이트할때 id를 사용할수가 없다.
     private int vocaType = -1;

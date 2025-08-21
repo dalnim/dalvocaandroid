@@ -12,6 +12,7 @@ import com.dalread.base.BasePlayerActivity;
 import com.dalread.component.Toolbar;
 import com.dalread.database.sqlite.model.DicModel;
 import com.dalread.databinding.ActivityExportWordListBinding;
+import com.dalread.helper.ExportWordListHelper;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.util.Constant;
 import com.dalread.util.CopyTextUtil;
@@ -22,7 +23,9 @@ import com.dalread.util.VocaKnow;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ExportWordListActivity extends BasePlayerActivity {
 
@@ -36,11 +39,13 @@ public class ExportWordListActivity extends BasePlayerActivity {
     private boolean isUnknownSelected = false;
     
     // 단어 데이터
-    private List<DicModel> allWords = new ArrayList<>();
-    private List<DicModel> knownWords = new ArrayList<>();
-    private List<DicModel> grade1Words = new ArrayList<>();
-    private List<DicModel> grade2Words = new ArrayList<>();
-    private List<DicModel> unknownWords = new ArrayList<>();
+    private final List<DicModel> allWords = new ArrayList<>();
+    private final List<DicModel> knownWords = new ArrayList<>();
+    private final List<DicModel> grade1Words = new ArrayList<>();
+    private final List<DicModel> grade2Words = new ArrayList<>();
+    private final List<DicModel> unknownWords = new ArrayList<>();
+    
+
 
     public static Intent createIntent(Context context, PlayerFileModel playerFileModel) {
         Intent intent = new Intent(context, ExportWordListActivity.class);
@@ -130,8 +135,7 @@ public class ExportWordListActivity extends BasePlayerActivity {
         grade2Words.clear();
         unknownWords.clear();
         
-        // 데이터베이스에서 단어 가져오기 (임시로 더미 데이터 사용)
-        // TODO: 실제 데이터베이스 연동 필요
+        // 데이터베이스에서 단어 데이터 가져오기
         loadWordsFromDatabase();
         
         // VocaKnow별로 분류
@@ -227,23 +231,12 @@ public class ExportWordListActivity extends BasePlayerActivity {
             o1.getVocaDisplay().toLowerCase().compareTo(o2.getVocaDisplay().toLowerCase())
         );
         
-        // 단어 목록 텍스트 생성 (탭으로 구분: 단어\t뜻\t발음)
-        StringBuilder wordListText = new StringBuilder();
-        for (DicModel word : selectedWords) {
-            if (wordListText.length() > 0) {
-                wordListText.append("\n");
-            }
-            // 단어\t뜻\t발음 형식으로 구성
-            String voca = word.getVocaDisplay() != null ? word.getVocaDisplay() : "";
-            String meaning = word.getVIMeaning(LanguageUtil.getMotherTongueLanguage(this)) != null ? 
-                           word.getVIMeaning(LanguageUtil.getMotherTongueLanguage(this)) : "";
-            String pronunciation = word.getVIPronounce() != null ? word.getVIPronounce() : "";
-            
-            wordListText.append(voca).append("\t").append(meaning).append("\t").append(pronunciation);
-        }
+        // Helper를 사용하여 단어 목록 포맷팅
+        String wordListText = ExportWordListHelper.exportWordList(
+            selectedWords, getSubDatabase(), this);
         
         // 단어 목록과 단어 수 표시
-        binding.tvWordList.setText(wordListText.toString());
+        binding.tvWordList.setText(wordListText);
         binding.tvWordCount.setText(" (" + selectedWords.size() + "개)");
     }
 

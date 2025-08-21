@@ -2,6 +2,7 @@ package com.dalread.database.sqlite.model;
 
 import com.dalread.util.TimeUtil;
 
+//이건 멀까? 아라플레이어의 SUBTITLE테이블은 DIC_MODEL을 같이 사용하고 있음. (이건 아라플레이어에서 화면에 표시되는 자막인가?)
 public class SubtitleModel {
     private int id;
     private int langStudy;
