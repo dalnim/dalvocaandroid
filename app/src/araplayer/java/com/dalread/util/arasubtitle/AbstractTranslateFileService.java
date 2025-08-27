@@ -1921,6 +1921,10 @@ public abstract class AbstractTranslateFileService {
         String text = Jsoup.clean(doc.html(), "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
 
         text = text.replaceAll("\n+", "\n");
+        
+        // HTML 엔티티 디코딩 추가
+        text = com.dalread.util.HtmlEntityDecoder.decodeHtmlEntities(text);
+        
         //지우지말것, 이건 new line이 보존안된 상태로 html tag없이 text로만 변환시켜준다.
 //    	String text2 = Jsoup.parse(html).text();
         return text;

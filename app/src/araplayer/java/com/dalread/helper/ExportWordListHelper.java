@@ -7,6 +7,7 @@ import com.dalread.database.sqlite.model.SubtitleWordListModel;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
 import com.dalread.util.LanguageUtil;
+import com.dalread.util.HtmlEntityDecoder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,7 +135,8 @@ public class ExportWordListHelper {
             if (bestSubtitle != null) {
                 String subtitleText = bestSubtitle.getVocaDisplay();
                 if (subtitleText != null) {
-                    // 줄바꿈 문자와 탭 문자를 공백 하나로 치환
+                    // HTML 엔티티 디코딩 후 줄바꿈 문자와 탭 문자를 공백 하나로 치환
+                    subtitleText = HtmlEntityDecoder.decodeHtmlEntities(subtitleText);
                     return subtitleText.replaceAll("[\\r\\n\\t]+", " ");
                 }
                 return "";

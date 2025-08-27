@@ -329,6 +329,10 @@ public class SamiParser {
         //ref : https://stackoverflow.com/questions/5640334/how-do-i-preserve-line-breaks-when-using-jsoup-to-convert-html-to-plain-text
         String resultText = Jsoup.clean(newText, "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
         resultText = resultText.replaceAll("&nbsp;"," ");
+        
+        // HTML 엔티티 디코딩 추가
+        resultText = com.dalread.util.HtmlEntityDecoder.decodeHtmlEntities(resultText);
+        
         //지우지말것, 이건 new line이 보존안된 상태로 html tag없이 text로만 변환시켜준다.
         //&nbsp;는 " "으로 변경된다.
         String text2 = Jsoup.parse(text).text();
