@@ -373,23 +373,23 @@ android {
 //            buildConfigField 'int', 'DB_VERSION', '8'
 //        }
 
-//        araconv {
-//            dimension "dalnim"
-//            applicationId 'com.dalnimsoft.arahangul'
-//            minSdkVersion 26
-//            targetSdkVersion 33
-//            versionCode 14
-//            versionName '0.0.14'
-//            proguardFile 'proguard-rules.pro'
-//            buildConfigField 'String', 'APP_NAME', '"ARACONV_KOREA"'
-//            buildConfigField 'String', 'STUDY_LANG', '"KOREAN"'
-//            buildConfigField 'String', 'VOICELANG', '"ko-KR"'
-//            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
-//            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
-//            buildConfigField 'String', 'SETTING_SPEAK', '"让我们学汉语"'
-//            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
-//            buildConfigField 'int', 'DB_VERSION', '2'
-//        }
+        arahangul {
+            dimension "dalnim"
+            applicationId 'com.dalnimsoft.arahangul'
+            minSdkVersion 26
+            targetSdkVersion 33
+            versionCode 14
+            versionName '0.0.14'
+            proguardFile 'proguard-rules.pro'
+            buildConfigField 'String', 'APP_NAME', '"ARAHANGUL"'
+            buildConfigField 'String', 'STUDY_LANG', '"KOREAN"'
+            buildConfigField 'String', 'VOICELANG', '"ko-KR"'
+            buildConfigField 'String', 'BOOKMARK_URL', '"http://www.cctv.com"'
+            buildConfigField 'String', 'BOOKMARK_TITLE', '"CCTV 央视网"'
+            buildConfigField 'String', 'SETTING_SPEAK', '"한국어를 배워봅시다"'
+            buildConfigField 'int', 'SETTING_TTS_SPEED', '50'
+            buildConfigField 'int', 'DB_VERSION', '2'
+        }
     }
     lintOptions {
         checkReleaseBuilds false
