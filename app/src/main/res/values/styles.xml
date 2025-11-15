@@ -376,7 +376,8 @@
         <item name="android:textColorSecondary">@color/textSecondaryColor</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:navigationBarColor">@color/colorNavigationBar</item>
-
+        <!-- Edge-to-edge 강제 적용 비활성화 (Android 15 이상) -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="vanilla_ice_cream">true</item>
     </style>
 <!--    colorPrimaryDark는 상단 status바의 색상. navigationBarColor는 하단 백버튼이 있는 바의 색상 -->
     <style name="AraMultiPlayerTheme" parent="BaseTheme">
