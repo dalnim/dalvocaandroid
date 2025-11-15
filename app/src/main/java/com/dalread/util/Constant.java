@@ -36,6 +36,7 @@ public class Constant {
     public static final String URL_ARAPLAYER_ENGLISH_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g02ZwK9f";
     public static final String URL_ARAMULTIPLAYER_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/gcDPqRkg";
     public static final String URL_ARAHANJA_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g9LeyK9f";
+    public static final String URL_VOCAB_WAVE_HOMEPAGE = "https://dalnim.github.io/vocab_wave_homepage/";
 
     public static final String URL_NAVER_CAFE_ARAPLAYER_MANUAL = "https://cafe.naver.com/dalenglish/838";
     public static final String URL_NAVER_CAFE_ARAMULTIPLAYER_MANUAL = "https://www.reddit.com/r/AraMultiPlayer/comments/1e9fk9t/about_aramultiplayer_app/";
@@ -61,6 +62,7 @@ public class Constant {
     public static final String motherTongueLangMarker = "[[MOTHER_TONGUE_LANG_NAME]]";
 
     public static final long CAN_EDIT_CONTENT_AFTER_APP_USE_COUNT = 2;
+    public static final int VOCAB_WAVE_PROMOTION_MIN_LAUNCH_COUNT = 2;
 
     public static final float DEFAULT_PLAYER_WIDTH_PERCENT = 60;
     public static final int DEFAULT_DISP_ORDER = 999999;
@@ -359,6 +361,8 @@ public class Constant {
         public static final String KEY_IS_FIRST_SHOW_ALERT_SELECT_MANY_SCREEN_COUNT = "KEY_IS_FIRST_SHOW_ALERT_SELECT_MANY_SCREEN_COUNT";
         public static final String KEY_POINT_ADDED = "KEY_POINT_ADDED";
         public static final String KEY_IS_SAMPLE_VIDEO_COPIED = "KEY_IS_SAMPLE_VIDEO_COPIED";
+        public static final String KEY_APP_LAUNCH_COUNT = "KEY_APP_LAUNCH_COUNT";
+        public static final String KEY_DONT_SHOW_VOCAB_WAVE_PROMOTION = "KEY_DONT_SHOW_VOCAB_WAVE_PROMOTION";
         public static final String KEY_IS_FIRST_CHAT_GPT_WEB_USE = "KEY_IS_FIRST_CHAT_GPT_WEB_USE";
         public static final String KEY_IS_FIRST_AB_REPEAT_USE = "KEY_IS_FIRST_AB_REPEAT_USE";
         public static final String KEY_IS_SECOND_CHAT_GPT_WEB_USE = "KEY_IS_SECOND_CHAT_GPT_WEB_USE";
@@ -1374,7 +1378,8 @@ public class Constant {
         public static final int SHARE_APP = APP_DOWNLOAD + 1;
         public static final int RATE_APP = SHARE_APP + 1;
         public static final int IN_APP_PURCHASE = RATE_APP + 1;
-        public static final int REMOVE_BANNER_ADS = IN_APP_PURCHASE + 1;
+        public static final int VOCAB_WAVE = IN_APP_PURCHASE + 1;
+        public static final int REMOVE_BANNER_ADS = VOCAB_WAVE + 1;
         public static final int RESTORE_BANNER_ADS = REMOVE_BANNER_ADS + 1;
         public static final int HELP = RESTORE_BANNER_ADS + 1;
         public static final int SERVER = HELP + 1;

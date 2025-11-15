@@ -36,7 +36,7 @@ public class AppIntroductionActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BaseInterstitialAdManager.loadInterstitialAd(this, BaseMobileAd.Admob.AraHanja.INTERSTITIAL_UNIT_ID);
+//        BaseInterstitialAdManager.loadInterstitialAd(this, BaseMobileAd.Admob.AraHanja.INTERSTITIAL_UNIT_ID);
 
         initData();
         initView();

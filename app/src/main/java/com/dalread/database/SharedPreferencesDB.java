@@ -2027,6 +2027,23 @@ public class SharedPreferencesDB {
         setPreferenceLongValue(Constant.SHARE_PREF.KEY_APP_USE_COUNT, count);
     }
 
+    public int getAppLaunchCount() {
+        return getPreferenceIntValue(Constant.SHARE_PREF.KEY_APP_LAUNCH_COUNT, 0);
+    }
+
+    public void incrementAppLaunchCount() {
+        int currentCount = getAppLaunchCount();
+        setPreferenceIntValue(Constant.SHARE_PREF.KEY_APP_LAUNCH_COUNT, currentCount + 1);
+    }
+
+    public boolean shouldShowVocabWavePromotion() {
+        return !getPreferenceBooleanValue(Constant.SHARE_PREF.KEY_DONT_SHOW_VOCAB_WAVE_PROMOTION, false);
+    }
+
+    public void setDontShowVocabWavePromotion(boolean dontShow) {
+        setPreferenceBooleanValue(Constant.SHARE_PREF.KEY_DONT_SHOW_VOCAB_WAVE_PROMOTION, dontShow);
+    }
+
     public static <T> T fromJson(String jsonString, Type type) {
         Gson gson = new Gson();
         return gson.fromJson(jsonString, type);

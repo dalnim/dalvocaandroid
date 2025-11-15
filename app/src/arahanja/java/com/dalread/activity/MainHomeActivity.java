@@ -48,6 +48,8 @@ import com.dalread.util.ViewUtil;
 import com.dalread.util.Voca;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
@@ -119,6 +121,10 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
         loadBanner();
         selectFirstNvItem();
         sharedPreferences.setFirstLaunchApp(false);
+        
+        // 앱 실행 횟수 증가 및 팝업 표시 확인
+        sharedPreferences.incrementAppLaunchCount();
+        checkAndShowVocabWavePromotion();
     }
 
     private void updateVisibilityUI() {
@@ -485,6 +491,9 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
                 case Constant.NAVIGATION.RATE_APP:
                     baseMainHomeActivity.rateApp();
                     break;
+                case Constant.NAVIGATION.VOCAB_WAVE:
+                    Utils.openWeb(MainHomeActivity.this, Constant.URL_VOCAB_WAVE_HOMEPAGE);
+                    break;
             }
         };
     }
@@ -509,6 +518,7 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SHARE_APP, R.drawable.ic_share_app_2, getString(R.string.menu_share_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.RATE_APP, R.drawable.ic_rate_star, getString(R.string.menu_rate_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.IN_APP_PURCHASE, R.drawable.ic_download_2, getString(R.string.left_navi_items_in_app_purchase)));
+        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.VOCAB_WAVE, R.drawable.ic_manual_2, getString(R.string.menu_vocab_wave)));
         if (UserUtil.isDebugOrAdminUser(this)) {
             currentServerUrlPos = sharedPreferences.getBaseUrlIndex();
             leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SERVER, R.drawable.ic_setting_2, "Server (" + Constant.BASE_URL_LABELS[currentServerUrlPos] + ")"));
@@ -601,5 +611,34 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
         if (getToolbar() != null) {
             getToolbar().setIconLeft(R.drawable.ic_drawer_menu);
         }
+    }
+
+    private void checkAndShowVocabWavePromotion() {
+        // "그만 보기"가 체크되어 있으면 표시하지 않음
+        if (!sharedPreferences.shouldShowVocabWavePromotion()) {
+            return;
+        }
+
+        // 앱 실행 횟수 확인
+        int launchCount = sharedPreferences.getAppLaunchCount();
+        boolean isLaunchCountReached = launchCount >= Constant.VOCAB_WAVE_PROMOTION_MIN_LAUNCH_COUNT;
+
+        // 조건 확인: 실행 횟수 2회 이상
+        if (isLaunchCountReached) {
+            showVocabWavePromotionDialog();
+        }
+    }
+
+    private void showVocabWavePromotionDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.vocab_wave_promotion_title)
+                .setMessage(R.string.vocab_wave_promotion_message)
+                .setPositiveButton(getString(R.string.close), (dialogInterface, which) -> {
+                    // 닫기 버튼 클릭 시 - 다시 열지 않게 설정하고 웹사이트 열기
+                    sharedPreferences.setDontShowVocabWavePromotion(true);
+                    Utils.openWeb(MainHomeActivity.this, Constant.URL_VOCAB_WAVE_HOMEPAGE);
+                })
+                .create();
+        dialog.show();
     }
 }

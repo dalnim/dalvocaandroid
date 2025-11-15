@@ -68,4 +68,9 @@
     <string name="dialog_title_need_point_to_open_hanja_detail_view" translatable="false">To view Hanja information, you need points. Would you like to watch an ad to earn points?\n(You can also purchase points with in-app purchases)</string>
 
     <string name="guide_hanja_point_deduction" translatable="false">When you see phrase information, 1 point will be deducted\n\nClick to buy points</string>
+
+    <string name="vocab_wave_promotion_title" translatable="false">Info</string>
+    <string name="vocab_wave_promotion_message" translatable="false">If you have trouble memorizing Hanja words, try Vocab Wave!</string>
+    <string name="vocab_wave_promotion_dont_show" translatable="false">Don\'t show again</string>
+    <string name="menu_vocab_wave" translatable="false">Vocab Wave</string>
 </resources>

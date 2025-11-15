@@ -64,4 +64,9 @@
     <string name="dialog_title_need_point_to_open_hanja_detail_view" translatable="false">한자 정보를 보기위해서는 포인트가 필요합니다. 광고를 보고 포인트를 얻으시겠습니까?\n(인앱 구매로 포인트를 구매하실수도 있습니다)</string>
 
     <string name="guide_hanja_point_deduction" translatable="false">단어 상세 정보를 보면 1포인트가 차감됩니다.\n\n클릭하면 포인트를 구매할수 있습니다.</string>
+
+    <string name="vocab_wave_promotion_title">알림</string>
+    <string name="vocab_wave_promotion_message">한자 단어 암기가 잘 안되면 보카웨이브를 사용해보세요</string>
+    <string name="vocab_wave_promotion_dont_show">그만 보기</string>
+    <string name="menu_vocab_wave">보카 웨이브</string>
 </resources>
