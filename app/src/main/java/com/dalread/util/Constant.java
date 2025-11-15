@@ -36,7 +36,7 @@ public class Constant {
     public static final String URL_ARAPLAYER_ENGLISH_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g02ZwK9f";
     public static final String URL_ARAMULTIPLAYER_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/gcDPqRkg";
     public static final String URL_ARAHANJA_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g9LeyK9f";
-    public static final String URL_VOCAB_WAVE_HOMEPAGE = "https://dalnim.github.io/vocab_wave_homepage/";
+    public static final String URL_VOCAB_WAVE_HOMEPAGE = "https://dalnim.github.io/vocab_wave_arahanja_homepage/";
 
     public static final String URL_NAVER_CAFE_ARAPLAYER_MANUAL = "https://cafe.naver.com/dalenglish/838";
     public static final String URL_NAVER_CAFE_ARAMULTIPLAYER_MANUAL = "https://www.reddit.com/r/AraMultiPlayer/comments/1e9fk9t/about_aramultiplayer_app/";
