@@ -15,7 +15,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword 'dal8121'
-            storeFile file('/Users/dalnimbest/Dropbox/DalRead/Android/realease_key_dalread.jks')
+            storeFile file("${rootProject.projectDir}/realease_key_dalread.jks")
             storePassword 'dal8121'
         }
     }

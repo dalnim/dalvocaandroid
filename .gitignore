@@ -11,8 +11,9 @@ local.properties
 # Gradle generated files
 .gradle/
 
-# Signing files
+# Signing files (Git에 올리지 않음)
 .signing/
+realease_key_dalread.jks
 
 # User-specific configurations
 .idea/
