@@ -13,7 +13,7 @@ local.properties
 
 # Signing files (Git에 올리지 않음)
 .signing/
-realease_key_dalread.jks
+*.jks
 
 # User-specific configurations
 .idea/
