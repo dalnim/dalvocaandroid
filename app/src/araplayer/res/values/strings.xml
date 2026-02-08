@@ -1,8 +1,8 @@
 <resources>
     <!--        DALNIM : UPDATE THIS FOR JAPANESE/CHINESE"-->
-    <string name="app_name" translatable="false">AraPlayer</string>
-<!--        <string name="app_name" translatable="false">Ara Multi Video Player</string>-->
-<!--        <string name="app_name" translatable="false">AraMusic</string>-->
+    <!-- <string name="app_name" translatable="false">AraPlayer</string> -->
+       <string name="app_name" translatable="false">Ara Multi Player</string>
+       <!-- <string name="app_name" translatable="false">AraMusic</string> -->
 
 
     <string name="msg_confirm_rename_file_by_backup_and_delete_and_restore_method">Android doesn\'t allow this app rename a file. So you this app will backup file and delete the file first then restore it with renamed file.\nDo you want to proceed?</string>
