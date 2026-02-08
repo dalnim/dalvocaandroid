@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
+import android.util.Pair;
 import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
@@ -15,12 +16,11 @@ import com.dalread.R;
 import com.dalread.base.BaseDialog;
 import com.dalread.base.BaseDialogListener;
 import com.dalread.base.BasePlayerFragment;
-import com.dalread.base.EnumMultiplePlayer;
 import com.dalread.base.EnumType;
 import com.dalread.database.sqlite.MultiPlayerDatabase;
 import com.dalread.databinding.FragmentMultiPlayerMainBinding;
 import com.dalread.dialog.AlertDialog;
-import com.dalread.dialog.SelectScreenCountDialog;
+import com.dalread.dialog.SelectRowColumnDialog;
 import com.dalread.dialog.TypeInputDialog;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.helper.DoubleClickHelper;
@@ -53,7 +53,6 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     protected AdView mAdView;
     protected AlertDialog alertDialog;
     private MultiPlayerDatabase multiPlayerDatabase;
-    private EnumMultiplePlayer enumMultiplePlayer;
     private AbstractPointUtil pointUtil;
     private boolean needToShowWatchRewardedAd = true;
     protected MultiPlayerMainHomeActivity activity;
@@ -154,16 +153,15 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     @Override
     public void onResume() {
         super.onResume();
-        getMultiPlayerScreenCount();
+        getMultiPlayerRowColumn();
         showClearMultiScreenHistoryButton();
         showSetPoint0ButtonOnDebug();
         BaseMobileAd.loadRewardedAd(getContext());
         refreshRemainPoint();
     }
 
-    private void getMultiPlayerScreenCount() {
-        enumMultiplePlayer = EnumMultiplePlayer.getEnum(sharedPreferences.getMultiPlayerScreenCount());
-        updateScreenCountButton();
+    private void getMultiPlayerRowColumn() {
+        updateRowColumnButton();
     }
 
     void showGuideHowToUse() {
@@ -252,7 +250,10 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
         };
     }
 
-    private void openMultiplePlayerView(int numberOfScreens) {
+    private void openMultiplePlayerView() {
+        final int row = sharedPreferences.getMultiPlayerRow();
+        final int column = sharedPreferences.getMultiPlayerColumn();
+        final int numberOfScreens = row * column;
         if (AppFlavorUtil.isAraMultiPlayerAppLite() && pointUtil.needToShowFullAd()) {
             final YesNoDialog dialog = new YesNoDialog(activity,
                     R.string.info,
@@ -274,22 +275,24 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
                 final YesNoDialog dialog = new YesNoDialog(activity, R.string.info, R.string.msg_ask_multiplayer_open_last_watched_videos, null, new OnYesNoClickListener() {
                     @Override
                     public void onYesClick(View view, Object object) {
-                        openMultiplePlayerView(numberOfScreens, true);
+                        openMultiplePlayerView(row, column, numberOfScreens, true);
                     }
 
                     @Override
                     public void onNoClick(View view, Object object) {
-                        openMultiplePlayerView(numberOfScreens, false);
+                        openMultiplePlayerView(row, column, numberOfScreens, false);
                     }
                 });
                 dialog.show();
             } else {
-                openMultiplePlayerView(numberOfScreens, false);
+                openMultiplePlayerView(row, column, numberOfScreens, false);
             }
         }
     }
-    private void openMultiplePlayerView(int numberOfScreens, boolean isLoadLastWatchedVideos) {
+    private void openMultiplePlayerView(int row, int column, int numberOfScreens, boolean isLoadLastWatchedVideos) {
         Intent intent = new Intent(activity, MultiplePlayerActivity.class);
+        intent.putExtra(Constant.BUNDLE.KEY_ROW, row);
+        intent.putExtra(Constant.BUNDLE.KEY_COLUMN, column);
         intent.putExtra(Constant.BUNDLE.KEY_NUMBER_OF_SCREENS_MULTIPLE_PLAYER, numberOfScreens);
         intent.putExtra(Constant.BUNDLE.KEY_LOAD_LAST_WATCHED_VIDEO_MULTIPLE_PLAYER, isLoadLastWatchedVideos);
         activity.openNewScreen(intent);
@@ -312,7 +315,7 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnWatchVideo:
-                openMultiplePlayerView(enumMultiplePlayer.getNumberOfScreen());
+                openMultiplePlayerView();
                 break;
             case R.id.btnScreenCount:
                 //스크린 버튼은 여길 안타고, doubleClickHelper의 onClick을 탄다.
@@ -358,15 +361,17 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
 //        }
 //    }
     private void selectScreenCount() {
-        String[] displayNumberOfScreens = EnumMultiplePlayer.getNames(activity);
-        SelectScreenCountDialog dialog = new SelectScreenCountDialog(activity, displayNumberOfScreens,new OnClickDialogListener() {
+        int currentRow = sharedPreferences.getMultiPlayerRow();
+        int currentColumn = sharedPreferences.getMultiPlayerColumn();
+        SelectRowColumnDialog dialog = new SelectRowColumnDialog(activity, currentRow, currentColumn, new OnClickDialogListener() {
             @Override
             public void onClick(View view, Object object) {
-                final int pos = (int) object;
-                if (pos < displayNumberOfScreens.length) {
-                    int numberOfScreens = Integer.parseInt(displayNumberOfScreens[pos]);
-                    sharedPreferences.setMultiPlayerScreenCount(numberOfScreens);
-                    getMultiPlayerScreenCount();
+                if (object instanceof Pair) {
+                    @SuppressWarnings("unchecked")
+                    Pair<Integer, Integer> pair = (Pair<Integer, Integer>) object;
+                    sharedPreferences.setMultiPlayerRow(pair.first);
+                    sharedPreferences.setMultiPlayerColumn(pair.second);
+                    getMultiPlayerRowColumn();
                 }
             }
 
@@ -378,9 +383,10 @@ public class MultiPlayerMainHomeFragment extends BasePlayerFragment implements V
         dialog.show();
     }
 
-    private void updateScreenCountButton() {
-        String screenCountString = getResources().getQuantityString(R.plurals.multi_plyaer_screen_count, enumMultiplePlayer.getNumberOfScreen(), enumMultiplePlayer.getNumberOfScreen());
-        binding.btnScreenCount.setText(screenCountString);
+    private void updateRowColumnButton() {
+        int row = sharedPreferences.getMultiPlayerRow();
+        int column = sharedPreferences.getMultiPlayerColumn();
+        binding.btnScreenCount.setText(row + " × " + column);
     }
 
 

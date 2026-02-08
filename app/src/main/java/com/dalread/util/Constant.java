@@ -172,7 +172,8 @@ public class Constant {
         public static final String KEY_POINT_GPT = "KEY_POINT_GPT";
         public static final String KEY_POINT_MULTI_PLAYER = "KEY_POINT_MULTI_PLAYER";
         public static final String KEY_POINT_ARA_HANJA = "KEY_POINT_ARA_HANJA";
-        public static final String KEY_MULTI_PLAYER_SCREEN_COUNT = "KEY_MULTI_PLAYER_SCREEN_COUNT";
+        public static final String KEY_MULTI_PLAYER_ROW = "KEY_MULTI_PLAYER_ROW";
+        public static final String KEY_MULTI_PLAYER_COLUMN = "KEY_MULTI_PLAYER_COLUMN";
         public static final String KEY_MULTI_PLAYER_SCREEN_ORIENTATION = "KEY_MULTI_PLAYER_SCREEN_ORIENTATION";
         public static final String KEY_POINT_READING = "key_point_reading";
         public static final String KEY_POINT_VOCA = "key_point_voca";
@@ -850,6 +851,8 @@ public class Constant {
         public static final String KEY_VOICE_DATA = "KEY_VOICE_DATA";
         public static final String KEY_VOCA_USER_BOOK_LIST = "KEY_VOCA_USER_BOOK_LIST";
         public static final String KEY_NUMBER_OF_SCREENS_MULTIPLE_PLAYER = "KEY_NUMBER_OF_SCREENS_MULTIPLE_PLAYER";
+        public static final String KEY_ROW = "KEY_ROW";
+        public static final String KEY_COLUMN = "KEY_COLUMN";
         public static final String KEY_LOAD_LAST_WATCHED_VIDEO_MULTIPLE_PLAYER = "KEY_LOAD_LAST_WATCHED_VIDEO_MULTIPLE_PLAYER";
         public static final String KEY_SELECTED_VIDEO_FILE = "KEY_SELECTED_VIDEO_FILE";
         public static final String KEY_SELECTED_VIDEO_FILES = "KEY_SELECTED_VIDEO_FILES";

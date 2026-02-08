@@ -243,6 +243,10 @@
     <string name="multi_player_hide_all_videos_ui">Hide all videos UI</string>
     <string name="multi_player_resize_all_videos" translatable="false">Resize all videos</string>
     <string name="multi_player_choose_number_of_screens" translatable="false">Screen count</string>
+    <string name="row_column_dialog_title" translatable="false">Row / Column</string>
+    <string name="dialog_title_screen_count" translatable="false">Screen count</string>
+    <string name="row_label" translatable="false">Row</string>
+    <string name="column_label" translatable="false">Column</string>
     <string name="multi_player_select_videos_to_play" translatable="false">Select videos</string>
     <string name="multi_player_play_all_videos_ab_repeat">Play all videos AB Repeat</string>
     <string name="multi_player_play_all_videos_intervals" translatable="false">Play all videos with intervals</string>

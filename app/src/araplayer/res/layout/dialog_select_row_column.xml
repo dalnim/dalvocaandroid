@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout_Dialog"
+    android:orientation="vertical"
+    android:minWidth="320dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/Wrap"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/dialog_title_screen_count"
+        android:textColor="@color/color_text"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvWarning"
+        style="@style/Wrap"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/dialog_message_select_too_many_screen_count"
+        android:textColor="@color/color_text"
+        android:textSize="12sp" />
+
+    <View style="@style/DividerDialogThick" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
+        <TextView
+            android:id="@+id/tvRowLabel"
+            style="@style/Multi_Button_Base"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="@string/row_label"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/spRow"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:minWidth="120dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp">
+        <TextView
+            android:id="@+id/tvColumnLabel"
+            style="@style/Multi_Button_Base"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="@string/column_label"
+            android:textColor="@drawable/btn_ok_color"
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/spColumn"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:minWidth="120dp" />
+    </LinearLayout>
+
+    <View style="@style/DividerDialogThick" />
+
+    <LinearLayout
+        style="@style/WidthMatch"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp">
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:minWidth="88dp"
+            android:text="@string/cancel" />
+        <Button
+            android:id="@+id/btnOk"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="88dp"
+            android:text="@string/ok" />
+    </LinearLayout>
+</LinearLayout>

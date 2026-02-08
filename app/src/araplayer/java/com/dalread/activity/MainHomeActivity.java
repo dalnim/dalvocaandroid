@@ -37,7 +37,6 @@ import com.dalread.base.BaseDialog;
 import com.dalread.base.BaseDialogListener;
 import com.dalread.base.BasePlayerActivity;
 import com.dalread.base.EnumLanguage;
-import com.dalread.base.EnumMultiplePlayer;
 import com.dalread.base.EnumType;
 import com.dalread.base.EnumWebDictionary;
 import com.dalread.base.OnNavigationItemClickListener;
@@ -130,8 +129,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     public boolean isInPlaylistWithSongs;
     private boolean isOpenSettingsToGrantPermission;
     private ConfirmationDialog confirmationManageStoragePermissionDialog;
-    private String[] displayNumberOfScreens;
-    private int selectedNumberOfScreenPos;
     public BillingClientHelper billingClientHelper;
     private ActivityMainPlayerBinding binding;
 
@@ -330,8 +327,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
         WebDictionaryQuery.initDefault(Voca.getRealm(), EnumWebDictionary.getAll());
         checkPermission();
 
-        displayNumberOfScreens = EnumMultiplePlayer.getNames(this);
-        selectedNumberOfScreenPos = Arrays.asList(displayNumberOfScreens).indexOf(String.valueOf(EnumMultiplePlayer.FOUR.getNumberOfScreen()));
     }
 
     private void addServers(List<ServerModel> temp) {
@@ -1534,28 +1529,14 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     }
 
     private void showChooseNumberOfMultiplePlayerDialog() {
-        singleChoiceDialog.showWrapContentHeight(
-                R.string.choose_number_of_screens,
-                displayNumberOfScreens,
-                selectedNumberOfScreenPos,
-                R.string.ok,
-                R.string.cancel,
-                new OnClickDialogListener() {
-                    @Override
-                    public void onClick(View view, Object object) {
-                        final int pos = (int) object;
-                        selectedNumberOfScreenPos = pos;
-                        int numberOfScreens = Integer.parseInt(displayNumberOfScreens[pos]);
-                        Intent intent = new Intent(MainHomeActivity.this, MultiplePlayerActivity.class);
-                        intent.putExtra(Constant.BUNDLE.KEY_NUMBER_OF_SCREENS_MULTIPLE_PLAYER, numberOfScreens);
-                        openNewScreen(intent);
-                    }
-
-                    @Override
-                    public void onDismiss(View view, Object object) {
-
-                    }
-                });
+        int row = sharedPreferences.getMultiPlayerRow();
+        int column = sharedPreferences.getMultiPlayerColumn();
+        int numberOfScreens = row * column;
+        Intent intent = new Intent(MainHomeActivity.this, MultiplePlayerActivity.class);
+        intent.putExtra(Constant.BUNDLE.KEY_ROW, row);
+        intent.putExtra(Constant.BUNDLE.KEY_COLUMN, column);
+        intent.putExtra(Constant.BUNDLE.KEY_NUMBER_OF_SCREENS_MULTIPLE_PLAYER, numberOfScreens);
+        openNewScreen(intent);
     }
 
     private void showConfirmationManageStoragePermissionDialog() {

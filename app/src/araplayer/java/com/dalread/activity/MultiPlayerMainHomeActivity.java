@@ -19,7 +19,6 @@ import com.dalread.DalFlavor;
 import com.dalread.R;
 import com.dalread.adapter.MenuAdapter;
 import com.dalread.base.BaseActivity;
-import com.dalread.base.EnumMultiplePlayer;
 import com.dalread.base.OnNavigationItemClickListener;
 import com.dalread.component.Toolbar;
 import com.dalread.composition.BaseMainHome;
@@ -43,7 +42,6 @@ import com.dalread.util.Utils;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavigationItemClickListener {
     private BaseMainHome baseMainHomeActivity;
@@ -57,8 +55,6 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
     private int currentLeftNavigationId;
 
     private boolean isOpenSettingsToGrantPermission;
-    private String[] displayNumberOfScreens;
-    private int selectedNumberOfScreenPos;
     public BillingClientHelper billingClientHelper;
     private ActivityMultiPlayerMainBinding binding;
     @Override
@@ -122,8 +118,6 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
 //    @Override
     public void initData() {
         checkPermission();
-        displayNumberOfScreens = EnumMultiplePlayer.getNames(this);
-        selectedNumberOfScreenPos = Arrays.asList(displayNumberOfScreens).indexOf(String.valueOf(EnumMultiplePlayer.FOUR.getNumberOfScreen()));
     }
 
     @Override

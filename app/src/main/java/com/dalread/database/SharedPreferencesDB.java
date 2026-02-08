@@ -233,12 +233,24 @@ public class SharedPreferencesDB {
         setPreferenceBooleanValue(Constant.SHARE_PREF.KEY_POINT_ADDED, value);
     }
 
-    public void setMultiPlayerScreenCount(final int value) {
-        setPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_SCREEN_COUNT, value);
+    public void setMultiPlayerRow(final int value) {
+        setPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_ROW, value);
     }
 
-    public int getMultiPlayerScreenCount() {
-        return getPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_SCREEN_COUNT, -1);
+    public int getMultiPlayerRow() {
+        int value = getPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_ROW, 2);
+        if (value < 1 || value > 5) return 2;
+        return value;
+    }
+
+    public void setMultiPlayerColumn(final int value) {
+        setPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_COLUMN, value);
+    }
+
+    public int getMultiPlayerColumn() {
+        int value = getPreferenceIntValue(Constant.SHARE_PREF.KEY_MULTI_PLAYER_COLUMN, 2);
+        if (value < 1 || value > 5) return 2;
+        return value;
     }
 
     public void setMultiPlayerScreenOrientation(final int value) {

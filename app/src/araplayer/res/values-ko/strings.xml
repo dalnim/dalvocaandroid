@@ -237,6 +237,10 @@
     <string name="multi_player_hide_all_videos_ui">모든 비디오 UI 숨기기</string>
     <string name="multi_player_resize_all_videos" translatable="false">모든 비디오 리사이즈</string>
     <string name="multi_player_choose_number_of_screens" translatable="false">스크린 수</string>
+    <string name="row_column_dialog_title" translatable="false">행 / 열</string>
+    <string name="dialog_title_screen_count" translatable="false">스크린수</string>
+    <string name="row_label" translatable="false">행</string>
+    <string name="column_label" translatable="false">열</string>
     <string name="multi_player_select_videos_to_play" translatable="false">비디오 선택</string>
     <string name="multi_player_play_all_videos_ab_repeat">모든 비디오의 AB반복 재생하기</string>
     <string name="multi_player_play_all_videos_intervals" translatable="false">모든 비디오 시간차 재생</string>
