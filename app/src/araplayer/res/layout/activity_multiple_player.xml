@@ -1,3 +1,4 @@
+<!-- fitsSystemWindows 제거: MultiplePlayerActivity에서 WindowInsets로 패딩 적용해 s/w 네비 시 전체화면 회색 영역 방지 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -5,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundLightBlackColor"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/llTopMenu"
@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:background="@color/backgroundBlackColor"
         android:visibility="visible"
-        android:fitsSystemWindows="true"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton

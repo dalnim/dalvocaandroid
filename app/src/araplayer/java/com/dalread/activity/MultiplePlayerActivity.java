@@ -13,6 +13,10 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
 import androidx.activity.result.ActivityResult;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -312,6 +316,8 @@ public class MultiplePlayerActivity extends BaseActivity {
 
             isTabLayoutVisible = false;
         updateGridLayoutParams();
+        // 네비 숨김 후 insets 재적용되어 하단/우측 패딩 0으로 갱신되도록 요청 (s/w 네비 시 회색 영역 방지)
+        binding.getRoot().post(() -> ViewCompat.requestApplyInsets(binding.getRoot()));
             if (sharedPreferences.isFirstHideMultiPlayerScreenTabLayout()) {
                 DialogUtil.showPositiveDialog(context, context.getString(R.string.info), context.getString(R.string.dialog_message_first_hide_multi_player_tab_layout), context.getString(R.string.ok), () -> {
                     sharedPreferences.setFirstHideMultiPlayerScreenTabLayout();
@@ -326,6 +332,7 @@ public class MultiplePlayerActivity extends BaseActivity {
         binding.llTopMenu.setVisibility(View.VISIBLE);
         isTabLayoutVisible = true;
         updateGridLayoutParams();
+        ViewCompat.requestApplyInsets(binding.getRoot());
         ToastUtil.getInstance(this).show(R.string.toast_show_top_menu);
     }
     @Override
@@ -358,6 +365,16 @@ public class MultiplePlayerActivity extends BaseActivity {
         initHelper();
         myOrientation = sharedPreferences.getMultiPlayerScreenOrientation();
         setRequestedOrientation(myOrientation);
+
+        // s/w 네비게이션 바가 있을 때 전체 화면에서 하단(또는 가로 시 우측) 회색 영역 방지: 엣지투엣지로 그린 뒤 WindowInsets로 패딩만 적용
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return windowInsets;
+        });
+        ViewCompat.requestApplyInsets(binding.getRoot());
+
         binding.llTopMenu.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
