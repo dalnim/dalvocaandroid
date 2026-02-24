@@ -18,12 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dalread.DalFlavor;
 import com.dalread.R;
 import com.dalread.adapter.MenuAdapter;
+import com.dalread.util.OtherAppsInfo;
 import com.dalread.asyntask.CustomAsyncTask;
 import com.dalread.asyntask.OnAsyncTaskListener;
 import com.dalread.base.OnNavigationItemClickListener;
 import com.dalread.component.Toolbar;
 import com.dalread.composition.BaseMainHome;
 import com.dalread.databinding.ActivityMainHanjaBinding;
+import com.dalread.activity.FreeAppsActivity;
 import com.dalread.dialog.HanjaMainMenuDialog;
 import com.dalread.dialog.SingleChoiceDialog;
 import com.dalread.helper.AraHanjaBillingClientHelper;
@@ -518,7 +520,11 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SHARE_APP, R.drawable.ic_share_app_2, getString(R.string.menu_share_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.RATE_APP, R.drawable.ic_rate_star, getString(R.string.menu_rate_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.IN_APP_PURCHASE, R.drawable.ic_download_2, getString(R.string.left_navi_items_in_app_purchase)));
-        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.VOCAB_WAVE, R.drawable.ic_manual_2, getString(R.string.menu_vocab_wave)));
+        // "Free App Download" 섹션 + 다른 앱 목록 (아라한자 appId = 5)
+        leftNavigationItems.add(MenuModel.createSectionHeader(getString(R.string.menu_free_app_download)));
+        for (OtherAppsInfo.Entry e : OtherAppsInfo.getOtherApps(5)) {
+            leftNavigationItems.add(MenuModel.createAppDownloadRow(R.drawable.ic_download_2, getString(e.nameResId), e.appId, e.playStoreUrl));
+        }
         if (UserUtil.isDebugOrAdminUser(this)) {
             currentServerUrlPos = sharedPreferences.getBaseUrlIndex();
             leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SERVER, R.drawable.ic_setting_2, "Server (" + Constant.BASE_URL_LABELS[currentServerUrlPos] + ")"));
@@ -526,7 +532,12 @@ public class MainHomeActivity extends BaseHanjaInfoActivity implements OnAsyncTa
         }
 
         if (leftNavigationAdapter == null) {
-            rvLeftNavigation.setAdapter(leftNavigationAdapter = new MenuAdapter(this, leftNavigationItems));
+            leftNavigationAdapter = new MenuAdapter(this, leftNavigationItems);
+            leftNavigationAdapter.setOnOpenFreeAppListener(selectedAppId -> {
+                startActivity(FreeAppsActivity.createIntent(MainHomeActivity.this, 5, selectedAppId));
+                closeDrawer();
+            });
+            rvLeftNavigation.setAdapter(leftNavigationAdapter);
         } else {
             leftNavigationAdapter.updateData(leftNavigationItems);
         }
