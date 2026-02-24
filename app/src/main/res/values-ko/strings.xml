@@ -98,7 +98,31 @@
     <string name="menu_kakaotalk_groupchat_arahangul">한글공부 같이하기</string>
     <string name="menu_mail">메일</string>
     <string name="menu_app_download">앱 다운로드</string>
+    <string name="menu_free_app_download">무료로 앱을 다운받으세요</string>
     <string name="menu_share_app">앱 공유</string>
+    <!-- Other apps (drawer promotion, match Flutter nameKey) -->
+    <string name="app_name_AraJangbogi">아라장보기</string>
+    <string name="app_name_AraGyeongjosa">아라경조사</string>
+    <string name="app_name_AraTravel">아라짐싸기</string>
+    <string name="app_name_VocabWave">보카 웨이브</string>
+    <string name="app_name_Helpee">헬피</string>
+    <string name="app_name_AraMultiplayer">아라멀티플레이어</string>
+    <string name="app_name_AraHanja">아라한자</string>
+    <string name="app_name_AraThousand">아라천자문</string>
+    <string name="app_name_AraJesa">아라제사</string>
+    <!-- App descriptions (Free Apps screen) -->
+    <string name="app_description_AraJangbogi">마트에서 장보러 가기 전에 미리 목록을 작성하세요. 장볼 때 바로 가격을 넣고 총 금액을 쉽게 알 수 있습니다.</string>
+    <string name="app_description_AraGyeongjosa">결혼, 장례 등 경조사마다 누가 얼마를 부조했는지 기록해 두세요. 상부상조 내역을 사람별로 비교해보세요.</string>
+    <string name="app_description_AraTravel">여행이나 출장 가기 전에 준비물을 빠짐없이 챙기게 해주는 체크리스트 앱입니다.</string>
+    <string name="app_description_VocabWave">즐거운 슈팅 게임을 하면서 영어 단어를 외우는 앱입니다.</string>
+    <string name="app_description_Helpee">모르는 영어 단어만 등록하면 친구들이 도와줘요!</string>
+    <string name="app_description_AraMultiplayer">한번에 여러 동영상을 동시에 감상할 수 있습니다.</string>
+    <string name="app_description_AraHanja">꼬리에 꼬리를 무는 한자 사전입니다. 복잡한 한자를 분해하여 쉽게 이해할 수 있습니다.</string>
+    <string name="app_description_AraThousand">아라천자문은 자세히 설명해줍니다. 역사와 고전 속 철학과 삶의 지혜를 현대인의 관점에서 풀어냅니다.</string>
+    <string name="app_name_MacMultiPlayer">맥 멀티 플레이어</string>
+    <string name="app_description_MacMultiPlayer">맥에서 여러 동영상을 동시에 감상할 수 있는 멀티 플레이어 앱입니다.</string>
+    <!-- App descriptions (Free Apps screen) -->
+    <string name="share_app_other_apps_message">아래 앱들을 다운받고 리뷰와 별점(5점 ^^)을 주시면 개발자에게 힘이 됩니다. 감사합니다.</string>
     <string name="menu_rate_app">앱 리뷰</string>
     <string name="menu_my_apps">다른 앱 소개</string>
     <string name="menu_remove_ad_banner">광고 제거</string>

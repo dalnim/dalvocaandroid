@@ -99,7 +99,32 @@
     <string name="menu_kakaotalk_groupchat_arahangul">Study Hangul together</string>
     <string name="menu_mail">Mail</string>
     <string name="menu_app_download">App Download</string>
+    <string name="menu_free_app_download">Free App Download</string>
     <string name="menu_share_app">Share this app</string>
+    <!-- Other apps (drawer promotion, match Flutter nameKey) -->
+    <string name="app_name_AraJangbogi">Ara Jangbogi</string>
+    <string name="app_name_AraGyeongjosa">Ara Gyeongjosa</string>
+    <string name="app_name_AraTravel">Ara Travel</string>
+    <string name="app_name_VocabWave">Vocab Wave</string>
+    <string name="app_name_Helpee">Helpee</string>
+    <string name="app_name_AraMultiplayer">Ara MultiPlayer</string>
+    <string name="app_name_AraHanja">Ara Hanja</string>
+    <string name="app_name_AraThousand">Ara Thousand</string>
+    <string name="app_name_AraJesa">Ara Jesa</string>
+    <string name="app_name_MacMultiPlayer">Mac Multi Player</string>
+    <!-- App descriptions (Free Apps screen, match Flutter descriptionKey) -->
+    <string name="app_description_AraJangbogi">A shopping checklist app to check and manage necessary items.</string>
+    <string name="app_description_AraGyeongjosa">Record who gave how much for weddings, funerals, dol parties, and other events. Track what you gave to others and compare give-and-take by person.</string>
+    <string name="app_description_AraTravel">A travel preparation checklist app to check and manage items needed before traveling.</string>
+    <string name="app_description_VocabWave">Learn English words while playing an enjoyable shooting game.</string>
+    <string name="app_description_Helpee">Don\'t worry about unknown English words. Just register the word and your friends will help you!</string>
+    <string name="app_description_AraMultiplayer">Watch multiple videos simultaneously at once.</string>
+    <string name="app_description_AraHanja">A Chinese character dictionary that follows one character to another.</string>
+    <string name="app_description_AraThousand">Ara Thousand Characters provides detailed explanations of the classic text, helping you understand philosophy and wisdom from history.</string>
+    <string name="app_description_AraJesa">An app to record and manage jesa and charye ceremonies.</string>
+    <string name="app_description_MacMultiPlayer">Multi-player video app for Mac. Watch multiple videos at once on your Mac.</string>
+    <string name="share_app_other_apps">Other Apps</string>
+    <string name="share_app_other_apps_message">Please download the following apps and give a 5-star review. It helps the developer. Thank you.</string>
     <string name="menu_rate_app">Review this app</string>
     <string name="menu_my_apps">Other apps</string>
     <string name="menu_remove_ad_banner">Remove Ad Banner</string>

@@ -13,6 +13,8 @@
     <color name="ternaryLightColor">#D6D6DC</color>
     <color name="actionMenuTextColor">#000000</color>
     <color name="colorNavigationBar">@color/primaryColor</color>
+    <!-- 드로어 "Free App Download" 섹션 제목: 라이트=primary, 다크=values-night 오버라이드 -->
+    <color name="drawer_section_title_text">@color/primaryColor</color>
 
     <color name="multiPrimaryColor">@color/backgroundLightBlackColor</color>
     <color name="multiPrimaryDarkColor">@color/backgroundBlackColor</color>

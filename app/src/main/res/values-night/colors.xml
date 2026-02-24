@@ -13,6 +13,7 @@
     <color name="ternaryLightColor">#4D4D53</color>
     <color name="actionMenuTextColor">#CCFFFFFF</color>
     <color name="colorNavigationBar">@color/primaryColor</color>
+    <color name="drawer_section_title_text">@color/primaryLightColor</color>
 
     <color name="buttonBlackAtDayColor">@color/DayBlackNightWhite</color>
 

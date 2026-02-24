@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dalread.DalFlavor;
 import com.dalread.R;
+import com.dalread.activity.FreeAppsActivity;
 import com.dalread.adapter.MenuAdapter;
 import com.dalread.base.BaseActivity;
 import com.dalread.base.OnNavigationItemClickListener;
@@ -34,6 +35,7 @@ import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.AraThemeUtil;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
+import com.dalread.util.OtherAppsInfo;
 import com.dalread.util.PermissionUtils;
 import com.dalread.util.RealmUtil;
 import com.dalread.util.UserUtil;
@@ -242,8 +244,18 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
             currentBaseUrlPos = sharedPreferences.getBaseUrlIndex();
             leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.BACKUP, 0, getString(R.string.backup_realm_db)));
         }
+        // "무료로 앱을 다운받으세요" 섹션 + 다른 앱 목록 (아라멀티플레이어 appId = 4)
+        leftNavigationItems.add(MenuModel.createSectionHeader(getString(R.string.menu_free_app_download)));
+        for (OtherAppsInfo.Entry e : OtherAppsInfo.getOtherApps(4)) {
+            leftNavigationItems.add(MenuModel.createAppDownloadRow(R.drawable.ic_download_2, getString(e.nameResId), e.appId, e.playStoreUrl));
+        }
         if (leftNavigationAdapter == null) {
-            rvLeftNavigation.setAdapter(leftNavigationAdapter = new MenuAdapter(this, leftNavigationItems));
+            leftNavigationAdapter = new MenuAdapter(this, leftNavigationItems);
+            leftNavigationAdapter.setOnOpenFreeAppListener(selectedAppId -> {
+                startActivity(FreeAppsActivity.createIntent(MultiPlayerMainHomeActivity.this, 4, selectedAppId));
+                closeDrawer();
+            });
+            rvLeftNavigation.setAdapter(leftNavigationAdapter);
         } else {
             leftNavigationAdapter.updateData(leftNavigationItems);
         }
