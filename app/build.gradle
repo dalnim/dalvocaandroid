@@ -81,6 +81,8 @@ android {
     configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
 //        resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
+        // SafetyNet deprecated → Play Integrity API 권장. 앱에서 미사용이므로 제외해 경고 제거
+        exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
     }
     flavorDimensions "dalnim"
     productFlavors {
@@ -239,8 +241,8 @@ android {
             applicationId 'com.dalnimsoft.arahanja'
             minSdkVersion 26
             targetSdkVersion 35
-            versionCode 36
-            versionName '0.0.36'
+            versionCode 37
+            versionName '0.0.37'
             proguardFile 'proguard-rules.pro'
             buildConfigField 'String', 'STUDY_LANG', '"HANJA"'
             buildConfigField 'String', 'VOICELANG', '"en-US"'
