@@ -50,7 +50,8 @@ android {
         }
     }
 
-    ndkVersion '25.1.8937393'
+        // 16KB 페이지 크기: r28+는 기본 16KB 정렬 (자체 네이티브 빌드 없어도 서드파티 AAR 빌드 환경 일치)
+    ndkVersion '28.0.13004108'
     dexOptions {
         javaMaxHeapSize "4g"
     }
@@ -69,6 +70,12 @@ android {
             ndk {
                 debugSymbolLevel 'FULL'
             }
+        }
+    }
+    // 16KB 페이지 크기 지원: 서드파티 .so가 4KB 정렬일 때 설치 이슈 우회 (Google Play 요구사항)
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
     configurations.all {
