@@ -539,7 +539,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
     });
     public void showVideoMenu() {
-        MultiPlayerOneVideoDialog dialog = new MultiPlayerOneVideoDialog(activity, activity.playlistHelper.hasPlaylist(), hasSavedAbRepeatTime(), new OnClickDialogListener() {
+        MultiPlayerOneVideoDialog dialog = new MultiPlayerOneVideoDialog(activity, activity.playlistHelper.hasPlaylist(), hasSavedAbRepeatTime(), activity.isFullScreenForFragment(this), new OnClickDialogListener() {
             @Override
             public void onClick(View view, Object object) {
                 switch (view.getId()) {
@@ -583,6 +583,13 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                         break;
                     case R.id.llShowVideoTitle:
                         showVideoTitleInPopUp();
+                        break;
+                    case R.id.llFullScreen:
+                        if (activity.isFullScreenForFragment(MultiplePlayerFragment.this)) {
+                            activity.exitFullScreen();
+                        } else {
+                            activity.enterFullScreenForFragment(MultiplePlayerFragment.this);
+                        }
                         break;
                     case R.id.llNetworkTest:
                         showNetworkTestDialog();
@@ -1533,6 +1540,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     private void handleDoubleClickOnPlayingScreen() {
+        if (activity.isFullScreenForFragment(this)) {
+            // 전체 화면일 때는 화면 어디를 더블탭해도 하단 메뉴 표시/숨김
+            showOrHideMenuControl();
+            return;
+        }
         final float divide = 4.5f;
         float clickedArea = binding.playerView.getWidth() / divide;
         if (isABRepeatMode()) {
@@ -1669,6 +1681,35 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
 //        if (isAutoRandomPlay) {
 //            hide4Buttons();
 //        }
+    }
+
+    /** 전체 화면 진입 시 하단 메뉴(전체 화면 보기 해제 등)를 표시하기 위해 호출 */
+    public void showMenuControlForFullScreen() {
+        if (getView() != null && isVideoLoaded) {
+            hide4Buttons();
+            showMenuControl();
+        }
+    }
+
+    /** 전체 화면일 때 추가 패딩 없이 기존 인셋만 유지 (내부 레이아웃이 잘리지 않도록 따로 손대지 않는다) */
+    public void setFullScreenBottomPadding(boolean fullScreen) {
+        // 현재는 인셋으로 이미 하단 여백이 적용되므로 별도 패딩을 주지 않는다.
+        View root = getView();
+        if (root == null) return;
+    }
+
+    /** 전체 화면일 때만 보이는 "전체 화면 해제" 버튼 표시 */
+    public void showExitFullScreenButton() {
+        if (binding == null) return;
+        binding.tvExitFullScreen.setVisibility(View.VISIBLE);
+        binding.tvExitFullScreen.setOnClickListener(v -> activity.exitFullScreen());
+    }
+
+    /** 전체 화면 해제 시 버튼 숨김 */
+    public void hideExitFullScreenButton() {
+        if (binding == null) return;
+        binding.tvExitFullScreen.setVisibility(View.GONE);
+        binding.tvExitFullScreen.setOnClickListener(null);
     }
 
     private boolean canShow4Buttons() {

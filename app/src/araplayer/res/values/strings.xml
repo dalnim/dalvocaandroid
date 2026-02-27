@@ -264,6 +264,8 @@
     <string name="multi_player_delete_saved_ab_repeat" translatable="false">Delete Saved AB Repeat Section</string>
     <string name="multi_player_load_same_videos" translatable="false">Load same videos</string>
     <string name="multi_player_video_menu_show_video_title" translatable="false">Show video title</string>
+    <string name="multi_player_video_menu_full_screen" translatable="false">Full screen view</string>
+    <string name="multi_player_video_menu_exit_full_screen" translatable="false">Exit full screen view</string>
 
     <string name="subtitle_selector_subtitle_connected">Has subtitle file</string>
     <string name="subtitle_selector_subtitle_not_connected">Click here to select or download subtitle file</string>

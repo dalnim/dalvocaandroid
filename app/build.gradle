@@ -70,6 +70,10 @@ android {
             ndk {
                 debugSymbolLevel 'FULL'
             }
+            // Baseline profile 검증 실패(INSTALL_BASELINE_PROFILE_FAILED)로 설치 거부되는 문제 방지
+            installation {
+                enableBaselineProfile false
+            }
         }
     }
     // 16KB 페이지 크기 지원: 서드파티 .so가 4KB 정렬일 때 설치 이슈 우회 (Google Play 요구사항)

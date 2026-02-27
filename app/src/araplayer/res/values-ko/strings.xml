@@ -258,6 +258,8 @@
     <string name="multi_player_delete_saved_ab_repeat" translatable="false">저장된 AB반복구간 삭제</string>
     <string name="multi_player_load_same_videos" translatable="false">같은 화면으로 채우기</string>
     <string name="multi_player_video_menu_show_video_title">비디오 제목 보기</string>
+    <string name="multi_player_video_menu_full_screen">전체 화면 보기</string>
+    <string name="multi_player_video_menu_exit_full_screen">전체 화면 보기 해제</string>
 
     <string name="subtitle_selector_subtitle_connected">자막 파일 연결됨</string>
     <string name="subtitle_selector_subtitle_not_connected">여기를 눌러서 자막파일을 연결하세요.</string>

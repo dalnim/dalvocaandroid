@@ -101,6 +101,7 @@ public class MultiplePlayerActivity extends BaseActivity {
     List<Integer> fixedScreenIdListForRandomPlay = new ArrayList<>();
     public List<MultiplePlayerFragment> fragmentList = new ArrayList<>();
     private List<MultiplePlayerFragment> duplicatedFragments = new ArrayList<>();
+    private int fullScreenFragmentIndex = -1;
 
     //    protected List<PlayerFileModel> allRandomFileList = new ArrayList<>();
     protected List<String> listAllRandomFilePath = new ArrayList<>();
@@ -337,6 +338,10 @@ public class MultiplePlayerActivity extends BaseActivity {
     }
     @Override
     public void onBackPressed() {
+        if (fullScreenFragmentIndex >= 0) {
+            exitFullScreen();
+            return;
+        }
         if (!isTabLayoutVisible) {
             showTopMenu();
         } else {
@@ -1222,6 +1227,103 @@ public class MultiplePlayerActivity extends BaseActivity {
         binding.llTopMenu.setLayoutParams(params); //이걸 안하면 가로모드에서 전체화면 갔다가 상단메뉴 보이면 화면이 아레가 짤린다.
         binding.hideTopMenu.setLayoutParams(hideTopMenuParams); //가로모드에서 전체화면 갔다가 상단메뉴보이면 좌측 메뉴가 숨겨진다. 이건 화면이 좌측으로 옮겨지서 그렀다. 지금은 임시로 시작 마진을 조절했다.
         return layoutParams;
+    }
+
+    private GridLayout.LayoutParams getFullScreenLayoutParams(int rows, int columns) {
+        boolean isLandscape = (myOrientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                || myOrientation == ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                || myOrientation == ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
+        int topLayoutHeight = isTabLayoutVisible ? binding.llTopMenu.getHeight() : 0;
+        int navigationBarHeight = isTabLayoutVisible ? 0 : Utils.getNavigationBarHeight(this);
+
+        GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+        layoutParams.rowSpec = GridLayout.spec(0, rows);
+        layoutParams.columnSpec = GridLayout.spec(0, columns);
+        if (isLandscape) {
+            layoutParams.width = (screenHelper.screenWidth + navigationBarHeight);
+            layoutParams.height = (screenHelper.screenHeight - topLayoutHeight);
+        } else {
+            layoutParams.width = screenHelper.screenWidth;
+            layoutParams.height = (screenHelper.screenHeight - topLayoutHeight + navigationBarHeight);
+        }
+        return layoutParams;
+    }
+
+    public boolean isFullScreenForFragment(MultiplePlayerFragment fragment) {
+        return fullScreenFragmentIndex >= 0 && fullScreenFragmentIndex < fragmentList.size()
+                && fragmentList.get(fullScreenFragmentIndex) == fragment;
+    }
+
+    public void enterFullScreenForFragment(MultiplePlayerFragment fragment) {
+        int idx = fragmentList.indexOf(fragment);
+        if (idx < 0) return;
+        for (int i = 0; i < fragmentList.size(); i++) {
+            if (i != idx) {
+                fragmentList.get(i).pausePlayerFromAllVideos();
+            }
+        }
+        fullScreenFragmentIndex = idx;
+        // 전체 화면일 때는 상단 메뉴바(전체 플레이/음소거 등) 숨김
+        isTabLayoutVisible = false;
+        binding.llTopMenu.setVisibility(View.GONE);
+        Pair<Integer, Integer> rowsAndColumns = screenHelper.calculateRowsAndColumns();
+        int rows = rowsAndColumns.first;
+        int columns = rowsAndColumns.second;
+        for (int i = 0; i < numberOfScreens; i++) {
+            View view = binding.gridLayout.getChildAt(i);
+            if (view instanceof FragmentContainerView) {
+                view.setVisibility(i == idx ? View.VISIBLE : View.GONE);
+                if (i == idx) {
+                    view.setLayoutParams(getFullScreenLayoutParams(rows, columns));
+                }
+            }
+        }
+        binding.gridLayout.requestLayout();
+        View fullScreenContainer = binding.gridLayout.getChildAt(idx);
+        if (fullScreenContainer != null) {
+            fullScreenContainer.requestLayout();
+        }
+        // 그리드 레이아웃 완료 후 컨테이너를 그리드 크기에 맞춰 재조정(하단 UI가 잘리지 않도록), 그 다음 하단 메뉴 표시
+        binding.gridLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                binding.gridLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                if (fullScreenFragmentIndex != idx) return;
+                int w = binding.gridLayout.getWidth();
+                int h = binding.gridLayout.getHeight();
+                if (w > 0 && h > 0 && fullScreenContainer != null && fullScreenContainer.getLayoutParams() instanceof GridLayout.LayoutParams) {
+                    GridLayout.LayoutParams lp = (GridLayout.LayoutParams) fullScreenContainer.getLayoutParams();
+                    lp.width = w;
+                    lp.height = h;
+                    fullScreenContainer.setLayoutParams(lp);
+                }
+                fragment.setFullScreenBottomPadding(true);
+                fragment.showExitFullScreenButton();
+                fullScreenContainer.postDelayed(() -> {
+                    if (fullScreenFragmentIndex == idx && fragmentList.get(idx) == fragment) {
+                        fragment.showMenuControlForFullScreen();
+                    }
+                }, 100);
+            }
+        });
+    }
+
+    public void exitFullScreen() {
+        if (fullScreenFragmentIndex < 0) return;
+        MultiplePlayerFragment wasFullScreen = fragmentList.get(fullScreenFragmentIndex);
+        fullScreenFragmentIndex = -1;
+        wasFullScreen.setFullScreenBottomPadding(false);
+        wasFullScreen.hideExitFullScreenButton();
+        // 상단 메뉴바 다시 표시
+        isTabLayoutVisible = true;
+        binding.llTopMenu.setVisibility(View.VISIBLE);
+        for (int i = 0; i < numberOfScreens; i++) {
+            View view = binding.gridLayout.getChildAt(i);
+            if (view != null) {
+                view.setVisibility(View.VISIBLE);
+            }
+        }
+        updateGridLayoutParams();
     }
 
     private void initPlayerFragment(int containerId, int screenId, boolean isLoadLastWatchedVideos) {

@@ -18,26 +18,33 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
     private DialogMultiplayerOneVideoBinding binding;
     private boolean isHasSavedAbRepeatTime;
     private boolean isHasPlaylist;
+    private boolean isFullScreenMode;
     private Context context;
 
     @Override
     protected View getContentView() {
         binding = DialogMultiplayerOneVideoBinding.inflate(getLayoutInflater());
+        updateFullScreenMenuText();
         View view = binding.getRoot();
         return view;
     }
 
 
-    public MultiPlayerOneVideoDialog(@NonNull Context context, boolean isHasPlaylist, boolean isHasSavedAbRepeatTime, OnClickDialogListener listener) {
+    public MultiPlayerOneVideoDialog(@NonNull Context context, boolean isHasPlaylist, boolean isHasSavedAbRepeatTime, boolean isFullScreenMode, OnClickDialogListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
         this.isHasSavedAbRepeatTime = isHasSavedAbRepeatTime;
         this.isHasPlaylist = isHasPlaylist;
+        this.isFullScreenMode = isFullScreenMode;
         showOrHideAbRepeatMenu();
         showOrHidePlayFromPlaylistMenu();
         showOrHideNetworkTestMenu();
         initColor();
+    }
+
+    private void updateFullScreenMenuText() {
+        binding.tvFullScreen.setText(isFullScreenMode ? R.string.multi_player_video_menu_exit_full_screen : R.string.multi_player_video_menu_full_screen);
     }
     private void initColor() {
         if (AppFlavorUtil.isAraMultiPlayerApp()) {
@@ -50,6 +57,7 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
             AraThemeUtil.setTextColor(context, binding.tvNetworkTest, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvDuplicateAllScreens, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvDeleteFile, R.color.textPrimaryWhiteColor);
+            AraThemeUtil.setTextColor(context, binding.tvFullScreen, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvCancel, R.color.textPrimaryWhiteColor);
         }
     }
@@ -78,6 +86,7 @@ public class MultiPlayerOneVideoDialog extends BasePlayerDialog implements View.
         binding.llDuplicateAllScreens.setOnClickListener(this);
         binding.llDeleteFile.setOnClickListener(this);
         binding.llShowVideoTitle.setOnClickListener(this);
+        binding.llFullScreen.setOnClickListener(this);
         binding.llNetworkTest.setOnClickListener(this);
         binding.tvCancel.setOnClickListener(this);
     }

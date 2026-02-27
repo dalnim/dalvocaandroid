@@ -125,6 +125,23 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llFullScreen"
+            style="@style/WidthMatch"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvFullScreen"
+                style="@style/Multi_Button_Base"
+                android:gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/multi_player_video_menu_full_screen"
+                android:textSize="16sp"
+                android:visibility="visible"/>
+
+            <View
+                style="@style/DividerDialog"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/llNetworkTest"
             style="@style/WidthMatch"
             android:orientation="vertical">
