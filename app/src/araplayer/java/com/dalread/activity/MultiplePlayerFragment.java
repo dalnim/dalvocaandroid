@@ -111,6 +111,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     private MultiPlayerDatabase multiPlayerDatabase;
     private MultiPlayerVideoModel model;
     private List<MultiPlayerVideoAbRepeatModel> abRepeatModelList = new ArrayList<>(); //AB반복이 여러개 있을수 있다.
+    private List<MultiPlayerVideoAbRepeatModel> abRepeatModelListForPlay = null; // 저장된 구간 재생 시 선택된 구간만 사용
     private int indexOfAbRepeatModelList = 0;
     private boolean isNewAbRepeatStarted = false; //이건 AB반복을 새로 하나 만들때 사용한다.
     private int screenId = 1;
@@ -1343,16 +1344,18 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         if (isNewAbRepeatStarted) {
             return position >= abRepeatMaxSub;
         }
-        if (!abRepeatModelList.isEmpty()) {
+        List<MultiPlayerVideoAbRepeatModel> list = (abRepeatModelListForPlay != null && !abRepeatModelListForPlay.isEmpty())
+                ? abRepeatModelListForPlay : abRepeatModelList;
+        if (!list.isEmpty()) {
             boolean hasNextIndex = false;
             if (position >= abRepeatMaxSub) {
-                for (int i = 0; i < abRepeatModelList.size(); i++) {
-                    long abA = abRepeatModelList.get(i).getAB_A();
-                    long abB = abRepeatModelList.get(i).getAB_B();
+                for (int i = 0; i < list.size(); i++) {
+                    long abA = list.get(i).getAB_A();
+                    long abB = list.get(i).getAB_B();
                     indexOfAbRepeatModelList = i;
                     if (position >= abA && position < abB) {
                         indexOfAbRepeatModelList = i + 1;
-                        if (indexOfAbRepeatModelList >= abRepeatModelList.size()) {
+                        if (indexOfAbRepeatModelList >= list.size()) {
                             indexOfAbRepeatModelList = 0;
                         }
                         hasNextIndex = true;
@@ -1368,43 +1371,43 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
 
                 if (indexOfAbRepeatModelList < 0) {
                     indexOfAbRepeatModelList = 0;
-                } else if (indexOfAbRepeatModelList >= abRepeatModelList.size()) {
-                    indexOfAbRepeatModelList = abRepeatModelList.size() - 1;
+                } else if (indexOfAbRepeatModelList >= list.size()) {
+                    indexOfAbRepeatModelList = list.size() - 1;
                 }
 
-                abRepeatMinSub = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_A();
-                abRepeatMaxSub = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_B();
+                abRepeatMinSub = list.get(indexOfAbRepeatModelList).getAB_A();
+                abRepeatMaxSub = list.get(indexOfAbRepeatModelList).getAB_B();
                 return true;
             } else if (position < abRepeatMinSub) {
-                for (int i = 0; i < abRepeatModelList.size(); i++) {
-                    long abA = abRepeatModelList.get(i).getAB_A();
-                    long abB = abRepeatModelList.get(i).getAB_B();
+                for (int i = 0; i < list.size(); i++) {
+                    long abA = list.get(i).getAB_A();
+                    long abB = list.get(i).getAB_B();
                     indexOfAbRepeatModelList = i;
                     if (position >= abA && position < abB) {
                         indexOfAbRepeatModelList = i - 1;
                         if (indexOfAbRepeatModelList < 0) {
-                            indexOfAbRepeatModelList =  abRepeatModelList.size() - 1;
+                            indexOfAbRepeatModelList = list.size() - 1;
                         }
                         hasNextIndex = true;
                         break;
                     } else if (position < abA) {
                         indexOfAbRepeatModelList = i - 1;
                         if (i == 0) {
-                            indexOfAbRepeatModelList = abRepeatModelList.size() - 1;
+                            indexOfAbRepeatModelList = list.size() - 1;
                         }
                         hasNextIndex = true;
                         break;
                     }
                 }
                 if (!hasNextIndex) {
-                    indexOfAbRepeatModelList = abRepeatModelList.size() - 1;
+                    indexOfAbRepeatModelList = list.size() - 1;
                 }
                 if (indexOfAbRepeatModelList < 0) {
                     indexOfAbRepeatModelList = 0;
                 }
 
-                abRepeatMinSub = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_A();
-                abRepeatMaxSub = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_B();
+                abRepeatMinSub = list.get(indexOfAbRepeatModelList).getAB_A();
+                abRepeatMaxSub = list.get(indexOfAbRepeatModelList).getAB_B();
                 return true;
             }
 
@@ -1902,10 +1905,10 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     public void showDeletePlaylistDialog() {
         String[] items = new String[abRepeatModelList.size()];
         boolean[] checkedItems = new boolean[abRepeatModelList.size()];
-        List<Integer> preCheckedIndexes = new ArrayList<>();
         for (int i = 0; i < abRepeatModelList.size(); i++) {
-            items[i] = String.valueOf((i + 1));
-            checkedItems[i] = preCheckedIndexes.contains(i);
+            MultiPlayerVideoAbRepeatModel model = abRepeatModelList.get(i);
+            items[i] = TimeUtil.getVideoTimeDisplay(model.getAB_A()) + " ~ " + TimeUtil.getVideoTimeDisplay(model.getAB_B());
+            checkedItems[i] = true;
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.MultiMultiChoiceDialog);
@@ -1993,28 +1996,81 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     public void playSavedABRepeatTimeInTable(boolean isFromParent) {
-        if (hasSavedAbRepeatTime()) {
-            setVisibleBtnSaveABRepeatTime(View.GONE);
-            hideAllControl();
-            indexOfAbRepeatModelList = 0;
-            if (indexOfAbRepeatModelList < abRepeatModelList.size()) {
-                long abA = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_A();
-                long abB = abRepeatModelList.get(indexOfAbRepeatModelList).getAB_B();
-
-                updateValue_abRepeatMinSub(abA + RepeatUtil.getTime(Constant.PLAYER.SUB_TITLE.REPEAT_COUNT.MIN_TIME_KEEP_PLAY_BEFORE_AB_REPEAT));
-                updateValue_abRepeatMaxSub(abB + RepeatUtil.getTime(Constant.PLAYER.SUB_TITLE.REPEAT_COUNT.MIN_TIME_KEEP_PLAY_AFTER_AB_REPEAT));
-            }
-
-            enterABRepeatModeAB_B(false, false);
-            seekToInPlayer(abRepeatMinSub);
-            forcePlay();
-            updateValue_ShowViewPlayCenter(true);
-            showCenterMessageView(getString(R.string.text_play_ab_repeat_time_on_screen));
-        } else {
+        if (!hasSavedAbRepeatTime()) {
             if (isFromParent) {
                 forcePlay();
             }
+            if (!isFromParent) {
+                activity.refreshAllPlayPauseIcon();
+            }
+            return;
         }
+        if (abRepeatModelList.size() <= 1) {
+            abRepeatModelListForPlay = new ArrayList<>(abRepeatModelList);
+            startSavedAbRepeatPlay(isFromParent);
+            return;
+        }
+        // 구간이 2개 이상: 선택 다이얼로그 (전체 체크)
+        String[] items = new String[abRepeatModelList.size()];
+        boolean[] checkedItems = new boolean[abRepeatModelList.size()];
+        for (int i = 0; i < abRepeatModelList.size(); i++) {
+            MultiPlayerVideoAbRepeatModel model = abRepeatModelList.get(i);
+            items[i] = TimeUtil.getVideoTimeDisplay(model.getAB_A()) + " ~ " + TimeUtil.getVideoTimeDisplay(model.getAB_B());
+            checkedItems[i] = true;
+        }
+        final boolean fromParent = isFromParent;
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.MultiMultiChoiceDialog);
+        builder.setTitle(activity.getString(R.string.dialog_title_choose_to_play_ab_repeat))
+                .setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
+                        checkedItems[indexSelected] = isChecked;
+                    }
+                })
+                .setPositiveButton(R.string.playlist_dialog_button_select, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        List<MultiPlayerVideoAbRepeatModel> selected = new ArrayList<>();
+                        for (int i = 0; i < checkedItems.length; i++) {
+                            if (checkedItems[i]) {
+                                selected.add(abRepeatModelList.get(i));
+                            }
+                        }
+                        if (selected.isEmpty()) {
+                            ToastUtil.getInstance(activity).show(R.string.toast_play_no_saved_ab_repeat_time);
+                            return;
+                        }
+                        abRepeatModelListForPlay = selected;
+                        startSavedAbRepeatPlay(fromParent);
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (!fromParent) {
+                            activity.refreshAllPlayPauseIcon();
+                        }
+                    }
+                })
+                .create()
+                .show();
+    }
+
+    private void startSavedAbRepeatPlay(boolean isFromParent) {
+        setVisibleBtnSaveABRepeatTime(View.GONE);
+        hideAllControl();
+        indexOfAbRepeatModelList = 0;
+        if (abRepeatModelListForPlay != null && !abRepeatModelListForPlay.isEmpty()) {
+            long abA = abRepeatModelListForPlay.get(0).getAB_A();
+            long abB = abRepeatModelListForPlay.get(0).getAB_B();
+            updateValue_abRepeatMinSub(abA + RepeatUtil.getTime(Constant.PLAYER.SUB_TITLE.REPEAT_COUNT.MIN_TIME_KEEP_PLAY_BEFORE_AB_REPEAT));
+            updateValue_abRepeatMaxSub(abB + RepeatUtil.getTime(Constant.PLAYER.SUB_TITLE.REPEAT_COUNT.MIN_TIME_KEEP_PLAY_AFTER_AB_REPEAT));
+        }
+        enterABRepeatModeAB_B(false, false);
+        seekToInPlayer(abRepeatMinSub);
+        forcePlay();
+        updateValue_ShowViewPlayCenter(true);
+        showCenterMessageView(getString(R.string.text_play_ab_repeat_time_on_screen));
         if (!isFromParent) {
             activity.refreshAllPlayPauseIcon();
         }
@@ -2058,6 +2114,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         isNewAbRepeatStarted = false;
         timeBaseRepeatStatus = Constant.PLAYER.REPEAT.TIMEBASE.NONE;
         abRepeatMinSub = abRepeatMaxSub = 0;
+        abRepeatModelListForPlay = null;
 //        resetRepeat();
         setABRepeatImage(R.drawable.ic_repeat_ab);
     }

@@ -331,6 +331,7 @@
     <string name="dialog_message_first_show_back_drop_image" translatable="false">동영상의 현재화면을 큰 이미지로 보여줍니다.\n\n동영상을 재생할려면 가운데 플레이 버튼을 누르세요.</string>
 
     <string name="dialog_title_choose_to_delete_ab_repeat" translatable="false">삭제할 AB Repeat 리스트 선택</string>
+    <string name="dialog_title_choose_to_play_ab_repeat" translatable="false">재생할 AB Repeat 구간 선택</string>
 
     <string name="play_from_playlist_dialog_title" translatable="false">플레이 리스트에서 재생</string>
 

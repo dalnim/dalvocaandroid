@@ -344,6 +344,7 @@
     <string name="dialog_message_first_show_back_drop_image" translatable="false">Shows the current frame of the video as a large image.\n\nTo play the video, press the play button in the center.</string>
 
     <string name="dialog_title_choose_to_delete_ab_repeat" translatable="false">Choose AB Repeats to delete</string>
+    <string name="dialog_title_choose_to_play_ab_repeat" translatable="false">Choose AB Repeat sections to play</string>
 
     <string name="play_from_playlist_dialog_title" translatable="false">Play from playlists</string>
 
