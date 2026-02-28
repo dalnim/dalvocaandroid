@@ -51,6 +51,16 @@ public final class OtherAppsInfo {
     );
 
     /**
+     * 앱 ID에 해당하는 Entry 반환 (현재 앱 이름 등 표시용).
+     */
+    public static Entry getEntry(int appId) {
+        for (Entry e : ALL_APPS) {
+            if (e.appId == appId) return e;
+        }
+        return null;
+    }
+
+    /**
      * 현재 앱을 제외한 "다른 앱" 목록 반환 (제외 ID 적용, appId 순 정렬).
      *
      * @param currentAppId 현재 앱의 AraApp appId (예: 아라멀티플레이어 4, 아라한자 5)

@@ -20,7 +20,7 @@ public class MenuModel {
     }
 
     public MenuModel(int id, int icon, String title) {
-        this(id, icon, title, false);
+        this(id, icon, title, true);
     }
 
     public MenuModel(int id, int icon, String title, boolean isShow) {

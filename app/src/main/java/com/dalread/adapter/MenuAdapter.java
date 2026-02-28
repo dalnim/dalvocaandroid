@@ -58,9 +58,31 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.menuModels = menuModels;
     }
 
+    /** isShow == true인 항목만 세어 개수 반환 */
+    private int getVisibleCount() {
+        int count = 0;
+        for (MenuModel m : menuModels) {
+            if (m.isShow()) count++;
+        }
+        return count;
+    }
+
+    /** position번째로 보이는(visible) MenuModel 반환 */
+    private MenuModel getVisibleModelAt(int position) {
+        int idx = 0;
+        for (MenuModel m : menuModels) {
+            if (m.isShow()) {
+                if (idx == position) return m;
+                idx++;
+            }
+        }
+        return null;
+    }
+
     @Override
     public int getItemViewType(int position) {
-        MenuModel m = menuModels.get(position);
+        MenuModel m = getVisibleModelAt(position);
+        if (m == null) return VIEW_TYPE_ITEM;
         if (m.isSectionHeader()) return VIEW_TYPE_SECTION_HEADER;
         if (m.getPlayStoreUrl() != null) return VIEW_TYPE_APP_DOWNLOAD;
         return VIEW_TYPE_ITEM;
@@ -86,7 +108,8 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MenuModel obj = menuModels.get(position);
+        MenuModel obj = getVisibleModelAt(position);
+        if (obj == null) return;
         if (holder instanceof SectionHeaderViewHolder) {
             ((SectionHeaderViewHolder) holder).tvTitle.setText(obj.getTitle());
         } else if (holder instanceof AppDownloadViewHolder) {
@@ -105,7 +128,7 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return menuModels.size();
+        return getVisibleCount();
     }
 
     public void updateData(List<MenuModel> menuModels) {

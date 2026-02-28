@@ -35,6 +35,7 @@ public class Constant {
     public static final String URL_ARAHANGUL_KAKAOTALK_GROUPCHAT_1 = "https://open.kakao.com/o/gnE31sae";
     public static final String URL_ARAPLAYER_ENGLISH_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g02ZwK9f";
     public static final String URL_ARAMULTIPLAYER_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/gcDPqRkg";
+    public static final String URL_ARAMULTIPLAYER_REDDIT = "https://www.reddit.com/r/AraMultiPlayer/";
     public static final String URL_ARAHANJA_KAKAOTALK_GROUPCHAT = "https://open.kakao.com/o/g9LeyK9f";
     public static final String URL_VOCAB_WAVE_HOMEPAGE = "https://dalnim.github.io/vocab_wave_arahanja_homepage/";
 
@@ -1376,7 +1377,8 @@ public class Constant {
         public static final int NAVER_CAFE = SETTINGS + 1;
         public static final int NAVER_CAFE_ARAHANGUL_WRITING_PRACTICE_PAPER_DOWNLOAD = NAVER_CAFE + 1;
         public static final int KAKAOTALK_GROUPCHAT = NAVER_CAFE_ARAHANGUL_WRITING_PRACTICE_PAPER_DOWNLOAD + 1;
-        public static final int MAIL = KAKAOTALK_GROUPCHAT + 1;
+        public static final int COMMUNITY = KAKAOTALK_GROUPCHAT + 1;
+        public static final int MAIL = COMMUNITY + 1;
         public static final int APP_DOWNLOAD = MAIL + 1;
         public static final int SHARE_APP = APP_DOWNLOAD + 1;
         public static final int RATE_APP = SHARE_APP + 1;

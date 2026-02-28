@@ -211,6 +211,9 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
                 case Constant.NAVIGATION.KAKAOTALK_GROUPCHAT:
                     Utils.openWeb(this, Constant.URL_ARAMULTIPLAYER_KAKAOTALK_GROUPCHAT);
                     break;
+                case Constant.NAVIGATION.COMMUNITY:
+                    Utils.openWeb(this, Constant.URL_ARAMULTIPLAYER_REDDIT);
+                    break;
                 case Constant.NAVIGATION.MAIL:
                     DalFlavor.openMail(this, sharedPreferences);
                     break;
@@ -221,7 +224,8 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
                     this.startActivity(new Intent(this, InAppPointListActivity.class));
                     break;
                 case Constant.NAVIGATION.SHARE_APP:
-                    baseMainHomeActivity.shareApp();
+                    startActivity(FreeAppsActivity.createIntent(MultiPlayerMainHomeActivity.this, 4, -1, true));
+                    closeDrawer();
                     break;
                 case Constant.NAVIGATION.RATE_APP:
                     baseMainHomeActivity.rateApp();
@@ -236,7 +240,8 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SETTINGS, R.drawable.ic_setting, getString(R.string.menu_setting)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.MAIL, R.drawable.ic_mail, getString(R.string.menu_mail)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.NAVER_CAFE, R.drawable.ic_manual, getString(R.string.menu_naver_cafe_manual)));
-        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.KAKAOTALK_GROUPCHAT, R.drawable.ic_manual, getString(R.string.menu_kakaotalk_groupchat1)));
+        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.KAKAOTALK_GROUPCHAT, R.drawable.ic_manual, getString(R.string.menu_kakaotalk_groupchat1), false)); // 숨김 (삭제 안 함)
+        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.COMMUNITY, R.drawable.ic_manual, getString(R.string.menu_community)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SHARE_APP, R.drawable.ic_share_app, getString(R.string.menu_share_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.RATE_APP, R.drawable.ic_rate_star, getString(R.string.menu_rate_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.IN_APP_PURCHASE, R.drawable.ic_download_2, getString(R.string.left_navi_items_in_app_purchase)));

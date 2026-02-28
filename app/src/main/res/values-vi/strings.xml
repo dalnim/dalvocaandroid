@@ -37,6 +37,7 @@
     <string name="menu_delete_account">Delete Account</string>
     <string name="menu_setting">Cài đặt</string>
     <string name="menu_naver_cafe_manual">Thủ công</string>
+    <string name="menu_community">Community</string>
     <string name="menu_kakaotalk_groupchat">Nói chuyện với người Hàn</string>
     <string name="menu_kakaotalk_groupchat1">Kakao Talk</string>
     <string name="menu_kakaotalk_groupchat_arahangul">Học Hangul với nhau</string>

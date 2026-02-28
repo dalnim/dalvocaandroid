@@ -94,6 +94,7 @@
     <string name="menu_delete_account">Delete Account</string>
     <string name="menu_setting">Setting</string>
     <string name="menu_naver_cafe_manual">Manual</string>
+    <string name="menu_community">Community</string>
     <string name="menu_kakaotalk_groupchat">Talk Koreans</string>
     <string name="menu_kakaotalk_groupchat1">Kakao Talk</string>
     <string name="menu_kakaotalk_groupchat_arahangul">Study Hangul together</string>
@@ -123,8 +124,13 @@
     <string name="app_description_AraThousand">Ara Thousand Characters provides detailed explanations of the classic text, helping you understand philosophy and wisdom from history.</string>
     <string name="app_description_AraJesa">An app to record and manage jesa and charye ceremonies.</string>
     <string name="app_description_MacMultiPlayer">Multi-player video app for Mac. Watch multiple videos at once on your Mac.</string>
+    <string name="share_app_screen_title">Share App</string>
     <string name="share_app_other_apps">Other Apps</string>
     <string name="share_app_other_apps_message">Please download the following apps and give a 5-star review. It helps the developer. Thank you.</string>
+    <string name="share_app_iphone">iPhone</string>
+    <string name="share_app_android">Android</string>
+    <string name="share_app_share">Share</string>
+    <string name="share_app_qr_description">Scan the QR code above to download the app directly.\n\nClick the share button below to share the app link with others.</string>
     <string name="menu_rate_app">Review this app</string>
     <string name="menu_my_apps">Other apps</string>
     <string name="menu_remove_ad_banner">Remove Ad Banner</string>
