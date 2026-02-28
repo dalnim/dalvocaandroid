@@ -1323,7 +1323,10 @@ public class MultiplePlayerActivity extends BaseActivity {
                 view.setVisibility(View.VISIBLE);
             }
         }
+        // 전체 화면 해제 후 우측/하단 회색 영역 대신 s/w 네비게이션 바가 보이도록
+        Utils.toggleFullscreenMultiPlayer(this, false);
         updateGridLayoutParams();
+        binding.getRoot().post(() -> ViewCompat.requestApplyInsets(binding.getRoot()));
     }
 
     private void initPlayerFragment(int containerId, int screenId, boolean isLoadLastWatchedVideos) {
