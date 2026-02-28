@@ -241,6 +241,7 @@
     <string name="multi_player_swap_screen_positions" translatable="false">Swap Screen Positions</string>
     <string name="multi_player_screen_store_layout" translatable="false">Load/Store current videos</string>
     <string name="multi_player_hide_all_videos_ui">Hide all videos UI</string>
+    <string name="multi_player_close_all_videos">Close all videos</string>
     <string name="multi_player_resize_all_videos" translatable="false">Resize all videos</string>
     <string name="multi_player_choose_number_of_screens" translatable="false">Screen count</string>
     <string name="row_column_dialog_title" translatable="false">Row / Column</string>
@@ -295,6 +296,8 @@
     <string name="text_delete_ab_repeat_time_on_screen" translatable="false">Deleted AB repeat</string>
     <string name="toast_all_videos_play_ab_repeat_time" translatable="false">%1$d video\'s AB repeat time playback is starting.</string>
     <string name="toast_play_no_saved_ab_repeat_time" translatable="false">There are no saved AB repeat sections.</string>
+    <string name="msg_ask_multiplayer_close_all_videos">Do you want to close all opened videos?</string>
+    <string name="msg_ok_multiplayer_close_all_videos">Closed all videos successfully.</string>
     <string name="toast_all_videos_muted" translatable="false">All videos are muted.</string>
     <string name="toast_all_videos_unmuted" translatable="false">All videos have been unmuted.</string>
     <string name="toast_one_video_muted" translatable="false">Muted</string>

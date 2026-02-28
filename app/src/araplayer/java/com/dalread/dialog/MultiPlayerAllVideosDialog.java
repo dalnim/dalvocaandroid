@@ -38,6 +38,7 @@ public class MultiPlayerAllVideosDialog extends BasePlayerDialog implements View
             AraThemeUtil.setTextColor(context, binding.tvPlayAllVideosIntervals, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvMoveAllVideosToStart, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvHideAllVideosUI, R.color.textPrimaryWhiteColor);
+            AraThemeUtil.setTextColor(context, binding.tvCloseAllVideos, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvResizeAllVideos, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvChooseScreenNumberOfScreens, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvSelectVideosToPlay, R.color.textPrimaryWhiteColor);
@@ -52,6 +53,7 @@ public class MultiPlayerAllVideosDialog extends BasePlayerDialog implements View
     @Override
     protected void initOnClickListener() {
         binding.tvHideAllVideosUI.setOnClickListener(this);
+        binding.tvCloseAllVideos.setOnClickListener(this);
         binding.tvResizeAllVideos.setOnClickListener(this);
         binding.tvPlayAllVideosABRepeat.setOnClickListener(this);
         binding.tvPlayAllVideosIntervals.setOnClickListener(this);

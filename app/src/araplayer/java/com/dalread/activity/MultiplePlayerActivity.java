@@ -495,6 +495,9 @@ public class MultiplePlayerActivity extends BaseActivity {
                     case R.id.tvHideAllVideosUI:
                         hideAllVideosUI();
                         break;
+                    case R.id.tvCloseAllVideos:
+                        askAndCloseAllVideos();
+                        break;
                     case R.id.tvResizeAllVideos:
                         resizeAllVideos();
                         break;
@@ -909,6 +912,27 @@ public class MultiplePlayerActivity extends BaseActivity {
     }
     void closeAllVideosWithoutClearDb() {
         fragmentList.forEach(fragment -> fragment.closeVideo(false));
+    }
+
+    private void askAndCloseAllVideos() {
+        final YesNoDialog dialog = new YesNoDialog(this, R.string.warning, R.string.msg_ask_multiplayer_close_all_videos, null, new OnYesNoClickListener() {
+            @Override
+            public void onYesClick(View view, Object object) {
+                closeAllVideosWithoutClearDb();
+                multiPlayerDatabase.clearMultiScreenHistory();
+                clearDuplicatedFragments();
+                refreshAllPlayPauseIcon();
+                checkAllFragmentsMuted();
+                updateAllSpeakerImage();
+                ToastUtil.getInstance(MultiplePlayerActivity.this).show(R.string.msg_ok_multiplayer_close_all_videos);
+            }
+
+            @Override
+            public void onNoClick(View view, Object object) {
+
+            }
+        });
+        dialog.show();
     }
 
     void closeAllVideos(List<Integer> skipList) {

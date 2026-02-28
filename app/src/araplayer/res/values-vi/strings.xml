@@ -225,6 +225,7 @@
     <string name="multi_player_play_view_menu_play_all_videos">Play all videos</string>
     <string name="multi_player_pause_view_menu_play_all_videos">Pause all videos</string>
     <string name="multi_player_hide_all_videos_ui">Hide all videos UI</string>
+    <string name="multi_player_close_all_videos">Close all videos</string>
     <string name="multi_player_play_all_videos_ab_repeat">Play this videos AB Repeat</string>
     <string name="multi_player_mute_all_videos">Mute all videos</string>
     <string name="multi_player_unmute_all_videos">Unmute all videos</string>
@@ -239,4 +240,6 @@
     <string name="subtitle_group_unselected_all_displayed_subtitles">Unelected all subtitles</string>
 
     <string name="msg_info_remain_open_subtitle_request">You can request up to %1$d subtitles per day on the OpenSubtitle site.\nYou have currently requested %2$d subtitles.\nYour quota will be renewed tomorrow.</string>
+    <string name="msg_ask_multiplayer_close_all_videos">Do you want to close all opened videos?</string>
+    <string name="msg_ok_multiplayer_close_all_videos">Closed all videos successfully.</string>
 </resources>

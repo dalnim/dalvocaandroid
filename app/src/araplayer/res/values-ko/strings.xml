@@ -235,6 +235,7 @@
     <string name="multi_player_swap_screen_positions" translatable="false">화면 위치 바꾸기</string>
     <string name="multi_player_screen_store_layout" translatable="false">현재 비디오 저장/불러오기</string>
     <string name="multi_player_hide_all_videos_ui">모든 비디오 UI 숨기기</string>
+    <string name="multi_player_close_all_videos">모든 비디오 닫기</string>
     <string name="multi_player_resize_all_videos" translatable="false">모든 비디오 리사이즈</string>
     <string name="multi_player_choose_number_of_screens" translatable="false">스크린 수</string>
     <string name="row_column_dialog_title" translatable="false">행 / 열</string>
@@ -289,6 +290,8 @@
     <string name="text_delete_ab_repeat_time_on_screen" translatable="false">AB구간 삭제됨</string>
     <string name="toast_all_videos_play_ab_repeat_time" translatable="false">%1$d개 동영상의 AB반복구간을 재생합니다.</string>
     <string name="toast_play_no_saved_ab_repeat_time" translatable="false">저장된 AB반복구간이 없습니다.</string>
+    <string name="msg_ask_multiplayer_close_all_videos">열려 있는 모든 비디오를 닫으시겠습니까?</string>
+    <string name="msg_ok_multiplayer_close_all_videos">모든 비디오를 닫았습니다.</string>
     <string name="toast_all_videos_muted" translatable="false">모든 비디오가 무음 상태입니다.</string>
     <string name="toast_all_videos_unmuted" translatable="false">모든 비디오에서 소리가 납니다.</string>
     <string name="toast_one_video_muted" translatable="false">무음</string>
