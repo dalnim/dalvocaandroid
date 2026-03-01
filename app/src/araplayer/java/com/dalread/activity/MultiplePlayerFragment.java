@@ -1664,6 +1664,8 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     private void showRepeatControl() {
         binding.llPlayRepeatControl.setVisibility(View.VISIBLE);
         binding.llPlayBottomMenu.setVisibility(View.VISIBLE);
+        // AB 구간 지정 시에는 thumb 두 개 + 저장만 보이도록 전체 프로그레스바 숨김 (grid/전체화면 동일)
+        binding.llPlayTopMenu.setVisibility(View.GONE);
     }
     private void showOrHideMenuControl() {
         if (binding.llPlayBottomMenu.getVisibility() == View.VISIBLE) {
@@ -1675,21 +1677,34 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     void showMenuControl() {
-        binding.llPlayTopMenu.setVisibility(View.VISIBLE);
         binding.llPlayBottomMenu.setVisibility(View.VISIBLE);
         setVisiblellPlayPrevNextVideo(View.VISIBLE);
         if (sharedPreferences.isShowAdvancedMode()) {
             binding.llAudioSpeed.setVisibility(View.VISIBLE);
+        }
+        // AB 구간이 지정된 경우에만 thumb 두 개 + 저장 버튼 표시, 아니면 전체 프로그레스바 표시 (grid/전체화면 동일)
+        if (isABRepeatMode()) {
+            binding.llPlayRepeatControl.setVisibility(View.VISIBLE);
+            binding.llPlayTopMenu.setVisibility(View.GONE);
+        } else {
+            binding.llPlayTopMenu.setVisibility(View.VISIBLE);
+            binding.llPlayRepeatControl.setVisibility(View.GONE);
         }
 //        if (isAutoRandomPlay) {
 //            hide4Buttons();
 //        }
     }
 
-    /** 전체 화면 진입 시 하단 메뉴(전체 화면 보기 해제 등)를 표시하기 위해 호출 */
+    /** 전체 화면 진입 시 하단 메뉴를 표시하기 위해 호출 */
     public void showMenuControlForFullScreen() {
         if (getView() != null && isVideoLoaded) {
             hide4Buttons();
+            // 전체 화면에서도 AB 반복 저장/재생 오버레이 버튼은 보이도록 복원
+            if (hasSavedAbRepeatTime() && binding != null) {
+                float alpha = ViewAnimatorUtil.getAlpha(activity);
+                binding.ivABRepeatOverlay.setAlpha(alpha);
+                binding.ivABRepeatOverlay.setVisibility(View.VISIBLE);
+            }
             showMenuControl();
         }
     }
@@ -1699,20 +1714,6 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         // 현재는 인셋으로 이미 하단 여백이 적용되므로 별도 패딩을 주지 않는다.
         View root = getView();
         if (root == null) return;
-    }
-
-    /** 전체 화면일 때만 보이는 "전체 화면 해제" 버튼 표시 */
-    public void showExitFullScreenButton() {
-        if (binding == null) return;
-        binding.tvExitFullScreen.setVisibility(View.VISIBLE);
-        binding.tvExitFullScreen.setOnClickListener(v -> activity.exitFullScreen());
-    }
-
-    /** 전체 화면 해제 시 버튼 숨김 */
-    public void hideExitFullScreenButton() {
-        if (binding == null) return;
-        binding.tvExitFullScreen.setVisibility(View.GONE);
-        binding.tvExitFullScreen.setOnClickListener(null);
     }
 
     private boolean canShow4Buttons() {

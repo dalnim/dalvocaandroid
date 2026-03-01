@@ -369,6 +369,10 @@ public class MultiplePlayerActivity extends BaseActivity {
         isLoadLastWatchedVideos = getIntent().getBooleanExtra(Constant.BUNDLE.KEY_LOAD_LAST_WATCHED_VIDEO_MULTIPLE_PLAYER, false);
         initHelper();
         myOrientation = sharedPreferences.getMultiPlayerScreenOrientation();
+        // 앱 설치 후 처음 그리드 뷰 진입 시 저장된 값이 없으면 가로(랜드스케이프)를 기본으로 사용
+        if (myOrientation == -1) {
+            myOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+        }
         setRequestedOrientation(myOrientation);
 
         // s/w 네비게이션 바가 있을 때 전체 화면에서 하단(또는 가로 시 우측) 회색 영역 방지: 엣지투엣지로 그린 뒤 WindowInsets로 패딩만 적용
@@ -1322,7 +1326,6 @@ public class MultiplePlayerActivity extends BaseActivity {
                     fullScreenContainer.setLayoutParams(lp);
                 }
                 fragment.setFullScreenBottomPadding(true);
-                fragment.showExitFullScreenButton();
                 fullScreenContainer.postDelayed(() -> {
                     if (fullScreenFragmentIndex == idx && fragmentList.get(idx) == fragment) {
                         fragment.showMenuControlForFullScreen();
@@ -1337,7 +1340,6 @@ public class MultiplePlayerActivity extends BaseActivity {
         MultiplePlayerFragment wasFullScreen = fragmentList.get(fullScreenFragmentIndex);
         fullScreenFragmentIndex = -1;
         wasFullScreen.setFullScreenBottomPadding(false);
-        wasFullScreen.hideExitFullScreenButton();
         // 상단 메뉴바 다시 표시
         isTabLayoutVisible = true;
         binding.llTopMenu.setVisibility(View.VISIBLE);
