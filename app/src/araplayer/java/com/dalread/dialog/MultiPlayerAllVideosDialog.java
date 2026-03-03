@@ -44,6 +44,7 @@ public class MultiPlayerAllVideosDialog extends BasePlayerDialog implements View
             AraThemeUtil.setTextColor(context, binding.tvSelectVideosToPlay, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvSettings, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvScreenStoreLayout, R.color.textPrimaryWhiteColor);
+            AraThemeUtil.setTextColor(context, binding.tvExportSqlite, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvSwapScreens, R.color.textPrimaryWhiteColor);
             AraThemeUtil.setTextColor(context, binding.tvCancel, R.color.textPrimaryWhiteColor);
 
@@ -64,6 +65,7 @@ public class MultiPlayerAllVideosDialog extends BasePlayerDialog implements View
         binding.llChooseScreenNumberOfScreens.setOnClickListener(this);
         binding.llSettings.setOnClickListener(this);
         binding.llScreenStoreLayout.setOnClickListener(this);
+        binding.llExportSqlite.setOnClickListener(this);
         binding.llSwapScreens.setOnClickListener(this);
         binding.tvCancel.setOnClickListener(this);
     }

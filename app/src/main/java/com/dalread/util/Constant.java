@@ -1389,6 +1389,8 @@ public class Constant {
         public static final int HELP = RESTORE_BANNER_ADS + 1;
         public static final int SERVER = HELP + 1;
         public static final int BACKUP = SERVER + 1;
+        /** 멀티플레이어 SQLite DB를 Downloads 폴더로 내보내기 */
+        public static final int EXPORT_MULTIPLAYER_DB = BACKUP + 1;
     }
 
     public static class FOLDER_APP {
@@ -2403,11 +2405,14 @@ public class Constant {
                 public static final String DIC_JP_SENTENCE = "DIC_JP_SENTENCE";
                 public static final String DIC_KO = "DIC_KO";
                 public static final String DIC_KO_SENTENCE = "DIC_KO_SENTENCE";
-                public static final String DIC_PLAYER_SCREEN = "DIC_PLAYER_SCREEN";
-                public static final String DIC_PLAYER_SCREEN_BACKUP = "DIC_PLAYER_SCREEN_BACKUP"; //이미 한번 로드한적이 있는 비디오는 AB반복을 재사용할려고
-                public static final String DIC_PLAYER_SCREEN_AB_REPEAT = "DIC_PLAYER_SCREEN_AB_REPEAT"; //AB반복을 여러개 하기 위해서 DIC_PLAYER_SCREEN에 있는 AB반복은 안쓴다.
-                public static final String DIC_PLAYER_SCREEN_STORED_LAYOUT = "DIC_PLAYER_SCREEN_STORED_LAYOUT"; //4화면에 로드된 비디오들을 저장하여 다시 일일히 고르지 않게 할려고
-                public static final String DIC_PLAYER_VIDEO_LIST_IN_SCREEN = "DIC_PLAYER_VIDEO_LIST_IN_SCREEN"; //각화면에서 앞뒤로 이동가능한 비디오 파일명을 저장함.
+                /** Mac 스키마 테이블명 (MultiPlayer SQLite 전환용, 소문자) */
+                public static final String CURRENT_SCREENS = "current_screens";
+                public static final String VIDEO_META = "video_meta";
+                public static final String STORED_LAYOUT = "stored_layout";
+                public static final String SCREENS_IN_STORED_LAYOUT = "screens_in_stored_layout";
+                public static final String APP_KV = "app_kv";
+                public static final String PLAYLIST = "playlist";
+                public static final String PLAYLIST_ITEM = "playlist_item";
 
                 public static final String GPT_CHAT_MESSAGE = "GPT_CHAT_MESSAGE";
                 public static final String GPT_TEXT_SHORT_CUT = "GPT_TEXT_SHORT_CUT";
@@ -2428,6 +2433,10 @@ public class Constant {
                 public static final String ALBUM = "ALBUM";
                 public static final String AB_A = "AB_A";
                 public static final String AB_B = "AB_B";
+                /** Mac 스키마: AB 구간 다중 저장용 JSON 컬럼 */
+                public static final String AB_LOOP_JSON = "ab_loop_json";
+                /** Android 전용: current_screens 스크린별 앞뒤 이동 비디오 목록 JSON 배열 */
+                public static final String VIDEO_LIST_JSON = "video_list_json";
                 public static final String ARTIST = "ARTIST";
                 public static final String ARTIST_TTS = "ARTIST_TTS";
                 public static final String BOOKMARK = "BOOKMARK";
@@ -2645,7 +2654,11 @@ public class Constant {
                 public static final String ROTATE_LAYOUT = "ROTATE_LAYOUT";
                 public static final String RUBY = "RUBY";
                 public static final String SCREEN_ID = "SCREEN_ID";
+                /** Mac 스키마: stored_layout.id 참조 */
+                public static final String LAYOUT_ID = "layout_id";
                 public static final String SEARCH_HISTORY = "SEARCH_HISTORY";
+                /** Mac 스키마: 정렬 순서 */
+                public static final String SORT_ORDER = "sort_order";
                 public static final String START_TIME = "START_TIME";
                 public static final String START_TIME_ORIGINAL = "START_TIME_ORIGINAL";
                 public static final String STORED_ID = "STORED_ID";
@@ -2707,6 +2720,8 @@ public class Constant {
                 public static final String VOCA_TYPE = "VOCA_TYPE";
                 public static final String VOCA_TYPE_BASE = "BASE_VOCA_TYPE";
                 public static final String VOLUME = "VOLUME";
+                /** Mac 스키마: 재생속도 (current_screens, video_meta, screens_in_stored_layout) */
+                public static final String SPEED = "speed";
                 public static final String WORD = "WORD";
                 public static final String WORDORI = "WORDORI";
                 public static final String WORDORI_ID = "WORDORI_ID";

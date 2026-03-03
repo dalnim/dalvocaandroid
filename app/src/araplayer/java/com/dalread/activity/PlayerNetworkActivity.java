@@ -1,26 +1,17 @@
 package com.dalread.activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.dalread.R;
 import com.dalread.base.BasePlayerActivity;
 import com.dalread.component.Toolbar;
-import com.dalread.database.DownloadModelQuery;
-import com.dalread.database.ServerModelQuery;
 import com.dalread.databinding.ActivityPlayerNetworkBinding;
-import com.dalread.dialog.PlayerDownloadClearDialog;
-import com.dalread.model.DownloadModel;
 import com.dalread.model.ServerModel;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.SuccessEvent;
-import com.dalread.service.DownloadingService;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
 import com.dalread.util.Loading;
@@ -135,37 +126,7 @@ public class PlayerNetworkActivity extends BasePlayerActivity {
 
   @Override
   public void onHeaderTextRightClick() {
-    showDownloadClearDialog();
-  }
-  private void callDownloadClear(boolean isAll) {
-    Loading.show(this);
-    if (isAll) {
-      final DownloadModel file = DownloadModelQuery.getByDownload(Voca.getRealm());
-      if (file != null) {
-        cancelDownload(file);
-      }
-      DownloadModelQuery.deleteAll(Voca.getRealm());
-    } else {
-      DownloadModelQuery.deleteByComplete(Voca.getRealm());
-    }
-    Loading.hide();
-    eventBus.post(new SuccessEvent(BaseEvent.Screen.PLAYER_DOWNLOAD, BaseEvent.EventType.PLAYER_DOWNLOAD_INIT, null));
-  }
-  private void showDownloadClearDialog() {
-    final PlayerDownloadClearDialog dialog = new PlayerDownloadClearDialog(this, new DialogInterface.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface dialogInterface, int i) {
-        switch (i) {
-          case R.id.tv_clear_all:
-            callDownloadClear(true);
-            break;
-          case R.id.tv_clear_completed:
-            callDownloadClear(false);
-            break;
-        }
-      }
-    });
-    dialog.show();
+    ToastUtil.getInstance(this).show(R.string.msg_download_not_supported);
   }
 
   public void openMainNetworkItemFragment(ServerModel serverModel) {
@@ -191,32 +152,9 @@ public class PlayerNetworkActivity extends BasePlayerActivity {
     Utils.loadFragment(PlayerNetworkActivity.this, fragment, getFragmentContainerId());
   }
 
+  /** 다운로드 탭 폐기: 진입점 제거 */
   public void openMainNetworkDownloadFragment(ServerModel serverModel) {
-    DLog.d(getLogTag(), "openMainPlayerDownloadFragment");
-    binding.header.setIconLeft(R.drawable.ic_back);
-    binding.header.getIconRight().setVisibility(View.GONE);
-    binding.header.getIconRight2().setVisibility(View.GONE);
-    binding.header.setTextRight(R.string.clear);
-    binding.header.getTvRight().setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
-    binding.header.hideSearchView();
-    setTitle(serverModel.getTitle());
-    binding.header.showTitle();
-    Fragment fragment = new MultiPlayerDownloadFragment();
-    Utils.loadFragment(this, fragment, getFragmentContainerId());
-  }
-  public void addDownload(DownloadModel model) {
-    model.setServerModel(ServerModelQuery.getById(Voca.getRealm(), model.getIdServer()));
-    DLog.d(getLogTag(), "addDownload - model=" + model.toString());
-    Intent intent = new Intent(this, DownloadingService.class);
-    intent.putExtra(DownloadingService.FILE, model);
-    startService(intent);
+    ToastUtil.getInstance(this).show(R.string.msg_download_not_supported);
   }
 
-  public void cancelDownload(DownloadModel model) {
-    DLog.d(getLogTag(), "cancelDownload - model=" + model.toString());
-    Intent i = new Intent();
-    i.setAction(DownloadingService.ACTION_CANCEL_DOWNLOAD);
-    i.putExtra(DownloadingService.ID, model.getId());
-    LocalBroadcastManager.getInstance(this).sendBroadcast(i);
-  }
 }

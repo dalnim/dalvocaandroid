@@ -1254,7 +1254,8 @@ public class StorageUtil extends BaseStorageUtil {
         return FilenameUtils.concat(folderName, fileName);
     }
 
-    public static String getDicPlayerScreenJsonPath(Context context, String tableName) {
+    /** 멀티플레이어 SQLite 테이블별 JSON 백업 파일 경로 (current_screens, video_meta 등) */
+    public static String getMultiPlayerTableJsonPath(Context context, String tableName) {
         return getJsonFilePath(context, tableName);
     }
 

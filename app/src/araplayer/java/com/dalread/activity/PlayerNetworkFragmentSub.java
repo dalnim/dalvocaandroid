@@ -13,7 +13,6 @@ import com.dalread.R;
 import com.dalread.adapter.NetworkSubAdapter;
 import com.dalread.base.BasePlayerFragment;
 import com.dalread.component.CenterLayoutManager;
-import com.dalread.database.DownloadModelQuery;
 import com.dalread.database.VideoModelQuery;
 import com.dalread.databinding.FragmentMainPlayerBinding;
 import com.dalread.dialog.PlayerShowMeaningDialog;
@@ -22,7 +21,6 @@ import com.dalread.dialog.ZoomedPhotoDialog;
 import com.dalread.listener.OnAsyncTaskListenerWithType;
 import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnYesNoClickListener;
-import com.dalread.model.DownloadModel;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.model.ServerModel;
 import com.dalread.network.events.BaseEvent;
@@ -305,43 +303,16 @@ public class PlayerNetworkFragmentSub extends BasePlayerFragment implements OnCl
     private OnYesNoClickListener onConfirmDownloadNetwork = new OnYesNoClickListener() {
         @Override
         public void onYesClick(View view, Object object) {
-            checkDownloadFile((PlayerFileModel) object);
+            ToastUtil.getInstance(activity).show(R.string.msg_download_not_supported);
         }
 
         @Override
         public void onNoClick(View view, Object object) {
-
         }
     };
 
     private void checkDownloadFile(PlayerFileModel data) {
-        DLog.d(getLogTag(), "checkDownloadFile - file=" + data.toString());
-        File localFile = new File(StorageUtil.getMediaAbsoluteFolder(activity), FilenameUtils.getName(data.getPath()));
-        final DownloadModel downloadModel = DownloadModelQuery.getById(Voca.getRealm(), FilenameUtils.getName(data.getPath()));
-        downloadFile(data);
-    }
-
-    private void downloadFile(Object data) {
-        final PlayerFileModel file = (PlayerFileModel) data;
-        final DownloadModel checkSameModel = DownloadModelQuery.getById(Voca.getRealm(), file.getPath());
-        // set currentSize is 0 when downloadModel is exist and isOverwrite is true
-        if (checkSameModel != null) {
-            if (!checkSameModel.isCompleted()) {
-                checkSameModel.setStatus(Constant.PLAYER.SERVER.DOWNLOAD.STATUS.WAIT);
-                DownloadModelQuery.update(Voca.getRealm(), checkSameModel);
-                activity.addDownload(checkSameModel);
-            }
-            return;
-        }
-        final DownloadModel model = new DownloadModel();
-        model.setId(file.getPath());
-        model.setName(file.getName());
-        model.setPath(file.getPath());
-        model.setIdServer(serverModel.getId());
-        model.setSize(file.getSize());
-        DownloadModelQuery.add(Voca.getRealm(), model);
-        activity.addDownload(model);
-        ToastUtil.getInstance(activity).show(R.string.download_file_started);
+        ToastUtil.getInstance(activity).show(R.string.msg_download_not_supported);
     }
 
     private List<PlayerFileModel> loadData(int searchType, Object data) {

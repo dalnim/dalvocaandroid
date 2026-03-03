@@ -29,7 +29,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import com.dalread.R;
 import com.dalread.base.BasePlayerFragment;
-import com.dalread.database.VideoModelQuery;
 import com.dalread.database.sqlite.MultiPlayerDatabase;
 import com.dalread.database.sqlite.model.MultiPlayerVideoAbRepeatModel;
 import com.dalread.database.sqlite.model.MultiPlayerVideoModel;
@@ -62,7 +61,9 @@ import com.dalread.util.TimeUtil;
 import com.dalread.util.ToastUtil;
 import com.dalread.util.Utils;
 import com.dalread.util.ViewAnimatorUtil;
-import com.dalread.util.Voca;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.PlaybackParameters;
@@ -202,7 +203,9 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         this.duplicatedFragment = value;
     }
     private void loadAbRepeatModels() {
-        abRepeatModelList = multiPlayerDatabase.getRecordsInDicPlayerScreenAbRepeatTblByFilePath(model.getFILE_PATH());
+        abRepeatModelList = multiPlayerDatabase.getAbRepeatListFromJson(
+                model.getFILE_PATH(),
+                model.getAb_loop_json() != null ? model.getAb_loop_json() : "");
         abRepeatModelList.removeIf(item -> item.getAB_A() == item.getAB_B());
         SortUtil.sortAbRepeatByAbA(abRepeatModelList);
     }
@@ -296,11 +299,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                     modelLocal.setSCREEN_ID(screenId);
                     modelLocal.setFILE_PATH(playerFileModel.getPath());
                     setModel(activity.restoreHistoryModel(playerFileModel.getPath(), modelLocal));
-                    updateOrInsertFilePathInTable();
+                    openVideoOnScreenInDb();
                     initExoPlayer();
                     setPinScreen(true);
                     updateVideoFilePathIndex();
-                    activity.playAllVideos();
+                    activity.pauseAllVideos();
                 } else if (data.hasExtra(Constant.BUNDLE.KEY_SELECTED_VIDEO_FILES)) {
                     //선택된 비디오가 여러개이면, DB에 순차적으로 저장해둔 다암 activity에서 다시 비디오들을 로드해준다.
                     List<PlayerFileModel> selectedVideosFromIntent = data.getParcelableArrayListExtra(Constant.BUNDLE.KEY_SELECTED_VIDEO_FILES);
@@ -312,8 +315,9 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
     }
 
-    public void updateOrInsertFilePathInTable() {
-        multiPlayerDatabase.updateOrInsertInTable(model);
+    /** 이 스크린에 비디오 열기 시 DB 반영 (current_screens + video_meta 없으면 insert) */
+    public void openVideoOnScreenInDb() {
+        multiPlayerDatabase.openVideoOnScreen(model);
     }
 
 //    private void duplicateAllScreens() {
@@ -326,24 +330,24 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
 //    }
 
     private void updateABRepeatInDb() {
-        multiPlayerDatabase.updateABRepeat(model);
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.updateABRepeat(model, loadedLayoutId);
     }
 
     private void deleteAllABRepeatInAbRepeatTblByFilePath() {
         abRepeatModelList.clear();
-        multiPlayerDatabase.deleteAllABRepeatInAbRepeatTblByFilePath(model.getFILE_PATH());
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.deleteAllABRepeatInAbRepeatTblByFilePath(model.getFILE_PATH(), model.getSCREEN_ID(), loadedLayoutId);
     }
 
     private void updateVolume() {
-        multiPlayerDatabase.updateVolume(model);
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.updateScreenVolumeOnly(getScreenId(), model.getFILE_PATH(), model.getVOLUME(), loadedLayoutId);
     }
 
-    //비디오를 닫으면 DIC_PLAYER_SCREEN은 내용을 초기화 해준다. 안그러면 다른 비디오를 열었는데 현재 비디오의 AB반복등이 사용될수 있다.
-    //DIC_PLAYER_SCREEN_BACKUP는 SCREEN_ID를 사용하지 않고 filePath를 사용하는데, filePath가 없으므로 BACKUP테이블은 상관없다.
+    // 비디오를 닫으면 current_screens 해당 스크린을 초기화. 그래야 다른 비디오를 열었을 때 이전 AB반복 등이 적용되지 않음.
     private void clearDBByScreenId() {
-        MultiPlayerVideoModel multiPlayerVideoModel = new MultiPlayerVideoModel();
-        multiPlayerVideoModel.setSCREEN_ID(model.getSCREEN_ID());
-        multiPlayerDatabase.updateOrInsertInTable(multiPlayerVideoModel);
+        multiPlayerDatabase.deleteCurrentScreen(model.getSCREEN_ID());
     }
 
     private void initOnClickListener() {
@@ -639,7 +643,6 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     private void deleteRelatedVideoFile() {
-        VideoModelQuery.deleteByPath(Voca.getRealm(), model.getFILE_PATH());
         activity.dbHelper.handleFileDelete(model.getFILE_PATH());
         activity.playlistHelper.deleteSelectedItemFromAllPlaylists(model.getFILE_PATH());
         handler.post(() -> closeVideo(true));
@@ -676,6 +679,10 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         isFirstInitExoplayer = true;
         show4Buttons(false);
         playerVolume = model.getVOLUME() < 0 ? 1.f : model.getVOLUME() / 100.f;
+        speedAudio = model.getSpeed();
+        if (exoPlayer != null) {
+            exoPlayer.setPlaybackParameters(new PlaybackParameters(speedAudio));
+        }
         if (isScreenMuted) {
             muteVolume(false);
         } else {
@@ -712,6 +719,8 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         MediaItem mediaItem = MediaItem.fromUri(uri);
         exoPlayer.setMediaItem(mediaItem);
         exoPlayer.prepare();
+        speedAudio = model.getSpeed();
+        exoPlayer.setPlaybackParameters(new PlaybackParameters(speedAudio));
         setPlayWhenReady(playWhenReady);
         if (hasSavedAbRepeatTime()) {
             seekToInPlayer(model.getLAST_TIME());
@@ -798,8 +807,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
         binding.playerView.getVideoSurfaceView().setRotation(rotateVideo);
         model.setROTATE(rotateVideo);
-        updateOrInsertFilePathInTable();
+        int screenId = getScreenId();
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.updateScreenRotateOnly(screenId, model.getFILE_PATH(), rotateVideo, loadedLayoutId);
     }
+
     //이건 선택한 리사이즈모드를 적용하는것
     void resizeMode(int newResizeMode) {
         switch (newResizeMode) {
@@ -826,7 +838,8 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
         binding.playerView.setResizeMode(newResizeMode);
         model.setRESIZE_MODE(newResizeMode);
-        updateOrInsertFilePathInTable();
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.updateScreenResizeModeOnly(getScreenId(), model.getFILE_PATH(), newResizeMode, loadedLayoutId);
     }
     //이건 다음 리사이즈모드를 적용하는것
     void resizeMode() {
@@ -854,7 +867,8 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
         binding.playerView.setResizeMode(currentResizeMode);
         model.setRESIZE_MODE(currentResizeMode);
-        updateOrInsertFilePathInTable();
+        int loadedLayoutId = getLoadedLayoutIdForDb();
+        multiPlayerDatabase.updateScreenResizeModeOnly(getScreenId(), model.getFILE_PATH(), currentResizeMode, loadedLayoutId);
     }
 
     void updateVolumeInExoPlayer() {
@@ -1161,7 +1175,6 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                     } else {
                         // 파일이 존재하지 않는 경우
                         ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video_not_exist_file);
-                        VideoModelQuery.deleteByPath(Voca.getRealm(), filePath);
                         activity.dbHelper.handleFileDelete(filePath);
                         activity.playlistHelper.deleteSelectedItemFromAllPlaylists(filePath);
                     }
@@ -1314,8 +1327,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         modelLocal.setSCREEN_ID(screenId);
         modelLocal.setFILE_PATH(filePath);
         setModel(activity.restoreHistoryModel(filePath, modelLocal));
-        updateOrInsertFilePathInTable();
-        loadVideoFromDB(true);
+        openVideoOnScreenInDb();
+        /* video_meta에서 읽은 model 그대로 사용. current_screens에서 다시 읽어 덮어쓰지 않음 */
+        if (model != null && !Utils.isEmpty(model.getFILE_PATH()) && FileUtil.isFileExist(model.getFILE_PATH())) {
+            initExoPlayer();
+        }
     }
 
     private final ProgressTracker.PositionListener positionListener = position -> {
@@ -1624,10 +1640,17 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     private void saveLastTimeInTable() {
-        if (exoPlayer != null) {
-            model.setLAST_TIME(exoPlayer.getCurrentPosition());
-            updateOrInsertFilePathInTable();
+        if (exoPlayer != null && !model.isFilePathEmpty()) {
+            long lastTime = exoPlayer.getCurrentPosition();
+            model.setLAST_TIME(lastTime);
+            int loadedLayoutId = getLoadedLayoutIdForDb();
+            multiPlayerDatabase.updateScreenLastTimeOnly(model.getSCREEN_ID(), model.getFILE_PATH(), lastTime, loadedLayoutId);
         }
+    }
+
+    /** 저장된 레이아웃에서 로드된 상태일 때만 양수. DB의 screens_in_stored_layout 갱신 시 사용 */
+    private int getLoadedLayoutIdForDb() {
+        return activity != null ? activity.getLoadedLayoutId() : -1;
     }
     public void handleRepeatCloseClick() {
         exitABRepeatMode();
@@ -1829,6 +1852,19 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         setVisibleBtnSaveABRepeatTime(View.GONE);
         model.setAB_A(abRepeatMinSub);
         model.setAB_B(abRepeatMaxSub);
+        // 기존 구간들 + 현재 구간을 합쳐 ab_loop_json 설정 (다중 AB 구간 유지)
+        JsonArray arr = new JsonArray();
+        for (MultiPlayerVideoAbRepeatModel m : abRepeatModelList) {
+            JsonObject o = new JsonObject();
+            o.addProperty("a", m.getAB_A());
+            o.addProperty("b", m.getAB_B());
+            arr.add(o);
+        }
+        JsonObject current = new JsonObject();
+        current.addProperty("a", abRepeatMinSub);
+        current.addProperty("b", abRepeatMaxSub);
+        arr.add(current);
+        model.setAb_loop_json(new Gson().toJson(arr));
         updateABRepeatInDb();
         loadAbRepeatModels();
     }
@@ -1932,10 +1968,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                         int totalSelected = abRepeatModelList.size();
                         int deleteCount = 0;
 
+                        int loadedLayoutId = getLoadedLayoutIdForDb();
                         for (MultiPlayerVideoAbRepeatModel model : selectedModels) {
                             handleRepeatCloseClick();
                             show4Buttons(false);
-                            boolean isDeleted = multiPlayerDatabase.deleteABRepeatInAbRepeatTblBy(model);
+                            boolean isDeleted = multiPlayerDatabase.deleteABRepeatInAbRepeatTblBy(model, getScreenId(), loadedLayoutId);
                             if (isDeleted) {
                                 deleteCount++;
                             }
@@ -1950,7 +1987,8 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                             toastMessage = activity.getString(R.string.toast_some_ab_repeat_removed, totalSelected, deleteCount);
                         }
                         ToastUtil.getInstance(activity).show(toastMessage);
-                        loadAbRepeatModels();
+                        /* DB에 반영된 최신 ab_loop_json으로 model 갱신 후 목록 표시 */
+                        setModel(multiPlayerDatabase.getMultiPlayerVideoModelById(getScreenId()));
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -2346,6 +2384,11 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
 
         exoPlayer.setPlaybackParameters(new PlaybackParameters(speedAudio));
+        model.setSpeed(speedAudio);
+        if (!model.isFilePathEmpty()) {
+            int loadedLayoutId = getLoadedLayoutIdForDb();
+            multiPlayerDatabase.updateScreenSpeedOnly(model.getSCREEN_ID(), model.getFILE_PATH(), speedAudio, loadedLayoutId);
+        }
         return String.format("%.01fx", speedAudio);
     }
     private void updateAudioSpeedValueOnButton() {

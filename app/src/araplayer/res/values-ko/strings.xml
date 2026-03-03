@@ -14,6 +14,7 @@
     <string name="msg_will_sleep_in_future_title">~분 후에 잠자기모드로 들어갑니다.</string>
     <string name="msg_cancel_now">잠자기모드로 들어갑니다.</string>
 
+    <string name="msg_download_not_supported">다운로드 기능은 지원하지 않습니다.</string>
     <string name="subtitle_files">자막 파일</string>
     <string name="select_subtitle">자막 선택</string>
     <string name="download_subtitle">자막 다운로드</string>
@@ -387,4 +388,7 @@
     <string name="dialog_title_reward_code_input">리워드 코드 입력</string>
     <string name="dialog_subtitle_reward_code_input">리워드 코드는 한달에 한번만 사용가능합니다.</string>
     <string name="export_word_list">단어장 내보내기</string>
+    <string name="menu_export_multiplayer_db">SQLite 내보내기</string>
+    <string name="export_multiplayer_db_succeeded">멀티플레이어 SQLite가 다음 위치로 내보내졌습니다:\n\n%1$s</string>
+    <string name="export_multiplayer_db_failed">멀티플레이어 SQLite를 내보내지 못했습니다.</string>
 </resources>

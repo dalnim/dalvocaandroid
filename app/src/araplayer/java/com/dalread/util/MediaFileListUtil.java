@@ -6,8 +6,12 @@ import com.dalread.base.EnumLanguage;
 import com.dalread.database.SharedPreferencesDB;
 import com.dalread.database.VideoModelQuery;
 import com.dalread.database.VideoSeasonModelQuery;
+import com.dalread.database.sqlite.MultiPlayerDatabase;
+import com.dalread.database.sqlite.model.MultiPlayerVideoModel;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.model.VideoModel;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +114,7 @@ public class MediaFileListUtil {
         return true;
     }
 
+    /** Realm 사용. (멀티플레이어 외 화면용) */
     static public List<PlayerFileModel> fetchAllVideosFromDBForMultiPlayer() {
         List<PlayerFileModel> list = new ArrayList<>();
 
@@ -130,6 +135,31 @@ public class MediaFileListUtil {
 
                     }
                 }
+            }
+        }
+        return list;
+    }
+
+    /** 멀티플레이어 전용: video_meta(SQLite)에서 비디오 목록 조회. Realm 미사용 */
+    static public List<PlayerFileModel> fetchAllVideosFromVideoMetaForMultiPlayer(Context context, MultiPlayerDatabase multiPlayerDatabase) {
+        List<PlayerFileModel> list = new ArrayList<>();
+        if (multiPlayerDatabase == null) return list;
+        List<MultiPlayerVideoModel> metaList = multiPlayerDatabase.getAllVideoMeta();
+        if (metaList == null) return list;
+        for (MultiPlayerVideoModel meta : metaList) {
+            String path = meta.getFILE_PATH();
+            if (path == null || path.isEmpty()) continue;
+            if (!StorageUtil.isFileExist(path)) continue;
+            if (FileUtil.isVideoApp() && !FileUtil.isValidVideoExtension(FilenameUtils.getName(path))) continue;
+            VideoModel v = new VideoModel(path);
+            v.setName(FilenameUtils.getName(path));
+            v.setHide(meta.getHide());
+            if (FileUtil.isVideoApp()) {
+                list.add(new PlayerFileModel(v));
+            } else {
+                PlayerFileModel playerFileModel = new PlayerFileModel(v);
+                if (FileUtil.isAudioFormat(v.getName())) playerFileModel.setMusic();
+                list.add(playerFileModel);
             }
         }
         return list;

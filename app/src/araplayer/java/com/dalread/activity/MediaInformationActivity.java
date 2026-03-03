@@ -22,7 +22,6 @@ import com.dalread.base.BasePlayerActivity;
 import com.dalread.base.EnumType;
 import com.dalread.component.Toolbar;
 import com.dalread.composition.VocaKnowActivity;
-import com.dalread.database.DownloadModelQuery;
 import com.dalread.database.VideoModelQuery;
 import com.dalread.database.VideoSeasonModelQuery;
 import com.dalread.database.sqlite.model.DicModel;
@@ -38,7 +37,6 @@ import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnDoubleClickListener;
 import com.dalread.listener.OnVocaStudyChatClickListener;
 import com.dalread.listener.OnYesNoClickListener;
-import com.dalread.model.DownloadModel;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.model.VideoInformationModel;
 import com.dalread.model.VocaStudyChat;
@@ -609,66 +607,16 @@ public class MediaInformationActivity extends BasePlayerActivity implements View
     private OnYesNoClickListener onConfirmDownloadNetwork = new OnYesNoClickListener() {
         @Override
         public void onYesClick(View view, Object object) {
-            checkDownloadFile((PlayerFileModel) object);
+            ToastUtil.getInstance(MediaInformationActivity.this).show(R.string.msg_download_not_supported);
         }
 
         @Override
         public void onNoClick(View view, Object object) {
-
         }
     };
 
     private void checkDownloadFile(PlayerFileModel data) {
-        DLog.d(getLogTag(), "checkDownloadFile - file=" + data.toString());
-        File localFile = new File(StorageUtil.getVideoPath(this), data.getPath());
-        final DownloadModel downloadModel = DownloadModelQuery.getById(Voca.getRealm(), data.getPath());
-        if (downloadModel != null || localFile.length() > 0) {
-            showDownloadWarningSameFileDialog(data);
-        } else {
-            downloadFile(data);
-        }
-    }
-
-    private void showDownloadWarningSameFileDialog(Object data) {
-        final YesNoDialog dialog = new YesNoDialog(this,
-                R.string.warning,
-                R.string.msg_download_overwrite_same_file,
-                data,
-                onDownloadWarningSameFileListener);
-        dialog.show();
-    }
-
-    private OnYesNoClickListener onDownloadWarningSameFileListener = new OnYesNoClickListener() {
-        @Override
-        public void onYesClick(View view, Object object) {
-            downloadFile(object);
-        }
-
-        @Override
-        public void onNoClick(View view, Object object) {
-        }
-    };
-
-    private void downloadFile(Object data) {
-        final PlayerFileModel file = (PlayerFileModel) data;
-        final DownloadModel checkSameModel = DownloadModelQuery.getById(Voca.getRealm(), file.getPath());
-        // set currentSize is 0 when downloadModel is exist and isOverwrite is true
-        if (checkSameModel != null) {
-            if (!checkSameModel.isCompleted()) {
-                checkSameModel.setStatus(Constant.PLAYER.SERVER.DOWNLOAD.STATUS.WAIT);
-                DownloadModelQuery.update(Voca.getRealm(), checkSameModel);
-//                addDownload(checkSameModel);
-            }
-            return;
-        }
-        final DownloadModel model = new DownloadModel();
-        model.setId(file.getPath());
-        model.setName(file.getName());
-        model.setPath(file.getPath());
-        model.setIdServer(playerFileModel.getServerModel().getId());
-        model.setSize(file.getSize());
-        DownloadModelQuery.add(Voca.getRealm(), model);
-//        addDownload(model);
+        ToastUtil.getInstance(this).show(R.string.msg_download_not_supported);
     }
 
     private Object parserSubtitleFile(int type) {

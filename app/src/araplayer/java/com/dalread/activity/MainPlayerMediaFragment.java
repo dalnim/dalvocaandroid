@@ -26,7 +26,6 @@ import com.dalread.R;
 import com.dalread.adapter.DalPlayerAdapter;
 import com.dalread.base.BaseMainPlayerFragment;
 import com.dalread.component.CenterLayoutManager;
-import com.dalread.database.DownloadModelQuery;
 import com.dalread.database.SubModelQuery;
 import com.dalread.database.VideoModelQuery;
 import com.dalread.database.VideoSeasonModelQuery;
@@ -43,7 +42,6 @@ import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnLongClickListener;
 import com.dalread.listener.OnScrollListener;
 import com.dalread.listener.OnYesNoClickListener;
-import com.dalread.model.DownloadModel;
 import com.dalread.model.PlayerFileModel;
 import com.dalread.model.PlaylistModel;
 import com.dalread.model.ServerModel;
@@ -193,7 +191,8 @@ public class MainPlayerMediaFragment extends BaseMainPlayerFragment implements V
 
         deleteSameFileNameIntentSenderLauncher = registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(), result -> {
             if (result.getResultCode() == Activity.RESULT_OK && downloadedFile != null) {
-                downloadFile(downloadedFile);
+                ToastUtil.getInstance(activity).show(R.string.msg_download_not_supported);
+                downloadedFile = null;
             }
         });
 
@@ -1200,64 +1199,7 @@ public class MainPlayerMediaFragment extends BaseMainPlayerFragment implements V
     };
 
     private void checkDownloadFile(PlayerFileModel data) {
-        DLog.d(getLogTag(), "checkDownloadFile - file=" + data.toString());
-        downloadedFile = data;
-        File localFile = new File(StorageUtil.getMediaAbsoluteFolder(activity), FilenameUtils.getName(data.getPath()));
-        final DownloadModel downloadModel = DownloadModelQuery.getById(Voca.getRealm(), FilenameUtils.getName(data.getPath()));
-        if (downloadModel != null || localFile.exists() || localFile.length() > 0) {
-            showDownloadWarningSameFileDialog(data);
-        } else {
-            downloadFile(data);
-        }
-    }
-
-    private void showDownloadWarningSameFileDialog(Object data) {
-        final YesNoDialog dialog = new YesNoDialog(activity,
-                R.string.warning,
-                R.string.msg_download_overwrite_same_file,
-                data,
-                onDownloadWarningSameFileListener);
-        dialog.show();
-    }
-
-    private OnYesNoClickListener onDownloadWarningSameFileListener = new OnYesNoClickListener() {
-        @Override
-        public void onYesClick(View view, Object object) {
-            PlayerFileModel playerFile = (PlayerFileModel) object;
-            File localFile = new File(StorageUtil.getMediaAbsoluteFolder(activity), FilenameUtils.getName(playerFile.getPath()));
-            boolean isDeleted = StorageUtil.removeVideoFile(activity, localFile.getAbsolutePath(), deleteSameFileNameIntentSenderLauncher);
-            if (isDeleted) {
-                downloadFile(object);
-            }
-        }
-
-        @Override
-        public void onNoClick(View view, Object object) {
-        }
-    };
-
-    private void downloadFile(Object data) {
-        final PlayerFileModel file = (PlayerFileModel) data;
-        final DownloadModel checkSameModel = DownloadModelQuery.getById(Voca.getRealm(), file.getPath());
-        // set currentSize is 0 when downloadModel is exist and isOverwrite is true
-        if (checkSameModel != null) {
-            if (!checkSameModel.isCompleted()) {
-                checkSameModel.setStatus(Constant.PLAYER.SERVER.DOWNLOAD.STATUS.WAIT);
-                DownloadModelQuery.update(Voca.getRealm(), checkSameModel);
-                activity.addDownload(checkSameModel);
-            }
-            return;
-        }
-        final DownloadModel model = new DownloadModel();
-        model.setId(file.getPath());
-        model.setName(file.getName());
-        model.setPath(file.getPath());
-        model.setIdServer(serverModel.getId());
-        model.setSize(file.getSize());
-        DownloadModelQuery.add(Voca.getRealm(), model);
-        activity.addDownload(model);
-        ToastUtil.getInstance(activity).show(R.string.download_file_started);
-        downloadedFile = null;
+        ToastUtil.getInstance(activity).show(R.string.msg_download_not_supported);
     }
 
     private void copyDataToSdCard() {

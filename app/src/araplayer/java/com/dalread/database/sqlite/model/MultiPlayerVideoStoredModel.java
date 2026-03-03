@@ -81,6 +81,8 @@ public class MultiPlayerVideoStoredModel extends MultiPlayerVideoModel {
         this.setUSE_AB(baseModel.getUSE_AB());
         this.setVOLUME(baseModel.getVOLUME());
         this.setRESIZE_MODE(baseModel.getRESIZE_MODE());
+        this.setAb_loop_json(baseModel.getAb_loop_json());
+        this.setSpeed(baseModel.getSpeed());
         this.setSTORED_ID(storedId);
         this.setLAYOUT_NAME(name);
         this.setBOOKMARK(bookmark);

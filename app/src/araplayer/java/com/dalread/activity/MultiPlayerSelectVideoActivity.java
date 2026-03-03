@@ -23,8 +23,8 @@ import com.dalread.asyntask.CustomAsyncTask;
 import com.dalread.asyntask.OnAsyncTaskListener;
 import com.dalread.base.BaseActivity;
 import com.dalread.component.Toolbar;
-import com.dalread.database.VideoModelQuery;
 import com.dalread.database.sqlite.MultiPlayerDatabase;
+import com.dalread.database.sqlite.model.MultiPlayerVideoModel;
 import com.dalread.databinding.ActivityMulitPlayerSelectVideoBinding;
 import com.dalread.dialog.AraMultiChoiceDialog;
 import com.dalread.dialog.MultiPlayerShowSortDialog;
@@ -57,7 +57,8 @@ import com.dalread.util.MediaListUtil;
 import com.dalread.util.PlaylistBackupHelper;
 import com.dalread.util.StorageUtil;
 import com.dalread.util.ToastUtil;
-import com.dalread.util.Voca;
+
+import org.apache.commons.io.FilenameUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -831,8 +832,6 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         return isSmallGroupVideoListLoaded_StudyLanguageVideoFolder;
     }
     private void callRefreshMethod() {
-        VideoModelQuery.updateAllNewFileToFalse(Voca.getRealm());
-        VideoModelQuery.updateAllByTrashToTrue(Voca.getRealm());
         previousSelectedFileName = "";
         callAsyncTask(this, null, TYPE_INIT_DATA, true);
     }
@@ -840,15 +839,25 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     private List<PlayerFileModel> loadData(boolean isLoadAgain) {
         List<PlayerFileModel> list = new ArrayList<>();
         if (isLoadAgain) {
-            list.addAll(MediaFileListUtil.addAllVideosFromRootFolder(this,true, false, Constant.AppMediaType.VIDEO));
+            list.addAll(MediaFileListUtil.addAllVideosFromRootFolder(this, true, false, Constant.AppMediaType.VIDEO));
+            for (PlayerFileModel f : list) {
+                if (f.getPath() != null && !f.getPath().isEmpty()) {
+                    MultiPlayerVideoModel m = new MultiPlayerVideoModel();
+                    m.setFILE_PATH(f.getPath());
+                    if (multiPlayerDatabase.existsVideoMeta(f.getPath())) {
+                        multiPlayerDatabase.updateVideoMeta(m);
+                    } else {
+                        multiPlayerDatabase.insertVideoMeta(m);
+                    }
+                }
+            }
         } else {
-//            list.addAll(MediaFileListUtil.fetchAllVideosFromDBForMultiPlayer());
-            List<PlayerFileModel> listFromDb = MediaFileListUtil.fetchAllVideosFromDBForMultiPlayer();
+            List<PlayerFileModel> listFromDb = MediaFileListUtil.fetchAllVideosFromVideoMetaForMultiPlayer(this, multiPlayerDatabase);
             for (PlayerFileModel model : listFromDb) {
                 if (StorageUtil.isFileExist(model.getPath())) {
                     list.add(model);
                 } else {
-                    VideoModelQuery.deleteByPath(Voca.getRealm(), model.getPath());
+                    dbHelper.handleFileDelete(model.getPath());
                 }
             }
         }
@@ -856,7 +865,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         playlistHelper.refreshFilePathsInPlaylist();
         multiPlayerDatabase.refreshFilePathsInTables();
 
-        return sortFilesAndAddLangFolder(list); //StorageUtil.sortFiles(list, sharedPreferences.getPlayerFileSort());
+        return sortFilesAndAddLangFolder(list);
     }
 
     private List<PlayerFileModel> sortFiles(List<PlayerFileModel> list) {
@@ -924,8 +933,12 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         currentFilesList.remove(file);
         updateVideoModel(file.getVideoModel());
     }
+    /** 멀티플레이어: video_meta(SQLite)에 숨김 상태만 갱신 */
     public void updateVideoModel(VideoModel videoModel) {
-        VideoModelQuery.update(Voca.getRealm(), videoModel);
+        if (videoModel != null && multiPlayerDatabase != null) {
+            int hide = videoModel.isHide() ? Constant.INT_BOOLEAN.TRUE : Constant.INT_BOOLEAN.FASLE;
+            multiPlayerDatabase.updateVideoMetaHide(videoModel.getPath(), hide);
+        }
     }
 
     @Override
@@ -1026,14 +1039,12 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         ToastUtil.getInstance(this).show(isToHidden ? R.string.toast_converted_to_hidden_files : R.string.toast_converted_to_normal_files);
     }
     private void renameRelatedVideoFile(PlayerFileModel file, String oldFilePath) {
-        VideoModelQuery.updateByPath(Voca.getRealm(), oldFilePath, file.getPath());
-        VideoModel videoModel = VideoModelQuery.getByPath(Voca.getRealm(), file.getPath());
-        if (videoModel != null) {
-            updateVideoModel(videoModel);
-            file.setVideoModel(videoModel);
-            file.setName(videoModel.getName());
-        }
         dbHelper.handleFilePathRename(oldFilePath, file.getPath());
+        VideoModel videoModel = new VideoModel(file.getPath());
+        videoModel.setName(FilenameUtils.getName(file.getPath()));
+        videoModel.setHide(file.getVideoModel().getHide());
+        file.setVideoModel(videoModel);
+        file.setName(videoModel.getName());
     }
     private void showDialogConfirmDeleteSelectedVideos(List<PlayerFileModel> data) {
         deletedFilePos = 0;
@@ -1052,7 +1063,6 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     }
 
     private void deleteRelatedVideoFile(PlayerFileModel file, boolean notifyItem) {
-        VideoModelQuery.deleteByPath(Voca.getRealm(), file.getPath());
         dbHelper.handleFileDelete(file.getPath());
         boolean deletedInPlaylist = playlistHelper.deleteSelectedItemFromAllPlaylists(file.getPath());
         if (deletedInPlaylist && isShowingPlaylistVideos) {

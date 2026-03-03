@@ -166,21 +166,21 @@ public class MultiPlayerStoredVideosActivity extends BaseActivity implements OnA
             callAsyncTask(MultiPlayerStoredVideosActivity.this, storedIds, TYPE_DELETE_SELECTED_ITEMS);
         }
     }
-    //저장된 비디오 레이아웃을 로드할때 DIC_PLAYER_SCREEN는 지우고 다시 채운다.
+    // 저장된 레이아웃 로드 시 current_screens를 비운 뒤 screens_in_stored_layout 내용으로 채움.
     private void loadStoredLayout(Object object) {
         ArrayList<MultiPlayerVideoStoredModel> list = (ArrayList<MultiPlayerVideoStoredModel>) object;
         if (list.isEmpty()) {
             return;
         }
         multiPlayerDatabase.deleteMultiScreenAllRecords();
-        multiPlayerDatabase.deleteAllRecordsInDicPlayerVideoListInScreen();
         for(MultiPlayerVideoStoredModel storedModel : list) {
             MultiPlayerVideoModel model = new MultiPlayerVideoModel();
             model.initializeFromStoredModel(storedModel);
-            multiPlayerDatabase.updateOrInsertInTable(model);
+            multiPlayerDatabase.insertOrUpdateCurrentScreenOnly(model);
         }
 
         Intent intent = new Intent();
+        intent.putExtra(Constant.BUNDLE.KEY_MULTI_PLAYER_SCREEN_STORED_LAYOUT_ID, list.get(0).getSTORED_ID());
         intent.putExtra(Constant.BUNDLE.KEY_MULTI_PLAYER_SCREEN_STORED_LAYOUT_ROTATE_LAYOUT, list.get(0).getROTATE_LAYOUT());
         setResult(RESULT_OK, intent);
         finish();
@@ -326,7 +326,7 @@ public class MultiPlayerStoredVideosActivity extends BaseActivity implements OnA
             storedModel.initializeFromBaseModel(model, -1, layoutName, 0, sharedPreferences.getMultiPlayerScreenOrientation());
             storedModelList.add(storedModel);
         }
-        int result = multiPlayerDatabase.updateOrInsertInTable(storedModelList);
+        int result = multiPlayerDatabase.saveStoredLayout(storedModelList);
         switch (result) {
             case MultiPlayerDatabase.STORED_SCREEN_REPLACED:
                 ToastUtil.getInstance(this).show(R.string.toast_current_videos_replaced);

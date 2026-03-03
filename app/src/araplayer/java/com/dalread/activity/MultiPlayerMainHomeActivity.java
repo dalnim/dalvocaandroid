@@ -35,6 +35,7 @@ import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.AraThemeUtil;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
+import com.dalread.util.MultiPlayerSqliteExportHelper;
 import com.dalread.util.OtherAppsInfo;
 import com.dalread.util.PermissionUtils;
 import com.dalread.util.RealmUtil;
@@ -220,6 +221,9 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
                 case Constant.NAVIGATION.BACKUP:
                     RealmUtil.onBackupRealmDB(this);
                     break;
+                case Constant.NAVIGATION.EXPORT_MULTIPLAYER_DB:
+                    exportMultiPlayerDatabase();
+                    break;
                 case Constant.NAVIGATION.IN_APP_PURCHASE:
                     this.startActivity(new Intent(this, InAppPointListActivity.class));
                     break;
@@ -245,6 +249,7 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.SHARE_APP, R.drawable.ic_share_app, getString(R.string.menu_share_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.RATE_APP, R.drawable.ic_rate_star, getString(R.string.menu_rate_app)));
         leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.IN_APP_PURCHASE, R.drawable.ic_download_2, getString(R.string.left_navi_items_in_app_purchase)));
+        leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.EXPORT_MULTIPLAYER_DB, R.drawable.ic_download_2, getString(R.string.menu_export_multiplayer_db)));
         if (UserUtil.isDebugOrAdminUser(this)) {
             currentBaseUrlPos = sharedPreferences.getBaseUrlIndex();
             leftNavigationItems.add(new MenuModel(Constant.NAVIGATION.BACKUP, 0, getString(R.string.backup_realm_db)));
@@ -295,6 +300,10 @@ public class MultiPlayerMainHomeActivity extends BaseActivity implements OnNavig
 
     private boolean isOpenDrawer() {
         return binding.drawerLayout.isDrawerOpen(GravityCompat.START);
+    }
+
+    private void exportMultiPlayerDatabase() {
+        MultiPlayerSqliteExportHelper.exportToDownloads(this);
     }
 
     private void showExternalManageStoragePermissionDialog() {

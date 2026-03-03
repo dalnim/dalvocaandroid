@@ -60,6 +60,7 @@ import com.dalread.util.DoubleBackPressHandler;
 import com.dalread.util.GuideUtil;
 import com.dalread.util.Loading;
 import com.dalread.util.MediaFileListUtil;
+import com.dalread.util.MultiPlayerSqliteExportHelper;
 import com.dalread.util.PlayerFileModelUtil;
 import com.dalread.util.PlaylistBackupHelper;
 import com.dalread.util.ToastUtil;
@@ -107,6 +108,13 @@ public class MultiplePlayerActivity extends BaseActivity {
     protected List<String> listAllRandomFilePath = new ArrayList<>();
     private boolean isAutoRandomPlay = false;
     private boolean isFirstToastForAllVideosMuted = true;
+    /** 저장된 레이아웃에서 로드된 상태일 때만 양수. AB/재생위치 저장 시 screens_in_stored_layout 갱신에 사용 */
+    private int loadedLayoutId = -1;
+
+    public int getLoadedLayoutId() {
+        return loadedLayoutId;
+    }
+
     @Override
     protected View getContentView() {
         binding = ActivityMultiplePlayerBinding.inflate(getLayoutInflater());
@@ -219,15 +227,15 @@ public class MultiplePlayerActivity extends BaseActivity {
                 fragmentIndex++;
             }
         }
-        //자동 실행을 하면 전제 플레이 아이콘이 정지가 아니고 플레이 아이콘으로 보여서 1초 뒤에 한다.
+        // 비디오 선택 후 복귀 시 멈춘 상태 유지 (자동 재생하지 않음)
         new Handler().postDelayed(() -> {
-            playAllVideos();
-            refeshAllIconsForcedPlay();
+            pauseAllVideos();
+            refreshAllSpeakerIcon();
         }, 1000);
     }
 
     public void updateVideosAllFragmentsByStoredLayout(int rotateLayout) {
-        List<MultiPlayerVideoModel> list = multiPlayerDatabase.getAllRecordsInDicPlayerScreenTbl();
+        List<MultiPlayerVideoModel> list = multiPlayerDatabase.getCurrentScreenModels();
         if (list.isEmpty()) {
             return;
         }
@@ -422,7 +430,7 @@ public class MultiplePlayerActivity extends BaseActivity {
                 onAllSpeaker();
                 break;
             case R.id.ibRandomPlay:
-                List<PlayerFileModel> fileListTotal = MediaFileListUtil.fetchAllVideosFromDBForMultiPlayer();
+                List<PlayerFileModel> fileListTotal = MediaFileListUtil.fetchAllVideosFromVideoMetaForMultiPlayer(this, multiPlayerDatabase);
                 if (playlistHelper.isRandomPlayPossible(fileListTotal)) {
                     pauseAllVideos();
                     getFixedScreenIdList();
@@ -528,6 +536,9 @@ public class MultiplePlayerActivity extends BaseActivity {
                         break;
                     case R.id.llScreenStoreLayout:
                         handleScreenStoredLayout();
+                        break;
+                    case R.id.llExportSqlite:
+                        MultiPlayerSqliteExportHelper.exportToDownloads(MultiplePlayerActivity.this);
                         break;
                 }
             }
@@ -643,9 +654,9 @@ public class MultiplePlayerActivity extends BaseActivity {
                     if (result.getResultCode() == RESULT_OK) {
                         Intent data = result.getData();
                         if (data != null) {
+                            loadedLayoutId = data.getIntExtra(Constant.BUNDLE.KEY_MULTI_PLAYER_SCREEN_STORED_LAYOUT_ID, -1);
                             if (data.hasExtra(Constant.BUNDLE.KEY_MULTI_PLAYER_SCREEN_STORED_LAYOUT_ROTATE_LAYOUT)) {
                                 int rotateLayout = data.getIntExtra(Constant.BUNDLE.KEY_MULTI_PLAYER_SCREEN_STORED_LAYOUT_ROTATE_LAYOUT, -1);
-                                //id는 쓰지 않는다. 이미 DIC_PLAYER_SCREEN를 기존껄 지우고 저장된걸로 다시 채웠기 때문에.
                                 updateVideosAllFragmentsByStoredLayout(rotateLayout);
                             }
                         }
@@ -795,7 +806,7 @@ public class MultiplePlayerActivity extends BaseActivity {
                                     duplicatedFragments.add(fragment);
                                     MultiPlayerVideoModel modelTemp = model.clone();
                                     modelTemp.setSCREEN_ID(fragment.getModel().getSCREEN_ID());
-                                    multiPlayerDatabase.updateOrInsertInTable(modelTemp);
+                                    multiPlayerDatabase.insertOrUpdateCurrentScreenOnly(modelTemp);
                                     fragment.setDuplicatedFragment(true);
                                     fragment.setModel(modelTemp);
                                     fragment.setCurrentVideoFilePathList(currentVideoFilePathList);
@@ -1110,11 +1121,13 @@ public class MultiplePlayerActivity extends BaseActivity {
         if (modelOld.getFILE_PATH().contains(filePath)) {
             modelNew.setAB_A(modelOld.getAB_A());
             modelNew.setAB_B(modelOld.getAB_B());
+            modelNew.setAb_loop_json(modelOld.getAb_loop_json());
             modelNew.setUSE_AB(modelOld.getUSE_AB());
             modelNew.setLAST_TIME(modelOld.getLAST_TIME());
             modelNew.setVOLUME(modelOld.getVOLUME());
             modelNew.setROTATE(modelOld.getROTATE());
             modelNew.setRESIZE_MODE(modelOld.getRESIZE_MODE());
+            modelNew.setSpeed(modelOld.getSpeed());
         }
         return modelNew;
     }

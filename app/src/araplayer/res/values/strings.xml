@@ -33,6 +33,7 @@
 
     <string name="show_subtitle_file_list">Show subtitle file list</string>
 
+    <string name="msg_download_not_supported">Download is not supported.</string>
     <string name="video_file_name">Video file name</string>
     <string name="video_file_name_description">File name with middle truncate with full path</string>
     <string name="subtitle_file_name">Subtitle file name</string>
@@ -399,4 +400,7 @@
     <string name="dialog_title_reward_code_input">Enter Reward Code</string>
     <string name="dialog_subtitle_reward_code_input">Reward codes can only be used once per month.</string>
     <string name="export_word_list">Export word list</string>
+    <string name="menu_export_multiplayer_db">Export SQLite</string>
+    <string name="export_multiplayer_db_succeeded">MultiPlayer SQLite exported to:\n\n%1$s</string>
+    <string name="export_multiplayer_db_failed">Failed to export MultiPlayer SQLite.</string>
 </resources>

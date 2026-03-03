@@ -15,6 +15,12 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
     protected int USE_AB; // Use AB or not
     protected int VOLUME = -1; // 0~100, -1 Not use
     protected int RESIZE_MODE; // 화면을 Fit,
+    /** Mac 스키마: AB 구간 다중 저장용 JSON. 단일 구간이면 AB_A/AB_B와 동기화 */
+    protected String ab_loop_json = "";
+    /** Mac 스키마: 재생속도 (1.0 = 정상) */
+    protected float speed = 1.0f;
+    /** 멀티플레이어 비디오 목록에서 숨김 여부 (0=표시, 1=숨김) */
+    protected int hide = 0;
 
     public MultiPlayerVideoModel() {
         this.FILE_PATH = "";
@@ -100,6 +106,30 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
         this.RESIZE_MODE = RESIZE_MODE;
     }
 
+    public String getAb_loop_json() {
+        return ab_loop_json == null ? "" : ab_loop_json;
+    }
+
+    public void setAb_loop_json(String ab_loop_json) {
+        this.ab_loop_json = ab_loop_json == null ? "" : ab_loop_json;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public int getHide() {
+        return hide;
+    }
+
+    public void setHide(int hide) {
+        this.hide = hide;
+    }
+
     @Override
     public MultiPlayerVideoModel clone() {
         try {
@@ -120,6 +150,9 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
         USE_AB = in.readInt();
         VOLUME = in.readInt();
         RESIZE_MODE = in.readInt();
+        ab_loop_json = in.readString();
+        speed = in.readFloat();
+        hide = in.readInt();
     }
 
     @Override
@@ -133,6 +166,9 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
         dest.writeInt(USE_AB);
         dest.writeInt(VOLUME);
         dest.writeInt(RESIZE_MODE);
+        dest.writeString(ab_loop_json);
+        dest.writeFloat(speed);
+        dest.writeInt(hide);
     }
 
     @Override
@@ -161,6 +197,8 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
         this.USE_AB = 0;
         this.VOLUME = -1;
         this.RESIZE_MODE = 0;
+        this.ab_loop_json = "";
+        this.speed = 1.0f;
     }
     public void initializeFromStoredModel(MultiPlayerVideoStoredModel storedModel) {
         if (storedModel != null) {
@@ -173,6 +211,8 @@ public class MultiPlayerVideoModel implements Cloneable, Parcelable {
             this.USE_AB = storedModel.getUSE_AB();
             this.VOLUME = storedModel.getVOLUME();
             this.RESIZE_MODE = storedModel.getRESIZE_MODE();
+            this.setAb_loop_json(storedModel.getAb_loop_json());
+            this.setSpeed(storedModel.getSpeed());
         }
     }
 }

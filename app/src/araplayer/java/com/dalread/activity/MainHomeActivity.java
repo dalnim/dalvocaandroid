@@ -1,10 +1,8 @@
 package com.dalread.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -23,7 +21,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,14 +39,12 @@ import com.dalread.base.EnumWebDictionary;
 import com.dalread.base.OnNavigationItemClickListener;
 import com.dalread.component.Toolbar;
 import com.dalread.composition.BaseMainHome;
-import com.dalread.database.DownloadModelQuery;
 import com.dalread.database.ListenComprehensionQuery;
 import com.dalread.database.PlaylistModelQuery;
 import com.dalread.database.ServerModelQuery;
 import com.dalread.database.WebDictionaryQuery;
 import com.dalread.databinding.ActivityMainPlayerBinding;
 import com.dalread.dialog.ConfirmationDialog;
-import com.dalread.dialog.PlayerDownloadClearDialog;
 import com.dalread.dialog.PlayerShowSortDialog;
 import com.dalread.dialog.PlayerShowSortMenuDialog;
 import com.dalread.dialog.SingleChoiceDialog;
@@ -60,7 +55,6 @@ import com.dalread.helper.AraPlayerBillingClientHelper;
 import com.dalread.helper.BillingClientHelper;
 import com.dalread.listener.OnClickDialogListener;
 import com.dalread.listener.OnYesNoClickListener;
-import com.dalread.model.DownloadModel;
 import com.dalread.model.MenuModel;
 import com.dalread.model.PlaylistModel;
 import com.dalread.model.ServerModel;
@@ -68,7 +62,6 @@ import com.dalread.network.GetMainDataHelper;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.ErrorEvent;
 import com.dalread.network.events.SuccessEvent;
-import com.dalread.service.DownloadingService;
 import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.Constant;
 import com.dalread.util.DLog;
@@ -114,7 +107,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     private GetMainDataHelper dataHelper;
     public int currentBottomNavigationId;
     private Stack<String> titles = new Stack<>();
-    private boolean mReceiversRegistered;
     private String searchValue;
     private boolean isSmallGroupVideoListLoaded; // isSmallGroupVideoListLoaded_Season or isSmallGroupVideoListLoaded_StudyLanguageVideoFolder
     private boolean isSmallGroupVideoListLoaded_Season; //When Season List is displaying.
@@ -211,11 +203,7 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
                 showSortDialog();
                 break;
             case R.id.nav_network:
-                if (binding.header.getTitle().equals(getString(R.string.download_status))) {
-                    showDownloadClearDialog();
-//                } else {
-//                    showSortDialog();
-                }
+                showSortDialog();
                 break;
 //            case R.id.nav_download:
 //                showDownloadClearDialog();
@@ -237,7 +225,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
         initLeftNavigation();
         checkShowLogin();
         initBottomNavigation();
-        registerReceiver();
         initData();
         hideNavMenusAtRelease();
         hideUnusedMediaNavMenus();
@@ -360,7 +347,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver();
         playTTS.destroyPlayVocaHelper(); //destroyPlayVocaHelper();
     }
 
@@ -912,18 +898,9 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
         Utils.loadFragment(this, fragment, getFragmentContainerId(), false);
     }
 
+    /** 다운로드 탭 폐기: 진입 시 미지원 안내만 표시 */
     public void openMainNetworkDownloadFragment(ServerModel serverModel) {
-        DLog.d(getLogTag(), "openMainPlayerDownloadFragment");
-        binding.header.setIconLeft(R.drawable.ic_back);
-        binding.header.getIconRight().setVisibility(View.GONE);
-        binding.header.getIconRight2().setVisibility(View.GONE);
-        binding.header.setTextRight(R.string.clear);
-        binding.header.getTvRight().setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
-        binding.header.hideSearchView();
-        setTitle(serverModel.getTitle());
-        binding.header.showTitle();
-        Fragment fragment = new MainPlayerDownloadFragment();
-        Utils.loadFragment(this, fragment, getFragmentContainerId());
+        ToastUtil.getInstance(this).show(R.string.msg_download_not_supported);
     }
 
 //    private void createDalPlayerFolder() {
@@ -1272,111 +1249,6 @@ public class MainHomeActivity extends BasePlayerActivity implements OnNavigation
     public void setTitle(String msg) {
         titles.push(binding.header.getTitle());
         binding.header.setTitle(msg);
-    }
-
-    public void addDownload(DownloadModel model) {
-        model.setServerModel(ServerModelQuery.getById(Voca.getRealm(), model.getIdServer()));
-        DLog.d(getLogTag(), "addDownload - model=" + model.toString());
-        Intent intent = new Intent(this, DownloadingService.class);
-        intent.putExtra(DownloadingService.FILE, model);
-        startService(intent);
-    }
-
-    public void cancelDownload(DownloadModel model) {
-        DLog.d(getLogTag(), "cancelDownload - model=" + model.toString());
-        Intent i = new Intent();
-        i.setAction(DownloadingService.ACTION_CANCEL_DOWNLOAD);
-        i.putExtra(DownloadingService.ID, model.getId());
-        LocalBroadcastManager.getInstance(this).sendBroadcast(i);
-    }
-
-    private void registerReceiver() {
-        unregisterReceiver();
-        IntentFilter intentToReceiveFilter = new IntentFilter();
-        intentToReceiveFilter
-                .addAction(DownloadingService.PROGRESS_UPDATE_ACTION);
-        intentToReceiveFilter
-                .addAction(DownloadingService.PROGRESS_COMPLETED_ACTION);
-        intentToReceiveFilter
-                .addAction(DownloadingService.PROGRESS_UPDATE_DATA_ACTION);
-        LocalBroadcastManager.getInstance(this).registerReceiver(
-                mDownloadingProgressReceiver, intentToReceiveFilter);
-        mReceiversRegistered = true;
-    }
-
-    private void unregisterReceiver() {
-        if (mReceiversRegistered) {
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(
-                    mDownloadingProgressReceiver);
-            mReceiversRegistered = false;
-        }
-    }
-
-    private final BroadcastReceiver mDownloadingProgressReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final DownloadModel file = intent.getParcelableExtra(DownloadingService.FILE);
-            if (file == null) {
-                return;
-            }
-            if (intent.getAction().equals(DownloadingService.PROGRESS_UPDATE_ACTION)) {
-                eventBus.post(new SuccessEvent(BaseEvent.Screen.PLAYER_DOWNLOAD, BaseEvent.EventType.PLAYER_DOWNLOAD_PROGRESS, file));
-            } else if (intent.getAction().equals(DownloadingService.PROGRESS_COMPLETED_ACTION)) {
-                DownloadModelQuery.update(Voca.getRealm(), file);
-                eventBus.post(new SuccessEvent(BaseEvent.Screen.PLAYER_DOWNLOAD, BaseEvent.EventType.PLAYER_DOWNLOAD_COMPLETED, file));
-                downloadNext();
-            } else if (intent.getAction().equals(DownloadingService.PROGRESS_UPDATE_DATA_ACTION)) {
-                DownloadModelQuery.update(Voca.getRealm(), file);
-                eventBus.post(new SuccessEvent(BaseEvent.Screen.PLAYER_DOWNLOAD, BaseEvent.EventType.PLAYER_DOWNLOAD_UPDATE, file));
-            }
-        }
-    };
-
-    private void downloadNext() {
-        DLog.d(getLogTag(), "downloadNext");
-        final DownloadModel model = DownloadModelQuery.getDownloadNext(Voca.getRealm());
-        if (model != null) {
-            model.setServerModel(ServerModelQuery.getById(Voca.getRealm(), model.getIdServer()));
-            DLog.d(getLogTag(), "downloadNext - model=" + model.toString());
-            addDownload(new DownloadModel(model));
-        }
-    }
-
-    private void showDownloadClearDialog() {
-        final PlayerDownloadClearDialog dialog = new PlayerDownloadClearDialog(this, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                switch (i) {
-                    case R.id.tv_clear_all:
-                        callDownloadClear(true);
-                        break;
-                    case R.id.tv_clear_completed:
-                        callDownloadClear(false);
-                        break;
-                }
-            }
-        });
-        dialog.show();
-    }
-
-    private void callDownloadClear(boolean isAll) {
-        Loading.show(this);
-        if (isAll) {
-            final DownloadModel file = DownloadModelQuery.getByDownload(Voca.getRealm());
-            if (file != null) {
-                cancelDownload(file);
-            }
-            DownloadModelQuery.deleteAll(Voca.getRealm());
-        } else {
-            DownloadModelQuery.deleteByComplete(Voca.getRealm());
-        }
-        Loading.hide();
-        eventBus.post(new SuccessEvent(BaseEvent.Screen.PLAYER_DOWNLOAD, BaseEvent.EventType.PLAYER_DOWNLOAD_INIT, null));
-    }
-
-    public void setClearButtonEnable(boolean isEnable) {
-        binding.header.getTvRight().setEnabled(isEnable);
-        binding.header.getTvRight().setAlpha(isEnable ? 1.0f : 0.5f);
     }
 
     public String getSearchValue() {
