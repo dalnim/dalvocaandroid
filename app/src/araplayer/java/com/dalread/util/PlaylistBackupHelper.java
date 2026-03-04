@@ -23,12 +23,12 @@ public class PlaylistBackupHelper {
     this.context = context;
     MultiplePlayerDbHelper dbHelper = new MultiplePlayerDbHelper(context);
     this.database = dbHelper.initSubDatabase(null);
-    this.currentScreensPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.CURRENT_SCREENS);
-    this.videoMetaPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.VIDEO_META);
-    this.storedLayoutPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.STORED_LAYOUT);
-    this.screensInStoredLayoutPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.SCREENS_IN_STORED_LAYOUT);
-    this.playlistPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.PLAYLIST);
-    this.playlistItemPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.PLAYLIST_ITEM);
+    this.currentScreensPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.current_screens);
+    this.videoMetaPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.video_meta);
+    this.storedLayoutPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.stored_layout);
+    this.screensInStoredLayoutPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.screens_in_stored_layout);
+    this.playlistPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.playlist);
+    this.playlistItemPath = StorageUtil.getMultiPlayerTableJsonPath(context, Constant.PLAYER.SQL.TABLE.playlist_item);
   }
 
   public void restoreAll() {
@@ -42,22 +42,22 @@ public class PlaylistBackupHelper {
     String playlistItemContent = StorageUtil.readJsonFile(playlistItemPath);
 
     if (currentScreensContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.CURRENT_SCREENS, currentScreensContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.current_screens, currentScreensContent);
     }
     if (videoMetaContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.VIDEO_META, videoMetaContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.video_meta, videoMetaContent);
     }
     if (storedLayoutContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.STORED_LAYOUT, storedLayoutContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.stored_layout, storedLayoutContent);
     }
     if (screensInStoredLayoutContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.SCREENS_IN_STORED_LAYOUT, screensInStoredLayoutContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.screens_in_stored_layout, screensInStoredLayoutContent);
     }
     if (playlistContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.PLAYLIST, playlistContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.playlist, playlistContent);
     }
     if (playlistItemContent != null) {
-      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.PLAYLIST_ITEM, playlistItemContent);
+      database.insertJsonToTable(Constant.PLAYER.SQL.TABLE.playlist_item, playlistItemContent);
     }
     if (UserUtil.isDebugOrAdminUser(context)) {
       ToastUtil.getInstance(context).show("테이블과 플레이리스트를 복원했습니다.");
@@ -67,8 +67,8 @@ public class PlaylistBackupHelper {
   /** SQLite playlist, playlist_item 테이블 백업 */
   public void backupPlaylist() {
     if (UserUtil.isDebugOrAdminUser(context)) {
-      String playlistJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.PLAYLIST);
-      String playlistItemJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.PLAYLIST_ITEM);
+      String playlistJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.playlist);
+      String playlistItemJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.playlist_item);
       StorageUtil.writeJsonFile(playlistPath, playlistJson);
       StorageUtil.writeJsonFile(playlistItemPath, playlistItemJson);
     }
@@ -76,12 +76,12 @@ public class PlaylistBackupHelper {
 
   public void backupTables() {
     if (UserUtil.isDebugOrAdminUser(context)) {
-      String currentScreensJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.CURRENT_SCREENS);
-      String videoMetaJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.VIDEO_META);
-      String storedLayoutJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.STORED_LAYOUT);
-      String screensInStoredLayoutJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.SCREENS_IN_STORED_LAYOUT);
-      String playlistJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.PLAYLIST);
-      String playlistItemJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.PLAYLIST_ITEM);
+      String currentScreensJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.current_screens);
+      String videoMetaJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.video_meta);
+      String storedLayoutJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.stored_layout);
+      String screensInStoredLayoutJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.screens_in_stored_layout);
+      String playlistJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.playlist);
+      String playlistItemJson = database.getTableAsJson(Constant.PLAYER.SQL.TABLE.playlist_item);
       StorageUtil.writeJsonFile(currentScreensPath, currentScreensJson);
       StorageUtil.writeJsonFile(videoMetaPath, videoMetaJson);
       StorageUtil.writeJsonFile(storedLayoutPath, storedLayoutJson);
@@ -92,11 +92,11 @@ public class PlaylistBackupHelper {
   }
 
   private void deleteTableAndPlaylist() {
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.CURRENT_SCREENS);
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.VIDEO_META);
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.STORED_LAYOUT);
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.SCREENS_IN_STORED_LAYOUT);
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.PLAYLIST);
-    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.PLAYLIST_ITEM);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.current_screens);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.video_meta);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.stored_layout);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.screens_in_stored_layout);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.playlist);
+    database.deleteAllRecords(Constant.PLAYER.SQL.TABLE.playlist_item);
   }
 }

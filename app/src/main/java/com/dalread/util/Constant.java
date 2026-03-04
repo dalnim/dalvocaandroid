@@ -2405,14 +2405,14 @@ public class Constant {
                 public static final String DIC_JP_SENTENCE = "DIC_JP_SENTENCE";
                 public static final String DIC_KO = "DIC_KO";
                 public static final String DIC_KO_SENTENCE = "DIC_KO_SENTENCE";
-                /** Mac 스키마 테이블명 (MultiPlayer SQLite 전환용, 소문자) */
-                public static final String CURRENT_SCREENS = "current_screens";
-                public static final String VIDEO_META = "video_meta";
-                public static final String STORED_LAYOUT = "stored_layout";
-                public static final String SCREENS_IN_STORED_LAYOUT = "screens_in_stored_layout";
-                public static final String APP_KV = "app_kv";
-                public static final String PLAYLIST = "playlist";
-                public static final String PLAYLIST_ITEM = "playlist_item";
+                /** Mac 스키마 테이블명 (MultiPlayer SQLite 전환용, 실제 테이블명과 동일) */
+                public static final String current_screens = "current_screens";
+                public static final String video_meta = "video_meta";
+                public static final String stored_layout = "stored_layout";
+                public static final String screens_in_stored_layout = "screens_in_stored_layout";
+                public static final String app_kv = "app_kv";
+                public static final String playlist = "playlist";
+                public static final String playlist_item = "playlist_item";
 
                 public static final String GPT_CHAT_MESSAGE = "GPT_CHAT_MESSAGE";
                 public static final String GPT_TEXT_SHORT_CUT = "GPT_TEXT_SHORT_CUT";
@@ -2450,6 +2450,31 @@ public class Constant {
                 public static final String EXAMPLE_SENTENCES = "EXAMPLE_SENTENCES";
                 public static final String FREQUENCY = "FREQUENCY";
                 public static final String FILE_PATH = "FILE_PATH";
+                /** Mac 스키마: current_screens, video_meta, stored_layout, screens_in_stored_layout, playlist, playlist_item 테이블 필드명 (변수명=실제 필드명) */
+                public static final String file_path = "file_path";
+                public static final String screen_id = "screen_id";
+                public static final String last_time = "last_time";
+                public static final String ab_loop_json = "ab_loop_json";
+                public static final String use_ab = "use_ab";
+                public static final String resize_mode = "resize_mode";
+                public static final String volume = "volume";
+                public static final String speed = "speed";
+                public static final String rotate = "rotate";
+                public static final String hide = "hide";
+                public static final String id = "id";
+                public static final String name = "name";
+                public static final String created_at = "created_at";
+                public static final String grid_row_count = "grid_row_count";
+                public static final String grid_column_count = "grid_column_count";
+                public static final String layout_id = "layout_id";
+                public static final String sort_order = "sort_order";
+                public static final String is_selected = "is_selected";
+                public static final String favorite = "favorite";
+                public static final String is_auto_created = "is_auto_created";
+                public static final String bookmark = "bookmark";
+                public static final String unused = "unused";
+                public static final String playlist_id = "playlist_id";
+
                 public static final String CREATE_DATE = "CREATE_DATE";
                 public static final String GROUP_ICT = "GROUP_ICT";
                 public static final String GROUP_ETC = "GROUP_ETC";

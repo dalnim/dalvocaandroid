@@ -97,7 +97,7 @@ public class MultiPlayerDatabase {
     }
 
     public int getRecordCountByByStoredId(int id) {
-        String query = QUERY.SELECT_COUNT + TABLE.SCREENS_IN_STORED_LAYOUT + QUERY.WHERE + COLUMN.LAYOUT_ID + QUERY.EQUAL + id;
+        String query = QUERY.SELECT_COUNT + TABLE.screens_in_stored_layout + QUERY.WHERE + COLUMN.layout_id + QUERY.EQUAL + id;
         return getCount(query);
     }
 
@@ -171,10 +171,10 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            String query = "SELECT s.layout_id, s.screen_id, s.file_path, s.last_time, s.ab_loop_json, s.use_ab, s.resize_mode, s.volume, s.sort_order, s.speed, s.rotate, l.name "
-                    + "FROM " + TABLE.SCREENS_IN_STORED_LAYOUT + " s "
-                    + "LEFT JOIN " + TABLE.STORED_LAYOUT + " l ON s.layout_id = l.id "
-                    + "ORDER BY s.layout_id, s.screen_id";
+            String query = "SELECT s." + COLUMN.layout_id + ", s." + COLUMN.screen_id + ", s." + COLUMN.file_path + ", s." + COLUMN.last_time + ", s." + COLUMN.ab_loop_json + ", s." + COLUMN.use_ab + ", s." + COLUMN.resize_mode + ", s." + COLUMN.volume + ", s." + COLUMN.sort_order + ", s." + COLUMN.speed + ", s." + COLUMN.rotate + ", l." + COLUMN.name + " "
+                    + "FROM " + TABLE.screens_in_stored_layout + " s "
+                    + "LEFT JOIN " + TABLE.stored_layout + " l ON s." + COLUMN.layout_id + " = l." + COLUMN.id + " "
+                    + "ORDER BY s." + COLUMN.layout_id + ", s." + COLUMN.screen_id;
             DLog.d(TAG, "query=" + query);
             cursor = database.rawQuery(query, null);
             while (cursor != null && cursor.moveToNext()) {
@@ -192,26 +192,26 @@ public class MultiPlayerDatabase {
     /** 조인 커서(screens_in_stored_layout + stored_layout.name) → MultiPlayerVideoStoredModel */
     private MultiPlayerVideoStoredModel parseStoredModelFromScreensCursor(Cursor cursor) {
         MultiPlayerVideoStoredModel storedModel = new MultiPlayerVideoStoredModel();
-        int storedId = cursor.getInt(cursor.getColumnIndexOrThrow("layout_id"));
+        int storedId = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.layout_id));
         String layoutName = "";
-        int nameIdx = cursor.getColumnIndex("name");
+        int nameIdx = cursor.getColumnIndex(COLUMN.name);
         if (nameIdx >= 0) layoutName = cursor.getString(nameIdx);
         storedModel.setSTORED_ID(storedId);
         storedModel.setLAYOUT_NAME(layoutName != null ? layoutName : "");
         storedModel.setBOOKMARK(0);
         storedModel.setROTATE_LAYOUT(0);
-        storedModel.setSCREEN_ID(cursor.getInt(cursor.getColumnIndexOrThrow("screen_id")));
-        storedModel.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow("file_path")));
-        storedModel.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow("last_time")));
-        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.AB_LOOP_JSON));
+        storedModel.setSCREEN_ID(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.screen_id)));
+        storedModel.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
+        storedModel.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.last_time)));
+        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.ab_loop_json));
         if (abJson != null) storedModel.setAb_loop_json(abJson);
         parseAbLoopJsonToModel(storedModel, abJson);
-        storedModel.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow("use_ab")));
-        storedModel.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow("resize_mode")));
-        int volIdx = cursor.getColumnIndex("volume");
+        storedModel.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.use_ab)));
+        storedModel.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.resize_mode)));
+        int volIdx = cursor.getColumnIndex(COLUMN.volume);
         if (volIdx >= 0) storedModel.setVOLUME(cursor.getInt(volIdx));
-        storedModel.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.SPEED)));
-        storedModel.setROTATE(cursor.getInt(cursor.getColumnIndexOrThrow("rotate")));
+        storedModel.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.speed)));
+        storedModel.setROTATE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.rotate)));
         return storedModel;
     }
 
@@ -219,8 +219,8 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             for (MultiPlayerVideoModel model : records) {
-                database.insertWithOnConflict(TABLE.CURRENT_SCREENS, null, getContentValuesForCurrentScreens(model), SQLiteDatabase.CONFLICT_REPLACE);
-                database.insertWithOnConflict(TABLE.VIDEO_META, null, getContentValuesForVideoMeta(model), SQLiteDatabase.CONFLICT_REPLACE);
+                database.insertWithOnConflict(TABLE.current_screens, null, getContentValuesForCurrentScreens(model), SQLiteDatabase.CONFLICT_REPLACE);
+                database.insertWithOnConflict(TABLE.video_meta, null, getContentValuesForVideoMeta(model), SQLiteDatabase.CONFLICT_REPLACE);
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -234,7 +234,7 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             for (MultiPlayerVideoModel model : records) {
-                database.insertWithOnConflict(TABLE.VIDEO_META, null, getContentValuesForVideoMeta(model), SQLiteDatabase.CONFLICT_REPLACE);
+                database.insertWithOnConflict(TABLE.video_meta, null, getContentValuesForVideoMeta(model), SQLiteDatabase.CONFLICT_REPLACE);
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -266,15 +266,15 @@ public class MultiPlayerDatabase {
             openWrite();
             String name = records.get(0).getLAYOUT_NAME() != null ? records.get(0).getLAYOUT_NAME() : "";
             ContentValues cvLayout = new ContentValues();
-            cvLayout.put("name", name);
-            cvLayout.put("created_at", String.valueOf(System.currentTimeMillis()));
-            cvLayout.put("grid_row_count", 3);
-            cvLayout.put("grid_column_count", 3);
-            long newLayoutId = database.insert(TABLE.STORED_LAYOUT, null, cvLayout);
+            cvLayout.put(COLUMN.name, name);
+            cvLayout.put(COLUMN.created_at, String.valueOf(System.currentTimeMillis()));
+            cvLayout.put(COLUMN.grid_row_count, 3);
+            cvLayout.put(COLUMN.grid_column_count, 3);
+            long newLayoutId = database.insert(TABLE.stored_layout, null, cvLayout);
             int layoutId = newLayoutId > 0 ? (int) newLayoutId : 1;
             for (MultiPlayerVideoStoredModel model : records) {
                 ContentValues cv = getContentValuesForScreensInStoredLayout(model, layoutId);
-                database.insert(TABLE.SCREENS_IN_STORED_LAYOUT, null, cv);
+                database.insert(TABLE.screens_in_stored_layout, null, cv);
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -286,7 +286,7 @@ public class MultiPlayerDatabase {
     private MultiPlayerVideoAbRepeatModel parseAbRepeatModel(Cursor cursor) {
         final MultiPlayerVideoAbRepeatModel model = new MultiPlayerVideoAbRepeatModel();
         model.setID(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.ID)));
-        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.FILE_PATH)));
+        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
         model.setAB_A(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.AB_A)));
         model.setAB_B(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.AB_B)));
         return model;
@@ -295,19 +295,19 @@ public class MultiPlayerDatabase {
     private MultiPlayerVideoModel parseModel(Cursor cursor) {
         final MultiPlayerVideoModel model = new MultiPlayerVideoModel();
         // SCREEN_ID가 있는지 확인하고 값을 설정. getColumnIndexOrThrow을 쓰면 해당 컬럼이 없으면 다음줄로 넘어가지 않는다.
-//        int screenIdIndex = cursor.getColumnIndex(Constant.PLAYER.SQL.COLUMN.SCREEN_ID);
+//        int screenIdIndex = cursor.getColumnIndex(Constant.PLAYER.SQL.COLUMN.screen_id);
 //        if (screenIdIndex != -1) {
 //            model.setSCREEN_ID(cursor.getInt(screenIdIndex));
 //        }
-        model.setSCREEN_ID(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.SCREEN_ID)));
-        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.FILE_PATH)));
-        model.setLAST_TIME(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.LAST_TIME)));
+        model.setSCREEN_ID(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.screen_id)));
+        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
+        model.setLAST_TIME(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.last_time)));
         model.setAB_A(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.AB_A)));
         model.setAB_B(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.AB_B)));
-        model.setROTATE(cursor.getColumnIndex(COLUMN.ROTATE) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.ROTATE)));
-        model.setUSE_AB(cursor.getColumnIndex(COLUMN.USE_AB) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.USE_AB)));
-        model.setVOLUME(cursor.getColumnIndex(COLUMN.VOLUME) == -1 ? -1 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.VOLUME)));
-        model.setRESIZE_MODE(cursor.getColumnIndex(COLUMN.RESIZE_MODE) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.RESIZE_MODE)));
+        model.setROTATE(cursor.getColumnIndex(COLUMN.rotate) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.rotate)));
+        model.setUSE_AB(cursor.getColumnIndex(COLUMN.use_ab) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.use_ab)));
+        model.setVOLUME(cursor.getColumnIndex(COLUMN.volume) == -1 ? -1 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.volume)));
+        model.setRESIZE_MODE(cursor.getColumnIndex(COLUMN.resize_mode) == -1 ? 0 : cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.resize_mode)));
         return model;
     }
 
@@ -331,10 +331,10 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.VIDEO_META, new String[]{"file_path"}, null, null, null, null, "file_path ASC");
+            cursor = database.query(TABLE.video_meta, new String[]{COLUMN.file_path}, null, null, null, null, COLUMN.file_path + " ASC");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
-                    String path = cursor.getString(cursor.getColumnIndexOrThrow("file_path"));
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path));
                     if (path != null && !path.isEmpty()) list.add(path);
                 }
             }
@@ -407,8 +407,8 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             for (Integer id : storedIds) {
-                database.delete(TABLE.SCREENS_IN_STORED_LAYOUT, COLUMN.LAYOUT_ID + "=?", new String[]{String.valueOf(id)});
-                database.delete(TABLE.STORED_LAYOUT, "id=?", new String[]{String.valueOf(id)});
+                database.delete(TABLE.screens_in_stored_layout, COLUMN.layout_id + "=?", new String[]{String.valueOf(id)});
+                database.delete(TABLE.stored_layout, "id=?", new String[]{String.valueOf(id)});
             }
         } finally {
             close();
@@ -426,8 +426,8 @@ public class MultiPlayerDatabase {
                 for (Integer id : storedIds) {
                     int recordCount = getRecordCountByByStoredId(id);
                     if (modelList.size() == recordCount) {
-                        database.delete(TABLE.SCREENS_IN_STORED_LAYOUT, COLUMN.LAYOUT_ID + "=?", new String[]{String.valueOf(id)});
-                        database.delete(TABLE.STORED_LAYOUT, "id=?", new String[]{String.valueOf(id)});
+                        database.delete(TABLE.screens_in_stored_layout, COLUMN.layout_id + "=?", new String[]{String.valueOf(id)});
+                        database.delete(TABLE.stored_layout, "id=?", new String[]{String.valueOf(id)});
                         deleted = true;
                     }
                 }
@@ -440,7 +440,7 @@ public class MultiPlayerDatabase {
         int storedId = (int) newLayoutId;
         for (MultiPlayerVideoStoredModel model : modelList) {
             ContentValues cv = getContentValuesForScreensInStoredLayout(model, storedId);
-            insertIntoTable(TABLE.SCREENS_IN_STORED_LAYOUT, cv);
+            insertIntoTable(TABLE.screens_in_stored_layout, cv);
             inserted = true;
         }
         if (deleted && inserted) {
@@ -465,7 +465,7 @@ public class MultiPlayerDatabase {
             Cursor cursor = database.rawQuery(query, null);
 
             while (cursor.moveToNext()) {
-                storedIds.add(cursor.getInt(cursor.getColumnIndexOrThrow("layout_id")));
+                storedIds.add(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.layout_id)));
             }
             cursor.close();
         } catch (Exception e) {
@@ -493,21 +493,21 @@ public class MultiPlayerDatabase {
         }
 
         final String fileList = "file_list";
-        return "SELECT layout_id FROM (SELECT layout_id, GROUP_CONCAT(file_path, ',') AS " + fileList
-                + " FROM (SELECT layout_id, file_path FROM " + TABLE.SCREENS_IN_STORED_LAYOUT + " ORDER BY layout_id, file_path) GROUP BY layout_id) WHERE " + fileList + "='" + filePaths.toString() + "'";
+        return "SELECT layout_id FROM (SELECT layout_id, GROUP_CONCAT(" + COLUMN.file_path + ", ',') AS " + fileList
+                + " FROM (SELECT layout_id, " + COLUMN.file_path + " FROM " + TABLE.screens_in_stored_layout + " ORDER BY layout_id, " + COLUMN.file_path + ") GROUP BY layout_id) WHERE " + fileList + "='" + filePaths.toString() + "'";
     }
 
 
     @NonNull
     private static ContentValues getContentValues(MultiPlayerVideoModel model) {
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN.SCREEN_ID, model.getSCREEN_ID());
-        cv.put(COLUMN.FILE_PATH, model.getFILE_PATH());
-        cv.put(COLUMN.LAST_TIME, model.getLAST_TIME());
-        cv.put(COLUMN.ROTATE, model.getROTATE());
-        cv.put(COLUMN.USE_AB, model.getUSE_AB());
-        cv.put(COLUMN.VOLUME, model.getVOLUME());
-        cv.put(COLUMN.RESIZE_MODE, model.getRESIZE_MODE());
+        cv.put(COLUMN.screen_id, model.getSCREEN_ID());
+        cv.put(COLUMN.file_path, model.getFILE_PATH());
+        cv.put(COLUMN.last_time, model.getLAST_TIME());
+        cv.put(COLUMN.rotate, model.getROTATE());
+        cv.put(COLUMN.use_ab, model.getUSE_AB());
+        cv.put(COLUMN.volume, model.getVOLUME());
+        cv.put(COLUMN.resize_mode, model.getRESIZE_MODE());
         cv.put(COLUMN.AB_A, model.getAB_A());
         cv.put(COLUMN.AB_B, model.getAB_B());
         return cv;
@@ -520,15 +520,15 @@ public class MultiPlayerDatabase {
             abJson = buildAbLoopJsonFromAb(model.getAB_A(), model.getAB_B());
         }
         ContentValues cv = new ContentValues();
-        cv.put("screen_id", model.getSCREEN_ID());
-        cv.put("file_path", model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
-        cv.put("last_time", model.getLAST_TIME());
-        cv.put(COLUMN.AB_LOOP_JSON, abJson);
-        cv.put("use_ab", model.getUSE_AB());
-        cv.put("resize_mode", model.getRESIZE_MODE());
-        cv.put("volume", model.getVOLUME());
-        cv.put(COLUMN.SPEED, model.getSpeed());
-        cv.put("rotate", model.getROTATE());
+        cv.put(COLUMN.screen_id, model.getSCREEN_ID());
+        cv.put(COLUMN.file_path, model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
+        cv.put(COLUMN.last_time, model.getLAST_TIME());
+        cv.put(COLUMN.ab_loop_json, abJson);
+        cv.put(COLUMN.use_ab, model.getUSE_AB());
+        cv.put(COLUMN.resize_mode, model.getRESIZE_MODE());
+        cv.put(COLUMN.volume, model.getVOLUME());
+        cv.put(COLUMN.speed, model.getSpeed());
+        cv.put(COLUMN.rotate, model.getROTATE());
         return cv;
     }
 
@@ -561,15 +561,15 @@ public class MultiPlayerDatabase {
             abJson = buildAbLoopJsonFromAb(model.getAB_A(), model.getAB_B());
         }
         ContentValues cv = new ContentValues();
-        cv.put("file_path", model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
-        cv.put("last_time", model.getLAST_TIME());
-        cv.put(COLUMN.AB_LOOP_JSON, abJson);
-        cv.put("use_ab", model.getUSE_AB());
-        cv.put("resize_mode", model.getRESIZE_MODE());
-        cv.put("volume", model.getVOLUME());
-        cv.put(COLUMN.SPEED, model.getSpeed());
-        cv.put("rotate", model.getROTATE());
-        cv.put("hide", model.getHide());
+        cv.put(COLUMN.file_path, model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
+        cv.put(COLUMN.last_time, model.getLAST_TIME());
+        cv.put(COLUMN.ab_loop_json, abJson);
+        cv.put(COLUMN.use_ab, model.getUSE_AB());
+        cv.put(COLUMN.resize_mode, model.getRESIZE_MODE());
+        cv.put(COLUMN.volume, model.getVOLUME());
+        cv.put(COLUMN.speed, model.getSpeed());
+        cv.put(COLUMN.rotate, model.getROTATE());
+        cv.put(COLUMN.hide, model.getHide());
         return cv;
     }
 
@@ -579,9 +579,9 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = getContentValuesForCurrentScreens(model);
-            long rowId = database.insertWithOnConflict(TABLE.CURRENT_SCREENS, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+            long rowId = database.insertWithOnConflict(TABLE.current_screens, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
             if (rowId < 0) {
-                database.update(TABLE.CURRENT_SCREENS, cv, "screen_id=?", new String[]{String.valueOf(model.getSCREEN_ID())});
+                database.update(TABLE.current_screens, cv, COLUMN.screen_id + "=?", new String[]{String.valueOf(model.getSCREEN_ID())});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -596,7 +596,7 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.CURRENT_SCREENS, null, "screen_id=?", new String[]{String.valueOf(screenId)}, null, null, null);
+            cursor = database.query(TABLE.current_screens, null, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)}, null, null, null);
             if (cursor != null && cursor.moveToFirst()) {
                 model = parseModelFromCurrentScreensCursor(cursor, screenId);
             }
@@ -614,10 +614,10 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.CURRENT_SCREENS, null, null, null, null, null, "screen_id ASC");
+            cursor = database.query(TABLE.current_screens, null, null, null, null, null, "screen_id ASC");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
-                    int screenId = cursor.getInt(cursor.getColumnIndexOrThrow("screen_id"));
+                    int screenId = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.screen_id));
                     list.add(parseModelFromCurrentScreensCursor(cursor, screenId));
                 }
             }
@@ -633,7 +633,7 @@ public class MultiPlayerDatabase {
     public void deleteCurrentScreen(int screenId) {
         try {
             openWrite();
-            database.delete(TABLE.CURRENT_SCREENS, "screen_id=?", new String[]{String.valueOf(screenId)});
+            database.delete(TABLE.current_screens, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -645,7 +645,7 @@ public class MultiPlayerDatabase {
     public void deleteAllCurrentScreens() {
         try {
             openWrite();
-            database.delete(TABLE.CURRENT_SCREENS, null, null);
+            database.delete(TABLE.current_screens, null, null);
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -656,16 +656,16 @@ public class MultiPlayerDatabase {
     private MultiPlayerVideoModel parseModelFromCurrentScreensCursor(Cursor cursor, int screenId) {
         MultiPlayerVideoModel model = new MultiPlayerVideoModel();
         model.setSCREEN_ID(screenId);
-        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow("file_path")));
-        model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow("last_time")));
-        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.AB_LOOP_JSON));
+        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
+        model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.last_time)));
+        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.ab_loop_json));
         if (abJson != null) model.setAb_loop_json(abJson);
         parseAbLoopJsonToModel(model, abJson);
-        model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow("use_ab")));
-        model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow("resize_mode")));
-        model.setVOLUME(cursor.getInt(cursor.getColumnIndexOrThrow("volume")));
-        model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.SPEED)));
-        model.setROTATE(cursor.getInt(cursor.getColumnIndexOrThrow("rotate")));
+        model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.use_ab)));
+        model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.resize_mode)));
+        model.setVOLUME(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.volume)));
+        model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.speed)));
+        model.setROTATE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.rotate)));
         return model;
     }
 
@@ -677,13 +677,13 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.VIDEO_META, new String[]{"file_path"}, "file_path=?", new String[]{filePath}, null, null, null, "1");
+            cursor = database.query(TABLE.video_meta, new String[]{COLUMN.file_path}, COLUMN.file_path + "=?", new String[]{filePath}, null, null, null, "1");
             if (cursor != null && cursor.moveToFirst()) return true;
             if (cursor != null) cursor.close();
             cursor = null;
             String normalized = normalizeFilePath(filePath);
             if (!normalized.isEmpty() && !normalized.equals(filePath)) {
-                cursor = database.query(TABLE.VIDEO_META, new String[]{"file_path"}, "file_path=?", new String[]{normalized}, null, null, null, "1");
+                cursor = database.query(TABLE.video_meta, new String[]{COLUMN.file_path}, COLUMN.file_path + "=?", new String[]{normalized}, null, null, null, "1");
                 return cursor != null && cursor.moveToFirst();
             }
             return false;
@@ -701,7 +701,7 @@ public class MultiPlayerDatabase {
         try {
             ContentValues cv = getContentValuesForVideoMeta(model);
             openWrite();
-            database.insertWithOnConflict(TABLE.VIDEO_META, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+            database.insertWithOnConflict(TABLE.video_meta, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -720,14 +720,14 @@ public class MultiPlayerDatabase {
             MultiPlayerVideoModel existing = getVideoMetaByFilePath(path);
             ContentValues cv = getContentValuesForVideoMeta(model);
             if (existing.getAb_loop_json() != null) {
-                cv.put(COLUMN.AB_LOOP_JSON, existing.getAb_loop_json());
-                cv.put("use_ab", existing.getUSE_AB());
+                cv.put(COLUMN.ab_loop_json, existing.getAb_loop_json());
+                cv.put(COLUMN.use_ab, existing.getUSE_AB());
             }
             openWrite();
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{path});
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{path});
             String normalized = normalizeFilePath(path);
             if (!normalized.isEmpty() && !normalized.equals(path)) {
-                database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{normalized});
+                database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{normalized});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -743,7 +743,7 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.VIDEO_META, null, "file_path=?", new String[]{filePath}, null, null, null);
+            cursor = database.query(TABLE.video_meta, null, COLUMN.file_path + "=?", new String[]{filePath}, null, null, null);
             if (cursor != null && cursor.moveToFirst()) {
                 fillModelFromVideoMetaCursor(model, cursor);
                 return model;
@@ -752,7 +752,7 @@ public class MultiPlayerDatabase {
             cursor = null;
             String normalized = normalizeFilePath(filePath);
             if (!normalized.isEmpty() && !normalized.equals(filePath)) {
-                cursor = database.query(TABLE.VIDEO_META, null, "file_path=?", new String[]{normalized}, null, null, null);
+                cursor = database.query(TABLE.video_meta, null, COLUMN.file_path + "=?", new String[]{normalized}, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
                     fillModelFromVideoMetaCursor(model, cursor);
                 }
@@ -767,19 +767,19 @@ public class MultiPlayerDatabase {
     }
 
     private void fillModelFromVideoMetaCursor(MultiPlayerVideoModel model, Cursor cursor) {
-        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow("file_path")));
-        model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow("last_time")));
-        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.AB_LOOP_JSON));
+        model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
+        model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.last_time)));
+        String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.ab_loop_json));
         if (abJson != null) model.setAb_loop_json(abJson);
         parseAbLoopJsonToModel(model, abJson);
-        model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow("use_ab")));
-        model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow("resize_mode")));
-        int volIdx = cursor.getColumnIndex("volume");
+        model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.use_ab)));
+        model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.resize_mode)));
+        int volIdx = cursor.getColumnIndex(COLUMN.volume);
         if (volIdx >= 0) model.setVOLUME(cursor.getInt(volIdx));
-        model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.SPEED)));
-        int rotIdx = cursor.getColumnIndex("rotate");
+        model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.speed)));
+        int rotIdx = cursor.getColumnIndex(COLUMN.rotate);
         if (rotIdx >= 0) model.setROTATE(cursor.getInt(rotIdx));
-        int hideIdx = cursor.getColumnIndex("hide");
+        int hideIdx = cursor.getColumnIndex(COLUMN.hide);
         if (hideIdx >= 0) model.setHide(cursor.getInt(hideIdx));
     }
 
@@ -788,8 +788,8 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("hide", hide);
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.hide, hide);
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{filePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -803,23 +803,23 @@ public class MultiPlayerDatabase {
         Cursor cursor = null;
         try {
             openRead();
-            cursor = database.query(TABLE.VIDEO_META, null, null, null, null, null, "file_path ASC");
+            cursor = database.query(TABLE.video_meta, null, null, null, null, null, COLUMN.file_path + " ASC");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     MultiPlayerVideoModel model = new MultiPlayerVideoModel();
-                    model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow("file_path")));
-                    model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow("last_time")));
-                    String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.AB_LOOP_JSON));
+                    model.setFILE_PATH(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path)));
+                    model.setLAST_TIME((long) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.last_time)));
+                    String abJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.ab_loop_json));
                     if (abJson != null) model.setAb_loop_json(abJson);
                     parseAbLoopJsonToModel(model, abJson);
-                    model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow("use_ab")));
-                    model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow("resize_mode")));
-                    int volIdx = cursor.getColumnIndex("volume");
+                    model.setUSE_AB(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.use_ab)));
+                    model.setRESIZE_MODE(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN.resize_mode)));
+                    int volIdx = cursor.getColumnIndex(COLUMN.volume);
                     if (volIdx >= 0) model.setVOLUME(cursor.getInt(volIdx));
-                    model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.SPEED)));
-                    int rotIdx = cursor.getColumnIndex("rotate");
+                    model.setSpeed((float) cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN.speed)));
+                    int rotIdx = cursor.getColumnIndex(COLUMN.rotate);
                     if (rotIdx >= 0) model.setROTATE(cursor.getInt(rotIdx));
-                    int hideIdx = cursor.getColumnIndex("hide");
+                    int hideIdx = cursor.getColumnIndex(COLUMN.hide);
                     if (hideIdx >= 0) model.setHide(cursor.getInt(hideIdx));
                     list.add(model);
                 }
@@ -838,8 +838,8 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("last_time", lastTime);
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.last_time, lastTime);
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{filePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -852,9 +852,9 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put(COLUMN.AB_LOOP_JSON, abLoopJson != null ? abLoopJson : "");
-            cv.put("use_ab", useAb);
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.ab_loop_json, abLoopJson != null ? abLoopJson : "");
+            cv.put(COLUMN.use_ab, useAb);
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{filePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -868,18 +868,18 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put("last_time", lastTime);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.last_time, lastTime);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put("last_time", lastTime);
-                database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.last_time, lastTime);
+                database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put("last_time", lastTime);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.last_time, lastTime);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -895,21 +895,21 @@ public class MultiPlayerDatabase {
             openWrite();
             String ab = abLoopJson != null ? abLoopJson : "";
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put(COLUMN.AB_LOOP_JSON, ab);
-            cvScreen.put("use_ab", useAb);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.ab_loop_json, ab);
+            cvScreen.put(COLUMN.use_ab, useAb);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put(COLUMN.AB_LOOP_JSON, ab);
-                cvMeta.put("use_ab", useAb);
-                database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.ab_loop_json, ab);
+                cvMeta.put(COLUMN.use_ab, useAb);
+                database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put(COLUMN.AB_LOOP_JSON, ab);
-                cvStored.put("use_ab", useAb);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.ab_loop_json, ab);
+                cvStored.put(COLUMN.use_ab, useAb);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -932,11 +932,11 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("name", name != null ? name : "");
-            cv.put("created_at", String.valueOf(System.currentTimeMillis()));
-            cv.put("grid_row_count", 3);
-            cv.put("grid_column_count", 3);
-            long id = database.insert(TABLE.STORED_LAYOUT, null, cv);
+            cv.put(COLUMN.name, name != null ? name : "");
+            cv.put(COLUMN.created_at, String.valueOf(System.currentTimeMillis()));
+            cv.put(COLUMN.grid_row_count, 3);
+            cv.put(COLUMN.grid_column_count, 3);
+            long id = database.insert(TABLE.stored_layout, null, cv);
             close();
             return id > 0 ? id : 1;
         } catch (Exception ex) {
@@ -953,17 +953,17 @@ public class MultiPlayerDatabase {
             abJson = buildAbLoopJsonFromAb(model.getAB_A(), model.getAB_B());
         }
         ContentValues cv = new ContentValues();
-        cv.put("layout_id", layoutId);
-        cv.put("screen_id", model.getSCREEN_ID());
-        cv.put("file_path", model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
-        cv.put("last_time", model.getLAST_TIME());
-        cv.put(COLUMN.AB_LOOP_JSON, abJson);
-        cv.put("use_ab", model.getUSE_AB());
-        cv.put("resize_mode", model.getRESIZE_MODE());
-        cv.put("volume", model.getVOLUME());
-        cv.put("sort_order", 0);
-        cv.put(COLUMN.SPEED, model.getSpeed());
-        cv.put("rotate", model.getROTATE());
+        cv.put(COLUMN.layout_id, layoutId);
+        cv.put(COLUMN.screen_id, model.getSCREEN_ID());
+        cv.put(COLUMN.file_path, model.getFILE_PATH() != null ? model.getFILE_PATH() : "");
+        cv.put(COLUMN.last_time, model.getLAST_TIME());
+        cv.put(COLUMN.ab_loop_json, abJson);
+        cv.put(COLUMN.use_ab, model.getUSE_AB());
+        cv.put(COLUMN.resize_mode, model.getRESIZE_MODE());
+        cv.put(COLUMN.volume, model.getVOLUME());
+        cv.put(COLUMN.sort_order, 0);
+        cv.put(COLUMN.speed, model.getSpeed());
+        cv.put(COLUMN.rotate, model.getROTATE());
         return cv;
     }
 
@@ -982,7 +982,7 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             database.update(tblName,
-                    cv, COLUMN.SCREEN_ID + "=?",
+                    cv, COLUMN.screen_id + "=?",
                     new String[]{String.valueOf(screenId)});
             close();
         } catch (Exception e) {
@@ -995,7 +995,7 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             database.update(tblName,
-                    cv, COLUMN.FILE_PATH + "=?",
+                    cv, COLUMN.file_path + "=?",
                     new String[]{filePath});
             close();
         } catch (Exception e) {
@@ -1008,7 +1008,7 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             database.update(tblName,
-                    cv, COLUMN.FILE_PATH + "=? AND " + COLUMN.AB_A + "=? AND " + COLUMN.AB_B + "=?",
+                    cv, COLUMN.file_path + "=? AND " + COLUMN.AB_A + "=? AND " + COLUMN.AB_B + "=?",
                     new String[]{filePath, String.valueOf(oldAb_A), String.valueOf(oldAb_B)});
             close();
         } catch (Exception e) {
@@ -1058,18 +1058,18 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put("volume", volume);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.volume, volume);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put("volume", volume);
-                database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.volume, volume);
+                database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put("volume", volume);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.volume, volume);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -1084,18 +1084,18 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put(COLUMN.SPEED, speed);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.speed, speed);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put(COLUMN.SPEED, speed);
-                database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.speed, speed);
+                database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put(COLUMN.SPEED, speed);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.speed, speed);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -1110,18 +1110,18 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put("resize_mode", resizeMode);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.resize_mode, resizeMode);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put("resize_mode", resizeMode);
-                database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.resize_mode, resizeMode);
+                database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put("resize_mode", resizeMode);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.resize_mode, resizeMode);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -1135,8 +1135,8 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("resize_mode", resizeMode);
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.resize_mode, resizeMode);
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{filePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -1153,24 +1153,24 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cvScreen = new ContentValues();
-            cvScreen.put("rotate", rotate);
-            database.update(TABLE.CURRENT_SCREENS, cvScreen, "screen_id=?", new String[]{String.valueOf(screenId)});
+            cvScreen.put(COLUMN.rotate, rotate);
+            database.update(TABLE.current_screens, cvScreen, COLUMN.screen_id + "=?", new String[]{String.valueOf(screenId)});
             if (validPath) {
                 ContentValues cvMeta = new ContentValues();
-                cvMeta.put("rotate", rotate);
-                int updated = database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{filePath});
+                cvMeta.put(COLUMN.rotate, rotate);
+                int updated = database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{filePath});
                 DLog.d(TAG, "video_meta update file_path=\"" + filePath + "\" rotate=" + rotate + " rowsUpdated=" + updated);
                 String normalized = normalizeFilePath(filePath);
                 if (!normalized.isEmpty() && !normalized.equals(filePath)) {
-                    int updatedNorm = database.update(TABLE.VIDEO_META, cvMeta, "file_path=?", new String[]{normalized});
+                    int updatedNorm = database.update(TABLE.video_meta, cvMeta, COLUMN.file_path + "=?", new String[]{normalized});
                     DLog.d(TAG, "video_meta update normalized=\"" + normalized + "\" rotate=" + rotate + " rowsUpdated=" + updatedNorm);
                 }
             }
             if (validPath && loadedLayoutId >= 0) {
                 ContentValues cvStored = new ContentValues();
-                cvStored.put("rotate", rotate);
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cvStored,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                cvStored.put(COLUMN.rotate, rotate);
+                database.update(TABLE.screens_in_stored_layout, cvStored,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -1205,14 +1205,14 @@ public class MultiPlayerDatabase {
 
     private ContentValues getEmptyCv() {
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN.FILE_PATH, "");
-        cv.put(COLUMN.LAST_TIME, 0);
+        cv.put(COLUMN.file_path, "");
+        cv.put(COLUMN.last_time, 0);
         cv.put(COLUMN.AB_A, 0);
         cv.put(COLUMN.AB_B, 0);
-        cv.put(COLUMN.ROTATE, 0);
-        cv.put(COLUMN.USE_AB, 0);
-        cv.put(COLUMN.VOLUME, -1);
-        cv.put(COLUMN.RESIZE_MODE, 0);
+        cv.put(COLUMN.rotate, 0);
+        cv.put(COLUMN.use_ab, 0);
+        cv.put(COLUMN.volume, -1);
+        cv.put(COLUMN.resize_mode, 0);
         return cv;
     }
     public void clearMultiScreenHistory() {
@@ -1228,12 +1228,12 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("file_path", "");
-            cv.put("last_time", 0);
-            cv.put(COLUMN.AB_LOOP_JSON, "[]");
-            cv.put("use_ab", 0);
-            database.update(TABLE.CURRENT_SCREENS, cv, "file_path=?", new String[]{filePath});
-            database.delete(TABLE.VIDEO_META, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.file_path, "");
+            cv.put(COLUMN.last_time, 0);
+            cv.put(COLUMN.ab_loop_json, "[]");
+            cv.put(COLUMN.use_ab, 0);
+            database.update(TABLE.current_screens, cv, COLUMN.file_path + "=?", new String[]{filePath});
+            database.delete(TABLE.video_meta, COLUMN.file_path + "=?", new String[]{filePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -1242,7 +1242,7 @@ public class MultiPlayerDatabase {
     }
 
     private void deleteMultiScreenBackupByPath(String filePath) {
-        deleteRecord(TABLE.VIDEO_META, "file_path", filePath);
+        deleteRecord(TABLE.video_meta, COLUMN.file_path, filePath);
     }
 
     /** current_screens / video_meta의 ab_loop_json만 비움 */
@@ -1255,13 +1255,13 @@ public class MultiPlayerDatabase {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put(COLUMN.AB_LOOP_JSON, "[]");
-            cv.put("use_ab", 0);
-            database.update(TABLE.CURRENT_SCREENS, cv, "file_path=?", new String[]{filePath});
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{filePath});
+            cv.put(COLUMN.ab_loop_json, "[]");
+            cv.put(COLUMN.use_ab, 0);
+            database.update(TABLE.current_screens, cv, COLUMN.file_path + "=?", new String[]{filePath});
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{filePath});
             if (loadedLayoutId >= 0 && screenId >= 0) {
-                database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cv,
-                        COLUMN.LAYOUT_ID + "=? AND screen_id=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
+                database.update(TABLE.screens_in_stored_layout, cv,
+                        COLUMN.layout_id + "=? AND " + COLUMN.screen_id + "=?", new String[]{String.valueOf(loadedLayoutId), String.valueOf(screenId)});
             }
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
@@ -1271,7 +1271,7 @@ public class MultiPlayerDatabase {
     }
 
     private void deleteMultiScreenStoredLayoutByPath(String filePath) {
-        deleteRecord(TABLE.SCREENS_IN_STORED_LAYOUT, "file_path", filePath);
+        deleteRecord(TABLE.screens_in_stored_layout, COLUMN.file_path, filePath);
     }
 
     private void deleteMultiScreenVideoListInScreenByScreenId(int screenId) {
@@ -1479,16 +1479,18 @@ public class MultiPlayerDatabase {
         deleteMultiScreenAbRepeatByPath(filePath);
         deleteMultiScreenStoredLayoutByPath(filePath);
         deleteMultiScreenVideoListInScreenByPath(filePath);
+        deleteRecord(TABLE.playlist_item, COLUMN.file_path, filePath);
     }
 
     public void handleFilePathRename(String oldFilePath, String newFilePath) {
         try {
             openWrite();
             ContentValues cv = new ContentValues();
-            cv.put("file_path", newFilePath);
-            database.update(TABLE.CURRENT_SCREENS, cv, "file_path=?", new String[]{oldFilePath});
-            database.update(TABLE.VIDEO_META, cv, "file_path=?", new String[]{oldFilePath});
-            database.update(TABLE.SCREENS_IN_STORED_LAYOUT, cv, "file_path=?", new String[]{oldFilePath});
+            cv.put(COLUMN.file_path, newFilePath);
+            database.update(TABLE.current_screens, cv, COLUMN.file_path + "=?", new String[]{oldFilePath});
+            database.update(TABLE.video_meta, cv, COLUMN.file_path + "=?", new String[]{oldFilePath});
+            database.update(TABLE.screens_in_stored_layout, cv, COLUMN.file_path + "=?", new String[]{oldFilePath});
+            database.update(TABLE.playlist_item, cv, COLUMN.file_path + "=?", new String[]{oldFilePath});
         } catch (Exception ex) {
             DLog.e(TAG, ex.getMessage());
         } finally {
@@ -1506,6 +1508,32 @@ public class MultiPlayerDatabase {
         refreshFilePaths(getAllCurrentScreens(), MultiPlayerVideoModel::getFILE_PATH, this::deleteMultiScreenByPath);
         refreshFilePaths(getAllVideoMeta(), MultiPlayerVideoModel::getFILE_PATH, this::deleteMultiScreenBackupByPath);
         refreshFilePaths(getAllScreenStoredLayout(), MultiPlayerVideoStoredModel::getFILE_PATH, this::deleteMultiScreenStoredLayoutByPath);
+        refreshFilePaths(getAllPlaylistItemFilePaths(), path -> path, this::deletePlaylistItemByPath);
+    }
+
+    /** playlist_item에서 distinct file_path 목록 (리프레시 시 폰에 없는 경로 정리용) */
+    private List<String> getAllPlaylistItemFilePaths() {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            openRead();
+            cursor = database.rawQuery("SELECT DISTINCT " + COLUMN.file_path + " FROM " + TABLE.playlist_item + " WHERE " + COLUMN.file_path + " IS NOT NULL AND " + COLUMN.file_path + " != ''", null);
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    list.add(cursor.getString(0));
+                }
+            }
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            if (cursor != null) cursor.close();
+            close();
+        }
+        return list;
+    }
+
+    private void deletePlaylistItemByPath(String filePath) {
+        deleteRecord(TABLE.playlist_item, COLUMN.file_path, filePath);
     }
 
     private <T> void refreshFilePaths(List<T> models, Function<T, String> filePathExtractor, Consumer<String> deleteAction) {

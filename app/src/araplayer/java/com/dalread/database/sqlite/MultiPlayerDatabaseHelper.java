@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.dalread.BuildConfig;
 
+import static com.dalread.util.Constant.PLAYER.SQL.COLUMN;
+import static com.dalread.util.Constant.PLAYER.SQL.TABLE;
+
 /**
  * MultiPlayer 전용 SQLiteOpenHelper.
  * Mac 스키마(current_screens, video_meta, stored_layout, screens_in_stored_layout 등) 기준으로
@@ -34,16 +37,16 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
     /** current_screens: 현재 그리드 스크린별 상태 (Mac + Android speed, rotate). */
     private void createCurrentScreens(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS current_screens ("
-                        + " screen_id       INTEGER NOT NULL PRIMARY KEY,"
-                        + " file_path       TEXT NOT NULL DEFAULT '',"
-                        + " last_time       REAL DEFAULT 0,"
-                        + " ab_loop_json    TEXT NOT NULL DEFAULT '',"
-                        + " use_ab          INTEGER DEFAULT 0,"
-                        + " resize_mode     INTEGER DEFAULT 0,"
-                        + " volume          INTEGER DEFAULT -1,"
-                        + " speed           REAL DEFAULT 1.0,"
-                        + " rotate          INTEGER DEFAULT 0"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.current_screens + " ("
+                        + " " + COLUMN.screen_id + "       INTEGER NOT NULL PRIMARY KEY,"
+                        + " " + COLUMN.file_path + "       TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.last_time + "       REAL DEFAULT 0,"
+                        + " " + COLUMN.ab_loop_json + "    TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.use_ab + "          INTEGER DEFAULT 0,"
+                        + " " + COLUMN.resize_mode + "     INTEGER DEFAULT 0,"
+                        + " " + COLUMN.volume + "          INTEGER DEFAULT -1,"
+                        + " " + COLUMN.speed + "           REAL DEFAULT 1.0,"
+                        + " " + COLUMN.rotate + "          INTEGER DEFAULT 0"
                         + ")"
         );
     }
@@ -51,16 +54,16 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
     /** video_meta: 파일별 마지막 재생 상태. current_screens에서 변경되면 같이 반영. hide=멀티플레이어 비디오 목록 숨김 여부 */
     private void createVideoMeta(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS video_meta ("
-                        + " file_path     TEXT NOT NULL PRIMARY KEY,"
-                        + " last_time     REAL DEFAULT 0,"
-                        + " ab_loop_json  TEXT NOT NULL DEFAULT '',"
-                        + " use_ab        INTEGER DEFAULT 0,"
-                        + " resize_mode   INTEGER DEFAULT 0,"
-                        + " volume        INTEGER DEFAULT -1,"
-                        + " speed         REAL DEFAULT 1.0,"
-                        + " rotate        INTEGER DEFAULT 0,"
-                        + " hide          INTEGER DEFAULT 0"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.video_meta + " ("
+                        + " " + COLUMN.file_path + "     TEXT NOT NULL PRIMARY KEY,"
+                        + " " + COLUMN.last_time + "     REAL DEFAULT 0,"
+                        + " " + COLUMN.ab_loop_json + "  TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.use_ab + "        INTEGER DEFAULT 0,"
+                        + " " + COLUMN.resize_mode + "   INTEGER DEFAULT 0,"
+                        + " " + COLUMN.volume + "        INTEGER DEFAULT -1,"
+                        + " " + COLUMN.speed + "         REAL DEFAULT 1.0,"
+                        + " " + COLUMN.rotate + "        INTEGER DEFAULT 0,"
+                        + " " + COLUMN.hide + "          INTEGER DEFAULT 0"
                         + ")"
         );
     }
@@ -68,12 +71,12 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
     /** stored_layout: 저장된 레이아웃 메타 */
     private void createStoredLayout(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS stored_layout ("
-                        + " id                INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + " name              TEXT NOT NULL DEFAULT '',"
-                        + " created_at        TEXT NOT NULL DEFAULT '',"
-                        + " grid_row_count    INTEGER DEFAULT 3,"
-                        + " grid_column_count INTEGER DEFAULT 3"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.stored_layout + " ("
+                        + " " + COLUMN.id + "                INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " " + COLUMN.name + "              TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.created_at + "        TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.grid_row_count + "    INTEGER DEFAULT 3,"
+                        + " " + COLUMN.grid_column_count + " INTEGER DEFAULT 3"
                         + ")"
         );
     }
@@ -81,38 +84,38 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
     /** screens_in_stored_layout: 저장된 레이아웃별 스크린 스냅샷. 레이아웃에서 가져왔을 때만 반영 */
     private void createScreensInStoredLayout(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS screens_in_stored_layout ("
-                        + " id           INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + " layout_id    INTEGER NOT NULL DEFAULT 0,"
-                        + " screen_id    INTEGER NOT NULL DEFAULT 0,"
-                        + " file_path    TEXT NOT NULL DEFAULT '',"
-                        + " last_time    REAL DEFAULT 0,"
-                        + " ab_loop_json TEXT NOT NULL DEFAULT '',"
-                        + " use_ab       INTEGER DEFAULT 0,"
-                        + " resize_mode  INTEGER DEFAULT 0,"
-                        + " volume       INTEGER DEFAULT -1,"
-                        + " sort_order   INTEGER DEFAULT 0,"
-                        + " speed        REAL DEFAULT 1.0,"
-                        + " rotate       INTEGER DEFAULT 0"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.screens_in_stored_layout + " ("
+                        + " " + COLUMN.id + "           INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " " + COLUMN.layout_id + "    INTEGER NOT NULL DEFAULT 0,"
+                        + " " + COLUMN.screen_id + "    INTEGER NOT NULL DEFAULT 0,"
+                        + " " + COLUMN.file_path + "    TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.last_time + "    REAL DEFAULT 0,"
+                        + " " + COLUMN.ab_loop_json + " TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.use_ab + "       INTEGER DEFAULT 0,"
+                        + " " + COLUMN.resize_mode + "  INTEGER DEFAULT 0,"
+                        + " " + COLUMN.volume + "       INTEGER DEFAULT -1,"
+                        + " " + COLUMN.sort_order + "   INTEGER DEFAULT 0,"
+                        + " " + COLUMN.speed + "        REAL DEFAULT 1.0,"
+                        + " " + COLUMN.rotate + "       INTEGER DEFAULT 0"
                         + ")"
         );
         db.execSQL(
                 "CREATE INDEX IF NOT EXISTS idx_screens_in_stored_layout_layout_id "
-                        + "ON screens_in_stored_layout(layout_id)"
+                        + "ON " + TABLE.screens_in_stored_layout + "(" + COLUMN.layout_id + ")"
         );
     }
 
     /** playlist: 플레이리스트 메타 (category1/2/3 제외) */
     private void createPlaylist(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS playlist ("
-                        + " id            INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + " name          TEXT NOT NULL DEFAULT '',"
-                        + " is_selected   INTEGER DEFAULT 0,"
-                        + " favorite      INTEGER DEFAULT 0,"
-                        + " is_auto_created INTEGER DEFAULT 0,"
-                        + " bookmark      INTEGER DEFAULT 0,"
-                        + " unused        INTEGER DEFAULT 0"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.playlist + " ("
+                        + " " + COLUMN.id + "            INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " " + COLUMN.name + "          TEXT NOT NULL DEFAULT '',"
+                        + " " + COLUMN.is_selected + "   INTEGER DEFAULT 0,"
+                        + " " + COLUMN.favorite + "      INTEGER DEFAULT 0,"
+                        + " " + COLUMN.is_auto_created + " INTEGER DEFAULT 0,"
+                        + " " + COLUMN.bookmark + "      INTEGER DEFAULT 0,"
+                        + " " + COLUMN.unused + "        INTEGER DEFAULT 0"
                         + ")"
         );
     }
@@ -120,16 +123,16 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
     /** playlist_item: 플레이리스트별 항목 (playlist_id, sort_order, file_path) */
     private void createPlaylistItem(SQLiteDatabase db) {
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS playlist_item ("
-                        + " id          INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + " playlist_id INTEGER NOT NULL DEFAULT 0,"
-                        + " sort_order  INTEGER NOT NULL DEFAULT 0,"
-                        + " file_path   TEXT NOT NULL DEFAULT ''"
+                "CREATE TABLE IF NOT EXISTS " + TABLE.playlist_item + " ("
+                        + " " + COLUMN.id + "          INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " " + COLUMN.playlist_id + " INTEGER NOT NULL DEFAULT 0,"
+                        + " " + COLUMN.sort_order + "  INTEGER NOT NULL DEFAULT 0,"
+                        + " " + COLUMN.file_path + "   TEXT NOT NULL DEFAULT ''"
                         + ")"
         );
         db.execSQL(
                 "CREATE INDEX IF NOT EXISTS idx_playlist_item_playlist_id "
-                        + "ON playlist_item(playlist_id)"
+                        + "ON " + TABLE.playlist_item + "(" + COLUMN.playlist_id + ")"
         );
     }
 
@@ -141,7 +144,7 @@ public class MultiPlayerDatabaseHelper extends SQLiteOpenHelper {
         }
         if (oldVersion < 4) {
             try {
-                db.execSQL("ALTER TABLE video_meta ADD COLUMN hide INTEGER DEFAULT 0");
+                db.execSQL("ALTER TABLE " + TABLE.video_meta + " ADD COLUMN " + COLUMN.hide + " INTEGER DEFAULT 0");
             } catch (Exception ignored) {
             }
         }
