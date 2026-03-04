@@ -43,10 +43,17 @@ android {
 //            exclude 'google/protobuf/struct.proto'
         }
         configurations {
-            //Duplicate class com.google.api.Advice found in modules jetified-proto-google-common-protos-2.9.6 (com.google.api.grpc:proto-google-common-protos:2.9.6) and jetified-protolite-well-known-types-18.0.0-runtime (com.google.firebase:protolite-well-known-types:18.0.0)
-//            aradicengImplementation.exclude module:'protolite-well-known-types'
-            //Duplicate class com.google.protobuf.AbstractMessageLite found in modules jetified-protobuf-java-3.21.8 (com.google.protobuf:protobuf-java:3.21.8) and jetified-protobuf-javalite-3.21.7 (com.google.protobuf:protobuf-javalite:3.21.7)
-//            aradicengImplementation.exclude module:'protobuf-javalite'
+            // Duplicate class com.google.api.Advice found in modules
+            // jetified-proto-google-common-protos-2.9.6 (com.google.api.grpc:proto-google-common-protos:2.9.6)
+            // and jetified-protolite-well-known-types-18.0.0-runtime (com.google.firebase:protolite-well-known-types:18.0.0)
+            // → Firebase 쪽 protolite-well-known-types를 제외해서 중복 클래스 제거
+            aradicengImplementation.exclude module: 'protolite-well-known-types'
+
+            // Duplicate class com.google.protobuf.AbstractMessageLite found in modules
+            // jetified-protobuf-java-3.21.8 (com.google.protobuf:protobuf-java:3.21.8)
+            // and jetified-protobuf-javalite-3.21.7 (com.google.protobuf:protobuf-javalite:3.21.7)
+            // → aradiceng flavor에서는 javalite 쪽을 제외해서 충돌 제거
+            aradicengImplementation.exclude module: 'protobuf-javalite'
         }
     }
 

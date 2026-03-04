@@ -20,6 +20,40 @@ import io.realm.Realm;
 
 public class MediaFileListUtil {
 
+    /**
+     * 멀티플레이어 전용: 스토리지에서 비디오 목록만 조회. Realm 미사용.
+     * hide 값은 multiPlayerDatabase(video_meta)에서 조회, 없으면 0.
+     */
+    static public List<PlayerFileModel> getVideoListFromStorageForMultiPlayer(Context context, MultiPlayerDatabase multiPlayerDatabase, int mediaType) {
+        List<PlayerFileModel> list = new ArrayList<>();
+        List<PlayerFileModel> tmp = StorageUtil.getAllFiles(context, null, false, true, false, true, mediaType);
+        if (tmp == null) return list;
+        for (PlayerFileModel f : tmp) {
+            String path = f.getPath();
+            if (path == null || path.isEmpty()) continue;
+            if (FileUtil.isVideoApp() && !FileUtil.isValidVideoExtension(FilenameUtils.getName(path))) continue;
+            int hide = 0;
+            if (multiPlayerDatabase != null) {
+                MultiPlayerVideoModel meta = multiPlayerDatabase.getVideoMetaByFilePath(path);
+                if (meta != null && !meta.isFilePathEmpty()) {
+                    hide = meta.getHide();
+                }
+            }
+            VideoModel v = new VideoModel(path);
+            v.setName(FilenameUtils.getName(path));
+            v.setHide(hide);
+            PlayerFileModel pfm;
+            if (FileUtil.isVideoApp()) {
+                pfm = new PlayerFileModel(v);
+            } else {
+                pfm = new PlayerFileModel(v);
+                if (FileUtil.isAudioFormat(v.getName())) pfm.setMusic();
+            }
+            list.add(pfm);
+        }
+        return list;
+    }
+
     static public List<PlayerFileModel> addAllVideosFromRootFolder(Context context, boolean isTypeInitData, boolean isShowSubtitle, int mediaType) {
         List<PlayerFileModel> list = new ArrayList<>();
         long start = System.currentTimeMillis();

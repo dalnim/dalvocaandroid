@@ -18,7 +18,7 @@ import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
 
-public class PlaylistModel extends RealmObject implements Parcelable {
+public class PlaylistModel extends RealmObject implements Parcelable, IPlaylistDisplay {
     public static final String FIELD_PLAYLIST_ID = "playListId";
     public static final String FIELD_NAME = "name";
     public static final String FIELD_FILE_PATHS = "filePaths";

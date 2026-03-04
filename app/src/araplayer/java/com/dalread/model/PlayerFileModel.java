@@ -37,6 +37,8 @@ public class PlayerFileModel implements Parcelable {
     private List<VideoSeasonModel> videoSeasonModelList;
     private List<MusicCategoryModel> musicCategoryList;
     private PlaylistModel playlistModel;
+    /** 멀티플레이어(SQLite) 플레이리스트 행일 때 사용. Realm playlistModel과 둘 중 하나만 설정됨. */
+    private IPlaylistDisplay playlistDisplay;
     private VideoSeasonModel videoSeasonModel;
 
     public PlayerFileModel(String path) {
@@ -543,6 +545,15 @@ public class PlayerFileModel implements Parcelable {
 
     public void setPlaylistModel(PlaylistModel playlistModel) {
         this.playlistModel = playlistModel;
+    }
+
+    /** 플레이리스트 행 표시용. Realm(PlaylistModel) 또는 SQLite(MultiPlayerPlaylistModel) 공통 인터페이스. */
+    public IPlaylistDisplay getPlaylistDisplay() {
+        return playlistDisplay != null ? playlistDisplay : playlistModel;
+    }
+
+    public void setPlaylistDisplay(IPlaylistDisplay playlistDisplay) {
+        this.playlistDisplay = playlistDisplay;
     }
 
     public VideoSeasonModel getVideoSeasonModel() {

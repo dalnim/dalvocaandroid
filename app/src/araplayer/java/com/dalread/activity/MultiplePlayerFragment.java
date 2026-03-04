@@ -37,13 +37,13 @@ import com.dalread.dialog.MultiPlayerOneVideoDialog;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.helper.DoubleClickHelper;
 import com.dalread.helper.MultiPlayerFileListHelper;
-import com.dalread.helper.PlaylistHelper;
+import com.dalread.helper.MultiPlayerPlaylistHelper;
 import com.dalread.helper.point.BasePlayerPointHelper;
 import com.dalread.listener.OnClickDialogListener;
 import com.dalread.listener.OnDoubleClickListener;
 import com.dalread.listener.OnYesNoClickListener;
 import com.dalread.model.PlayerFileModel;
-import com.dalread.model.PlaylistModel;
+import com.dalread.database.sqlite.model.MultiPlayerPlaylistModel;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.SuccessEvent;
 import com.dalread.util.AraRandomUtil;
@@ -544,7 +544,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
         }
     });
     public void showVideoMenu() {
-        MultiPlayerOneVideoDialog dialog = new MultiPlayerOneVideoDialog(activity, activity.playlistHelper.hasPlaylist(), hasSavedAbRepeatTime(), activity.isFullScreenForFragment(this), new OnClickDialogListener() {
+        MultiPlayerOneVideoDialog dialog = new MultiPlayerOneVideoDialog(activity, activity.multiPlayerPlaylistHelper.hasPlaylist(), hasSavedAbRepeatTime(), activity.isFullScreenForFragment(this), new OnClickDialogListener() {
             @Override
             public void onClick(View view, Object object) {
                 switch (view.getId()) {
@@ -644,7 +644,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
 
     private void deleteRelatedVideoFile() {
         activity.dbHelper.handleFileDelete(model.getFILE_PATH());
-        activity.playlistHelper.deleteSelectedItemFromAllPlaylists(model.getFILE_PATH());
+        activity.multiPlayerPlaylistHelper.deleteSelectedItemFromAllPlaylists(model.getFILE_PATH());
         handler.post(() -> closeVideo(true));
     }
 
@@ -1176,7 +1176,7 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
                         // 파일이 존재하지 않는 경우
                         ToastUtil.getInstance(requireContext()).show(R.string.exoplayer_msg_error_open_video_not_exist_file);
                         activity.dbHelper.handleFileDelete(filePath);
-                        activity.playlistHelper.deleteSelectedItemFromAllPlaylists(filePath);
+                        activity.multiPlayerPlaylistHelper.deleteSelectedItemFromAllPlaylists(filePath);
                     }
                 }
                 closeVideo(true);
@@ -1919,23 +1919,25 @@ public class MultiplePlayerFragment extends BasePlayerFragment implements View.O
     }
 
     public void showPlayFromPlayList() {
-        activity.playlistHelper.selectPlaylists(false, false,R.string.playlist_dialog_button_select, R.string.playlist_dialog_button_cancel, new PlaylistHelper.PlaylistSelectionCallback() {
+        activity.multiPlayerPlaylistHelper.selectPlaylists(false, false, R.string.playlist_dialog_button_select, R.string.playlist_dialog_button_cancel, new MultiPlayerPlaylistHelper.PlaylistSelectionCallback() {
             @Override
-            public void onPlaylistsSelected(List<PlaylistModel> selectedPlaylists) {
-                if (!selectedPlaylists.isEmpty()) {
-                    selectVideosFromPlaylists(selectedPlaylists);
+            public void onPlaylistsSelected(List<MultiPlayerPlaylistModel> selected) {
+                if (!selected.isEmpty()) {
+                    selectVideosFromPlaylists(selected);
                 }
             }
         });
     }
 
-    private void selectVideosFromPlaylists(List<PlaylistModel> selectedPlaylists) {
-        List<String> allList = selectedPlaylists.stream()
-                .flatMap(model -> model.getFilePathsAsList().stream())
-                .distinct()
-                .collect(Collectors.toList());
+    private void selectVideosFromPlaylists(List<MultiPlayerPlaylistModel> selectedPlaylists) {
+        List<String> allList = new ArrayList<>();
+        if (activity.getMultiPlayerDatabase() != null) {
+            for (MultiPlayerPlaylistModel model : selectedPlaylists) {
+                allList.addAll(activity.getMultiPlayerDatabase().getPlaylistItemFilePaths(model.getId()));
+            }
+            allList = allList.stream().distinct().collect(Collectors.toList());
+        }
         setCurrentVideoFilePathList(allList);
-
         playRandomVideo(false, false);
     }
 

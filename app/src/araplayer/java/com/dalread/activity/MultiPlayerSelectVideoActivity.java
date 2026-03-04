@@ -33,14 +33,14 @@ import com.dalread.dialog.PlayerShowSortMenuDialog;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.helper.MultiPlayerFileListHelper;
 import com.dalread.helper.MultiplePlayerDbHelper;
-import com.dalread.helper.PlaylistHelper;
+import com.dalread.database.sqlite.model.MultiPlayerPlaylistModel;
+import com.dalread.helper.MultiPlayerPlaylistHelper;
 import com.dalread.helper.ScrollToItemHelper;
 import com.dalread.listener.OnAsyncTaskListenerWithType;
 import com.dalread.listener.OnClickListener;
 import com.dalread.listener.OnLongClickListener;
 import com.dalread.listener.OnYesNoClickListener;
 import com.dalread.model.PlayerFileModel;
-import com.dalread.model.PlaylistModel;
 import com.dalread.model.VideoModel;
 import com.dalread.network.events.BaseEvent;
 import com.dalread.network.events.SuccessEvent;
@@ -92,9 +92,9 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     protected List<PlayerFileModel> currentFilesList = new ArrayList<>();
     protected List<PlayerFileModel> filteredFileList = new ArrayList<>();
     private String searchValue = "";
-    private PlaylistHelper playlistHelper;
+    private MultiPlayerPlaylistHelper multiPlayerPlaylistHelper;
     private boolean isShowingPlaylistVideos = false;
-    List<PlaylistModel> selectedPlaylists = new ArrayList<>();
+    List<MultiPlayerPlaylistModel> selectedPlaylists = new ArrayList<>();
     private ActivityResultLauncher<IntentSenderRequest> intentSenderLauncher;
     private List<PlayerFileModel> deletedFilesList = new ArrayList<>();
     private int deletedFilePos = 0;
@@ -205,7 +205,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         if (selectedPlaylists.isEmpty()) {
             return;
         }
-        playlistHelper.deleteSelectedItemsFromPlaylist(selectedVideoList, selectedPlaylists);
+        multiPlayerPlaylistHelper.deleteSelectedItemsFromPlaylist(selectedVideoList, selectedPlaylists);
         callAsyncTask("", TYPE_RELOAD_FROM_LIST, true);
 
         String message = this.getResources().getQuantityString(
@@ -215,7 +215,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     }
 
     private void showSortDialog() {
-        MultiPlayerShowSortDialog dialog = new MultiPlayerShowSortDialog(this, sharedPreferences, isShowingPlaylistVideos,(dialogInterface, i) -> {
+        MultiPlayerShowSortDialog dialog = new MultiPlayerShowSortDialog(this, sharedPreferences, isShowingPlaylistVideos, multiPlayerDatabase, (dialogInterface, i) -> {
             switch (i) {
                 case R.id.llRestorePlaylistBackup:
                     PlaylistBackupHelper helper = new PlaylistBackupHelper(MultiPlayerSelectVideoActivity.this);
@@ -243,10 +243,10 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
                     });
                     break;
                 case R.id.llCreatePlaylist:
-                    playlistHelper.createPlaylist();
+                    multiPlayerPlaylistHelper.createPlaylist();
                     break;
                 case R.id.llDeletePlaylist:
-                    playlistHelper.showDeletePlaylistDialog();
+                    multiPlayerPlaylistHelper.showDeletePlaylistDialog();
                     break;
                 case R.id.llPlaylist:
                     closeEditView();
@@ -303,22 +303,21 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     }
 
     private void showPlaylistVideos() {
-        playlistHelper.selectPlaylists(true, true,R.string.playlist_dialog_button_select, R.string.playlist_dialog_button_cancel, new PlaylistHelper.PlaylistSelectionCallback() {
+        multiPlayerPlaylistHelper.selectPlaylists(true, true, R.string.playlist_dialog_button_select, R.string.playlist_dialog_button_cancel, new MultiPlayerPlaylistHelper.PlaylistSelectionCallback() {
             @Override
-            public void onPlaylistsSelected(List<PlaylistModel> selectedPlaylists) {
-                if (selectedPlaylists.isEmpty()) {
+            public void onPlaylistsSelected(List<MultiPlayerPlaylistModel> selected) {
+                if (selected.isEmpty()) {
                     MultiPlayerSelectVideoActivity.this.selectedPlaylists = new ArrayList<>();
                     isShowingPlaylistVideos = false;
                     return;
                 }
-                MultiPlayerSelectVideoActivity.this.selectedPlaylists = selectedPlaylists;
+                MultiPlayerSelectVideoActivity.this.selectedPlaylists = selected;
                 isShowingPlaylistVideos = true;
                 animatePlaylistVideoList();
                 exitEditMode();
                 callAsyncTask(MultiPlayerSelectVideoActivity.this, "", TYPE_RELOAD_FROM_LIST, false);
             }
         });
-
     }
     private void showLoginPopForHiddenFiles() {
         isShowingPlaylistVideos = false;
@@ -444,7 +443,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
         AraScreenSecureUtils.enableSecureFlag(this);
         initHelper();
         initOnClickListener();
-        playlistHelper = new PlaylistHelper(this);
+        multiPlayerPlaylistHelper = new MultiPlayerPlaylistHelper(this, multiPlayerDatabase);
         sharedPreferences.setShowNormalVideoFileList(true);
         initView();
         initIntentLauncher();
@@ -839,11 +838,12 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     private List<PlayerFileModel> loadData(boolean isLoadAgain) {
         List<PlayerFileModel> list = new ArrayList<>();
         if (isLoadAgain) {
-            list.addAll(MediaFileListUtil.addAllVideosFromRootFolder(this, true, false, Constant.AppMediaType.VIDEO));
+            list.addAll(MediaFileListUtil.getVideoListFromStorageForMultiPlayer(this, multiPlayerDatabase, Constant.AppMediaType.VIDEO));
             for (PlayerFileModel f : list) {
                 if (f.getPath() != null && !f.getPath().isEmpty()) {
                     MultiPlayerVideoModel m = new MultiPlayerVideoModel();
                     m.setFILE_PATH(f.getPath());
+                    m.setHide(f.getVideoModel() != null && f.getVideoModel().isHide() ? 1 : 0);
                     if (multiPlayerDatabase.existsVideoMeta(f.getPath())) {
                         multiPlayerDatabase.updateVideoMeta(m);
                     } else {
@@ -862,8 +862,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
             }
         }
 
-        playlistHelper.refreshFilePathsInPlaylist();
-        multiPlayerDatabase.refreshFilePathsInTables();
+        multiPlayerPlaylistHelper.refreshFilePathsInPlaylist();
 
         return sortFilesAndAddLangFolder(list);
     }
@@ -1064,7 +1063,7 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
 
     private void deleteRelatedVideoFile(PlayerFileModel file, boolean notifyItem) {
         dbHelper.handleFileDelete(file.getPath());
-        boolean deletedInPlaylist = playlistHelper.deleteSelectedItemFromAllPlaylists(file.getPath());
+        boolean deletedInPlaylist = multiPlayerPlaylistHelper.deleteSelectedItemFromAllPlaylists(file.getPath());
         if (deletedInPlaylist && isShowingPlaylistVideos) {
             updateToolBarTitle();
         }
@@ -1090,10 +1089,10 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
             return;
         }
 
-        if (playlistHelper.hasPlaylist()) {
-            playlistHelper.addSelectedItemsInPlaylist(selectedVideos);
+        if (multiPlayerPlaylistHelper.hasPlaylist()) {
+            multiPlayerPlaylistHelper.addSelectedItemsInPlaylist(selectedVideos, null);
         } else {
-            playlistHelper.createPlaylist();
+            multiPlayerPlaylistHelper.createPlaylist();
         }
     }
 
@@ -1121,10 +1120,13 @@ public class MultiPlayerSelectVideoActivity extends BaseActivity implements OnCl
     }
 
     protected void finishLoadData() {
-        if (isShowingPlaylistVideos && !selectedPlaylists.isEmpty()) {
+        if (isShowingPlaylistVideos && !selectedPlaylists.isEmpty() && multiPlayerDatabase != null) {
             Map<String, Boolean> videosInPlaylist = new HashMap<>();
-            for (PlaylistModel model : selectedPlaylists) {
-                videosInPlaylist.putAll(model.getFilePathsAsMap());
+            for (MultiPlayerPlaylistModel model : selectedPlaylists) {
+                List<String> paths = multiPlayerDatabase.getPlaylistItemFilePaths(model.getId());
+                for (String path : paths) {
+                    videosInPlaylist.put(path, true);
+                }
             }
             currentFilesList.clear();
             for (PlayerFileModel mode : fileListTotal) {

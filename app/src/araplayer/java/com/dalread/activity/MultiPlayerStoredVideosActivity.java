@@ -20,7 +20,7 @@ import com.dalread.database.sqlite.model.MultiPlayerVideoStoredModel;
 import com.dalread.databinding.ActivityMulitPlayerStoredVideoBinding;
 import com.dalread.dialog.YesNoDialog;
 import com.dalread.helper.MultiplePlayerDbHelper;
-import com.dalread.helper.PlaylistHelper;
+import com.dalread.helper.MultiPlayerPlaylistHelper;
 import com.dalread.listener.OnAsyncTaskListenerWithType;
 import com.dalread.listener.OnYesNoClickListener;
 import com.dalread.model.PlayerFileModel;
@@ -50,7 +50,7 @@ public class MultiPlayerStoredVideosActivity extends BaseActivity implements OnA
     private List<MultiPlayerVideoModel> modelList = new ArrayList<>();
     private List<MultiPlayerVideoStoredModel> allModelList = new ArrayList<>();
     private String searchValue;
-    private PlaylistHelper playlistHelper;
+    private MultiPlayerPlaylistHelper multiPlayerPlaylistHelper;
     private boolean isShowingPlaylistVideos = false;
     private MultiplePlayerDbHelper dbHelper;
     private MultiPlayerDatabase multiPlayerDatabase;
@@ -95,7 +95,7 @@ public class MultiPlayerStoredVideosActivity extends BaseActivity implements OnA
         AraScreenSecureUtils.enableSecureFlag(this);
         initHelper();
         initOnClickListener();
-        playlistHelper = new PlaylistHelper(this);
+        multiPlayerPlaylistHelper = new MultiPlayerPlaylistHelper(this, multiPlayerDatabase);
         sharedPreferences.setShowNormalVideoFileList(true);
         initView();
         initColor();

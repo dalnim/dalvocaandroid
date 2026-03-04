@@ -32,7 +32,7 @@ import com.dalread.listener.OnLongClickListener;
 import com.dalread.listener.OnScrollListener;
 import com.dalread.model.MusicCategoryModel;
 import com.dalread.model.PlayerFileModel;
-import com.dalread.model.PlaylistModel;
+import com.dalread.model.IPlaylistDisplay;
 import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.AraThemeUtil;
 import com.dalread.util.DLog;
@@ -482,15 +482,16 @@ public class DalPlayerAdapter extends RecyclerSwipeAdapter<RecyclerView.ViewHold
 
         public void bindData(PlayerFileModel item) {
             this.playerFileModel = item;
-            PlaylistModel playlistModel = item.getPlaylistModel();
-            binding.tvPlaylistName.setText(playlistModel.getName());
+            IPlaylistDisplay display = item.getPlaylistDisplay();
+            if (display == null) return;
+            binding.tvPlaylistName.setText(display.getName());
             int songTextId;
-            if (playlistModel.getTotalSongs() > 1) {
+            if (display.getFilePathCount() > 1) {
                 songTextId = R.string.more_than_1_songs;
             } else {
                 songTextId = R.string.less_or_equal_than_1_songs;
             }
-            binding.tvTotalSong.setText(String.format(context.getString(songTextId), playlistModel.getTotalSongs()));
+            binding.tvTotalSong.setText(String.format(context.getString(songTextId), display.getFilePathCount()));
         }
 
         @OnClick({R.id.llPlaylist})
@@ -503,7 +504,7 @@ public class DalPlayerAdapter extends RecyclerSwipeAdapter<RecyclerView.ViewHold
         @OnClick({R.id.ivEdit})
         void onClickIvEdit(View view) {
             if (onClickEditPlaylist != null) {
-                onClickEditPlaylist.onClick(view, playerFileModel.getPlaylistModel());
+                onClickEditPlaylist.onClick(view, playerFileModel.getPlaylistDisplay());
             }
         }
     }

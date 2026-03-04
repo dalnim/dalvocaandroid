@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 
 import com.dalread.database.SharedPreferencesDB;
+import com.dalread.database.sqlite.model.MultiPlayerPlaylistModel;
 import com.dalread.database.sqlite.model.MultiPlayerVideoAbRepeatModel;
 import com.dalread.database.sqlite.model.MultiPlayerVideoListInScreenModel;
 import com.dalread.database.sqlite.model.MultiPlayerVideoModel;
@@ -1511,6 +1512,229 @@ public class MultiPlayerDatabase {
         refreshFilePaths(getAllPlaylistItemFilePaths(), path -> path, this::deletePlaylistItemByPath);
     }
 
+    // ---------- playlist / playlist_item CRUD (멀티플레이어 전용, Realm 미사용) ----------
+
+    /** playlist 테이블에 행 삽입. name만 설정. 반환: 삽입된 행의 id (AUTOINCREMENT). */
+    public long insertPlaylist(String name) {
+        long rowId = -1;
+        try {
+            openWrite();
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN.name, name != null ? name : "");
+            rowId = database.insert(TABLE.playlist, null, cv);
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+        return rowId;
+    }
+
+    /** playlist 전체 조회 + 각 플레이리스트별 playlist_item 개수. */
+    public List<MultiPlayerPlaylistModel> getAllPlaylists() {
+        List<MultiPlayerPlaylistModel> list = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            openRead();
+            String query = "SELECT p." + COLUMN.id + ", p." + COLUMN.name + ", "
+                    + "(SELECT COUNT(*) FROM " + TABLE.playlist_item + " WHERE " + COLUMN.playlist_id + " = p." + COLUMN.id + ") AS cnt "
+                    + "FROM " + TABLE.playlist + " p ORDER BY p." + COLUMN.name + " ASC";
+            cursor = database.rawQuery(query, null);
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    long id = cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN.id));
+                    String name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.name));
+                    int cnt = cursor.getInt(cursor.getColumnIndexOrThrow("cnt"));
+                    list.add(new MultiPlayerPlaylistModel(id, name != null ? name : "", cnt));
+                }
+            }
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            if (cursor != null) cursor.close();
+            close();
+        }
+        return list;
+    }
+
+    /** id로 playlist 한 건 조회 + item 개수. 없으면 null. */
+    public MultiPlayerPlaylistModel getPlaylistById(long id) {
+        MultiPlayerPlaylistModel model = null;
+        Cursor cursor = null;
+        try {
+            openRead();
+            cursor = database.query(TABLE.playlist, null, COLUMN.id + "=?", new String[]{String.valueOf(id)}, null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                String name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.name));
+                int cnt = getPlaylistItemCount(id);
+                model = new MultiPlayerPlaylistModel(id, name != null ? name : "", cnt);
+            }
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            if (cursor != null) cursor.close();
+            close();
+        }
+        return model;
+    }
+
+    private int getPlaylistItemCount(long playlistId) {
+        int count = 0;
+        Cursor c = null;
+        try {
+            String q = "SELECT COUNT(*) AS c FROM " + TABLE.playlist_item + " WHERE " + COLUMN.playlist_id + "=?";
+            c = database.rawQuery(q, new String[]{String.valueOf(playlistId)});
+            if (c != null && c.moveToFirst()) {
+                count = c.getInt(c.getColumnIndexOrThrow("c"));
+            }
+        } finally {
+            if (c != null) c.close();
+        }
+        return count;
+    }
+
+    /** playlist 이름 갱신. */
+    public void updatePlaylistName(long id, String name) {
+        try {
+            openWrite();
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN.name, name != null ? name : "");
+            database.update(TABLE.playlist, cv, COLUMN.id + "=?", new String[]{String.valueOf(id)});
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+    }
+
+    /** playlist 한 건 삭제 + 해당 playlist_item 전체 삭제. */
+    public void deletePlaylist(long id) {
+        try {
+            openWrite();
+            database.delete(TABLE.playlist_item, COLUMN.playlist_id + "=?", new String[]{String.valueOf(id)});
+            database.delete(TABLE.playlist, COLUMN.id + "=?", new String[]{String.valueOf(id)});
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+    }
+
+    /** playlist_item 한 행 삽입. 반환: row id. */
+    public long insertPlaylistItem(long playlistId, String filePath, int sortOrder) {
+        long rowId = -1;
+        try {
+            openWrite();
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN.playlist_id, playlistId);
+            cv.put(COLUMN.sort_order, sortOrder);
+            cv.put(COLUMN.file_path, filePath != null ? filePath : "");
+            rowId = database.insert(TABLE.playlist_item, null, cv);
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+        return rowId;
+    }
+
+    /** 해당 플레이리스트의 file_path 목록 (sort_order 순). */
+    public List<String> getPlaylistItemFilePaths(long playlistId) {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            openRead();
+            cursor = database.query(TABLE.playlist_item, new String[]{COLUMN.file_path},
+                    COLUMN.playlist_id + "=?", new String[]{String.valueOf(playlistId)}, null, null, COLUMN.sort_order + " ASC");
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN.file_path));
+                    if (path != null && !path.isEmpty()) list.add(path);
+                }
+            }
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            if (cursor != null) cursor.close();
+            close();
+        }
+        return list;
+    }
+
+    /** 해당 플레이리스트의 playlist_item 전체 삭제. */
+    public void deletePlaylistItemsByPlaylistId(long playlistId) {
+        try {
+            openWrite();
+            database.delete(TABLE.playlist_item, COLUMN.playlist_id + "=?", new String[]{String.valueOf(playlistId)});
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+    }
+
+    /** 기존 항목 유지하고 paths를 sort_order 이어붙여 추가. */
+    public void addFilePathsToPlaylist(long playlistId, List<String> paths) {
+        if (paths == null || paths.isEmpty()) return;
+        try {
+            openWrite();
+            int nextOrder = getPlaylistItemCount(playlistId);
+            for (String path : paths) {
+                if (path == null || path.isEmpty()) continue;
+                ContentValues cv = new ContentValues();
+                cv.put(COLUMN.playlist_id, playlistId);
+                cv.put(COLUMN.sort_order, nextOrder++);
+                cv.put(COLUMN.file_path, path);
+                database.insert(TABLE.playlist_item, null, cv);
+            }
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+    }
+
+    /** 동일 이름의 playlist가 이미 있는지 여부. */
+    public boolean isPlaylistNameExists(String name) {
+        if (name == null || name.trim().isEmpty()) return false;
+        Cursor cursor = null;
+        try {
+            openRead();
+            cursor = database.query(TABLE.playlist, new String[]{COLUMN.id},
+                    COLUMN.name + "=?", new String[]{name.trim()}, null, null, null, "1");
+            return cursor != null && cursor.moveToFirst();
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+            return false;
+        } finally {
+            if (cursor != null) cursor.close();
+            close();
+        }
+    }
+
+    /** playlist_item에서 해당 file_path를 가진 항목 삭제 (여러 플레이리스트에 있을 수 있음). */
+    public void deletePlaylistItemByFilePath(String filePath) {
+        deletePlaylistItemByPath(filePath);
+    }
+
+    /** 특정 플레이리스트에서 해당 file_path 한 건만 삭제. */
+    public void deletePlaylistItem(long playlistId, String filePath) {
+        try {
+            openWrite();
+            database.delete(TABLE.playlist_item, COLUMN.playlist_id + "=? AND " + COLUMN.file_path + "=?",
+                    new String[]{String.valueOf(playlistId), filePath != null ? filePath : ""});
+        } catch (Exception ex) {
+            DLog.e(TAG, ex.getMessage());
+        } finally {
+            close();
+        }
+    }
+
+    /** playlist_item에서 해당 file_path를 가진 항목 삭제 (내부용). */
+    private void deletePlaylistItemByPath(String filePath) {
+        deleteRecord(TABLE.playlist_item, COLUMN.file_path, filePath);
+    }
+
     /** playlist_item에서 distinct file_path 목록 (리프레시 시 폰에 없는 경로 정리용) */
     private List<String> getAllPlaylistItemFilePaths() {
         List<String> list = new ArrayList<>();
@@ -1530,10 +1754,6 @@ public class MultiPlayerDatabase {
             close();
         }
         return list;
-    }
-
-    private void deletePlaylistItemByPath(String filePath) {
-        deleteRecord(TABLE.playlist_item, COLUMN.file_path, filePath);
     }
 
     private <T> void refreshFilePaths(List<T> models, Function<T, String> filePathExtractor, Consumer<String> deleteAction) {

@@ -8,14 +8,11 @@ import androidx.annotation.NonNull;
 import com.dalread.R;
 import com.dalread.base.BasePlayerDialog;
 import com.dalread.database.SharedPreferencesDB;
+import com.dalread.database.sqlite.MultiPlayerDatabase;
 import com.dalread.databinding.DialogMultiplayerShowSortBinding;
-import com.dalread.manager.PlaylistManager;
-import com.dalread.model.PlaylistModel;
 import com.dalread.util.AppFlavorUtil;
 import com.dalread.util.AraThemeUtil;
 import com.dalread.util.UserUtil;
-
-import java.util.List;
 
 public class MultiPlayerShowSortDialog extends BasePlayerDialog implements View.OnClickListener {
     private OnClickListener listener;
@@ -23,6 +20,8 @@ public class MultiPlayerShowSortDialog extends BasePlayerDialog implements View.
     private DialogMultiplayerShowSortBinding binding;
     private SharedPreferencesDB sharedPreferences;
     private boolean isShowingPlaylistVideos;
+    private final MultiPlayerDatabase multiPlayerDatabase;
+
     @Override
     protected View getContentView() {
         binding = DialogMultiplayerShowSortBinding.inflate(getLayoutInflater());
@@ -30,12 +29,14 @@ public class MultiPlayerShowSortDialog extends BasePlayerDialog implements View.
         return view;
     }
 
-    public MultiPlayerShowSortDialog(@NonNull Context context, SharedPreferencesDB sharedPreferences, boolean isShowingPlaylistVideos, OnClickListener listener) {
+    /** 멀티플레이어 전용: 플레이리스트 메뉴 표시는 SQLite(multiPlayerDatabase) 기준. */
+    public MultiPlayerShowSortDialog(@NonNull Context context, SharedPreferencesDB sharedPreferences, boolean isShowingPlaylistVideos, MultiPlayerDatabase multiPlayerDatabase, OnClickListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
         this.sharedPreferences = sharedPreferences;
         this.isShowingPlaylistVideos = isShowingPlaylistVideos;
+        this.multiPlayerDatabase = multiPlayerDatabase;
         showOrHideMenus();
         initColor();
     }
@@ -57,8 +58,8 @@ public class MultiPlayerShowSortDialog extends BasePlayerDialog implements View.
         }
     }
     protected void showOrHideMenus() {
-        List<PlaylistModel> models = PlaylistManager.getAllPlaylistModels();
-        if (models.isEmpty()) {
+        boolean hasPlaylists = multiPlayerDatabase != null && !multiPlayerDatabase.getAllPlaylists().isEmpty();
+        if (!hasPlaylists) {
             binding.llDeletePlaylist.setVisibility(View.GONE);
             binding.llPlaylist.setVisibility(View.GONE);
         } else {

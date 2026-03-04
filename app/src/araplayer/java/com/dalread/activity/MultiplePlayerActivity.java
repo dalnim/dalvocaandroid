@@ -43,12 +43,12 @@ import com.dalread.helper.MultiPlayerFileListHelper;
 import com.dalread.helper.MultiPlayerFragmentListHelper;
 import com.dalread.helper.MultiplePlayerDbHelper;
 import com.dalread.helper.MultiplePlayerScreenHelper;
-import com.dalread.helper.PlaylistHelper;
+import com.dalread.database.sqlite.model.MultiPlayerPlaylistModel;
+import com.dalread.helper.MultiPlayerPlaylistHelper;
 import com.dalread.helper.point.MultiPlayerPointHelper;
 import com.dalread.listener.OnClickDialogListener;
 import com.dalread.listener.OnYesNoClickListener;
 import com.dalread.model.PlayerFileModel;
-import com.dalread.model.PlaylistModel;
 import com.dalread.model.VideoModel;
 import com.dalread.util.AraRandomUtil;
 import com.dalread.util.AraScreenSecureUtils;
@@ -91,7 +91,7 @@ public class MultiplePlayerActivity extends BaseActivity {
     int myOrientation;
     private DoubleBackPressHandler doubleBackPressHandler;
     private boolean isTabLayoutVisible = true;
-    public PlaylistHelper playlistHelper;
+    public MultiPlayerPlaylistHelper multiPlayerPlaylistHelper;
     private boolean isAllVideosPlay = true;
     private boolean isAllVideosPause = true;
     private boolean isSomeVideosPlay = false;
@@ -410,12 +410,16 @@ public class MultiplePlayerActivity extends BaseActivity {
         dbHelper = new MultiplePlayerDbHelper(this);
         screenHelper = new MultiplePlayerScreenHelper(this, row, column);
         fragmentListHelper = new MultiPlayerFragmentListHelper(this);
-        playlistHelper = new PlaylistHelper(this);
         initSubDatabase();
+        multiPlayerPlaylistHelper = new MultiPlayerPlaylistHelper(this, multiPlayerDatabase);
     }
 
     private void initSubDatabase() {
         multiPlayerDatabase = dbHelper.initSubDatabase(multiPlayerDatabase);
+    }
+
+    public MultiPlayerDatabase getMultiPlayerDatabase() {
+        return multiPlayerDatabase;
     }
 
     public void onMenuButtonClick(View view) {
@@ -431,7 +435,7 @@ public class MultiplePlayerActivity extends BaseActivity {
                 break;
             case R.id.ibRandomPlay:
                 List<PlayerFileModel> fileListTotal = MediaFileListUtil.fetchAllVideosFromVideoMetaForMultiPlayer(this, multiPlayerDatabase);
-                if (playlistHelper.isRandomPlayPossible(fileListTotal)) {
+                if (multiPlayerPlaylistHelper.isRandomPlayPossible(fileListTotal)) {
                     pauseAllVideos();
                     getFixedScreenIdList();
                     resetAutoRandom();
@@ -1036,29 +1040,27 @@ public class MultiplePlayerActivity extends BaseActivity {
         ToastUtil.getInstance(this).show(R.string.toast_cancelled_auto_random_for_random_video_play);
     }
     void choosePlaylistToPlayRandomVideos(List<Integer> skipList, List<PlayerFileModel> fileListTotal) {
-        playlistHelper.selectPlaylists(false,false,R.string.playlist_dialog_button_select,  R.string.playlist_dialog_button_from_hidden_folder, new PlaylistHelper.PlaylistSelectionCallback() {
+        multiPlayerPlaylistHelper.selectPlaylists(false, false, R.string.playlist_dialog_button_select, R.string.playlist_dialog_button_from_hidden_folder, new MultiPlayerPlaylistHelper.PlaylistSelectionCallback() {
             @Override
-            public void onPlaylistsSelected(List<PlaylistModel> selectedPlaylists) {
-                if (selectedPlaylists.isEmpty()) {
+            public void onPlaylistsSelected(List<MultiPlayerPlaylistModel> selected) {
+                if (selected.isEmpty()) {
                     final YesNoDialog dialog = new YesNoDialog(MultiplePlayerActivity.this, R.string.info, R.string.msg_no_videos_for_random_play_in_play_list, null, new OnYesNoClickListener() {
                         @Override
                         public void onYesClick(View view, Object object) {
-                            playRandomVideos(skipList, selectedPlaylists, fileListTotal);
+                            playRandomVideos(skipList, selected, fileListTotal);
                         }
                         @Override
-                        public void onNoClick(View view, Object object) {
-
-                        }
+                        public void onNoClick(View view, Object object) {}
                     });
                     dialog.show();
                 } else {
-                    playRandomVideos(skipList, selectedPlaylists, fileListTotal);
+                    playRandomVideos(skipList, selected, fileListTotal);
                 }
             }
         });
     }
 
-    void playRandomVideos(List<Integer> skipList, List<PlaylistModel> selectedPlaylists, List<PlayerFileModel> fileListTotal) {
+    void playRandomVideos(List<Integer> skipList, List<MultiPlayerPlaylistModel> selectedPlaylists, List<PlayerFileModel> fileListTotal) {
         closeAllVideos(skipList);
         List<PlayerFileModel> list = selectRandomVideos(skipList, selectedPlaylists, fileListTotal);
         if (list.size() == 0) {
@@ -1132,16 +1134,19 @@ public class MultiplePlayerActivity extends BaseActivity {
         return modelNew;
     }
 
-    private List<PlayerFileModel> selectRandomVideos(List<Integer> skipList , List<PlaylistModel> selectedPlaylists, List<PlayerFileModel> fileListTotal) {
+    private List<PlayerFileModel> selectRandomVideos(List<Integer> skipList, List<MultiPlayerPlaylistModel> selectedPlaylists, List<PlayerFileModel> fileListTotal) {
         List<PlayerFileModel> allList = new ArrayList<>();
         if (selectedPlaylists == null || selectedPlaylists.isEmpty()) {
             allList = fileListTotal.stream()
                     .filter(model -> model.getVideoModel().isHide())
                     .collect(Collectors.toList());
-        } else {
+        } else if (multiPlayerDatabase != null) {
             Map<String, Boolean> videosInPlaylist = new HashMap<>();
-            for (PlaylistModel model : selectedPlaylists) {
-                videosInPlaylist.putAll(model.getFilePathsAsMap());
+            for (MultiPlayerPlaylistModel model : selectedPlaylists) {
+                List<String> paths = multiPlayerDatabase.getPlaylistItemFilePaths(model.getId());
+                for (String path : paths) {
+                    videosInPlaylist.put(path, true);
+                }
             }
             for (PlayerFileModel mode : fileListTotal) {
                 if (videosInPlaylist.containsKey(mode.getPath())) {
